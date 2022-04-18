@@ -4,11 +4,24 @@
   
   
   <entry>
+    <title>关于解决无法上传图片的问题</title>
+    <link href="/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <url>/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>事情是这样的，我在写博客的时候发现，我的图片即使以正确的格式引用，依旧会出现无法加载的问题<br><img src="./%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/%E9%97%AE%E9%A2%98.jpg" alt="问题如图"></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hexo主题模板切换</title>
     <link href="/2022/04/18/Hexo%E4%B8%BB%E9%A2%98%E6%A8%A1%E6%9D%BF%E5%88%87%E6%8D%A2/"/>
     <url>/2022/04/18/Hexo%E4%B8%BB%E9%A2%98%E6%A8%A1%E6%9D%BF%E5%88%87%E6%8D%A2/</url>
     
-    <content type="html"><![CDATA[<p>#下载主题</p><p>首先，我们找一个比较好看的主题，比如我找的Fluid<br><img src="https://gitee.com/zionl/picture_/raw/master/pictures/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210628110551.jpg" alt="Fluid地址：https://hexo.fluid-dev.com/"></p><p>找到了这个主题的<a href="https://github.com/fluid-dev/hexo-theme-fluid">github网址</a> </p><p>然后呢，我们需要在cmd中输入一行神秘代码 <code>git clone https://github.com/fluid-dev/hexo-theme-fluid themes\fluid</code></p><p>git clone 是在GitHub上下载的命令，中间的部分是这个主题的网址，最后是你在blog目录下需要把这个下载的主题存到的位置，系统会自动创建空的文件夹。</p><p>然后静待下载，下载完成后，我们的工作就成功了一大半了！</p><p>#应用主题</p><p>应用主题的方法很简单，只需要打开blog目录下的_config.yml文件，把倒数第二个部分的“theme：”改为你的主题所在文件夹的名字就OK了。<br><img src="https://gitee.com/zionl/picture_/raw/master/pictures/config.png" alt="这样"></p><p>别忘了部署到服务器！</p>]]></content>
+    <content type="html"><![CDATA[<p>#下载主题</p><p>首先，我们找一个比较好看的主题，比如我找的Fluid<br><a href="https://imgtu.com/i/Lw5rdA"><img src="https://s1.ax1x.com/2022/04/18/Lw5rdA.png" alt="Lw5rdA.png"></a></p><p>找到了这个主题的<a href="https://github.com/fluid-dev/hexo-theme-fluid">github网址</a> </p><p>然后呢，我们需要在cmd中输入一行神秘代码 <code>git clone https://github.com/fluid-dev/hexo-theme-fluid themes\fluid</code></p><p>git clone 是在GitHub上下载的命令，中间的部分是这个主题的网址，最后是你在blog目录下需要把这个下载的主题存到的位置，系统会自动创建空的文件夹。</p><p>然后静待下载，下载完成后，我们的工作就成功了一大半了！</p><p>#应用主题</p><p>应用主题的方法很简单，只需要打开blog目录下的_config.yml文件，把倒数第二个部分的“theme：”改为你的主题所在文件夹的名字就OK了。<br><img src="https://gitee.com/zionl/picture_/raw/master/pictures/config.png" alt="这样"></p><p>别忘了部署到服务器！</p>]]></content>
     
     
     
