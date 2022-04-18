@@ -21,7 +21,7 @@
     <link href="/2022/04/18/Hexo%E4%B8%BB%E9%A2%98%E6%A8%A1%E6%9D%BF%E5%88%87%E6%8D%A2/"/>
     <url>/2022/04/18/Hexo%E4%B8%BB%E9%A2%98%E6%A8%A1%E6%9D%BF%E5%88%87%E6%8D%A2/</url>
     
-    <content type="html"><![CDATA[<p>#下载主题</p><p>首先，我们找一个比较好看的主题，比如我找的Fluid<br><a href="https://imgtu.com/i/Lw5rdA"><img src="https://s1.ax1x.com/2022/04/18/Lw5rdA.png" alt="Lw5rdA.png"></a></p><p>找到了这个主题的<a href="https://github.com/fluid-dev/hexo-theme-fluid">github网址</a> </p><p>然后呢，我们需要在cmd中输入一行神秘代码 <code>git clone https://github.com/fluid-dev/hexo-theme-fluid themes\fluid</code></p><p>git clone 是在GitHub上下载的命令，中间的部分是这个主题的网址，最后是你在blog目录下需要把这个下载的主题存到的位置，系统会自动创建空的文件夹。</p><p>然后静待下载，下载完成后，我们的工作就成功了一大半了！</p><p>#应用主题</p><p>应用主题的方法很简单，只需要打开blog目录下的_config.yml文件，把倒数第二个部分的“theme：”改为你的主题所在文件夹的名字就OK了。<br><img src="https://gitee.com/zionl/picture_/raw/master/pictures/config.png" alt="这样"></p><p>别忘了部署到服务器！</p>]]></content>
+    <content type="html"><![CDATA[<p>#下载主题</p><p>首先，我们找一个比较好看的主题，比如我找的Fluid<br><img src="fluid.jpg" alt="fluid"></p><p>找到了这个主题的<a href="https://github.com/fluid-dev/hexo-theme-fluid">github网址</a> </p><p>然后呢，我们需要在cmd中输入一行神秘代码 <code>git clone https://github.com/fluid-dev/hexo-theme-fluid themes\fluid</code></p><p>git clone 是在GitHub上下载的命令，中间的部分是这个主题的网址，最后是你在blog目录下需要把这个下载的主题存到的位置，系统会自动创建空的文件夹。</p><p>然后静待下载，下载完成后，我们的工作就成功了一大半了！</p><p>#应用主题</p><p>应用主题的方法很简单，只需要打开blog目录下的_config.yml文件，把倒数第二个部分的“theme：”改为你的主题所在文件夹的名字就OK了。<br><img src="https://gitee.com/zionl/picture_/raw/master/pictures/config.png" alt="这样"></p><p>别忘了部署到服务器！</p>]]></content>
     
     
     
