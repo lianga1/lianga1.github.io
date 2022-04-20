@@ -83,7 +83,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/mario.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -266,7 +266,7 @@
             <h1 style="display: none">关于解决无法上传图片的问题</h1>
             
             <div class="markdown-body">
-              <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>事情是这样的，我在写博客的时候发现，我的图片即使以正确的格式引用，依旧会出现无法加载的问题<br><img src="problem.jpg" srcset="/img/loading.gif" lazyload alt="问题如图"></p>
+              <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>事情是这样的，我在写博客的时候发现，我的图片即使以正确的格式引用，依旧会出现无法加载的问题<br><img src="problem.jpg" srcset="/img/mario.gif" lazyload alt="问题如图"></p>
 <p>众所周知，没有图片，你写个啥都没法直观地展示，就好像pre时用txt做演示，大家嘴上不说什么，心里肯定知道<del>你是忘了做ppt了</del></p>
 <p>总之，根据我一晚上的研究成果，整理出来了几个解决图片无法显示的问题的方法供大家参考。</p>
 <h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>一共有这么几个方法，大家可以都试试，挑一个自己最喜欢的</p>
@@ -287,9 +287,9 @@
 <ol>
 <li>注册一个github账户</li>
 <li>创建一个新的公有库，注意一定是<strong>公有</strong>，否则外部无法访问</li>
-<li>在库存中创建一个文件夹<br> <img src="github.jpg" srcset="/img/loading.gif" lazyload alt="add_a_file"></li>
-<li>把你的图片上传<br><img src="upload.jpg" srcset="/img/loading.gif" lazyload alt="upload"></li>
-<li>点击你的图片，复制地址框中的地址，注意要把bolb改为raw<br><img src="raw.jpg" srcset="/img/loading.gif" lazyload alt="raw"></li>
+<li>在库存中创建一个文件夹<br> <img src="github.jpg" srcset="/img/mario.gif" lazyload alt="add_a_file"></li>
+<li>把你的图片上传<br><img src="upload.jpg" srcset="/img/mario.gif" lazyload alt="upload"></li>
+<li>点击你的图片，复制地址框中的地址，注意要把bolb改为raw<br><img src="raw.jpg" srcset="/img/mario.gif" lazyload alt="raw"></li>
 <li>然后就可以在你的博客里引用这个地址了！<blockquote>
 <p>你可以用cdn加速github，比如Jsdelivr，加速方法不在本文讨论范围</p>
 </blockquote>
@@ -297,20 +297,20 @@
 </ol>
 <h3 id="图床网站"><a href="#图床网站" class="headerlink" title="图床网站"></a>图床网站</h3><p>上面说的只是把github当作一个公开访问的图片网站，当然，市面上还有很多的专用图床网站，免费的付费的都有，这里介绍一个免费的网站<a target="_blank" rel="noopener" href="https://imgtu.com/">imgtu.com</a></p>
 <ol>
-<li>打开网站，上传图片<br><img src="image.jpg" srcset="/img/loading.gif" lazyload alt="image"><blockquote>
+<li>打开网站，上传图片<br><img src="image.jpg" srcset="/img/mario.gif" lazyload alt="image"><blockquote>
 <p>注意不能挂梯子</p>
 </blockquote>
 </li>
-<li>上传完成后，在底部链接栏，找到md链接，复制粘贴到你的文章插图位置就ok了<br><img src="save_the_link.jpg" srcset="/img/loading.gif" lazyload alt="save_the_link"></li>
+<li>上传完成后，在底部链接栏，找到md链接，复制粘贴到你的文章插图位置就ok了<br><img src="save_the_link.jpg" srcset="/img/mario.gif" lazyload alt="save_the_link"></li>
 </ol>
 <p>这个方法还是比较简单的,基本上有手就行，没手的话，<del>那你也别搞博客了</del></p>
 <h3 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h3><p>除了以上介绍的两种方法，还有一个比较“软件化”的方案，就是<a target="_blank" rel="noopener" href="https://molunerfinn.com/PicGo/">PicGo</a></p>
-<p>PicGo是一个开源的软件，它的优点是方便快捷，不用登网站，操作比较easy，而且集成了很多平台。<br><img src="PicGo.jpg" srcset="/img/loading.gif" lazyload alt="PicGo"></p>
-<h4 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h4><p>还是以GitHub为例，首先我们进入<strong>图床设置</strong>-&gt;<strong>Github</strong><br><img src="picgo_github.jpg" srcset="/img/loading.gif" lazyload alt="picgo_github"><br>在对应的框里输入信息</p>
+<p>PicGo是一个开源的软件，它的优点是方便快捷，不用登网站，操作比较easy，而且集成了很多平台。<br><img src="PicGo.jpg" srcset="/img/mario.gif" lazyload alt="PicGo"></p>
+<h4 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h4><p>还是以GitHub为例，首先我们进入<strong>图床设置</strong>-&gt;<strong>Github</strong><br><img src="picgo_github.jpg" srcset="/img/mario.gif" lazyload alt="picgo_github"><br>在对应的框里输入信息</p>
 <blockquote>
 <p>存储路径是你的GitHub仓库里的路径，没有时会创建<br>自定义域名就是你可以用cdn加速访问图片，最后两级就是你的用户名和仓库名<br>下面介绍一下token的获取方法</p>
 </blockquote>
-<h5 id="获取Github-Token"><a href="#获取Github-Token" class="headerlink" title="获取Github Token"></a>获取Github Token</h5><p>首先从个人列表进入settings<br><img src="token1.jpg" srcset="/img/loading.gif" lazyload alt="token1"><br>然后进入最底部的developer settings<br><img src="token2.jpg" srcset="/img/loading.gif" lazyload alt="token2"><br>然后进入Personal access tokens，点generate new token<br><img src="token3.jpg" srcset="/img/loading.gif" lazyload alt="token3"><br>按照如下操作<br><img src="token4.jpg" srcset="/img/loading.gif" lazyload alt="token4"><br>生成后记得复制，这个token<font color=Red size=6><strong>只会出现一次</strong></font></p>
+<h5 id="获取Github-Token"><a href="#获取Github-Token" class="headerlink" title="获取Github Token"></a>获取Github Token</h5><p>首先从个人列表进入settings<br><img src="token1.jpg" srcset="/img/mario.gif" lazyload alt="token1"><br>然后进入最底部的developer settings<br><img src="token2.jpg" srcset="/img/mario.gif" lazyload alt="token2"><br>然后进入Personal access tokens，点generate new token<br><img src="token3.jpg" srcset="/img/mario.gif" lazyload alt="token3"><br>按照如下操作<br><img src="token4.jpg" srcset="/img/mario.gif" lazyload alt="token4"><br>生成后记得复制，这个token<font color=Red size=6><strong>只会出现一次</strong></font></p>
 <p>至此，PicGo的使用介绍就完成了</p>
 <h2 id="本地上传法"><a href="#本地上传法" class="headerlink" title="本地上传法"></a>本地上传法</h2><h2 id="（施工中，累了，明天再说）"><a href="#（施工中，累了，明天再说）" class="headerlink" title="（施工中，累了，明天再说）"></a>（施工中，累了，明天再说）</h2><p>2022.4.20更新</p>
 <p>继续说本地上传法</p>
@@ -322,7 +322,7 @@
 </blockquote>
 </li>
 </ul>
-<p><img src="post.jpg" srcset="/img/loading.gif" lazyload alt="post"><br>然后，每当我们新建一篇博客时，就会有一个同名文件夹在_post文件夹中生成了<br>我们把需要插入的图片放到这个文件夹里面，在文章中引用格式如下<br><code>![图片描述]（./包名/NO.01.001.jpg）</code><br><font size=5>或者</font><br><code>![logo](logo.jpg)</code><br>就可以了，这个方法也是我在用的方法，非常方便，缺点是对服务器压力比较大。</p>
+<p><img src="post.jpg" srcset="/img/mario.gif" lazyload alt="post"><br>然后，每当我们新建一篇博客时，就会有一个同名文件夹在_post文件夹中生成了<br>我们把需要插入的图片放到这个文件夹里面，在文章中引用格式如下<br><code>![图片描述]（./包名/NO.01.001.jpg）</code><br><font size=5>或者</font><br><code>![logo](logo.jpg)</code><br>就可以了，这个方法也是我在用的方法，非常方便，缺点是对服务器压力比较大。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>上述的几个方法，各有优缺点，可以结合自己的特点来使用<br>注意图片描述必须是全英文，否则无法显示图片<br>希望有所帮助</p>
 
             </div>
