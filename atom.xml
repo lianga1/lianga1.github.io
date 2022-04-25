@@ -2,53 +2,56 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://example.com</id>
     <title>意大利炮打友军</title>
-    <subtitle></subtitle>
-    <icon>http://example.com/images/favicon.ico</icon>
     <link href="http://example.com" />
-    <author>
-      <name>John Doe</name>
-    </author>
-    <updated>2022-04-24T14:19:25.000Z</updated>
+    <updated>2022-04-25T15:35:30.000Z</updated>
+    <category term="随笔" />
+    <category term="技术" />
+    <category term="博客" />
+    <category term="markdown" />
+    <category term="记录" />
+    <entry>
+        <id>http://example.com/2022/04/25/2022-4-25%E9%9A%8F%E7%AC%94/</id>
+        <title>2022.4.25随笔</title>
+        <link rel="alternate" href="http://example.com/2022/04/25/2022-4-25%E9%9A%8F%E7%AC%94/"/>
+        <content type="html">&lt;h1 id=&#34;每日一句&#34;&gt;&lt;a href=&#34;#每日一句&#34; class=&#34;headerlink&#34; title=&#34;每日一句&#34;&gt;&lt;/a&gt;每日一句&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Resisitry fortificar es vencer&lt;br&gt;继续抵抗，加强防御，就是胜利&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;死没什么了不起，他心中没有死的图景，也没有对死的惧怕。但是活在世上，就像山坡上一片麦浪在风中荡漾。活在世上，就像一只苍鹰在天空中飞翔。活在世上，就像打麦时麦粒和秣屑飞扬中喝一陶罐水。活在世上，就像两腿夹着一匹马儿，一条腿下夹着一支卡宾枪，经过一个山冈，一个河谷，一条两岸长着树木的小溪，奔向河谷另一头以及远方的山冈。&lt;/p&gt;
+&lt;h1 id=&#34;乱想time&#34;&gt;&lt;a href=&#34;#乱想time&#34; class=&#34;headerlink&#34; title=&#34;乱想time&#34;&gt;&lt;/a&gt;乱想time&lt;/h1&gt;&lt;p&gt;人经常是害怕改变的，主要是害怕改变后将要面对的，未知的事物。&lt;br&gt;但是，懦弱的温床正是勇气的绝壁。&lt;br&gt;面临失败时，会让人感到烦躁，这种烦躁将会变成愤怒。&lt;br&gt;这是一种常情。&lt;br&gt;人是厌恶愤怒的，厌恶到想要想尽一切办法远离他&lt;br&gt;但是对愤怒的逃离，就会产生懦弱。&lt;/p&gt;
+&lt;p&gt;谁能接受失败？&lt;/p&gt;
+&lt;p&gt;无所谓者？还是真正的勇者？&lt;/p&gt;
+&lt;p&gt;人生本来就不是理所应当的。成功也好，失败也好。&lt;br&gt;遇上了的，并非必然。&lt;/p&gt;
+&lt;p&gt;有时候，宿命会让我们犹豫&lt;br&gt;人生到底是不是一个循环呢？&lt;br&gt;我们不挣扎，结局不过是灭亡&lt;br&gt;挣扎了，又要挣扎到什么时候呢？&lt;/p&gt;
+&lt;p&gt;未来是不可知的，有时却是可知的。&lt;/p&gt;
+&lt;p&gt;我们在面对未知的勇气和面对已知的退缩间徘徊。&lt;br&gt;只不过是无知和假装的有知罢了。&lt;/p&gt;
+&lt;p&gt;我现在，只有现在了。&lt;br&gt;只有现在能让我知道我在做什么，而且能让我行动。&lt;/p&gt;
+&lt;p&gt;除此之外，都不应该是生，而应该是死的范畴。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2022/04/25/2022-4-25%E9%9A%8F%E7%AC%94/Hemingway.jpg&#34; alt=&#34;一个人可以被毁灭，但不会被打败&#34;&gt;&lt;/p&gt;
+</content>
+        <category term="随笔" />
+        <updated>2022-04-25T15:35:30.000Z</updated>
+    </entry>
     <entry>
         <id>http://example.com/2022/04/24/2022-4-24%E9%9A%8F%E7%AC%94/</id>
         <title>2022.4.24随笔</title>
         <link rel="alternate" href="http://example.com/2022/04/24/2022-4-24%E9%9A%8F%E7%AC%94/"/>
         <content type="html">&lt;p&gt;夏天要到了吧……&lt;/p&gt;
-&lt;h1 id=&#34;每日一句&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#每日一句&#34;&gt;#&lt;/a&gt; 每日一句&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“我必须是你的头脑保持清醒，因为，如果你的头脑不是绝对清醒，你就没权做你在做的事，因为这一切都是犯罪。”&lt;br /&gt;
-“谁也没权夺别人的生命，除非为了防止其他人遭到更大的不幸。所以头脑要清醒，别骗你自己啦。”&lt;br /&gt;
-《丧钟为谁而鸣》第二十六章&lt;/p&gt;
+&lt;h1 id=&#34;每日一句&#34;&gt;&lt;a href=&#34;#每日一句&#34; class=&#34;headerlink&#34; title=&#34;每日一句&#34;&gt;&lt;/a&gt;每日一句&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;“我必须是你的头脑保持清醒，因为，如果你的头脑不是绝对清醒，你就没权做你在做的事，因为这一切都是犯罪。”&lt;br&gt;“谁也没权夺别人的生命，除非为了防止其他人遭到更大的不幸。所以头脑要清醒，别骗你自己啦。”&lt;br&gt;《丧钟为谁而鸣》第二十六章&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;清醒，才有实存&lt;br /&gt;
-倘若幻想中能生发平时见不到的风景。&lt;br /&gt;
-那么，我会欣赏，记下来。&lt;br /&gt;
-然后在清醒时将其实现。&lt;br /&gt;
-&lt;img src=&#34;van.jpg&#34; alt=&#34;谁敢在不清醒的时候，留下传世之物？&#34; /&gt;&lt;/p&gt;
-&lt;h1 id=&#34;乱想time&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#乱想time&#34;&gt;#&lt;/a&gt; 乱想 time&lt;/h1&gt;
-&lt;p&gt;逐渐的，我开始变得不畏惧了&lt;br /&gt;
-但是，冒进会不会是一个问题呢？&lt;br /&gt;
-我现在无法做出回答。&lt;/p&gt;
+&lt;p&gt;清醒，才有实存&lt;br&gt;倘若幻想中能生发平时见不到的风景。&lt;br&gt;那么，我会欣赏，记下来。&lt;br&gt;然后在清醒时将其实现。&lt;br&gt;&lt;img src=&#34;/2022/04/24/2022-4-24%E9%9A%8F%E7%AC%94/van.jpg&#34; alt=&#34;谁敢在不清醒的时候，留下传世之物？&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;乱想time&#34;&gt;&lt;a href=&#34;#乱想time&#34; class=&#34;headerlink&#34; title=&#34;乱想time&#34;&gt;&lt;/a&gt;乱想time&lt;/h1&gt;&lt;p&gt;逐渐的，我开始变得不畏惧了&lt;br&gt;但是，冒进会不会是一个问题呢？&lt;br&gt;我现在无法做出回答。&lt;/p&gt;
 &lt;p&gt;我能想到的仅仅是，在一支舞中&lt;/p&gt;
-&lt;p&gt;节奏与配合，很重要&lt;br /&gt;
-毕竟你没法和一只公牛跳舞&lt;/p&gt;
+&lt;p&gt;节奏与配合，很重要&lt;br&gt;毕竟你没法和一只公牛跳舞&lt;/p&gt;
 &lt;p&gt;但是，只有公牛一样的人，才能起身前往舞池。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;dance.jpg&#34; alt=&#34;节奏，把握住这个节奏！&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2022/04/24/2022-4-24%E9%9A%8F%E7%AC%94/dance.jpg&#34; alt=&#34;节奏，把握住这个节奏！&#34;&gt;&lt;/p&gt;
 &lt;p&gt;我决定不再深夜写博客了，对身体不好，也容易让思想跑偏&lt;/p&gt;
-&lt;p&gt;倘若，我没能让自己成功地把握住节奏，那么，失败是必不可少的。&lt;br /&gt;
-但是，碰壁不是为了圆滑，而是为了塑造&lt;br /&gt;
-你究竟是什么样子的呢？取决于刻刀&lt;br /&gt;
-但是，从璞开始，每刻一刀，就会少点东西，具体是什么形态，最终的成品&lt;br /&gt;
-需要一定的规划，也需要一定的机遇&lt;br /&gt;
-本色是一个基础吧，还是得看雕刻的&lt;br /&gt;
-尽本色，是说让刻刀顺着形态走&lt;/p&gt;
+&lt;p&gt;倘若，我没能让自己成功地把握住节奏，那么，失败是必不可少的。&lt;br&gt;但是，碰壁不是为了圆滑，而是为了塑造&lt;br&gt;你究竟是什么样子的呢？取决于刻刀&lt;br&gt;但是，从璞开始，每刻一刀，就会少点东西，具体是什么形态，最终的成品&lt;br&gt;需要一定的规划，也需要一定的机遇&lt;br&gt;本色是一个基础吧，还是得看雕刻的&lt;br&gt;尽本色，是说让刻刀顺着形态走&lt;/p&gt;
 &lt;p&gt;嗯，说了不少废话，但是也懂了不少&lt;/p&gt;
-&lt;p&gt;再说一句吧，失去是人生的主旋律&lt;br /&gt;
-没有失去的人生，就是没有雕刻的人生&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;jade.jpg&#34; alt=&#34;封校前在上博看到的，雕刻真的是巧夺天工&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;再说一句吧，失去是人生的主旋律&lt;br&gt;没有失去的人生，就是没有雕刻的人生&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2022/04/24/2022-4-24%E9%9A%8F%E7%AC%94/jade.jpg&#34; alt=&#34;封校前在上博看到的，雕刻真的是巧夺天工&#34;&gt;&lt;/p&gt;
 </content>
-        <category term="随笔" scheme="http://example.com/categories/%E9%9A%8F%E7%AC%94/" />
-        <category term="随笔" scheme="http://example.com/tags/%E9%9A%8F%E7%AC%94/" />
+        <category term="随笔" />
         <updated>2022-04-24T14:19:25.000Z</updated>
     </entry>
     <entry>
@@ -56,97 +59,56 @@
         <title>2022.4.23随笔</title>
         <link rel="alternate" href="http://example.com/2022/04/23/2022-4-23%E9%9A%8F%E7%AC%94/"/>
         <content type="html">&lt;p&gt;抱歉，断更了一天，没什么好解释的&lt;/p&gt;
-&lt;h1 id=&#34;每日一句&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#每日一句&#34;&gt;#&lt;/a&gt; 每日一句&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“怎么不？他要不十分能干，昨天晚上就送命了。依我看，你不懂政治，英国人，也不懂游击战。”&lt;br /&gt;
-“在政治和游击战中，首要问题是能继续活下去。瞧他昨晚就这样继续活下来了。我和你讲了这么多难听的话，他始终忍气吞声。”&lt;/p&gt;
+&lt;h1 id=&#34;每日一句&#34;&gt;&lt;a href=&#34;#每日一句&#34; class=&#34;headerlink&#34; title=&#34;每日一句&#34;&gt;&lt;/a&gt;每日一句&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;“怎么不？他要不十分能干，昨天晚上就送命了。依我看，你不懂政治，英国人，也不懂游击战。”&lt;br&gt;“在政治和游击战中，首要问题是能继续活下去。瞧他昨晚就这样继续活下来了。我和你讲了这么多难听的话，他始终忍气吞声。”&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;天才可以死的光彩，蠢人才能活得长。&lt;br /&gt;
-你若是一颗流星，是否愿意在坠落后依旧存在？&lt;br /&gt;
-还是说，你想在天空燃尽自己？&lt;/p&gt;
-&lt;h1 id=&#34;乱想time&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#乱想time&#34;&gt;#&lt;/a&gt; 乱想 time&lt;/h1&gt;
-&lt;p&gt;如果我说，我的梦想仅仅是平凡的过一辈子，未免落入俗套&lt;br /&gt;
-并不是最浅薄的落俗，而是，众多怀抱希望之人，终究会认为平凡的生活是一件美妙之事&lt;/p&gt;
+&lt;p&gt;天才可以死的光彩，蠢人才能活得长。&lt;br&gt;你若是一颗流星，是否愿意在坠落后依旧存在？&lt;br&gt;还是说，你想在天空燃尽自己？&lt;/p&gt;
+&lt;h1 id=&#34;乱想time&#34;&gt;&lt;a href=&#34;#乱想time&#34; class=&#34;headerlink&#34; title=&#34;乱想time&#34;&gt;&lt;/a&gt;乱想time&lt;/h1&gt;&lt;p&gt;如果我说，我的梦想仅仅是平凡的过一辈子，未免落入俗套&lt;br&gt;并不是最浅薄的落俗，而是，众多怀抱希望之人，终究会认为平凡的生活是一件美妙之事&lt;/p&gt;
 &lt;p&gt;说实话，这样的梦想，是一种毁灭性的辜负。&lt;/p&gt;
-&lt;p&gt;如果我怀抱梦想，免不了被质疑&lt;br /&gt;
-如果我放弃梦想，免不了为自己呵斥&lt;/p&gt;
+&lt;p&gt;如果我怀抱梦想，免不了被质疑&lt;br&gt;如果我放弃梦想，免不了为自己呵斥&lt;/p&gt;
 &lt;p&gt;痛苦的两面萦绕着我，我想，我是否，应当，找出第三条路？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;suncity1.jpg&#34; alt=&#34;劳动，而非安逸的劳动&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;那么，我想，第三条路便是，真正的去实现自己的梦想，不去怀抱它&lt;br /&gt;
-而是摔打它，珠玉会殒碎，金石会长存&lt;br /&gt;
-摔打我的梦想吧，和它一起在泥土中匍匐。&lt;br /&gt;
-我不讨厌金玉，但是我无法接受将怀抱中的金玉视作唯一&lt;br /&gt;
-&lt;img src=&#34;eva.jpg&#34; alt=&#34;题外话，米山舞老师太潮了&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;另外说一下，暴力，是最丑恶，最脆弱，最无可辨驳地应当抛弃之物。&lt;br /&gt;
-倘若梦想要依靠暴力实现，那么就是应当反省梦想的实存性的时刻了&lt;/p&gt;
-&lt;p&gt;如果梦想不是金玉，那么金玉又该如何实现呢？&lt;br /&gt;
-金玉应该是其外&lt;br /&gt;
-其中不是败絮&lt;br /&gt;
-而是铁石&lt;br /&gt;
-从无名中来，到无声之海。&lt;/p&gt;
-&lt;p&gt;浪潮即来。&lt;br /&gt;
-&lt;img src=&#34;vladmir.jpg&#34; alt=&#34;向泥土中的理想者致敬&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2022/04/23/2022-4-23%E9%9A%8F%E7%AC%94/suncity1.jpg&#34; alt=&#34;劳动，而非安逸的劳动&#34;&gt;&lt;/p&gt;
+&lt;p&gt;那么，我想，第三条路便是，真正的去实现自己的梦想，不去怀抱它&lt;br&gt;而是摔打它，珠玉会殒碎，金石会长存&lt;br&gt;摔打我的梦想吧，和它一起在泥土中匍匐。&lt;br&gt;我不讨厌金玉，但是我无法接受将怀抱中的金玉视作唯一&lt;br&gt;&lt;img src=&#34;/2022/04/23/2022-4-23%E9%9A%8F%E7%AC%94/eva.jpg&#34; alt=&#34;题外话，米山舞老师太潮了&#34;&gt;&lt;/p&gt;
+&lt;p&gt;另外说一下，暴力，是最丑恶，最脆弱，最无可辨驳地应当抛弃之物。&lt;br&gt;倘若梦想要依靠暴力实现，那么就是应当反省梦想的实存性的时刻了&lt;/p&gt;
+&lt;p&gt;如果梦想不是金玉，那么金玉又该如何实现呢？&lt;br&gt;金玉应该是其外&lt;br&gt;其中不是败絮&lt;br&gt;而是铁石&lt;br&gt;从无名中来，到无声之海。&lt;/p&gt;
+&lt;p&gt;浪潮即来。&lt;br&gt;&lt;img src=&#34;/2022/04/23/2022-4-23%E9%9A%8F%E7%AC%94/vladmir.jpg&#34; alt=&#34;向泥土中的理想者致敬&#34;&gt;&lt;/p&gt;
 </content>
-        <category term="随笔" scheme="http://example.com/categories/%E9%9A%8F%E7%AC%94/" />
-        <category term="随笔" scheme="http://example.com/tags/%E9%9A%8F%E7%AC%94/" />
+        <category term="随笔" />
         <updated>2022-04-23T15:13:23.000Z</updated>
     </entry>
     <entry>
         <id>http://example.com/2022/04/21/2022-4-21%E9%9A%8F%E7%AC%94%E4%B9%8B%E4%BA%8C/</id>
         <title>2022.4.21随笔之二</title>
         <link rel="alternate" href="http://example.com/2022/04/21/2022-4-21%E9%9A%8F%E7%AC%94%E4%B9%8B%E4%BA%8C/"/>
-        <content type="html">&lt;hr /&gt;
-&lt;h1 id=&#34;每日一句&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#每日一句&#34;&gt;#&lt;/a&gt; 每日一句&lt;/h1&gt;
-&lt;blockquote&gt;
+        <content type="html">&lt;hr&gt;
+&lt;h1 id=&#34;每日一句&#34;&gt;&lt;a href=&#34;#每日一句&#34; class=&#34;headerlink&#34; title=&#34;每日一句&#34;&gt;&lt;/a&gt;每日一句&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;良辰美景，春暖秋凉。负杖蹑履，逍遥自乐。临池观鱼，披林听鸟；酌酒一杯，弹琴一曲；求数刻之乐，庶几居常以待终。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;春天，2022 的春天，大概是就这么过去了，想去看的江南烟雨，似乎要散去了&lt;br /&gt;
-这尚且不可怕&lt;br /&gt;
-真正可怕的，大抵是想去江南的心，也被磨平了&lt;/p&gt;
-&lt;h1 id=&#34;乱想time&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#乱想time&#34;&gt;#&lt;/a&gt; 乱想 time&lt;/h1&gt;
-&lt;p&gt;如果每天都这样乱想一阵，恐怕是有所裨益的，权当是日记，却又和日记有所不同，毕竟生活的一些私事，放在这里，也不太好，一是给大家徒增烦恼，二是可能一些抱怨被看到后，未免让人觉得，我这人应该是个满腹苦水的人，造成了不好的印象。&lt;/p&gt;
+&lt;p&gt;春天，2022的春天，大概是就这么过去了，想去看的江南烟雨，似乎要散去了&lt;br&gt;这尚且不可怕&lt;br&gt;真正可怕的，大抵是想去江南的心，也被磨平了&lt;/p&gt;
+&lt;h1 id=&#34;乱想time&#34;&gt;&lt;a href=&#34;#乱想time&#34; class=&#34;headerlink&#34; title=&#34;乱想time&#34;&gt;&lt;/a&gt;乱想time&lt;/h1&gt;&lt;p&gt;如果每天都这样乱想一阵，恐怕是有所裨益的，权当是日记，却又和日记有所不同，毕竟生活的一些私事，放在这里，也不太好，一是给大家徒增烦恼，二是可能一些抱怨被看到后，未免让人觉得，我这人应该是个满腹苦水的人，造成了不好的印象。&lt;/p&gt;
 &lt;p&gt;所以，我权且以希声言事，以真声言情好了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;luna.jpg&#34; alt=&#34;露娜，她真的，我哭死&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;今天浅谈一下我对近月的回忆吧，按照村上春树～～（还是三岛，我忘了）~~ 的一些概念，回忆最深刻的片段是一些无关紧要，但是就是很深刻的片段。&lt;br /&gt;
-总之，完全不能起到评判近月的作用，只是我单纯的一些回忆&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2022/04/21/2022-4-21%E9%9A%8F%E7%AC%94%E4%B9%8B%E4%BA%8C/luna.jpg&#34; alt=&#34;露娜，她真的，我哭死&#34;&gt;&lt;/p&gt;
+&lt;p&gt;今天浅谈一下我对近月的回忆吧，按照村上春树&lt;del&gt;（还是三岛，我忘了）&lt;/del&gt;的一些概念，回忆最深刻的片段是一些无关紧要，但是就是很深刻的片段。&lt;br&gt;总之，完全不能起到评判近月的作用，只是我单纯的一些回忆&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;那么，大藏游星的喜剧，就此开场&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;是啊，一场不折不扣的，&lt;strong&gt;喜剧&lt;/strong&gt;，就此开场&lt;/p&gt;
-&lt;p&gt;对我来说，回忆最深刻的，是那个夏天，那个疫情之后的夏天&lt;br /&gt;
-住在东丽，一个人住一间房子里，独居的生活，让我的作息极度紊乱&lt;br /&gt;
-但是，我却邂逅了侘傺&lt;br /&gt;
-&lt;img src=&#34;jinge.jpg&#34; alt=&#34;有意思的是，我读到金阁寺，这个侘傺的顶峰后，却想要离开这种感觉了&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;夏天的空调，对应了樱公馆的惬意，深夜的寂静无人以及一种作祟的恐惧感，恰好又和近月中那种仿佛在走钢丝的感觉相合&lt;br /&gt;
-我已经不记得台词了，但是我记得，我爱上露娜，绝不是因为哪几个举动使我爱上她，而是她的气质，让我从初见，到正式遇见，到相处，到爱&lt;/p&gt;
-&lt;p&gt;她富有着一切美好的品质，坚韧，优雅，自由，纯真，温暖&lt;br /&gt;
-她的名字是月，却让人想到了冬日房间中的暖阳&lt;br /&gt;
-到了故事后期的那种恋爱的桥段，从来不让人觉得腻，而是一种，沁人而润无声的甘甜。&lt;br /&gt;
-很少有作品能把恋爱的感觉塑造的如此让人，既能共情，却不需要很强的共情能力。&lt;br /&gt;
-是的，其他作品，只要认真体悟，确实是可以感受到作者的心思的&lt;br /&gt;
-近月却不需要，因此很适合来入门&lt;/p&gt;
-&lt;p&gt;生逢阳光灿烂，应该是最高的喜剧&lt;br /&gt;
-而跨越困难，则是这喜剧的主演&lt;br /&gt;
-没有搏击困难的人生，就是地窖中的，细若游星之光。&lt;br /&gt;
-勇敢的，笑出来，面对自己的所想，不惜一切&lt;br /&gt;
-终会成为朝阳灿烂万丈&lt;br /&gt;
-&lt;img src=&#34;yousei.jpg&#34; alt=&#34;愿你永远“真的很快乐啊！”&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;对我来说，回忆最深刻的，是那个夏天，那个疫情之后的夏天&lt;br&gt;住在东丽，一个人住一间房子里，独居的生活，让我的作息极度紊乱&lt;br&gt;但是，我却邂逅了侘傺&lt;br&gt;&lt;img src=&#34;/2022/04/21/2022-4-21%E9%9A%8F%E7%AC%94%E4%B9%8B%E4%BA%8C/jinge.jpg&#34; alt=&#34;有意思的是，我读到金阁寺，这个侘傺的顶峰后，却想要离开这种感觉了&#34;&gt;&lt;/p&gt;
+&lt;p&gt;夏天的空调，对应了樱公馆的惬意，深夜的寂静无人以及一种作祟的恐惧感，恰好又和近月中那种仿佛在走钢丝的感觉相合&lt;br&gt;我已经不记得台词了，但是我记得，我爱上露娜，绝不是因为哪几个举动使我爱上她，而是她的气质，让我从初见，到正式遇见，到相处，到爱&lt;/p&gt;
+&lt;p&gt;她富有着一切美好的品质，坚韧，优雅，自由，纯真，温暖&lt;br&gt;她的名字是月，却让人想到了冬日房间中的暖阳&lt;br&gt;到了故事后期的那种恋爱的桥段，从来不让人觉得腻，而是一种，沁人而润无声的甘甜。&lt;br&gt;很少有作品能把恋爱的感觉塑造的如此让人，既能共情，却不需要很强的共情能力。&lt;br&gt;是的，其他作品，只要认真体悟，确实是可以感受到作者的心思的&lt;br&gt;近月却不需要，因此很适合来入门&lt;/p&gt;
+&lt;p&gt;生逢阳光灿烂，应该是最高的喜剧&lt;br&gt;而跨越困难，则是这喜剧的主演&lt;br&gt;没有搏击困难的人生，就是地窖中的，细若游星之光。&lt;br&gt;勇敢的，笑出来，面对自己的所想，不惜一切&lt;br&gt;终会成为朝阳灿烂万丈&lt;br&gt;&lt;img src=&#34;/2022/04/21/2022-4-21%E9%9A%8F%E7%AC%94%E4%B9%8B%E4%BA%8C/yousei.jpg&#34; alt=&#34;愿你永远“真的很快乐啊！”&#34;&gt;&lt;/p&gt;
 </content>
-        <category term="随笔" scheme="http://example.com/categories/%E9%9A%8F%E7%AC%94/" />
-        <category term="随笔" scheme="http://example.com/tags/%E9%9A%8F%E7%AC%94/" />
+        <category term="随笔" />
         <updated>2022-04-21T13:57:22.000Z</updated>
     </entry>
     <entry>
         <id>http://example.com/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/</id>
         <title>记录：装修博客</title>
         <link rel="alternate" href="http://example.com/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/"/>
-        <content type="html">&lt;p&gt;&amp;lt;font color=Red size=6&amp;gt;&lt;strong&gt; 本文长期更新，后面更新的部分也会插在不同部分&lt;/strong&gt; &amp;lt;/font&amp;gt;&lt;/p&gt;
-&lt;h1 id=&#34;目录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目录&#34;&gt;#&lt;/a&gt; 目录&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;.#%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE&#34;&gt;功能设置&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;.#%E4%B8%BB%E9%A2%98%E9%80%89%E5%8F%96&#34;&gt;主题选取&lt;/a&gt;
-&lt;ul&gt;
+        <content type="html">&lt;p&gt;&lt;font color=&#34;Red&#34; size=&#34;6&#34;&gt;&lt;strong&gt;本文长期更新，后面更新的部分也会插在不同部分&lt;/strong&gt;&lt;/font&gt;&lt;/p&gt;
+&lt;h1 id=&#34;目录&#34;&gt;&lt;a href=&#34;#目录&#34; class=&#34;headerlink&#34; title=&#34;目录&#34;&gt;&lt;/a&gt;目录&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;.#%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE&#34;&gt;功能设置&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;.#%E4%B8%BB%E9%A2%98%E9%80%89%E5%8F%96&#34;&gt;主题选取&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;.#%E5%BD%92%E6%A1%A3%E4%B8%8E%E6%A0%87%E7%AD%BE&#34;&gt;归档与标签&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;.#%E4%B8%8B%E4%B8%80%E6%AD%A5%EF%BC%8C%E5%8F%8B%E9%93%BE%E4%B8%8E%E4%BD%9C%E8%80%85%E9%93%BE%E6%8E%A5&#34;&gt;友链与作者链接&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;.#%E4%B8%80%E4%BA%9B%E5%85%B6%E4%BB%96%E7%9A%84%E9%AA%9A%E6%93%8D%E4%BD%9C&#34;&gt;一些其他的骚操作&lt;/a&gt;&lt;/li&gt;
@@ -155,10 +117,8 @@
 &lt;li&gt;&lt;a href=&#34;.#%E6%87%92%E5%8A%A0%E8%BD%BD&#34;&gt;懒加载&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;.#%E7%BE%8E%E8%A7%82%E8%AE%BE%E7%BD%AE&#34;&gt;美观设置&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;.#%E8%83%8C%E6%99%AF%E5%9B%BE&#34;&gt;背景图&lt;/a&gt;
-&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;.#%E7%BE%8E%E8%A7%82%E8%AE%BE%E7%BD%AE&#34;&gt;美观设置&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;.#%E8%83%8C%E6%99%AF%E5%9B%BE&#34;&gt;背景图&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;.#%E4%B8%BB%E9%A1%B5%E8%83%8C%E6%99%AF%E5%9B%BE&#34;&gt;主页背景图&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;.#%E6%96%87%E7%AB%A0%E8%83%8C%E6%99%AF%E5%9B%BE&#34;&gt;文章背景图&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -169,363 +129,180 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;.#%E6%89%A9%E5%B1%95%E8%AE%BE%E7%BD%AE&#34;&gt;扩展设置&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;功能设置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能设置&#34;&gt;#&lt;/a&gt; 功能设置&lt;/h1&gt;
-&lt;h2 id=&#34;主题选取&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主题选取&#34;&gt;#&lt;/a&gt; 主题选取&lt;/h2&gt;
-&lt;p&gt;一个博客的功能上限，很大程度上是取决于这个主题给你提供的功能，因此一个好的主题很重要&lt;br /&gt;
-主题的选取，可以看我的另一篇文章&lt;a href=&#34;https://lianga1.github.io/2022/04/18/Hexo%E4%B8%BB%E9%A2%98%E6%A8%A1%E6%9D%BF%E5%88%87%E6%8D%A2/&#34;&gt; Hexo 主题模板切换&lt;/a&gt;&lt;br /&gt;
-但是大部分时候我们用的功能不会很多，而基础的功能，例如归档，友链，个人介绍等功能，绝大部分的主题都具备。所以仅需要挑选好看的主题即可，关于主题的美观问题，我们放在&lt;a href=&#34;.#%E7%BE%8E%E8%A7%82%E8%AE%BE%E7%BD%AE&#34;&gt;美观设置&lt;/a&gt;模块说。&lt;br /&gt;
-&lt;img src=&#34;theme1.jpg&#34; alt=&#34;theme&#34; /&gt;&lt;/p&gt;
-&lt;h2 id=&#34;导航栏&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#导航栏&#34;&gt;#&lt;/a&gt; 导航栏&lt;/h2&gt;
-&lt;p&gt;导航栏是一个博客的门面。设置好导航栏，你的博客会非常的有条理。&lt;/p&gt;
-&lt;h3 id=&#34;归档与标签&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#归档与标签&#34;&gt;#&lt;/a&gt; 归档与标签&lt;/h3&gt;
-&lt;p&gt;如果读者想找一篇文章，总不能让读者去挨篇文章翻吧，所以，在写文章的时候，做好标签设置和归档工作，是写一篇文章的必要工作。那么，如何归档呢？&lt;br /&gt;
-&lt;img src=&#34;categories.jpg&#34; alt=&#34;categories&#34; /&gt;&lt;br /&gt;
- 在 md 语法中，我们可以在文章顶部的标签部分，加入如下几行&lt;br /&gt;
- &lt;figure class=&#34;highlight subunit&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs subunit&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;tags:&lt;/span&gt;&lt;br&gt;- 标签1&lt;br&gt;- 标签2&lt;br&gt;……&lt;br&gt;- 标签n&lt;br&gt;categories: &lt;br&gt;- 一级目录&lt;br&gt;- 二级目录&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
-&amp;lt;font size=4&amp;gt;&lt;strong&gt; 注意&lt;/strong&gt; &amp;lt;/font&amp;gt;：tags 和 categories 必须无缩进，否则在生成 html 时会报错&lt;/p&gt;
+&lt;h1 id=&#34;功能设置&#34;&gt;&lt;a href=&#34;#功能设置&#34; class=&#34;headerlink&#34; title=&#34;功能设置&#34;&gt;&lt;/a&gt;功能设置&lt;/h1&gt;&lt;h2 id=&#34;主题选取&#34;&gt;&lt;a href=&#34;#主题选取&#34; class=&#34;headerlink&#34; title=&#34;主题选取&#34;&gt;&lt;/a&gt;主题选取&lt;/h2&gt;&lt;p&gt;一个博客的功能上限，很大程度上是取决于这个主题给你提供的功能，因此一个好的主题很重要&lt;br&gt;主题的选取，可以看我的另一篇文章&lt;a href=&#34;https://lianga1.github.io/2022/04/18/Hexo%E4%B8%BB%E9%A2%98%E6%A8%A1%E6%9D%BF%E5%88%87%E6%8D%A2/&#34;&gt;Hexo主题模板切换&lt;/a&gt;&lt;br&gt;但是大部分时候我们用的功能不会很多，而基础的功能，例如归档，友链，个人介绍等功能，绝大部分的主题都具备。所以仅需要挑选好看的主题即可，关于主题的美观问题，我们放在&lt;a href=&#34;.#%E7%BE%8E%E8%A7%82%E8%AE%BE%E7%BD%AE&#34;&gt;美观设置&lt;/a&gt;模块说。&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/theme1.jpg&#34; alt=&#34;theme&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;导航栏&#34;&gt;&lt;a href=&#34;#导航栏&#34; class=&#34;headerlink&#34; title=&#34;导航栏&#34;&gt;&lt;/a&gt;导航栏&lt;/h2&gt;&lt;p&gt;导航栏是一个博客的门面。设置好导航栏，你的博客会非常的有条理。&lt;/p&gt;
+&lt;h3 id=&#34;归档与标签&#34;&gt;&lt;a href=&#34;#归档与标签&#34; class=&#34;headerlink&#34; title=&#34;归档与标签&#34;&gt;&lt;/a&gt;归档与标签&lt;/h3&gt;&lt;p&gt;如果读者想找一篇文章,总不能让读者去挨篇文章翻吧，所以，在写文章的时候，做好标签设置和归档工作，是写一篇文章的必要工作。那么，如何归档呢？&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/categories.jpg&#34; alt=&#34;categories&#34;&gt;&lt;br&gt;在md语法中，我们可以在文章顶部的标签部分，加入如下几行&lt;/p&gt;
+&lt;figure class=&#34;highlight subunit&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs subunit&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;tags:&lt;/span&gt;&lt;br&gt;- 标签1&lt;br&gt;- 标签2&lt;br&gt;……&lt;br&gt;- 标签n&lt;br&gt;categories: &lt;br&gt;- 一级目录&lt;br&gt;- 二级目录&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;font size=&#34;4&#34;&gt;&lt;strong&gt;注意&lt;/strong&gt;&lt;/font&gt;：tags和categories必须无缩进，否则在生成html时会报错&lt;/p&gt;
 &lt;p&gt;这样，你就拥有了一个可以从标签和分级目录中查询的文章了&lt;/p&gt;
-&lt;h3 id=&#34;下一步友链与作者链接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#下一步友链与作者链接&#34;&gt;#&lt;/a&gt; 下一步，友链与作者链接&lt;/h3&gt;
-&lt;p&gt;&amp;lt;font color=Red size=6&amp;gt;&lt;strong&gt; 注意&lt;/strong&gt; &amp;lt;/font&amp;gt;，本文之后的内容以 Fluid 主题为准，其他主题大同小异，具体操作可以参照主题的介绍文档。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;为什么把友链放到前面说呢，&lt;s&gt;当然是因为我最开始没管作者链接&lt;/s&gt;，是因为友链的设置更加简单&lt;br /&gt;
-我们需要在主题的_config.yml 中（以下如果没有特殊说明，都是 themes 下的配置文件），在 navbar：menu 里，加入 links，如下&lt;br /&gt;
- &lt;code&gt; - &amp;#123; key: &amp;quot;links&amp;quot;, link: &amp;quot;/links/&amp;quot;, icon: &amp;quot;iconfont icon-link-fill&amp;quot; &amp;#125;&lt;/code&gt; &lt;br /&gt;
- 这样就可以&lt;br /&gt;
-然后找到 links 部分&lt;br /&gt;
-&lt;img src=&#34;links.jpg&#34; alt=&#34;links&#34; /&gt;&lt;br /&gt;
- 将 enable 改为 true 即可，这样，我们的主页导航栏就会出现 “友链” 了。&lt;br /&gt;
-&lt;img src=&#34;links2.jpg&#34; alt=&#34;links2&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&amp;lt;font size=4&amp;gt; 如何添加友链呢 &amp;lt;/font&amp;gt;&lt;/p&gt;
-&lt;p&gt;只需要在 config 文件中的 links 模块下的 item 中，按照如下格式添加即可&lt;br /&gt;
- &lt;figure class=&#34;highlight dts&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs dts&#34;&gt;- &amp;#123;&lt;br&gt;&lt;span class=&#34;hljs-symbol&#34;&gt;      title:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;rittmeister&amp;quot;&lt;/span&gt;,&lt;br&gt;&lt;span class=&#34;hljs-symbol&#34;&gt;      intro:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;xxx的博客&amp;quot;&lt;/span&gt;,&lt;br&gt;&lt;span class=&#34;hljs-symbol&#34;&gt;      link:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;https://lianga1.github.io/&amp;quot;&lt;/span&gt;,&lt;br&gt;&lt;span class=&#34;hljs-symbol&#34;&gt;      avatar:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;/img/avatar.png&amp;quot;&lt;/span&gt;&lt;br&gt;    &amp;#125;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
- 其中 avatar 是图标，存在主题文件夹下 /source/img 文件夹中，你可以根据喜好来更改&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;接下来是作者链接，作者链接略微复杂&lt;br /&gt;
-首先，我们需要在 config 文件中，找到 about：模块&lt;br /&gt;
-&lt;img src=&#34;about1.jpg&#34; alt=&#34;about&#34; /&gt;&lt;br /&gt;
- 确认是 enable 状态&lt;br /&gt;
-当然，我们现在博客中点击这个页面，会显示 404&lt;br /&gt;
- 原因是我们需要创建一个专门的 about 页面，方法如下，cmd 输入代码&lt;br /&gt;
- &lt;code&gt;hexo new page about&lt;/code&gt; &lt;br /&gt;
- 即会在 source 文件夹创建一个 about 文件夹，里面有一个 index.md 文件，进入&lt;br /&gt;
-在标签部分，添加&lt;br /&gt;
- &lt;code&gt;layout: about&lt;/code&gt; &lt;br /&gt;
-&lt;img src=&#34;about2.jpg&#34; alt=&#34;about&#34; /&gt;&lt;br /&gt;
- 这样，我们就会发现作者链接可以进入了。然后，我们可以在 config-about 模块，添加自己想要的功能。&lt;br /&gt;
-例如我还添加了微信二维码&lt;br /&gt;
-&lt;img src=&#34;about3.jpg&#34; alt=&#34;about3&#34; /&gt;&lt;br /&gt;
- 除此之外，fluid 提供了丰富的图标库，可以在其 doc 中查询 css 的使用方法，这里不展开介绍了&lt;/p&gt;
-&lt;h3 id=&#34;一些其他的骚操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一些其他的骚操作&#34;&gt;#&lt;/a&gt; 一些其他的骚操作&lt;/h3&gt;
-&lt;p&gt;你还可以直接加一些新的链接，还是在 navbar：menu 部分里加，比如我就新加了一个 tape 提问箱，妈妈再也不用担心没人提问了&lt;br /&gt;
-&lt;s&gt;笑死，自闭症患儿罢了，哪有人去你的博客提问啊&lt;/s&gt;&lt;/p&gt;
-&lt;h2 id=&#34;懒加载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#懒加载&#34;&gt;#&lt;/a&gt; 懒加载&lt;/h2&gt;
-&lt;p&gt;这个功能还是蛮有用的，单独开出来说一下&lt;br /&gt;
-这个是可以让你的网页先加载，图片慢慢加载的功能，毕竟你的 github 服务器，如果等所有封面图都加载出来，黄花菜都凉了&lt;br /&gt;
-实现方法：&lt;br /&gt;
-config 文件中 lazyload：模块，enable 设为 true 即可&lt;/p&gt;
-&lt;h1 id=&#34;美观设置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#美观设置&#34;&gt;#&lt;/a&gt; 美观设置&lt;/h1&gt;
-&lt;p&gt;我个人很有自知之明，知道我的审美能力一般，这里仅提供一些方法上的指导&lt;/p&gt;
-&lt;h2 id=&#34;背景图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#背景图&#34;&gt;#&lt;/a&gt; 背景图&lt;/h2&gt;
-&lt;p&gt;（施工中 ——2022.4.22 半夜一点半）&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;（4.23 更新）&lt;br /&gt;
-背景图是博客的门面，选一张得体的背景图，可以极大的提高博客的氛围感，甚至可以增加阅读体验，以下介绍一下插入背景图的方法&lt;/p&gt;
-&lt;h3 id=&#34;主页背景图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主页背景图&#34;&gt;#&lt;/a&gt; 主页背景图&lt;/h3&gt;
-&lt;p&gt;主页背景图，我推荐构图简单，色彩主调统一的图片，否则背景图上的字会显示不清。&lt;br /&gt;
-修改背景图的方法很简单，在 config 文件中，搜索&lt;/p&gt;
+&lt;h3 id=&#34;下一步，友链与作者链接&#34;&gt;&lt;a href=&#34;#下一步，友链与作者链接&#34; class=&#34;headerlink&#34; title=&#34;下一步，友链与作者链接&#34;&gt;&lt;/a&gt;下一步，友链与作者链接&lt;/h3&gt;&lt;p&gt;&lt;font color=&#34;Red&#34; size=&#34;6&#34;&gt;&lt;strong&gt;注意&lt;/strong&gt;&lt;/font&gt;，本文之后的内容以Fluid主题为准，其他主题大同小异，具体操作可以参照主题的介绍文档。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;为什么把友链放到前面说呢，&lt;del&gt;当然是因为我最开始没管作者链接&lt;/del&gt;，是因为友链的设置更加简单&lt;br&gt;我们需要在主题的_config.yml中（以下如果没有特殊说明，都是themes下的配置文件），在navbar：menu里，加入links，如下&lt;br&gt;&lt;code&gt; - &amp;#123; key: &amp;quot;links&amp;quot;, link: &amp;quot;/links/&amp;quot;, icon: &amp;quot;iconfont icon-link-fill&amp;quot; &amp;#125;&lt;/code&gt;&lt;br&gt;这样就可以&lt;br&gt;然后找到links部分&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/links.jpg&#34; alt=&#34;links&#34;&gt;&lt;br&gt;将enable改为true即可，这样，我们的主页导航栏就会出现“友链”了。&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/links2.jpg&#34; alt=&#34;links2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font size=&#34;4&#34;&gt;如何添加友链呢&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;只需要在config文件中的links模块下的item中，按照如下格式添加即可&lt;/p&gt;
+&lt;figure class=&#34;highlight dts&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs dts&#34;&gt;- &amp;#123;&lt;br&gt;&lt;span class=&#34;hljs-symbol&#34;&gt;      title:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;rittmeister&amp;quot;&lt;/span&gt;,&lt;br&gt;&lt;span class=&#34;hljs-symbol&#34;&gt;      intro:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;xxx的博客&amp;quot;&lt;/span&gt;,&lt;br&gt;&lt;span class=&#34;hljs-symbol&#34;&gt;      link:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;https://lianga1.github.io/&amp;quot;&lt;/span&gt;,&lt;br&gt;&lt;span class=&#34;hljs-symbol&#34;&gt;      avatar:&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;/img/avatar.png&amp;quot;&lt;/span&gt;&lt;br&gt;    &amp;#125;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;其中avatar是图标，存在主题文件夹下&amp;#x2F;source&amp;#x2F;img文件夹中，你可以根据喜好来更改&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;接下来是作者链接，作者链接略微复杂&lt;br&gt;首先，我们需要在config文件中，找到about：模块&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/about1.jpg&#34; alt=&#34;about&#34;&gt;&lt;br&gt;确认是enable状态&lt;br&gt;当然，我们现在博客中点击这个页面，会显示404&lt;br&gt;原因是我们需要创建一个专门的about页面，方法如下，cmd输入代码&lt;br&gt;&lt;code&gt;hexo new page about&lt;/code&gt;&lt;br&gt;即会在source文件夹创建一个about文件夹，里面有一个index.md文件，进入&lt;br&gt;在标签部分，添加&lt;br&gt;&lt;code&gt;layout: about&lt;/code&gt;&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/about2.jpg&#34; alt=&#34;about&#34;&gt;&lt;br&gt;这样，我们就会发现作者链接可以进入了。然后，我们可以在config-about模块，添加自己想要的功能。&lt;br&gt;例如我还添加了微信二维码&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/about3.jpg&#34; alt=&#34;about3&#34;&gt;&lt;br&gt;除此之外，fluid提供了丰富的图标库，可以在其doc中查询css的使用方法，这里不展开介绍了&lt;/p&gt;
+&lt;h3 id=&#34;一些其他的骚操作&#34;&gt;&lt;a href=&#34;#一些其他的骚操作&#34; class=&#34;headerlink&#34; title=&#34;一些其他的骚操作&#34;&gt;&lt;/a&gt;一些其他的骚操作&lt;/h3&gt;&lt;p&gt;你还可以直接加一些新的链接，还是在navbar：menu部分里加，比如我就新加了一个tape提问箱，妈妈再也不用担心没人提问了&lt;br&gt;&lt;del&gt;笑死，自闭症患儿罢了，哪有人去你的博客提问啊&lt;/del&gt;&lt;/p&gt;
+&lt;h2 id=&#34;懒加载&#34;&gt;&lt;a href=&#34;#懒加载&#34; class=&#34;headerlink&#34; title=&#34;懒加载&#34;&gt;&lt;/a&gt;懒加载&lt;/h2&gt;&lt;p&gt;这个功能还是蛮有用的，单独开出来说一下&lt;br&gt;这个是可以让你的网页先加载，图片慢慢加载的功能，毕竟你的github服务器，如果等所有封面图都加载出来，黄花菜都凉了&lt;br&gt;实现方法：&lt;br&gt;config文件中lazyload：模块，enable设为true即可&lt;/p&gt;
+&lt;h1 id=&#34;美观设置&#34;&gt;&lt;a href=&#34;#美观设置&#34; class=&#34;headerlink&#34; title=&#34;美观设置&#34;&gt;&lt;/a&gt;美观设置&lt;/h1&gt;&lt;p&gt;我个人很有自知之明，知道我的审美能力一般，这里仅提供一些方法上的指导&lt;/p&gt;
+&lt;h2 id=&#34;背景图&#34;&gt;&lt;a href=&#34;#背景图&#34; class=&#34;headerlink&#34; title=&#34;背景图&#34;&gt;&lt;/a&gt;背景图&lt;/h2&gt;&lt;p&gt;（施工中——2022.4.22半夜一点半）&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;（4.23更新）&lt;br&gt;背景图是博客的门面，选一张得体的背景图，可以极大的提高博客的氛围感，甚至可以增加阅读体验，以下介绍一下插入背景图的方法&lt;/p&gt;
+&lt;h3 id=&#34;主页背景图&#34;&gt;&lt;a href=&#34;#主页背景图&#34; class=&#34;headerlink&#34; title=&#34;主页背景图&#34;&gt;&lt;/a&gt;主页背景图&lt;/h3&gt;&lt;p&gt;主页背景图，我推荐构图简单，色彩主调统一的图片，否则背景图上的字会显示不清。&lt;br&gt;修改背景图的方法很简单，在config文件中，搜索&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;banner_img&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;这个是所有背景图的关键词，因此你可以搜索到 17 个词&lt;br /&gt;
-找到 index 模块下的 banner_img&lt;br /&gt;
-&lt;img src=&#34;banner1.jpg&#34; alt=&#34;banner_img&#34; /&gt;&lt;br /&gt;
- 其后面的目录是主题的 source 文件夹下的目录，只需要把你想要的图片放在这个目录下，并在 config 中替换即可&lt;/p&gt;
-&lt;h3 id=&#34;其他背景图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他背景图&#34;&gt;#&lt;/a&gt; 其他背景图&lt;/h3&gt;
-&lt;p&gt;emm，其他的背景图嘛，我希望你可以找到一套图，来和主页的背景映衬而且又各具特色，但是目前我还没有找到这种理想的图包。&lt;/p&gt;
-&lt;h2 id=&#34;文章封面图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#文章封面图&#34;&gt;#&lt;/a&gt; 文章封面图&lt;/h2&gt;
-&lt;p&gt;文章封面图的设置，是在文章的顶部内容栏中加入 index_img: 一行&lt;br /&gt;
-&lt;img src=&#34;index_img1.jpg&#34; alt=&#34;index_img&#34; /&gt;&lt;br /&gt;
- 然后，图片的位置是你的 &amp;lt;font color=Red size=6&amp;gt;&lt;strong&gt; 主题目录下&lt;/strong&gt; &amp;lt;/font&amp;gt; 的 source/img 文件夹，这里我建议给你的每篇文章进行归档，方便整理。&lt;br /&gt;
-这样，你的博客文章就有封面图了&lt;br /&gt;
-&lt;img src=&#34;index_img2.jpg&#34; alt=&#34;index_img&#34; /&gt;&lt;/p&gt;
-&lt;h2 id=&#34;图片加载动画&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图片加载动画&#34;&gt;#&lt;/a&gt; 图片加载动画&lt;/h2&gt;
-&lt;p&gt;如果我们打开了懒加载功能，那么我们就会看到图片加载时会有一个动画，这里的加载其实是一个 gif，和图片一样，我们也是可以更换的，比如换成一个跑步的 Mario&lt;br /&gt;
-&lt;img src=&#34;mario.gif&#34; alt=&#34;mario&#34; /&gt;&lt;br /&gt;
- 下面介绍一下设置方法：&lt;br /&gt;
-在 config 文件中找到 lazyload 模块，然后，找到 loading_img&lt;br /&gt;
- 改为你在主题的 source 中的路径&lt;br /&gt;
-&lt;img src=&#34;loading.jpg&#34; alt=&#34;loading&#34; /&gt;&lt;br /&gt;
- 以上，操作完成。&lt;/p&gt;
-&lt;h2 id=&#34;关于导航栏的一些玩法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于导航栏的一些玩法&#34;&gt;#&lt;/a&gt; 关于导航栏的一些玩法&lt;/h2&gt;
-&lt;p&gt;导航栏，美化是一个可以深入折腾的天地，简单介绍几个玩法&lt;/p&gt;
-&lt;h3 id=&#34;毛玻璃特效&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#毛玻璃特效&#34;&gt;#&lt;/a&gt; 毛玻璃特效&lt;/h3&gt;
-&lt;p&gt;这个可以让你的导航栏显示成亚克力效果&lt;br /&gt;
-只需要在 config 文件的 navbar 模块下，ground_glass 设置为 enable：true 即可，下面还可以调节模糊的颜色，模糊程度等。&lt;br /&gt;
-&lt;img src=&#34;navbar1.jpg&#34; alt=&#34;ground_glass&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;自己的名字&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自己的名字&#34;&gt;#&lt;/a&gt; 自己的名字&lt;/h3&gt;
-&lt;p&gt;你可以在导航栏的左侧标注你的名字，具体操作类似上条：&lt;br /&gt;
- &lt;code&gt;navbar--blog_title&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;菜单图标&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#菜单图标&#34;&gt;#&lt;/a&gt; 菜单图标&lt;/h3&gt;
-&lt;p&gt;菜单上的选项，你可以设置图标&lt;br /&gt;
-方法如下：&lt;br /&gt;
-在 navbar--menu 模块下，找到对应的菜单栏选项，在 icon：位置，根据自己的需要，选择对应的 css&lt;/p&gt;
+&lt;p&gt;这个是所有背景图的关键词，因此你可以搜索到17个词&lt;br&gt;找到index模块下的banner_img&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/banner1.jpg&#34; alt=&#34;banner_img&#34;&gt;&lt;br&gt;其后面的目录是主题的source文件夹下的目录，只需要把你想要的图片放在这个目录下，并在config中替换即可&lt;/p&gt;
+&lt;h3 id=&#34;其他背景图&#34;&gt;&lt;a href=&#34;#其他背景图&#34; class=&#34;headerlink&#34; title=&#34;其他背景图&#34;&gt;&lt;/a&gt;其他背景图&lt;/h3&gt;&lt;p&gt;emm，其他的背景图嘛，我希望你可以找到一套图，来和主页的背景映衬而且又各具特色，但是目前我还没有找到这种理想的图包。&lt;/p&gt;
+&lt;h2 id=&#34;文章封面图&#34;&gt;&lt;a href=&#34;#文章封面图&#34; class=&#34;headerlink&#34; title=&#34;文章封面图&#34;&gt;&lt;/a&gt;文章封面图&lt;/h2&gt;&lt;p&gt;文章封面图的设置，是在文章的顶部内容栏中加入index_img: 一行&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/index_img1.jpg&#34; alt=&#34;index_img&#34;&gt;&lt;br&gt;然后，图片的位置是你的&lt;font color=&#34;Red&#34; size=&#34;6&#34;&gt;&lt;strong&gt;主题目录下&lt;/strong&gt;&lt;/font&gt;的source&amp;#x2F;img文件夹，这里我建议给你的每篇文章进行归档，方便整理。&lt;br&gt;这样，你的博客文章就有封面图了&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/index_img2.jpg&#34; alt=&#34;index_img&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;图片加载动画&#34;&gt;&lt;a href=&#34;#图片加载动画&#34; class=&#34;headerlink&#34; title=&#34;图片加载动画&#34;&gt;&lt;/a&gt;图片加载动画&lt;/h2&gt;&lt;p&gt;如果我们打开了懒加载功能，那么我们就会看到图片加载时会有一个动画，这里的加载其实是一个gif，和图片一样，我们也是可以更换的，比如换成一个跑步的Mario&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/mario.gif&#34; alt=&#34;mario&#34;&gt;&lt;br&gt;下面介绍一下设置方法：&lt;br&gt;在config文件中找到lazyload模块，然后，找到loading_img&lt;br&gt;改为你在主题的source中的路径&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/loading.jpg&#34; alt=&#34;loading&#34;&gt;&lt;br&gt;以上，操作完成。&lt;/p&gt;
+&lt;h2 id=&#34;关于导航栏的一些玩法&#34;&gt;&lt;a href=&#34;#关于导航栏的一些玩法&#34; class=&#34;headerlink&#34; title=&#34;关于导航栏的一些玩法&#34;&gt;&lt;/a&gt;关于导航栏的一些玩法&lt;/h2&gt;&lt;p&gt;导航栏，美化是一个可以深入折腾的天地，简单介绍几个玩法&lt;/p&gt;
+&lt;h3 id=&#34;毛玻璃特效&#34;&gt;&lt;a href=&#34;#毛玻璃特效&#34; class=&#34;headerlink&#34; title=&#34;毛玻璃特效&#34;&gt;&lt;/a&gt;毛玻璃特效&lt;/h3&gt;&lt;p&gt;这个可以让你的导航栏显示成亚克力效果&lt;br&gt;只需要在config文件的navbar模块下，ground_glass设置为enable：true即可，下面还可以调节模糊的颜色，模糊程度等。&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/navbar1.jpg&#34; alt=&#34;ground_glass&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;自己的名字&#34;&gt;&lt;a href=&#34;#自己的名字&#34; class=&#34;headerlink&#34; title=&#34;自己的名字&#34;&gt;&lt;/a&gt;自己的名字&lt;/h3&gt;&lt;p&gt;你可以在导航栏的左侧标注你的名字，具体操作类似上条：&lt;br&gt;&lt;code&gt;navbar--blog_title&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;菜单图标&#34;&gt;&lt;a href=&#34;#菜单图标&#34; class=&#34;headerlink&#34; title=&#34;菜单图标&#34;&gt;&lt;/a&gt;菜单图标&lt;/h3&gt;&lt;p&gt;菜单上的选项，你可以设置图标&lt;br&gt;方法如下：&lt;br&gt;在navbar–menu模块下，找到对应的菜单栏选项，在icon：位置，根据自己的需要，选择对应的css&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://hexo.fluid-dev.com/docs/icon/#%E5%86%85%E7%BD%AE%E7%A4%BE%E4%BA%A4%E5%9B%BE%E6%A0%87&#34;&gt;css 库&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hexo.fluid-dev.com/docs/icon/#%E5%86%85%E7%BD%AE%E7%A4%BE%E4%BA%A4%E5%9B%BE%E6%A0%87&#34;&gt;css库&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;关于标签栏的一些玩法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于标签栏的一些玩法&#34;&gt;#&lt;/a&gt; 关于标签栏的一些玩法&lt;/h2&gt;
-&lt;h3 id=&#34;标签栏中显示的图标&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#标签栏中显示的图标&#34;&gt;#&lt;/a&gt; 标签栏中显示的图标&lt;/h3&gt;
-&lt;p&gt;我们当然想让自己的名字显示在浏览器标签栏上来代替那个&lt;s&gt;丑陋的&lt;/s&gt; Hexo 标识，我们可以在 config 文件中的&lt;br /&gt;
- &lt;figure class=&#34;highlight avrasm&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs avrasm&#34;&gt;&lt;span class=&#34;hljs-symbol&#34;&gt;favicon:&lt;/span&gt;&lt;br&gt;以及&lt;br&gt;&lt;span class=&#34;hljs-symbol&#34;&gt;apple_touch_icon:&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
- 这两项中，改变自己想要的图片，同样，图片的位置是 /img&lt;br /&gt;
-&lt;img src=&#34;favicon.jpg&#34; alt=&#34;favicon&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;标签栏的名字&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#标签栏的名字&#34;&gt;#&lt;/a&gt; 标签栏的名字&lt;/h3&gt;
-&lt;p&gt;改了图标，我们当然想要把 “Hexo” 改变为自己想要的名字&lt;br /&gt;
- &amp;lt;font color=Red size=6&amp;gt;&lt;strong&gt; 注意&lt;/strong&gt; &amp;lt;/font&amp;gt;，这个是要在 blog 目录下的 config 文件更改，不要在主题配置里找！&lt;br /&gt;
-在 config 文件中，找到 site 模块&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;sitename.jpg&#34; alt=&#34;sitename&#34; /&gt;&lt;br /&gt;
- 将其 title 设置为你想要的内容即可&lt;/p&gt;
-&lt;h3 id=&#34;标签栏的连接符&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#标签栏的连接符&#34;&gt;#&lt;/a&gt; 标签栏的连接符&lt;/h3&gt;
-&lt;p&gt;当你打开一个文章页面或其他页面时，你会发现：标签栏名称变为&lt;br /&gt;
- &lt;code&gt;“页面名”-“站点名”&lt;/code&gt; &lt;br /&gt;
- 其实，中间的这个衔接符号，我们也是可以更改的，只需要在主题 config 文件中&lt;br /&gt;
-找到 “tab_title_separator:” 模块&lt;br /&gt;
-即可将其改为你想要的内容&lt;br /&gt;
-&lt;img src=&#34;linker.jpg&#34; alt=&#34;linker&#34; /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;（4.24 施工完毕，还有一些内容，回头再说了）&lt;/p&gt;
+&lt;h2 id=&#34;关于标签栏的一些玩法&#34;&gt;&lt;a href=&#34;#关于标签栏的一些玩法&#34; class=&#34;headerlink&#34; title=&#34;关于标签栏的一些玩法&#34;&gt;&lt;/a&gt;关于标签栏的一些玩法&lt;/h2&gt;&lt;h3 id=&#34;标签栏中显示的图标&#34;&gt;&lt;a href=&#34;#标签栏中显示的图标&#34; class=&#34;headerlink&#34; title=&#34;标签栏中显示的图标&#34;&gt;&lt;/a&gt;标签栏中显示的图标&lt;/h3&gt;&lt;p&gt;我们当然想让自己的名字显示在浏览器标签栏上来代替那个&lt;del&gt;丑陋的&lt;/del&gt;Hexo标识，我们可以在config文件中的&lt;/p&gt;
+&lt;figure class=&#34;highlight avrasm&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs avrasm&#34;&gt;&lt;span class=&#34;hljs-symbol&#34;&gt;favicon:&lt;/span&gt;&lt;br&gt;以及&lt;br&gt;&lt;span class=&#34;hljs-symbol&#34;&gt;apple_touch_icon:&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这两项中，改变自己想要的图片，同样，图片的位置是&amp;#x2F;img&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/favicon.jpg&#34; alt=&#34;favicon&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;标签栏的名字&#34;&gt;&lt;a href=&#34;#标签栏的名字&#34; class=&#34;headerlink&#34; title=&#34;标签栏的名字&#34;&gt;&lt;/a&gt;标签栏的名字&lt;/h3&gt;&lt;p&gt;改了图标，我们当然想要把“Hexo”改变为自己想要的名字&lt;br&gt;&lt;font color=&#34;Red&#34; size=&#34;6&#34;&gt;&lt;strong&gt;注意&lt;/strong&gt;&lt;/font&gt;，这个是要在blog目录下的config文件更改，不要在主题配置里找！&lt;br&gt;在config文件中，找到site模块&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/sitename.jpg&#34; alt=&#34;sitename&#34;&gt;&lt;br&gt;将其title设置为你想要的内容即可&lt;/p&gt;
+&lt;h3 id=&#34;标签栏的连接符&#34;&gt;&lt;a href=&#34;#标签栏的连接符&#34; class=&#34;headerlink&#34; title=&#34;标签栏的连接符&#34;&gt;&lt;/a&gt;标签栏的连接符&lt;/h3&gt;&lt;p&gt;当你打开一个文章页面或其他页面时，你会发现：标签栏名称变为&lt;br&gt;&lt;code&gt;“页面名”-“站点名”&lt;/code&gt;&lt;br&gt;其实，中间的这个衔接符号，我们也是可以更改的，只需要在主题config文件中&lt;br&gt;找到“tab_title_separator:”模块&lt;br&gt;即可将其改为你想要的内容&lt;br&gt;&lt;img src=&#34;/2022/04/21/%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%A3%85%E4%BF%AE%E5%8D%9A%E5%AE%A2/linker.jpg&#34; alt=&#34;linker&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;（4.24施工完毕，还有一些内容，回头再说了）&lt;/p&gt;
 </content>
-        <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/" />
-        <category term="博客" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/%E5%8D%9A%E5%AE%A2/" />
-        <category term="博客" scheme="http://example.com/tags/%E5%8D%9A%E5%AE%A2/" />
-        <category term="记录" scheme="http://example.com/tags/%E8%AE%B0%E5%BD%95/" />
+        <category term="博客" />
+        <category term="记录" />
         <updated>2022-04-21T09:32:11.000Z</updated>
     </entry>
     <entry>
         <id>http://example.com/2022/04/21/2022-4-21%E9%9A%8F%E7%AC%94/</id>
         <title>2022.4.21随笔</title>
         <link rel="alternate" href="http://example.com/2022/04/21/2022-4-21%E9%9A%8F%E7%AC%94/"/>
-        <content type="html">&lt;h1 id=&#34;放在开头&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#放在开头&#34;&gt;#&lt;/a&gt; 放在开头&lt;/h1&gt;
-&lt;p&gt;今天看了莫奈的画，画的是真好啊，这种感觉，是一种极度粗糙的精细，让人的感知和自然氤氲的美&lt;/p&gt;
-&lt;h1 id=&#34;每日一句&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#每日一句&#34;&gt;#&lt;/a&gt; 每日一句&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;洞外，夜色晴朗，天气寒冷，没在下雪，他透过树干之间望去，那里一片白茫茫，再抬眼从林间望去，只见这时天色明净，他呼吸时，空气进入肺部，寒冷彻骨。&lt;br /&gt;
-《丧钟为谁而鸣》第十九章&lt;/p&gt;
+        <content type="html">&lt;h1 id=&#34;放在开头&#34;&gt;&lt;a href=&#34;#放在开头&#34; class=&#34;headerlink&#34; title=&#34;放在开头&#34;&gt;&lt;/a&gt;放在开头&lt;/h1&gt;&lt;p&gt;今天看了莫奈的画，画的是真好啊，这种感觉，是一种极度粗糙的精细，让人的感知和自然氤氲的美&lt;/p&gt;
+&lt;h1 id=&#34;每日一句&#34;&gt;&lt;a href=&#34;#每日一句&#34; class=&#34;headerlink&#34; title=&#34;每日一句&#34;&gt;&lt;/a&gt;每日一句&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;洞外，夜色晴朗，天气寒冷，没在下雪，他透过树干之间望去，那里一片白茫茫，再抬眼从林间望去，只见这时天色明净，他呼吸时，空气进入肺部，寒冷彻骨。&lt;br&gt;  《丧钟为谁而鸣》第十九章&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;丧钟为谁而鸣？丧钟就为你我而鸣。&lt;/p&gt;
-&lt;h1 id=&#34;乱想time&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#乱想time&#34;&gt;#&lt;/a&gt; 乱想 time&lt;/h1&gt;
-&lt;p&gt;我想想吧，我也许真的需要好好歇会了，不是说烂着，而是让自己别想这么多了。大不了就是全部都重新开始&lt;br /&gt;
-如果你现在就不敢重新开始，那你以后又怎么敢呢？&lt;br /&gt;
-如果现在不敢做出自己想要做的改变，那你指望什么呢？卧龙凤雏之相帮，只有赤壁一战。&lt;br /&gt;
-然而卧龙凤雏不世出，人生逆旅困境常在，怎能不靠自己？&lt;br /&gt;
-谁未曾光荣负膺，谁又未曾垂垂老矣。&lt;br /&gt;
-田野如今依旧在，而田野上方的青空，却永远沉埋在心里了。&lt;br /&gt;
-&lt;img src=&#34;insert1.jpg&#34; alt=&#34;clear&#34; /&gt;&lt;br /&gt;
-&amp;lt;font size=5&amp;gt;&lt;strong&gt; 最&lt;/strong&gt; &amp;lt;/font&amp;gt; 富有的人，永远是有着，能把时间中的每一刻都化为永恒的 “魔法” 的人&lt;br /&gt;
-就好像甘道夫&lt;br /&gt;
-魔法总是每年一度的烟花，却是我们永远的记忆。&lt;br /&gt;
-也许他也能征服恶龙，但是对我来说，和烟花没有区别。&lt;/p&gt;
+&lt;h1 id=&#34;乱想time&#34;&gt;&lt;a href=&#34;#乱想time&#34; class=&#34;headerlink&#34; title=&#34;乱想time&#34;&gt;&lt;/a&gt;乱想time&lt;/h1&gt;&lt;p&gt;我想想吧，我也许真的需要好好歇会了，不是说烂着，而是让自己别想这么多了。大不了就是全部都重新开始&lt;br&gt;如果你现在就不敢重新开始，那你以后又怎么敢呢？&lt;br&gt;如果现在不敢做出自己想要做的改变，那你指望什么呢？卧龙凤雏之相帮，只有赤壁一战。&lt;br&gt;然而卧龙凤雏不世出，人生逆旅困境常在，怎能不靠自己？&lt;br&gt;谁未曾光荣负膺，谁又未曾垂垂老矣。&lt;br&gt;田野如今依旧在，而田野上方的青空，却永远沉埋在心里了。&lt;br&gt;&lt;img src=&#34;/2022/04/21/2022-4-21%E9%9A%8F%E7%AC%94/insert1.jpg&#34; alt=&#34;clear&#34;&gt;&lt;br&gt;&lt;font size=&#34;5&#34;&gt;&lt;strong&gt;最&lt;/strong&gt;&lt;/font&gt;富有的人，永远是有着，能把时间中的每一刻都化为永恒的“魔法”的人&lt;br&gt;就好像甘道夫&lt;br&gt;魔法总是每年一度的烟花，却是我们永远的记忆。&lt;br&gt;也许他也能征服恶龙，但是对我来说，和烟花没有区别。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;如果你看懂了，那你就是没懂；如果你没懂，那你就是真没懂&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;哈哈，我也会说谜语了&lt;br /&gt;
-晚安&lt;br /&gt;
-&lt;img src=&#34;end.jpg&#34; alt=&#34;end&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;哈哈，我也会说谜语了&lt;br&gt;晚安&lt;br&gt;&lt;img src=&#34;/2022/04/21/2022-4-21%E9%9A%8F%E7%AC%94/end.jpg&#34; alt=&#34;end&#34;&gt;&lt;/p&gt;
 </content>
-        <category term="随笔" scheme="http://example.com/categories/%E9%9A%8F%E7%AC%94/" />
-        <category term="随笔" scheme="http://example.com/tags/%E9%9A%8F%E7%AC%94/" />
+        <category term="随笔" />
         <updated>2022-04-20T16:01:19.000Z</updated>
     </entry>
     <entry>
         <id>http://example.com/2022/04/20/2022-4-20%E9%9A%8F%E7%AC%94/</id>
         <title>2022.4.20随笔</title>
         <link rel="alternate" href="http://example.com/2022/04/20/2022-4-20%E9%9A%8F%E7%AC%94/"/>
-        <content type="html">&lt;h1 id=&#34;我的第一篇胡思乱想&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#我的第一篇胡思乱想&#34;&gt;#&lt;/a&gt; 我的第一篇胡思乱想&lt;/h1&gt;
-&lt;h2 id=&#34;每日一句&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#每日一句&#34;&gt;#&lt;/a&gt; 每日一句&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我无法接受 “如果知识代表危险，无知就是解决之道”&lt;/p&gt;
+        <content type="html">&lt;h1 id=&#34;我的第一篇胡思乱想&#34;&gt;&lt;a href=&#34;#我的第一篇胡思乱想&#34; class=&#34;headerlink&#34; title=&#34;我的第一篇胡思乱想&#34;&gt;&lt;/a&gt;我的第一篇胡思乱想&lt;/h1&gt;&lt;h2 id=&#34;每日一句&#34;&gt;&lt;a href=&#34;#每日一句&#34; class=&#34;headerlink&#34; title=&#34;每日一句&#34;&gt;&lt;/a&gt;每日一句&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;我无法接受“如果知识代表危险，无知就是解决之道”&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;胡思乱想&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#胡思乱想&#34;&gt;#&lt;/a&gt; 胡思乱想&lt;/h2&gt;
-&lt;h2 id=&#34;嗯是的畏惧困难不是我的本色舒适的生活害怕这种生活的流逝是一种正常的感情却是不对的如果死亡即将来临那就放马过来吧如果赌气能让我获得什么那一定是多年后的追悔莫及-然而赌气何尝不是一种畏惧畏惧行动的体现而已&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#嗯是的畏惧困难不是我的本色舒适的生活害怕这种生活的流逝是一种正常的感情却是不对的如果死亡即将来临那就放马过来吧如果赌气能让我获得什么那一定是多年后的追悔莫及-然而赌气何尝不是一种畏惧畏惧行动的体现而已&#34;&gt;#&lt;/a&gt; 嗯，是的，畏惧困难不是我的本色，舒适的生活，害怕这种生活的流逝，是一种正常的感情，却是不对的&lt;br /&gt;
-如果死亡即将来临，那就放马过来吧&lt;br /&gt;
-如果赌气能让我获得什么，那一定是多年后的追悔莫及。&lt;br /&gt;
-然而，赌气何尝不是一种畏惧，畏惧行动的体现而已&lt;/h2&gt;
-&lt;p&gt;实不相瞒，我的思绪到这里是枯竭的&lt;br /&gt;
-我竭力想要说些什么，却不能将其明确的表达，这大概是博客和日记的区别&lt;br /&gt;
-思绪断了，情绪却没有断开，我想，我是否需要重新找回年轻时的那个，敢于愤怒的人了呢&lt;br /&gt;
-我想，亲情间时没有愤怒的，最恶劣的结果不过是驱逐&lt;br /&gt;
-但是友谊，火一般的爱，点燃它们的，必然是那愤然的激情。&lt;/p&gt;
+&lt;h2 id=&#34;胡思乱想&#34;&gt;&lt;a href=&#34;#胡思乱想&#34; class=&#34;headerlink&#34; title=&#34;胡思乱想&#34;&gt;&lt;/a&gt;胡思乱想&lt;/h2&gt;&lt;p&gt;嗯，是的，畏惧困难不是我的本色，舒适的生活，害怕这种生活的流逝，是一种正常的感情，却是不对的&lt;br&gt;如果死亡即将来临，那就放马过来吧&lt;br&gt;如果赌气能让我获得什么，那一定是多年后的追悔莫及。&lt;br&gt;然而，赌气何尝不是一种畏惧，畏惧行动的体现而已&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;实不相瞒，我的思绪到这里是枯竭的&lt;br&gt;我竭力想要说些什么，却不能将其明确的表达，这大概是博客和日记的区别&lt;br&gt;思绪断了，情绪却没有断开，我想，我是否需要重新找回年轻时的那个，敢于愤怒的人了呢&lt;br&gt;我想，亲情间时没有愤怒的，最恶劣的结果不过是驱逐&lt;br&gt;但是友谊，火一般的爱，点燃它们的，必然是那愤然的激情。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;愤怒是弱者的感情&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;是啊如果我们是孤立于世界的人那我们必然不会去愤然这是一种与我们无意义的情感但是我们若是活在人间就容不得那种傲然的存在了一个人对于人本身他的理想的终点是不是完美呢我想这就是人文主义与理性主义的区别所在以理性主义的角度思考人文主义的内涵是一种奇妙但是容易跑偏的思路反之则是晦涩且难以认同的&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#是啊如果我们是孤立于世界的人那我们必然不会去愤然这是一种与我们无意义的情感但是我们若是活在人间就容不得那种傲然的存在了一个人对于人本身他的理想的终点是不是完美呢我想这就是人文主义与理性主义的区别所在以理性主义的角度思考人文主义的内涵是一种奇妙但是容易跑偏的思路反之则是晦涩且难以认同的&#34;&gt;#&lt;/a&gt; 是啊，如果我们是孤立于世界的人，那我们必然不会去愤然&lt;br /&gt;
-这是一种与我们无意义的情感&lt;br /&gt;
-但是我们若是活在人间，就容不得那种傲然的存在了&lt;br /&gt;
-一个人，对于人本身，他的理想的终点，是不是完美呢&lt;br /&gt;
-我想这就是人文主义与理性主义的区别所在&lt;br /&gt;
-以理性主义的角度思考人文主义的内涵，是一种奇妙但是容易跑偏的思路&lt;br /&gt;
-反之，则是晦涩且难以认同的。&lt;/h2&gt;
-&lt;p&gt;陷入了这种思考后，思路便生发了出来&lt;br /&gt;
-如果说一个理性者，他的画作是超写实&lt;br /&gt;
-那么人文关怀者，其作品必然是 “不如” 理性的&lt;br /&gt;
-但是，&lt;/p&gt;
+&lt;p&gt;是啊，如果我们是孤立于世界的人，那我们必然不会去愤然&lt;br&gt;这是一种与我们无意义的情感&lt;br&gt;但是我们若是活在人间，就容不得那种傲然的存在了&lt;br&gt;一个人，对于人本身，他的理想的终点，是不是完美呢&lt;br&gt;我想这就是人文主义与理性主义的区别所在&lt;br&gt;以理性主义的角度思考人文主义的内涵，是一种奇妙但是容易跑偏的思路&lt;br&gt;反之，则是晦涩且难以认同的。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;陷入了这种思考后，思路便生发了出来&lt;br&gt;如果说一个理性者，他的画作是超写实&lt;br&gt;那么人文关怀者，其作品必然是“不如”理性的&lt;br&gt;但是，&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;真正的天才让人忘记才能&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;也许真正的人文主义，是无法被学习的&lt;br /&gt;
-当一切人都毁灭时，人文主义将永远沉睡&lt;br /&gt;
-理性主义将会活到下一次复苏&lt;br /&gt;
-毕竟，理性主义的文艺，本身也不是为了 “人” 创作&lt;br /&gt;
-是一种荷尔蒙的迸发，是一种活着的死亡&lt;br /&gt;
-我不好支持或否定谁&lt;br /&gt;
-我深深爱着二者&lt;br /&gt;
-&lt;img src=&#34;img.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;也许真正的人文主义，是无法被学习的&lt;br&gt;当一切人都毁灭时，人文主义将永远沉睡&lt;br&gt;理性主义将会活到下一次复苏&lt;br&gt;毕竟，理性主义的文艺，本身也不是为了“人”创作&lt;br&gt;是一种荷尔蒙的迸发，是一种活着的死亡&lt;br&gt;我不好支持或否定谁&lt;br&gt;我深深爱着二者&lt;br&gt;&lt;img src=&#34;/2022/04/20/2022-4-20%E9%9A%8F%E7%AC%94/img.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 </content>
-        <category term="随笔" scheme="http://example.com/categories/%E9%9A%8F%E7%AC%94/" />
-        <category term="随笔" scheme="http://example.com/tags/%E9%9A%8F%E7%AC%94/" />
+        <category term="随笔" />
         <updated>2022-04-19T17:05:18.000Z</updated>
     </entry>
     <entry>
         <id>http://example.com/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/</id>
         <title>关于解决无法上传图片的问题</title>
         <link rel="alternate" href="http://example.com/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-        <content type="html">&lt;h1 id=&#34;问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题&#34;&gt;#&lt;/a&gt; 问题&lt;/h1&gt;
-&lt;p&gt;事情是这样的，我在写博客的时候发现，我的图片即使以正确的格式引用，依旧会出现无法加载的问题&lt;br /&gt;
-&lt;img src=&#34;problem.jpg&#34; alt=&#34;问题如图&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;众所周知，没有图片，你写个啥都没法直观地展示，就好像 pre 时用 txt 做演示，大家嘴上不说什么，心里肯定知道&lt;s&gt;你是忘了做 ppt 了&lt;/s&gt;&lt;/p&gt;
+        <content type="html">&lt;h1 id=&#34;问题&#34;&gt;&lt;a href=&#34;#问题&#34; class=&#34;headerlink&#34; title=&#34;问题&#34;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;事情是这样的，我在写博客的时候发现，我的图片即使以正确的格式引用，依旧会出现无法加载的问题&lt;br&gt;&lt;img src=&#34;/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/problem.jpg&#34; alt=&#34;问题如图&#34;&gt;&lt;/p&gt;
+&lt;p&gt;众所周知，没有图片，你写个啥都没法直观地展示，就好像pre时用txt做演示，大家嘴上不说什么，心里肯定知道&lt;del&gt;你是忘了做ppt了&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;总之，根据我一晚上的研究成果，整理出来了几个解决图片无法显示的问题的方法供大家参考。&lt;/p&gt;
-&lt;h1 id=&#34;解决方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解决方法&#34;&gt;#&lt;/a&gt; 解决方法&lt;/h1&gt;
-&lt;h2 id=&#34;目录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目录&#34;&gt;#&lt;/a&gt; 目录&lt;/h2&gt;
-&lt;p&gt;一共有这么几个方法，大家可以都试试，挑一个自己最喜欢的&lt;/p&gt;
+&lt;h1 id=&#34;解决方法&#34;&gt;&lt;a href=&#34;#解决方法&#34; class=&#34;headerlink&#34; title=&#34;解决方法&#34;&gt;&lt;/a&gt;解决方法&lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;&lt;a href=&#34;#目录&#34; class=&#34;headerlink&#34; title=&#34;目录&#34;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;p&gt;一共有这么几个方法，大家可以都试试，挑一个自己最喜欢的&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;./#%E5%9B%BE%E5%BA%8A%E6%B3%95&#34;&gt;图床法&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;./#%E5%9B%BE%E5%BA%8A%E6%B3%95&#34;&gt;图床法&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;github&amp;amp;gitee 图床&lt;/li&gt;
+&lt;li&gt;github&amp;amp;gitee图床&lt;/li&gt;
 &lt;li&gt;图床网站&lt;/li&gt;
 &lt;li&gt;PicGo&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;./#%E6%9C%AC%E5%9C%B0%E4%B8%8A%E4%BC%A0%E6%B3%95&#34;&gt;本地上传法&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;./#%E6%9C%AC%E5%9C%B0%E4%B8%8A%E4%BC%A0%E6%B3%95&#34;&gt;本地上传法&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;图床法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图床法&#34;&gt;#&lt;/a&gt; 图床法&lt;/h2&gt;
-&lt;p&gt;是这样的，一般来说，你的 hexo 博客在部署到服务器时，不会给你上传那些文章里链接的图片的，所以你的 md 文章里链接的图片一般情况下是无法上传的，自然就无法加载出来，但是你的图片如果是网络图片，直接链接网址，就可以通过联网加载的方式显示有如下几种方法&lt;/p&gt;
-&lt;h3 id=&#34;githubgitee仓库图床&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#githubgitee仓库图床&#34;&gt;#&lt;/a&gt; Github&amp;amp;Gitee 仓库图床&lt;/h3&gt;
-&lt;p&gt;这个的原理就是让你的公有仓库变成图床，白嫖存储空间&lt;/p&gt;
-&lt;h4 id=&#34;操作流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#操作流程&#34;&gt;#&lt;/a&gt; 操作流程&lt;/h4&gt;
-&lt;p&gt;具体来说，github 和 gitee 方法相似，这里仅介绍 github，gitee 方法类似&lt;br /&gt;
- gitee 的访问速度会更快一点，github 的容量没有限制，可以自己取舍&lt;/p&gt;
+&lt;h2 id=&#34;图床法&#34;&gt;&lt;a href=&#34;#图床法&#34; class=&#34;headerlink&#34; title=&#34;图床法&#34;&gt;&lt;/a&gt;图床法&lt;/h2&gt;&lt;p&gt;是这样的，一般来说，你的hexo博客在部署到服务器时，不会给你上传那些文章里链接的图片的，所以你的md文章里链接的图片一般情况下是无法上传的，自然就无法加载出来，但是你的图片如果是网络图片，直接链接网址，就可以通过联网加载的方式显示有如下几种方法&lt;/p&gt;
+&lt;h3 id=&#34;Github-amp-Gitee仓库图床&#34;&gt;&lt;a href=&#34;#Github-amp-Gitee仓库图床&#34; class=&#34;headerlink&#34; title=&#34;Github&amp;amp;Gitee仓库图床&#34;&gt;&lt;/a&gt;Github&amp;amp;Gitee仓库图床&lt;/h3&gt;&lt;p&gt;这个的原理就是让你的公有仓库变成图床，白嫖存储空间&lt;/p&gt;
+&lt;h4 id=&#34;操作流程&#34;&gt;&lt;a href=&#34;#操作流程&#34; class=&#34;headerlink&#34; title=&#34;操作流程&#34;&gt;&lt;/a&gt;操作流程&lt;/h4&gt;&lt;p&gt;具体来说，github和gitee方法相似，这里仅介绍github，gitee方法类似&lt;br&gt;gitee的访问速度会更快一点，github的容量没有限制，可以自己取舍&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;注册一个 github 账户&lt;/li&gt;
+&lt;li&gt;注册一个github账户&lt;/li&gt;
 &lt;li&gt;创建一个新的公有库，注意一定是&lt;strong&gt;公有&lt;/strong&gt;，否则外部无法访问&lt;/li&gt;
-&lt;li&gt;在库存中创建一个文件夹&lt;br /&gt;
-&lt;img src=&#34;github.jpg&#34; alt=&#34;add_a_file&#34; /&gt;&lt;/li&gt;
-&lt;li&gt;把你的图片上传&lt;br /&gt;
-&lt;img src=&#34;upload.jpg&#34; alt=&#34;upload&#34; /&gt;&lt;/li&gt;
-&lt;li&gt;点击你的图片，复制地址框中的地址，注意要把 bolb 改为 raw&lt;br /&gt;
-&lt;img src=&#34;raw.jpg&#34; alt=&#34;raw&#34; /&gt;&lt;/li&gt;
-&lt;li&gt;然后就可以在你的博客里引用这个地址了！&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;你可以用 cdn 加速 github，比如 Jsdelivr，加速方法不在本文讨论范围&lt;/p&gt;
+&lt;li&gt;在库存中创建一个文件夹&lt;br&gt; &lt;img src=&#34;/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/github.jpg&#34; alt=&#34;add_a_file&#34;&gt;&lt;/li&gt;
+&lt;li&gt;把你的图片上传&lt;br&gt;&lt;img src=&#34;/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/upload.jpg&#34; alt=&#34;upload&#34;&gt;&lt;/li&gt;
+&lt;li&gt;点击你的图片，复制地址框中的地址，注意要把bolb改为raw&lt;br&gt;&lt;img src=&#34;/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/raw.jpg&#34; alt=&#34;raw&#34;&gt;&lt;/li&gt;
+&lt;li&gt;然后就可以在你的博客里引用这个地址了！&lt;blockquote&gt;
+&lt;p&gt;你可以用cdn加速github，比如Jsdelivr，加速方法不在本文讨论范围&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;图床网站&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图床网站&#34;&gt;#&lt;/a&gt; 图床网站&lt;/h3&gt;
-&lt;p&gt;上面说的只是把 github 当作一个公开访问的图片网站，当然，市面上还有很多的专用图床网站，免费的付费的都有，这里介绍一个免费的网站&lt;a href=&#34;https://imgtu.com&#34;&gt; imgtu.com&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;图床网站&#34;&gt;&lt;a href=&#34;#图床网站&#34; class=&#34;headerlink&#34; title=&#34;图床网站&#34;&gt;&lt;/a&gt;图床网站&lt;/h3&gt;&lt;p&gt;上面说的只是把github当作一个公开访问的图片网站，当然，市面上还有很多的专用图床网站，免费的付费的都有，这里介绍一个免费的网站&lt;a href=&#34;https://imgtu.com/&#34;&gt;imgtu.com&lt;/a&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;打开网站，上传图片&lt;br /&gt;
-&lt;img src=&#34;image.jpg&#34; alt=&#34;image&#34; /&gt;
-&lt;blockquote&gt;
+&lt;li&gt;打开网站，上传图片&lt;br&gt;&lt;img src=&#34;/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/image.jpg&#34; alt=&#34;image&#34;&gt;&lt;blockquote&gt;
 &lt;p&gt;注意不能挂梯子&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;li&gt;上传完成后，在底部链接栏，找到 md 链接，复制粘贴到你的文章插图位置就 ok 了&lt;br /&gt;
-&lt;img src=&#34;save_the_link.jpg&#34; alt=&#34;save_the_link&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;上传完成后，在底部链接栏，找到md链接，复制粘贴到你的文章插图位置就ok了&lt;br&gt;&lt;img src=&#34;/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/save_the_link.jpg&#34; alt=&#34;save_the_link&#34;&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;这个方法还是比较简单的，基本上有手就行，没手的话，&lt;s&gt;那你也别搞博客了&lt;/s&gt;&lt;/p&gt;
-&lt;h3 id=&#34;picgo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#picgo&#34;&gt;#&lt;/a&gt; PicGo&lt;/h3&gt;
-&lt;p&gt;除了以上介绍的两种方法，还有一个比较 “软件化” 的方案，就是&lt;a href=&#34;https://molunerfinn.com/PicGo/&#34;&gt; PicGo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;PicGo 是一个开源的软件，它的优点是方便快捷，不用登网站，操作比较 easy，而且集成了很多平台。&lt;br /&gt;
-&lt;img src=&#34;PicGo.jpg&#34; alt=&#34;PicGo&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;操作方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#操作方法&#34;&gt;#&lt;/a&gt; 操作方法&lt;/h4&gt;
-&lt;p&gt;还是以 GitHub 为例，首先我们进入&lt;strong&gt;图床设置&lt;/strong&gt; -&amp;gt;&lt;strong&gt;Github&lt;/strong&gt;&lt;br /&gt;
-&lt;img src=&#34;picgo_github.jpg&#34; alt=&#34;picgo_github&#34; /&gt;&lt;br /&gt;
- 在对应的框里输入信息&lt;/p&gt;
+&lt;p&gt;这个方法还是比较简单的,基本上有手就行，没手的话，&lt;del&gt;那你也别搞博客了&lt;/del&gt;&lt;/p&gt;
+&lt;h3 id=&#34;PicGo&#34;&gt;&lt;a href=&#34;#PicGo&#34; class=&#34;headerlink&#34; title=&#34;PicGo&#34;&gt;&lt;/a&gt;PicGo&lt;/h3&gt;&lt;p&gt;除了以上介绍的两种方法，还有一个比较“软件化”的方案，就是&lt;a href=&#34;https://molunerfinn.com/PicGo/&#34;&gt;PicGo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;PicGo是一个开源的软件，它的优点是方便快捷，不用登网站，操作比较easy，而且集成了很多平台。&lt;br&gt;&lt;img src=&#34;/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/PicGo.jpg&#34; alt=&#34;PicGo&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;操作方法&#34;&gt;&lt;a href=&#34;#操作方法&#34; class=&#34;headerlink&#34; title=&#34;操作方法&#34;&gt;&lt;/a&gt;操作方法&lt;/h4&gt;&lt;p&gt;还是以GitHub为例，首先我们进入&lt;strong&gt;图床设置&lt;/strong&gt;-&amp;gt;&lt;strong&gt;Github&lt;/strong&gt;&lt;br&gt;&lt;img src=&#34;/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/picgo_github.jpg&#34; alt=&#34;picgo_github&#34;&gt;&lt;br&gt;在对应的框里输入信息&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;存储路径是你的 GitHub 仓库里的路径，没有时会创建&lt;br /&gt;
-自定义域名就是你可以用 cdn 加速访问图片，最后两级就是你的用户名和仓库名&lt;br /&gt;
-下面介绍一下 token 的获取方法&lt;/p&gt;
+&lt;p&gt;存储路径是你的GitHub仓库里的路径，没有时会创建&lt;br&gt;自定义域名就是你可以用cdn加速访问图片，最后两级就是你的用户名和仓库名&lt;br&gt;下面介绍一下token的获取方法&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h5 id=&#34;获取github-token&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#获取github-token&#34;&gt;#&lt;/a&gt; 获取 Github Token&lt;/h5&gt;
-&lt;p&gt;首先从个人列表进入 settings&lt;br /&gt;
-&lt;img src=&#34;token1.jpg&#34; alt=&#34;token1&#34; /&gt;&lt;br /&gt;
- 然后进入最底部的 developer settings&lt;br /&gt;
-&lt;img src=&#34;token2.jpg&#34; alt=&#34;token2&#34; /&gt;&lt;br /&gt;
- 然后进入 Personal access tokens，点 generate new token&lt;br /&gt;
-&lt;img src=&#34;token3.jpg&#34; alt=&#34;token3&#34; /&gt;&lt;br /&gt;
- 按照如下操作&lt;br /&gt;
-&lt;img src=&#34;token4.jpg&#34; alt=&#34;token4&#34; /&gt;&lt;br /&gt;
- 生成后记得复制，这个 token&amp;lt;font color=Red size=6&amp;gt;&lt;strong&gt; 只会出现一次&lt;/strong&gt; &amp;lt;/font&amp;gt;&lt;/p&gt;
-&lt;p&gt;至此，PicGo 的使用介绍就完成了&lt;/p&gt;
-&lt;h2 id=&#34;本地上传法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#本地上传法&#34;&gt;#&lt;/a&gt; 本地上传法&lt;/h2&gt;
-&lt;h2 id=&#34;施工中累了明天再说&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#施工中累了明天再说&#34;&gt;#&lt;/a&gt; （施工中，累了，明天再说）&lt;/h2&gt;
-&lt;p&gt;2022.4.20 更新&lt;/p&gt;
+&lt;h5 id=&#34;获取Github-Token&#34;&gt;&lt;a href=&#34;#获取Github-Token&#34; class=&#34;headerlink&#34; title=&#34;获取Github Token&#34;&gt;&lt;/a&gt;获取Github Token&lt;/h5&gt;&lt;p&gt;首先从个人列表进入settings&lt;br&gt;&lt;img src=&#34;/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/token1.jpg&#34; alt=&#34;token1&#34;&gt;&lt;br&gt;然后进入最底部的developer settings&lt;br&gt;&lt;img src=&#34;/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/token2.jpg&#34; alt=&#34;token2&#34;&gt;&lt;br&gt;然后进入Personal access tokens，点generate new token&lt;br&gt;&lt;img src=&#34;/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/token3.jpg&#34; alt=&#34;token3&#34;&gt;&lt;br&gt;按照如下操作&lt;br&gt;&lt;img src=&#34;/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/token4.jpg&#34; alt=&#34;token4&#34;&gt;&lt;br&gt;生成后记得复制，这个token&lt;font color=&#34;Red&#34; size=&#34;6&#34;&gt;&lt;strong&gt;只会出现一次&lt;/strong&gt;&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;至此，PicGo的使用介绍就完成了&lt;/p&gt;
+&lt;h2 id=&#34;本地上传法&#34;&gt;&lt;a href=&#34;#本地上传法&#34; class=&#34;headerlink&#34; title=&#34;本地上传法&#34;&gt;&lt;/a&gt;本地上传法&lt;/h2&gt;&lt;h2 id=&#34;（施工中，累了，明天再说）&#34;&gt;&lt;a href=&#34;#（施工中，累了，明天再说）&#34; class=&#34;headerlink&#34; title=&#34;（施工中，累了，明天再说）&#34;&gt;&lt;/a&gt;（施工中，累了，明天再说）&lt;/h2&gt;&lt;p&gt;2022.4.20更新&lt;/p&gt;
 &lt;p&gt;继续说本地上传法&lt;/p&gt;
-&lt;p&gt;我们之前说过，本地的图片是不会被 hexo 上传的，其实这个说法不严谨&lt;br /&gt;
-严格来说，是你凭空放一张图片，无法上传&lt;br /&gt;
-但是，我们可以通过一个方法来上传本地图片，那就是 hexo-asset-image。&lt;/p&gt;
-&lt;h3 id=&#34;操作方法-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#操作方法-2&#34;&gt;#&lt;/a&gt; 操作方法&lt;/h3&gt;
-&lt;p&gt;首先安装 hexo-asset-image&lt;br /&gt;
- &lt;code&gt;npm install https://github.com/CodeFalling/hexo-asset-image --save&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;我们之前说过，本地的图片是不会被hexo上传的，其实这个说法不严谨&lt;br&gt;严格来说，是你凭空放一张图片，无法上传&lt;br&gt;但是，我们可以通过一个方法来上传本地图片，那就是hexo-asset-image。&lt;/p&gt;
+&lt;h3 id=&#34;操作方法-1&#34;&gt;&lt;a href=&#34;#操作方法-1&#34; class=&#34;headerlink&#34; title=&#34;操作方法&#34;&gt;&lt;/a&gt;操作方法&lt;/h3&gt;&lt;p&gt;首先安装hexo-asset-image&lt;br&gt;&lt;code&gt;npm install https://github.com/CodeFalling/hexo-asset-image --save&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;注意，如果你安装速度慢的话，可以讲 npm 换为淘宝镜像，切换方法如下：&lt;br /&gt;
- &lt;code&gt;npm config set registry https://registry.npm.taobao.org&lt;/code&gt; &lt;br /&gt;
- 安装完成后，我们要在_config.yml 中作如下更改&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;将 post_asset_folder 设置为 true&lt;/p&gt;
+&lt;li&gt;注意，如果你安装速度慢的话，可以讲npm换为淘宝镜像，切换方法如下：&lt;br&gt;&lt;code&gt;npm config set registry https://registry.npm.taobao.org&lt;/code&gt;&lt;br&gt;安装完成后，我们要在_config.yml中作如下更改&lt;blockquote&gt;
+&lt;p&gt; 将 post_asset_folder 设置为true&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;post.jpg&#34; alt=&#34;post&#34; /&gt;&lt;br /&gt;
- 然后，每当我们新建一篇博客时，就会有一个同名文件夹在_post 文件夹中生成了&lt;br /&gt;
-我们把需要插入的图片放到这个文件夹里面，在文章中引用格式如下&lt;br /&gt;
- &lt;code&gt;![图片描述]（./包名/NO.01.001.jpg）&lt;/code&gt; &lt;br /&gt;
-&amp;lt;font size=5&amp;gt; 或者 &amp;lt;/font&amp;gt;&lt;br /&gt;
- &lt;code&gt;![logo](logo.jpg)&lt;/code&gt; &lt;br /&gt;
- 就可以了，这个方法也是我在用的方法，非常方便，缺点是对服务器压力比较大。&lt;/p&gt;
-&lt;h1 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h1&gt;
-&lt;p&gt;上述的几个方法，各有优缺点，可以结合自己的特点来使用&lt;br /&gt;
-注意图片描述必须是全英文，否则无法显示图片&lt;br /&gt;
-希望有所帮助&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/post.jpg&#34; alt=&#34;post&#34;&gt;&lt;br&gt;然后，每当我们新建一篇博客时，就会有一个同名文件夹在_post文件夹中生成了&lt;br&gt;我们把需要插入的图片放到这个文件夹里面，在文章中引用格式如下&lt;br&gt;&lt;code&gt;![图片描述]（./包名/NO.01.001.jpg）&lt;/code&gt;&lt;br&gt;&lt;font size=&#34;5&#34;&gt;或者&lt;/font&gt;&lt;br&gt;&lt;code&gt;![logo](logo.jpg)&lt;/code&gt;&lt;br&gt;就可以了，这个方法也是我在用的方法，非常方便，缺点是对服务器压力比较大。&lt;/p&gt;
+&lt;h1 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;上述的几个方法，各有优缺点，可以结合自己的特点来使用&lt;br&gt;注意图片描述必须是全英文，否则无法显示图片&lt;br&gt;希望有所帮助&lt;/p&gt;
 </content>
-        <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/" />
-        <category term="博客" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/%E5%8D%9A%E5%AE%A2/" />
-        <category term="技术" scheme="http://example.com/tags/%E6%8A%80%E6%9C%AF/" />
-        <category term="博客" scheme="http://example.com/tags/%E5%8D%9A%E5%AE%A2/" />
-        <category term="markdown" scheme="http://example.com/tags/markdown/" />
+        <category term="技术" />
+        <category term="博客" />
+        <category term="markdown" />
         <updated>2022-04-18T15:45:02.000Z</updated>
     </entry>
     <entry>
         <id>http://example.com/2022/04/18/Hexo%E4%B8%BB%E9%A2%98%E6%A8%A1%E6%9D%BF%E5%88%87%E6%8D%A2/</id>
         <title>Hexo主题模板切换</title>
         <link rel="alternate" href="http://example.com/2022/04/18/Hexo%E4%B8%BB%E9%A2%98%E6%A8%A1%E6%9D%BF%E5%88%87%E6%8D%A2/"/>
-        <content type="html">&lt;h1 id=&#34;下载主题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#下载主题&#34;&gt;#&lt;/a&gt; 下载主题&lt;/h1&gt;
-&lt;p&gt;首先，我们找一个比较好看的主题，比如我找的 Fluid&lt;br /&gt;
-&lt;img src=&#34;fluid.jpg&#34; alt=&#34;fluid网址：https://hexo.fluid-dev.com &#34; /&gt;&lt;/p&gt;
-&lt;p&gt;找到了这个主题的&lt;a href=&#34;https://github.com/fluid-dev/hexo-theme-fluid&#34;&gt; github 网址&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;然后呢，我们需要在 cmd 中输入一行神秘代码&lt;br /&gt;
- &lt;code&gt;git clone https://github.com/fluid-dev/hexo-theme-fluid themes\fluid&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;git clone 是在 GitHub 上下载的命令，中间的部分是这个主题的网址，最后是你在 blog 目录下需要把这个下载的主题存到的位置，系统会自动创建空的文件夹。&lt;/p&gt;
+        <content type="html">&lt;h1 id=&#34;下载主题&#34;&gt;&lt;a href=&#34;#下载主题&#34; class=&#34;headerlink&#34; title=&#34;下载主题&#34;&gt;&lt;/a&gt;下载主题&lt;/h1&gt;&lt;p&gt;首先，我们找一个比较好看的主题，比如我找的Fluid&lt;br&gt;&lt;img src=&#34;/2022/04/18/Hexo%E4%B8%BB%E9%A2%98%E6%A8%A1%E6%9D%BF%E5%88%87%E6%8D%A2/fluid.jpg&#34; alt=&#34;fluid网址：https://hexo.fluid-dev.com &#34;&gt;&lt;/p&gt;
+&lt;p&gt;找到了这个主题的&lt;a href=&#34;https://github.com/fluid-dev/hexo-theme-fluid&#34;&gt;github网址&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;然后呢，我们需要在cmd中输入一行神秘代码&lt;br&gt;&lt;code&gt;git clone https://github.com/fluid-dev/hexo-theme-fluid themes\fluid&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;git clone 是在GitHub上下载的命令，中间的部分是这个主题的网址，最后是你在blog目录下需要把这个下载的主题存到的位置，系统会自动创建空的文件夹。&lt;/p&gt;
 &lt;p&gt;然后静待下载，下载完成后，我们的工作就成功了一大半了！&lt;/p&gt;
-&lt;h1 id=&#34;应用主题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#应用主题&#34;&gt;#&lt;/a&gt; 应用主题&lt;/h1&gt;
-&lt;p&gt;应用主题的方法很简单，只需要打开 blog 目录下的_config.yml 文件，把倒数第二个部分的 “theme：” 改为你的主题所在文件夹的名字就 OK 了。&lt;br /&gt;
-&lt;img src=&#34;config.jpg&#34; alt=&#34;这样&#34; /&gt;&lt;/p&gt;
+&lt;h1 id=&#34;应用主题&#34;&gt;&lt;a href=&#34;#应用主题&#34; class=&#34;headerlink&#34; title=&#34;应用主题&#34;&gt;&lt;/a&gt;应用主题&lt;/h1&gt;&lt;p&gt;应用主题的方法很简单，只需要打开blog目录下的_config.yml文件，把倒数第二个部分的“theme：”改为你的主题所在文件夹的名字就OK了。&lt;br&gt;&lt;img src=&#34;/2022/04/18/Hexo%E4%B8%BB%E9%A2%98%E6%A8%A1%E6%9D%BF%E5%88%87%E6%8D%A2/config.jpg&#34; alt=&#34;这样&#34;&gt;&lt;/p&gt;
 &lt;p&gt;别忘了部署到服务器！&lt;/p&gt;
 </content>
-        <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/" />
-        <category term="博客" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/%E5%8D%9A%E5%AE%A2/" />
-        <category term="技术" scheme="http://example.com/tags/%E6%8A%80%E6%9C%AF/" />
-        <category term="博客" scheme="http://example.com/tags/%E5%8D%9A%E5%AE%A2/" />
-        <category term="markdown" scheme="http://example.com/tags/markdown/" />
+        <category term="技术" />
+        <category term="博客" />
+        <category term="markdown" />
         <updated>2022-04-18T12:56:34.000Z</updated>
     </entry>
     <entry>
@@ -539,36 +316,22 @@ config 文件中 lazyload：模块，enable 设为 true 即可&lt;/p&gt;
         <id>http://example.com/2021/08/24/md%E8%AF%AD%E6%B3%95%E8%AF%95%E9%AA%8C/</id>
         <title>md语法试验</title>
         <link rel="alternate" href="http://example.com/2021/08/24/md%E8%AF%AD%E6%B3%95%E8%AF%95%E9%AA%8C/"/>
-        <content type="html">&lt;h1 id=&#34;分层&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分层&#34;&gt;#&lt;/a&gt; 分层&lt;/h1&gt;
-&lt;h2 id=&#34;二级目录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二级目录&#34;&gt;#&lt;/a&gt; 二级目录&lt;/h2&gt;
-&lt;h3 id=&#34;列表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#列表&#34;&gt;#&lt;/a&gt; 列表&lt;/h3&gt;
-&lt;h4 id=&#34;无序列表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#无序列表&#34;&gt;#&lt;/a&gt; 无序列表&lt;/h4&gt;
-&lt;ul&gt;
+        <content type="html">&lt;h1 id=&#34;分层&#34;&gt;&lt;a href=&#34;#分层&#34; class=&#34;headerlink&#34; title=&#34;分层&#34;&gt;&lt;/a&gt;分层&lt;/h1&gt;&lt;h2 id=&#34;二级目录&#34;&gt;&lt;a href=&#34;#二级目录&#34; class=&#34;headerlink&#34; title=&#34;二级目录&#34;&gt;&lt;/a&gt;二级目录&lt;/h2&gt;&lt;h3 id=&#34;列表&#34;&gt;&lt;a href=&#34;#列表&#34; class=&#34;headerlink&#34; title=&#34;列表&#34;&gt;&lt;/a&gt;列表&lt;/h3&gt;&lt;h4 id=&#34;无序列表&#34;&gt;&lt;a href=&#34;#无序列表&#34; class=&#34;headerlink&#34; title=&#34;无序列表&#34;&gt;&lt;/a&gt;无序列表&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;小标&lt;/li&gt;
 &lt;li&gt;无序&lt;/li&gt;
-&lt;li&gt;各种符号都行
-&lt;ul&gt;
-&lt;li&gt;第二层嵌套
-&lt;ul&gt;
-&lt;li&gt;第 n 层嵌套&lt;/li&gt;
+&lt;li&gt;各种符号都行&lt;ul&gt;
+&lt;li&gt;第二层嵌套&lt;ul&gt;
+&lt;li&gt;第n层嵌套&lt;h4 id=&#34;有序列表&#34;&gt;&lt;a href=&#34;#有序列表&#34; class=&#34;headerlink&#34; title=&#34;有序列表&#34;&gt;&lt;/a&gt;有序列表&lt;/h4&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;有序列表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#有序列表&#34;&gt;#&lt;/a&gt; 有序列表&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;有序列表&lt;/li&gt;
 &lt;li&gt;第一行序号为起始序号&lt;/li&gt;
-&lt;li&gt;即使后面序号错误也会顺序下排
-&lt;ol&gt;
-&lt;li&gt;嵌套效果&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;内容&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#内容&#34;&gt;#&lt;/a&gt; 内容&lt;/h2&gt;
-&lt;h3 id=&#34;引用说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#引用说明&#34;&gt;#&lt;/a&gt; 引用说明&lt;/h3&gt;
-&lt;blockquote&gt;
+&lt;li&gt;即使后面序号错误也会顺序下排&lt;ol&gt;
+&lt;li&gt;嵌套效果&lt;h2 id=&#34;内容&#34;&gt;&lt;a href=&#34;#内容&#34; class=&#34;headerlink&#34; title=&#34;内容&#34;&gt;&lt;/a&gt;内容&lt;/h2&gt;&lt;h3 id=&#34;引用说明&#34;&gt;&lt;a href=&#34;#引用说明&#34; class=&#34;headerlink&#34; title=&#34;引用说明&#34;&gt;&lt;/a&gt;引用说明&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;引用内容&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;二级引用&lt;/p&gt;
@@ -577,60 +340,41 @@ config 文件中 lazyload：模块，enable 设为 true 即可&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;代码块&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码块&#34;&gt;#&lt;/a&gt; 代码块&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;少量代码，单行使用，用·包裹&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs&#34;&gt;&lt;br&gt;大量代码多行使用，用三个·包裹&lt;br&gt;大量代码多行使用，用三个·包裹&lt;br&gt;大量代码多行使用，用三个·包裹&lt;br&gt;大量代码多行使用，用三个·包裹&lt;br&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&#34;链接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#链接&#34;&gt;#&lt;/a&gt; 链接&lt;/h2&gt;
-&lt;h3 id=&#34;网页链接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#网页链接&#34;&gt;#&lt;/a&gt; 网页链接&lt;/h3&gt;
-&lt;h4 id=&#34;行内式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#行内式&#34;&gt;#&lt;/a&gt; 行内式&lt;/h4&gt;
-&lt;p&gt;链接放在【】中，地址放在后面的小括号中，引号内是 title&lt;br /&gt;
-&lt;a href=&#34;www.baidu.com&#34; title=&#34;百度一下，你就知道&#34;&gt; 百度&lt;/a&gt;&lt;br /&gt;
- [百度] 是一个搜索引擎&lt;/p&gt;
-&lt;h4 id=&#34;参数式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参数式&#34;&gt;#&lt;/a&gt; 参数式&lt;/h4&gt;
-&lt;p&gt;链接在【】内，地址在冒号后面，title 用引号&lt;br /&gt;
- [百度]:www.baidu.com &amp;quot;百度一下，你就知道&amp;quot;&lt;br /&gt;
-[百度] 是一个搜索引擎&lt;/p&gt;
-&lt;h3 id=&#34;图片&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图片&#34;&gt;#&lt;/a&gt; 图片&lt;/h3&gt;
-&lt;p&gt;与链接基本一致，注意在引用图片时【】前加上！&lt;br /&gt;
-&lt;img src=&#34;C:%5Cdownload%5Cedge%5C13623636-6d878e3d3ef63825&#34; alt=&#34;logo&#34; /&gt; &amp;quot;my logo&amp;quot;&lt;/p&gt;
-&lt;h2 id=&#34;工整&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工整&#34;&gt;#&lt;/a&gt; 工整&lt;/h2&gt;
-&lt;h3 id=&#34;分割线&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分割线&#34;&gt;#&lt;/a&gt; 分割线&lt;/h3&gt;
-&lt;h2 id=&#34;由-_这三种之一的三个符号表示&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#由-_这三种之一的三个符号表示&#34;&gt;#&lt;/a&gt; 由 * - _这三种之一的三个符号表示&lt;/h2&gt;
-&lt;p&gt;这就是分割线&lt;/p&gt;
-&lt;h3 id=&#34;表格&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#表格&#34;&gt;#&lt;/a&gt; 表格&lt;/h3&gt;
-&lt;p&gt;// 例子&lt;/p&gt;
+&lt;h3 id=&#34;代码块&#34;&gt;&lt;a href=&#34;#代码块&#34; class=&#34;headerlink&#34; title=&#34;代码块&#34;&gt;&lt;/a&gt;代码块&lt;/h3&gt;&lt;p&gt;&lt;code&gt;少量代码，单行使用，用·包裹&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs&#34;&gt;&lt;br&gt;大量代码多行使用，用三个·包裹&lt;br&gt;大量代码多行使用，用三个·包裹&lt;br&gt;大量代码多行使用，用三个·包裹&lt;br&gt;大量代码多行使用，用三个·包裹&lt;br&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;链接&#34;&gt;&lt;a href=&#34;#链接&#34; class=&#34;headerlink&#34; title=&#34;链接&#34;&gt;&lt;/a&gt;链接&lt;/h2&gt;&lt;h3 id=&#34;网页链接&#34;&gt;&lt;a href=&#34;#网页链接&#34; class=&#34;headerlink&#34; title=&#34;网页链接&#34;&gt;&lt;/a&gt;网页链接&lt;/h3&gt;&lt;h4 id=&#34;行内式&#34;&gt;&lt;a href=&#34;#行内式&#34; class=&#34;headerlink&#34; title=&#34;行内式&#34;&gt;&lt;/a&gt;行内式&lt;/h4&gt;&lt;p&gt;链接放在【】中，地址放在后面的小括号中，引号内是title&lt;br&gt;&lt;a href=&#34;www.baidu.com&#34; title=&#34;百度一下，你就知道&#34;&gt;百度&lt;/a&gt;&lt;br&gt;[百度]是一个搜索引擎&lt;/p&gt;
+&lt;h4 id=&#34;参数式&#34;&gt;&lt;a href=&#34;#参数式&#34; class=&#34;headerlink&#34; title=&#34;参数式&#34;&gt;&lt;/a&gt;参数式&lt;/h4&gt;&lt;p&gt;链接在【】内，地址在冒号后面，title用引号&lt;br&gt;[百度]:&lt;a href=&#34;http://www.baidu.com/&#34;&gt;www.baidu.com&lt;/a&gt; “百度一下，你就知道”&lt;br&gt;[百度]是一个搜索引擎&lt;/p&gt;
+&lt;h3 id=&#34;图片&#34;&gt;&lt;a href=&#34;#图片&#34; class=&#34;headerlink&#34; title=&#34;图片&#34;&gt;&lt;/a&gt;图片&lt;/h3&gt;&lt;p&gt;与链接基本一致，注意在引用图片时【】前加上！&lt;br&gt;&lt;img src=&#34;/2021/08/24/md%E8%AF%AD%E6%B3%95%E8%AF%95%E9%AA%8C/download\edge\13623636-6d878e3d3ef63825&#34; alt=&#34;logo&#34;&gt; “my logo”&lt;/p&gt;
+&lt;h2 id=&#34;工整&#34;&gt;&lt;a href=&#34;#工整&#34; class=&#34;headerlink&#34; title=&#34;工整&#34;&gt;&lt;/a&gt;工整&lt;/h2&gt;&lt;h3 id=&#34;分割线&#34;&gt;&lt;a href=&#34;#分割线&#34; class=&#34;headerlink&#34; title=&#34;分割线&#34;&gt;&lt;/a&gt;分割线&lt;/h3&gt;&lt;h2 id=&#34;由-这三种之一的三个符号表示&#34;&gt;&lt;a href=&#34;#由-这三种之一的三个符号表示&#34; class=&#34;headerlink&#34; title=&#34;由* - _这三种之一的三个符号表示&#34;&gt;&lt;/a&gt;由* - _这三种之一的三个符号表示&lt;/h2&gt;&lt;p&gt;这就是分割线&lt;/p&gt;
+&lt;h3 id=&#34;表格&#34;&gt;&lt;a href=&#34;#表格&#34; class=&#34;headerlink&#34; title=&#34;表格&#34;&gt;&lt;/a&gt;表格&lt;/h3&gt;&lt;p&gt;&amp;#x2F;&amp;#x2F;例子&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;123&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;234&lt;/th&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;345&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;123&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;234&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;345&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;abc&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;bcd&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;cde&lt;/td&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;abc&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;bcd&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;cde&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;其他&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他&#34;&gt;#&lt;/a&gt; 其他&lt;/h2&gt;
-&lt;h3 id=&#34;强调字体&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#强调字体&#34;&gt;#&lt;/a&gt; 强调字体&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;强调字体&lt;br /&gt;
-用星号包裹，如&lt;em&gt; md&lt;/em&gt;,&lt;strong&gt;md&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;转义&lt;br /&gt;
-用 \&lt;/li&gt;
-&lt;li&gt;删除线&lt;br /&gt;
-&lt;s&gt;删除&lt;/s&gt;&lt;/li&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h2 id=&#34;其他&#34;&gt;&lt;a href=&#34;#其他&#34; class=&#34;headerlink&#34; title=&#34;其他&#34;&gt;&lt;/a&gt;其他&lt;/h2&gt;&lt;h3 id=&#34;强调字体&#34;&gt;&lt;a href=&#34;#强调字体&#34; class=&#34;headerlink&#34; title=&#34;强调字体&#34;&gt;&lt;/a&gt;强调字体&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;强调字体&lt;br&gt; 用星号包裹，如&lt;em&gt;md&lt;/em&gt;,&lt;strong&gt;md&lt;/strong&gt; &lt;/li&gt;
+&lt;li&gt;转义&lt;br&gt; 用\&lt;/li&gt;
+&lt;li&gt;删除线&lt;br&gt; &lt;del&gt;删除&lt;/del&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </content>
-        <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/" />
-        <category term="博客" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/%E5%8D%9A%E5%AE%A2/" />
-        <category term="技术" scheme="http://example.com/tags/%E6%8A%80%E6%9C%AF/" />
-        <category term="博客" scheme="http://example.com/tags/%E5%8D%9A%E5%AE%A2/" />
-        <category term="markdown" scheme="http://example.com/tags/markdown/" />
+        <category term="技术" />
+        <category term="博客" />
+        <category term="markdown" />
         <updated>2021-08-24T07:32:52.000Z</updated>
     </entry>
     <entry>
@@ -645,18 +389,17 @@ config 文件中 lazyload：模块，enable 设为 true 即可&lt;/p&gt;
         <title>Hello World</title>
         <link rel="alternate" href="http://example.com/2021/08/24/hello-world/"/>
         <content type="html">&lt;p&gt;Welcome to &lt;a href=&#34;https://hexo.io/&#34;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&#34;https://hexo.io/docs/&#34;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&#34;https://hexo.io/docs/troubleshooting.html&#34;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&#34;https://github.com/hexojs/hexo/issues&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
-&lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;$ hexo new &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;My New Post&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;Quick-Start&#34;&gt;&lt;a href=&#34;#Quick-Start&#34; class=&#34;headerlink&#34; title=&#34;Quick Start&#34;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&#34;Create-a-new-post&#34;&gt;&lt;a href=&#34;#Create-a-new-post&#34; class=&#34;headerlink&#34; title=&#34;Create a new post&#34;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;$ hexo new &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;My New Post&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
 &lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/writing.html&#34;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;$ hexo server&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;Run-server&#34;&gt;&lt;a href=&#34;#Run-server&#34; class=&#34;headerlink&#34; title=&#34;Run server&#34;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;$ hexo server&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
 &lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/server.html&#34;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;$ hexo generate&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;Generate-static-files&#34;&gt;&lt;a href=&#34;#Generate-static-files&#34; class=&#34;headerlink&#34; title=&#34;Generate static files&#34;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;$ hexo generate&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
 &lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/generating.html&#34;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;$ hexo deploy&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;Deploy-to-remote-sites&#34;&gt;&lt;a href=&#34;#Deploy-to-remote-sites&#34; class=&#34;headerlink&#34; title=&#34;Deploy to remote sites&#34;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;$ hexo deploy&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
 &lt;p&gt;More info: &lt;a href=&#34;https://hexo.io/docs/one-command-deployment.html&#34;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
 </content>
         <updated>2021-08-24T03:26:25.442Z</updated>
