@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://example.com</id>
+    <title>意大利炮打友军 • Posts by &#34;月历&#34; tag</title>
+    <link href="http://example.com" />
+    <updated>2022-04-30T16:23:42.000Z</updated>
+    <category term="随笔" />
+    <category term="技术" />
+    <category term="博客" />
+    <category term="markdown" />
+    <category term="记录" />
+    <category term="月历" />
+    <entry>
+        <id>http://example.com/2022/05/01/%E4%BD%A0%E5%A5%BD5%E6%9C%88/</id>
+        <title>你好5月</title>
+        <link rel="alternate" href="http://example.com/2022/05/01/%E4%BD%A0%E5%A5%BD5%E6%9C%88/"/>
+        <content type="html">&lt;p&gt;早上好！以防我见不到你们，下午好，晚上好以及晚安！&lt;/p&gt;
+&lt;p&gt;我猜我大概就是想要这样的心态吧。虽然如此，但是我依旧不认为我能够开心地度过最近的日子&lt;/p&gt;
+&lt;h2 id=&#34;与其说是开心，不如说是能不能熬过&#34;&gt;&lt;a href=&#34;#与其说是开心，不如说是能不能熬过&#34; class=&#34;headerlink&#34; title=&#34;与其说是开心，不如说是能不能熬过&#34;&gt;&lt;/a&gt;与其说是开心，不如说是能不能熬过&lt;/h2&gt;&lt;p&gt;抱歉，在五月的一开始就这么垂头丧气，但是对于我来说，今天并不是五月的第一天，也不是4月的最后一天，不是任何一个特殊的日子，只是我呆在封闭的校园封闭的楼中的一天。&lt;/p&gt;
+&lt;p&gt;谢谢关心，但是连疲惫都没有实感的人，怎么会有因为得到了关心而感到的快乐呢？&lt;/p&gt;
+&lt;p&gt;在水群时，很快乐吧&lt;br&gt;但是然后呢？&lt;br&gt;睡不着觉的还是我&lt;br&gt;不想起床的还是我&lt;/p&gt;
+&lt;p&gt;是的，我大概是已经抗拒起床了&lt;/p&gt;
+&lt;p&gt;人间四月芳菲尽&lt;br&gt;我想，四月份对谁来说都是难过的吧&lt;/p&gt;
+&lt;p&gt;这是一种隐藏在深厚的云层以外的忧愁&lt;br&gt;晴天时它隐藏在无尽的深邃中&lt;br&gt;夜晚使它弥漫在窗外&lt;/p&gt;
+&lt;p&gt;但无论如何，那种腐败的味道无时无刻不提醒着我们它的存在。&lt;/p&gt;
+&lt;p&gt;每个人都应当有一种特殊的能力&lt;br&gt;那就是看到平时看不到的东西的能力&lt;br&gt;我看到了什么？&lt;br&gt;满地的樱花，在腐朽的香气中，提醒了我&lt;br&gt;“自由不是理所应当，自由不是触手可及”&lt;/p&gt;
+&lt;p&gt;但是，自由是什么&lt;br&gt;关于这个问题，却是离自由越远，越看得清楚&lt;br&gt;离自由越远，就离真相越近，就离对现实的解构越近。&lt;br&gt;当我们解构了现实时，就能看到远远超出了目光所能及的范围的那些事物。&lt;/p&gt;
+&lt;p&gt;你好吗？五月&lt;br&gt;如果你好，我希望你不好&lt;br&gt;如果你不好，我希望你能过得至少快乐一点。&lt;/p&gt;
+</content>
+        <category term="月历" />
+        <updated>2022-04-30T16:23:42.000Z</updated>
+    </entry>
+</feed>
