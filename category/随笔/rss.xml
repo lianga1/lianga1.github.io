@@ -5,14 +5,36 @@
         <link>http://example.com</link>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Sat, 30 Apr 2022 00:36:19 +0800</pubDate>
-        <lastBuildDate>Sat, 30 Apr 2022 00:36:19 +0800</lastBuildDate>
+        <pubDate>Tue, 03 May 2022 00:18:49 +0800</pubDate>
+        <lastBuildDate>Tue, 03 May 2022 00:18:49 +0800</lastBuildDate>
         <category>随笔</category>
         <category>技术</category>
         <category>博客</category>
         <category>markdown</category>
-        <category>记录</category>
         <category>月历</category>
+        <category>记录</category>
+        <item>
+            <guid isPermalink="true">http://example.com/2022/05/03/2022-5-2%E9%9A%8F%E7%AC%94/</guid>
+            <title>2022.5.2随笔</title>
+            <link>http://example.com/2022/05/03/2022-5-2%E9%9A%8F%E7%AC%94/</link>
+            <category>随笔</category>
+            <pubDate>Tue, 03 May 2022 00:18:49 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;今天要用速度写作的方式&lt;/p&gt;
+&lt;p&gt;我在想什么？我在想善行与恶行。&lt;/p&gt;
+&lt;h1 id=&#34;每日一句&#34;&gt;&lt;a href=&#34;#每日一句&#34; class=&#34;headerlink&#34; title=&#34;每日一句&#34;&gt;&lt;/a&gt;每日一句&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;善行总是比恶行走得远&lt;br&gt;  出处我忘了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;乱想time&#34;&gt;&lt;a href=&#34;#乱想time&#34; class=&#34;headerlink&#34; title=&#34;乱想time&#34;&gt;&lt;/a&gt;乱想time&lt;/h1&gt;&lt;p&gt;爱也好，正义也好，或是人世间的美好品质，都应该是基于一个什么样的目标呢？&lt;br&gt;或者说是基于什么样的品质呢？&lt;/p&gt;
+&lt;p&gt;我希望是进步。&lt;br&gt;Enterprise 进取&lt;/p&gt;
+&lt;p&gt;如果没有进取，一切都将死亡。死亡将会是最安宁最寂寞最稳定的。&lt;br&gt;没有获得也没有失去。&lt;/p&gt;
+&lt;p&gt;即便进取意味着牺牲。为了爱的牺牲&lt;br&gt;与死亡&lt;br&gt;差别在哪里？&lt;/p&gt;
+&lt;p&gt;差别在进取。&lt;br&gt;我不是在急躁。&lt;br&gt;我是在跑步，我奔跑在田野。&lt;/p&gt;
+&lt;p&gt;我不害怕失去这一切，但是我也不会轻易放弃&lt;br&gt;如果为了更进一步的话。&lt;br&gt;我认为牺牲了几乎一切，并不是赌博&lt;br&gt;而是一种必然的选择。&lt;/p&gt;
+&lt;p&gt;康德说你有自由&lt;/p&gt;
+&lt;p&gt;我用这个自由来束缚自己&lt;br&gt;把自己绑在前进的激流中！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/2022/05/03/2022-5-2%E9%9A%8F%E7%AC%94/foust.png&#34; alt=&#34;只要努力，难免犯错误&#34;&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://example.com/2022/04/30/2022-4-29%E9%9A%8F%E7%AC%94/</guid>
             <title>2022.4.29随笔</title>
