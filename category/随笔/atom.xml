@@ -3,13 +3,23 @@
     <id>http://example.com</id>
     <title>意大利炮打友军 • Posts by &#34;随笔&#34; category</title>
     <link href="http://example.com" />
-    <updated>2022-05-02T16:18:49.000Z</updated>
+    <updated>2022-10-26T17:27:59.000Z</updated>
     <category term="随笔" />
     <category term="技术" />
     <category term="博客" />
     <category term="markdown" />
     <category term="月历" />
     <category term="记录" />
+    <entry>
+        <id>http://example.com/2022/10/27/2022-10-27%E9%9A%8F%E7%AC%94/</id>
+        <title>2022.10.27随笔</title>
+        <link rel="alternate" href="http://example.com/2022/10/27/2022-10-27%E9%9A%8F%E7%AC%94/"/>
+        <content type="html">&lt;p&gt;如今我踽踽独行，但我并不担忧，倘若我能留下一丝痕迹，我便永远不会孤独&lt;br&gt;希望你我可以一同在林中漫步&lt;/p&gt;
+&lt;h1 id=&#34;好久不见&#34;&gt;&lt;a href=&#34;#好久不见&#34; class=&#34;headerlink&#34; title=&#34;好久不见&#34;&gt;&lt;/a&gt;好久不见&lt;/h1&gt;&lt;p&gt;我回来了，但是我又怎能说我离开了呢。&lt;br&gt;五个月，是2022被荒废的证据呢，还是让我飞翔的证据呢&lt;br&gt;无论如何，我热爱劳动了&lt;/p&gt;
+</content>
+        <category term="随笔" />
+        <updated>2022-10-26T17:27:59.000Z</updated>
+    </entry>
     <entry>
         <id>http://example.com/2022/05/03/2022-5-2%E9%9A%8F%E7%AC%94/</id>
         <title>2022.5.2随笔</title>

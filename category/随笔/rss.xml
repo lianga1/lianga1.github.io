@@ -5,14 +5,24 @@
         <link>http://example.com</link>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Tue, 03 May 2022 00:18:49 +0800</pubDate>
-        <lastBuildDate>Tue, 03 May 2022 00:18:49 +0800</lastBuildDate>
+        <pubDate>Thu, 27 Oct 2022 01:27:59 +0800</pubDate>
+        <lastBuildDate>Thu, 27 Oct 2022 01:27:59 +0800</lastBuildDate>
         <category>随笔</category>
         <category>技术</category>
         <category>博客</category>
         <category>markdown</category>
         <category>月历</category>
         <category>记录</category>
+        <item>
+            <guid isPermalink="true">http://example.com/2022/10/27/2022-10-27%E9%9A%8F%E7%AC%94/</guid>
+            <title>2022.10.27随笔</title>
+            <link>http://example.com/2022/10/27/2022-10-27%E9%9A%8F%E7%AC%94/</link>
+            <category>随笔</category>
+            <pubDate>Thu, 27 Oct 2022 01:27:59 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;如今我踽踽独行，但我并不担忧，倘若我能留下一丝痕迹，我便永远不会孤独&lt;br&gt;希望你我可以一同在林中漫步&lt;/p&gt;
+&lt;h1 id=&#34;好久不见&#34;&gt;&lt;a href=&#34;#好久不见&#34; class=&#34;headerlink&#34; title=&#34;好久不见&#34;&gt;&lt;/a&gt;好久不见&lt;/h1&gt;&lt;p&gt;我回来了，但是我又怎能说我离开了呢。&lt;br&gt;五个月，是2022被荒废的证据呢，还是让我飞翔的证据呢&lt;br&gt;无论如何，我热爱劳动了&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://example.com/2022/05/03/2022-5-2%E9%9A%8F%E7%AC%94/</guid>
             <title>2022.5.2随笔</title>
