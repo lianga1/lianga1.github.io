@@ -5,6 +5,14 @@
     "home_page_url": "http://example.com",
     "items": [
         {
+            "id": "http://example.com/2023/02/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/",
+            "url": "http://example.com/2023/02/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/",
+            "title": "正则表达式",
+            "date_published": "2023-02-04T16:02:49.000Z",
+            "content_html": "<h1 id=\"关于正则表达式\"><a href=\"#关于正则表达式\" class=\"headerlink\" title=\"关于正则表达式\"></a>关于正则表达式</h1><h2 id=\"基础语法\"><a href=\"#基础语法\" class=\"headerlink\" title=\"基础语法\"></a>基础语法</h2><ol>\n<li>一个简单的例子<blockquote>\n<p>^[0-9]+abc$</p>\n</blockquote>\n</li>\n</ol>\n<p>这个是如下意义：<br>(1) ^是匹配输入字符串开始的位置<br>(2) [0-9]+ can match multiple numbers, if without +, it will match only ONE number<br>(3) abc$ match the number ‘abc’ and end with it, $ means the end of the match string</p>\n<p>So the ^ and $ char refers to the range of regex .<br>And the [] can contain the things we need to match. Such as the a-z 0-9 _ - and so on.<br>But elements without [] refers to the strict match of the string.</p>\n<ol start=\"2\">\n<li>The next step</li>\n</ol>\n<ul>\n<li>char + : For example, there is a Zion+b , it means that there is a Zion and some other chars and finally a ‘b’.</li>\n<li>char * : It is similar to * but the char in front of the * can appear any times.</li>\n<li>char ? : It means the char in front of the ‘?’</li>\n</ul>\n",
+            "tags": []
+        },
+        {
             "id": "http://example.com/2022/10/27/2022-10-27%E9%9A%8F%E7%AC%94/",
             "url": "http://example.com/2022/10/27/2022-10-27%E9%9A%8F%E7%AC%94/",
             "title": "2022.10.27随笔",

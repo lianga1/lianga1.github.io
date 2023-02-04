@@ -3,13 +3,36 @@
     <id>http://example.com</id>
     <title>意大利炮打友军</title>
     <link href="http://example.com" />
-    <updated>2022-10-26T17:27:59.000Z</updated>
+    <updated>2023-02-04T16:02:49.000Z</updated>
     <category term="随笔" />
     <category term="技术" />
     <category term="博客" />
     <category term="markdown" />
     <category term="月历" />
     <category term="记录" />
+    <entry>
+        <id>http://example.com/2023/02/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
+        <title>正则表达式</title>
+        <link rel="alternate" href="http://example.com/2023/02/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+        <content type="html">&lt;h1 id=&#34;关于正则表达式&#34;&gt;&lt;a href=&#34;#关于正则表达式&#34; class=&#34;headerlink&#34; title=&#34;关于正则表达式&#34;&gt;&lt;/a&gt;关于正则表达式&lt;/h1&gt;&lt;h2 id=&#34;基础语法&#34;&gt;&lt;a href=&#34;#基础语法&#34; class=&#34;headerlink&#34; title=&#34;基础语法&#34;&gt;&lt;/a&gt;基础语法&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;一个简单的例子&lt;blockquote&gt;
+&lt;p&gt;^[0-9]+abc$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这个是如下意义：&lt;br&gt;(1) ^是匹配输入字符串开始的位置&lt;br&gt;(2) [0-9]+ can match multiple numbers, if without +, it will match only ONE number&lt;br&gt;(3) abc$ match the number ‘abc’ and end with it, $ means the end of the match string&lt;/p&gt;
+&lt;p&gt;So the ^ and $ char refers to the range of regex .&lt;br&gt;And the [] can contain the things we need to match. Such as the a-z 0-9 _ - and so on.&lt;br&gt;But elements without [] refers to the strict match of the string.&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;The next step&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;char + : For example, there is a Zion+b , it means that there is a Zion and some other chars and finally a ‘b’.&lt;/li&gt;
+&lt;li&gt;char * : It is similar to * but the char in front of the * can appear any times.&lt;/li&gt;
+&lt;li&gt;char ? : It means the char in front of the ‘?’&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <updated>2023-02-04T16:02:49.000Z</updated>
+    </entry>
     <entry>
         <id>http://example.com/2022/10/27/2022-10-27%E9%9A%8F%E7%AC%94/</id>
         <title>2022.10.27随笔</title>
