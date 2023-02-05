@@ -96,6 +96,15 @@
 &lt;li&gt;?! means find the matched string which doesn’t have the marked string on the back. exp1(?!exp2) means find the exp1 which is not followed by the exp2&lt;/li&gt;
 &lt;li&gt;?&amp;lt; ! means find the matched string without the marked string in the head. (?&amp;lt; !exp2)exp1&lt;br&gt;means find the exp1 without a previous exp2 next to it.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;ornamental characters&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;i:means ignore the capitalization of the expression&lt;/li&gt;
+&lt;li&gt;g: find all the matched string&lt;/li&gt;
+&lt;li&gt;m: match the exps with ^$ in multiple lines&lt;/li&gt;
+&lt;li&gt;s: make the . char can match \n character\&lt;/li&gt;
+&lt;/ul&gt;
 </content>
         <updated>2023-02-04T16:02:49.000Z</updated>
     </entry>

@@ -24,7 +24,7 @@
 <meta property="og:description" content="ABOUT REGEXBASIC GRAMMAR A simple example ^[0-9]+abc$    这个是如下意义：(1) ^is the start of the original string.(2) [0-9]+ can match multiple numbers, if without +, it will match only ONE number(3) abc$ mat">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-04T16:02:49.000Z">
-<meta property="article:modified_time" content="2023-02-05T15:03:01.683Z">
+<meta property="article:modified_time" content="2023-02-05T15:34:13.742Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -220,7 +220,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      2.7k 字
     </span>
   
 
@@ -229,7 +229,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      21 分钟
+      23 分钟
     </span>
   
 
@@ -342,6 +342,15 @@
 <li>?&lt;&#x3D; means find the matched string behind the marked string. (?&lt;&#x3D;exp2)exp1 means find the exp1 which is behind the exp2</li>
 <li>?! means find the matched string which doesn’t have the marked string on the back. exp1(?!exp2) means find the exp1 which is not followed by the exp2</li>
 <li>?&lt; ! means find the matched string without the marked string in the head. (?&lt; !exp2)exp1<br>means find the exp1 without a previous exp2 next to it.</li>
+</ul>
+<ol start="7">
+<li>ornamental characters</li>
+</ol>
+<ul>
+<li>i:means ignore the capitalization of the expression</li>
+<li>g: find all the matched string</li>
+<li>m: match the exps with ^$ in multiple lines</li>
+<li>s: make the . char can match \n character\</li>
 </ul>
 
             </div>
