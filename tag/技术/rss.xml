@@ -5,14 +5,76 @@
         <link>http://example.com</link>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Mon, 18 Apr 2022 23:45:02 +0800</pubDate>
-        <lastBuildDate>Mon, 18 Apr 2022 23:45:02 +0800</lastBuildDate>
+        <pubDate>Sun, 14 May 2023 17:04:31 +0800</pubDate>
+        <lastBuildDate>Sun, 14 May 2023 17:04:31 +0800</lastBuildDate>
         <category>随笔</category>
         <category>技术</category>
         <category>博客</category>
         <category>markdown</category>
         <category>月历</category>
+        <category>电赛</category>
         <category>记录</category>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/05/14/%E7%94%B5%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/</guid>
+            <title>电赛学习笔记-机器视觉</title>
+            <link>http://example.com/2023/05/14/%E7%94%B5%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/</link>
+            <category>技术</category>
+            <category>博客</category>
+            <category>电赛</category>
+            <pubDate>Sun, 14 May 2023 17:04:31 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;开发环境&#34;&gt;&lt;a href=&#34;#开发环境&#34; class=&#34;headerlink&#34; title=&#34;开发环境&#34;&gt;&lt;/a&gt;开发环境&lt;/h1&gt;&lt;h2 id=&#34;安装opencv&#34;&gt;&lt;a href=&#34;#安装opencv&#34; class=&#34;headerlink&#34; title=&#34;安装opencv&#34;&gt;&lt;/a&gt;安装opencv&lt;/h2&gt;&lt;h2 id=&#34;开发板：STM32F407&#34;&gt;&lt;a href=&#34;#开发板：STM32F407&#34; class=&#34;headerlink&#34; title=&#34;开发板：STM32F407&#34;&gt;&lt;/a&gt;开发板：STM32F407&lt;/h2&gt;&lt;h2 id=&#34;IDE：STM32CubeIDE&#34;&gt;&lt;a href=&#34;#IDE：STM32CubeIDE&#34; class=&#34;headerlink&#34; title=&#34;IDE：STM32CubeIDE&#34;&gt;&lt;/a&gt;IDE：STM32CubeIDE&lt;/h2&gt;&lt;h2 id=&#34;配置过程&#34;&gt;&lt;a href=&#34;#配置过程&#34; class=&#34;headerlink&#34; title=&#34;配置过程&#34;&gt;&lt;/a&gt;配置过程&lt;/h2&gt;&lt;p&gt;配置工程ioc文件，配置好基础外设后，再packs中安装X-CUBE-AI组件包，在软件包外设中添加模型文件，设置压缩倍数，导入测试集验证准确率&lt;/p&gt;
+&lt;h2 id=&#34;模型&#34;&gt;&lt;a href=&#34;#模型&#34; class=&#34;headerlink&#34; title=&#34;模型&#34;&gt;&lt;/a&gt;模型&lt;/h2&gt;&lt;h3 id=&#34;yolo&#34;&gt;&lt;a href=&#34;#yolo&#34; class=&#34;headerlink&#34; title=&#34;yolo&#34;&gt;&lt;/a&gt;yolo&lt;/h3&gt;&lt;p&gt;利用mobilenet yolo50k模型可以导入到单片机中，只需要较少内存即可实现实时运行，实现人脸识别的功能&lt;/p&gt;
+&lt;h3 id=&#34;openmv&#34;&gt;&lt;a href=&#34;#openmv&#34; class=&#34;headerlink&#34; title=&#34;openmv&#34;&gt;&lt;/a&gt;openmv&lt;/h3&gt;&lt;h2 id=&#34;硬件&#34;&gt;&lt;a href=&#34;#硬件&#34; class=&#34;headerlink&#34; title=&#34;硬件&#34;&gt;&lt;/a&gt;硬件&lt;/h2&gt;&lt;p&gt;正点原子ov7725摄像头&lt;br&gt;yolo50k&lt;/p&gt;
+&lt;h1 id=&#34;相关资料&#34;&gt;&lt;a href=&#34;#相关资料&#34; class=&#34;headerlink&#34; title=&#34;相关资料&#34;&gt;&lt;/a&gt;相关资料&lt;/h1&gt;&lt;p&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV1Bt411w77m/?share_source=copy_web&amp;vd_source=4ed5c2c0429d7681216f506ac1e74065&#34;&gt;稚晖君&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://github.com/dog-qiuqiu/MobileNet-Yolo&#34;&gt;yolo50k仓库&lt;/a&gt;&lt;br&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV1FL411u72p/?share_source=copy_web&amp;vd_source=4ed5c2c0429d7681216f506ac1e74065&#34;&gt;实时运行案例&lt;/a&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/05/14/%E7%94%B5%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-micropython/</guid>
+            <title>电赛学习笔记-micropython</title>
+            <link>http://example.com/2023/05/14/%E7%94%B5%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-micropython/</link>
+            <category>技术</category>
+            <category>博客</category>
+            <category>电赛</category>
+            <pubDate>Sun, 14 May 2023 16:47:54 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;micropython简介&#34;&gt;&lt;a href=&#34;#micropython简介&#34; class=&#34;headerlink&#34; title=&#34;micropython简介&#34;&gt;&lt;/a&gt;micropython简介&lt;/h1&gt;&lt;p&gt;micropython是一个能够利用python进行单片机开发的固件，目前主要是在esp32平台上进行的开发&lt;/p&gt;
+&lt;h1 id=&#34;micropython安装&#34;&gt;&lt;a href=&#34;#micropython安装&#34; class=&#34;headerlink&#34; title=&#34;micropython安装&#34;&gt;&lt;/a&gt;micropython安装&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;在micropython官网找到对应的单片机的型号的固件文件（.bin），下载到对应位置&lt;/li&gt;
+&lt;li&gt;pip install esptool&lt;/li&gt;
+&lt;li&gt;连接esp32单片机，查看端口号&lt;/li&gt;
+&lt;li&gt;根据micropython官网的指示，利用esptool.py文件，清除单片机flash，再部署固件到单片机。&lt;/li&gt;
+&lt;li&gt;安装uPyCraft IDE，选择好开发板类型和端口号后，&lt;h1 id=&#34;micropython使用&#34;&gt;&lt;a href=&#34;#micropython使用&#34; class=&#34;headerlink&#34; title=&#34;micropython使用&#34;&gt;&lt;/a&gt;micropython使用&lt;/h1&gt;需要根据单片机自带的库函数，进行python文档的开发&lt;h1 id=&#34;micropython的优点&#34;&gt;&lt;a href=&#34;#micropython的优点&#34; class=&#34;headerlink&#34; title=&#34;micropython的优点&#34;&gt;&lt;/a&gt;micropython的优点&lt;/h1&gt;代码量少，配置简单&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/05/11/%E7%94%B5%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/</guid>
+            <title>电赛学习笔记（1）——stm32学习笔记</title>
+            <link>http://example.com/2023/05/11/%E7%94%B5%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/</link>
+            <category>技术</category>
+            <category>博客</category>
+            <category>电赛</category>
+            <pubDate>Thu, 11 May 2023 16:19:20 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;stm32基础&#34;&gt;&lt;a href=&#34;#stm32基础&#34; class=&#34;headerlink&#34; title=&#34;stm32基础&#34;&gt;&lt;/a&gt;stm32基础&lt;/h1&gt;&lt;h2 id=&#34;关于stm32产品线&#34;&gt;&lt;a href=&#34;#关于stm32产品线&#34; class=&#34;headerlink&#34; title=&#34;关于stm32产品线&#34;&gt;&lt;/a&gt;关于stm32产品线&lt;/h2&gt;&lt;h3 id=&#34;stm32f1系列-cortex-m3&#34;&gt;&lt;a href=&#34;#stm32f1系列-cortex-m3&#34; class=&#34;headerlink&#34; title=&#34;stm32f1系列 cortex-m3&#34;&gt;&lt;/a&gt;stm32f1系列 cortex-m3&lt;/h3&gt;&lt;h3 id=&#34;stm32f4系列-cortex-m4&#34;&gt;&lt;a href=&#34;#stm32f4系列-cortex-m4&#34; class=&#34;headerlink&#34; title=&#34;stm32f4系列 cortex-m4&#34;&gt;&lt;/a&gt;stm32f4系列 cortex-m4&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;内置了rgb lcd驱动&lt;/li&gt;
+&lt;li&gt;加入了DSP与FPU模块&lt;h3 id=&#34;stm32f7系列-cortex-m7&#34;&gt;&lt;a href=&#34;#stm32f7系列-cortex-m7&#34; class=&#34;headerlink&#34; title=&#34;stm32f7系列 cortex-m7&#34;&gt;&lt;/a&gt;stm32f7系列 cortex-m7&lt;/h3&gt;&lt;/li&gt;
+&lt;li&gt;高速内存得到应用 &lt;h2 id=&#34;HAL库&#34;&gt;&lt;a href=&#34;#HAL库&#34; class=&#34;headerlink&#34; title=&#34;HAL库&#34;&gt;&lt;/a&gt;HAL库&lt;/h2&gt;硬件抽象层，可以将不同产品线的芯片的寄存器操作抽象为函数，方便移植&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;font color=&#34;red&#34;&gt;本笔记使用HAL库进行编程&lt;/font&gt;&lt;/strong&gt;&lt;br&gt;相对的，HAL库会产生大量的判断来降低代码运行效率&lt;br&gt;但是，还有另一个Low Layer库（LL），这个库可以提高效率&lt;/p&gt;
+&lt;h2 id=&#34;stm32cubeMX配置&#34;&gt;&lt;a href=&#34;#stm32cubeMX配置&#34; class=&#34;headerlink&#34; title=&#34;stm32cubeMX配置&#34;&gt;&lt;/a&gt;stm32cubeMX配置&lt;/h2&gt;&lt;h2 id=&#34;stm32计时器&#34;&gt;&lt;a href=&#34;#stm32计时器&#34; class=&#34;headerlink&#34; title=&#34;stm32计时器&#34;&gt;&lt;/a&gt;stm32计时器&lt;/h2&gt;&lt;h3 id=&#34;PWM调制输出&#34;&gt;&lt;a href=&#34;#PWM调制输出&#34; class=&#34;headerlink&#34; title=&#34;PWM调制输出&#34;&gt;&lt;/a&gt;PWM调制输出&lt;/h3&gt;&lt;h4 id=&#34;几个重要参数&#34;&gt;&lt;a href=&#34;#几个重要参数&#34; class=&#34;headerlink&#34; title=&#34;几个重要参数&#34;&gt;&lt;/a&gt;几个重要参数&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;占空比：高电平占整个周期的比例&lt;/li&gt;
+&lt;li&gt;频率：整个PWM周期的倒数&lt;/li&gt;
+&lt;li&gt;分辨率：占空比变化步长&lt;h4 id=&#34;PWM实现方法&#34;&gt;&lt;a href=&#34;#PWM实现方法&#34; class=&#34;headerlink&#34; title=&#34;PWM实现方法&#34;&gt;&lt;/a&gt;PWM实现方法&lt;/h4&gt;输出比较模式，依靠内部计数器cnt和ccr设置的数值的比较来进行输出电平的控制，常用的有匹配时电平翻转和PWM模式&lt;br&gt;PWM占空比：$$DutyCycle&amp;#x3D;\frac{CCR}{ARR}$$&lt;br&gt;PWM频率：$$Freq&amp;#x3D;\frac{F_{clk}}{ARR}$$&lt;br&gt;PWM分辨率：$$Resolution&amp;#x3D;\frac{ARR}{2^{n}}$$&lt;h4 id=&#34;高级定时器&#34;&gt;&lt;a href=&#34;#高级定时器&#34; class=&#34;headerlink&#34; title=&#34;高级定时器&#34;&gt;&lt;/a&gt;高级定时器&lt;/h4&gt;死区生成：可以避免推挽电路上下管同时打开导致短路&lt;h3 id=&#34;PWM控制电机&#34;&gt;&lt;a href=&#34;#PWM控制电机&#34; class=&#34;headerlink&#34; title=&#34;PWM控制电机&#34;&gt;&lt;/a&gt;PWM控制电机&lt;/h3&gt;舵机是根据pwm信号控制舵机转动角度的，内部有直流电机&lt;h4 id=&#34;电机驱动芯片&#34;&gt;&lt;a href=&#34;#电机驱动芯片&#34; class=&#34;headerlink&#34; title=&#34;电机驱动芯片&#34;&gt;&lt;/a&gt;电机驱动芯片&lt;/h4&gt;利用H桥，可以控制电机转动方向。四个开关管可以构成两个推挽电路，使得电机可以获得两个方向的电流。&lt;br&gt;电机需要的电源一般是大功率的，不能直接通过gpio驱动，因此可以通过让stlink的5v口接入电机驱动芯片来获得电源。但是注意，pwm信号的地应当和电机电源的地相连，否则会出现电平不稳定的情况。&lt;h3 id=&#34;PWM代码&#34;&gt;&lt;a href=&#34;#PWM代码&#34; class=&#34;headerlink&#34; title=&#34;PWM代码&#34;&gt;&lt;/a&gt;PWM代码&lt;/h3&gt;pwm的激活结构如下：&lt;br&gt;&lt;img src=&#34;/2023/05/11/%E7%94%B5%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/PWM_Structure.jpg&#34; alt=&#34;PWM_Structure&#34;&gt;&lt;/li&gt;
+&lt;li&gt;RCC开启时钟&lt;/li&gt;
+&lt;li&gt;配置时基单元&lt;/li&gt;
+&lt;li&gt;配置输出比较单元&lt;/li&gt;
+&lt;li&gt;配置GPIO，设置为复用推挽输出&lt;/li&gt;
+&lt;li&gt;运行控制，启动计数器&lt;h4 id=&#34;TIM库函数&#34;&gt;&lt;a href=&#34;#TIM库函数&#34; class=&#34;headerlink&#34; title=&#34;TIM库函数&#34;&gt;&lt;/a&gt;TIM库函数&lt;/h4&gt;在hal库中，tim相关库函数在stm32f1xx_hal_tim.h文件中&lt;br&gt;其中有关输出比较的内容有：&lt;/li&gt;
+&lt;li&gt;TIM_OC_InitTypeDef: 输出比较初始化结构体&lt;/li&gt;
+&lt;li&gt;HAL_StatusTypeDef HAL_TIM_OC_Init(TIM_HandleTypeDef *htim)：输出比较初始化函数&lt;/li&gt;
+&lt;li&gt;HAL_StatusTypeDef HAL_TIM_OC_ConfigChannel(TIM_HandleTypeDef *htim, TIM_OC_InitTypeDef *sConfig, uint32_t Channel)：配置输出通道函数&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://example.com/2022/04/18/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
             <title>关于解决无法上传图片的问题</title>
