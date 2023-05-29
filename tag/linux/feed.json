@@ -1,0 +1,22 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "意大利炮打友军 • All posts by \"linux\" tag",
+    "description": "",
+    "home_page_url": "http://example.com",
+    "items": [
+        {
+            "id": "http://example.com/2023/05/29/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3WSL-Ubuntu%E6%89%BE%E4%B8%8D%E5%88%B0sys-time-h%E7%9A%84%E9%97%AE%E9%A2%98/",
+            "url": "http://example.com/2023/05/29/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3WSL-Ubuntu%E6%89%BE%E4%B8%8D%E5%88%B0sys-time-h%E7%9A%84%E9%97%AE%E9%A2%98/",
+            "title": "关于解决WSL_Ubuntu找不到sys/time.h的问题",
+            "date_published": "2023-05-29T07:24:24.000Z",
+            "content_html": "<h1 id=\"问题描述\"><a href=\"#问题描述\" class=\"headerlink\" title=\"问题描述\"></a>问题描述</h1><p>在使用WSL_Ubuntu的时候，编译C代码时，出现了找不到sys&#x2F;time.h的问题</p>\n<h1 id=\"解决方法\"><a href=\"#解决方法\" class=\"headerlink\" title=\"解决方法\"></a>解决方法</h1><h2 id=\"第一次失败\"><a href=\"#第一次失败\" class=\"headerlink\" title=\"第一次失败\"></a>第一次失败</h2><p>网上的一个直接解决方案是安装libc6-dev-amd64<br>但是问题又一次出现，当输入指令<br><code>sudo apt-get install libc6-dev-amd64</code><br>发生报错 unable to locate package</p>\n<h2 id=\"第二次失败\"><a href=\"#第二次失败\" class=\"headerlink\" title=\"第二次失败\"></a>第二次失败</h2><p>于是转而解决无法定位包的问题，根据查找发现需要在&#x2F;etc&#x2F;apt&#x2F;sources.list中添加源,添加了清华源、阿里源后输入<br><code>sudo apt-get update</code><br>更新完成后再次尝试安装libc6-dev-amd64，但是问题依旧存在</p>\n<h2 id=\"第三次解决\"><a href=\"#第三次解决\" class=\"headerlink\" title=\"第三次解决\"></a>第三次解决</h2><p>这次发现libc6-dev-amd64是一个需要在i386架构下安装的包，于是尝试添加i386架构，运行指令<br><code>dpkg --add-architecture i386</code><br>添加成功后再次输入<br><code>sudo apt-get update</code><br>更新完成后再次尝试安装libc6-dev-amd64，问题解决</p>\n",
+            "tags": [
+                "技术",
+                "博客",
+                "WSL",
+                "Linux",
+                "编译"
+            ]
+        }
+    ]
+}
