@@ -9,11 +9,11 @@
     <category term="博客" />
     <category term="markdown" />
     <category term="月历" />
-    <category term="电赛" />
-    <category term="记录" />
     <category term="WSL" />
     <category term="Linux" />
     <category term="编译" />
+    <category term="电赛" />
+    <category term="记录" />
     <entry>
         <id>http://example.com/2023/05/29/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3WSL-Ubuntu%E6%89%BE%E4%B8%8D%E5%88%B0sys-time-h%E7%9A%84%E9%97%AE%E9%A2%98/</id>
         <title>关于解决WSL_Ubuntu找不到sys/time.h的问题</title>
