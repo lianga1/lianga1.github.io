@@ -3,7 +3,7 @@
     <id>http://example.com</id>
     <title>意大利炮打友军 • Posts by &#34;电赛&#34; category</title>
     <link href="http://example.com" />
-    <updated>2023-07-05T01:46:48.000Z</updated>
+    <updated>2023-07-06T01:48:40.000Z</updated>
     <category term="随笔" />
     <category term="技术" />
     <category term="博客" />
@@ -14,6 +14,26 @@
     <category term="编译" />
     <category term="电赛" />
     <category term="记录" />
+    <entry>
+        <id>http://example.com/2023/07/06/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-06/</id>
+        <title>电赛培训-23-07-06</title>
+        <link rel="alternate" href="http://example.com/2023/07/06/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-06/"/>
+        <content type="html">&lt;h1 id=&#34;ESP32&#34;&gt;&lt;a href=&#34;#ESP32&#34; class=&#34;headerlink&#34; title=&#34;ESP32&#34;&gt;&lt;/a&gt;ESP32&lt;/h1&gt;&lt;h2 id=&#34;中断&#34;&gt;&lt;a href=&#34;#中断&#34; class=&#34;headerlink&#34; title=&#34;中断&#34;&gt;&lt;/a&gt;中断&lt;/h2&gt;&lt;p&gt;中断处理程序不要运行时间过长，不要分配内存&lt;/p&gt;
+&lt;h3 id=&#34;紧急异常缓冲区&#34;&gt;&lt;a href=&#34;#紧急异常缓冲区&#34; class=&#34;headerlink&#34; title=&#34;紧急异常缓冲区&#34;&gt;&lt;/a&gt;紧急异常缓冲区&lt;/h3&gt;&lt;p&gt;如果ISR中发生错误，MicroPython无法生成错误报告&lt;br&gt;除非创建特殊缓冲区&lt;/p&gt;
+&lt;figure class=&#34;highlight elm&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs elm&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; micropython&lt;br&gt;&lt;span class=&#34;hljs-title&#34;&gt;micropython&lt;/span&gt;.alloc_emergency_exception_buf(&lt;span class=&#34;hljs-number&#34;&gt;100&lt;/span&gt;)&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;UART&#34;&gt;&lt;a href=&#34;#UART&#34; class=&#34;headerlink&#34; title=&#34;UART&#34;&gt;&lt;/a&gt;UART&lt;/h2&gt;&lt;p&gt;esp32有三个硬件UART，分别是UART0，UART1，UART2&lt;br&gt;各自分配了默认GPIO&lt;br&gt;TX：当前设备的发送&lt;br&gt;RX：当前设备的接收&lt;br&gt;串口中不分主从&lt;/p&gt;
+&lt;figure class=&#34;highlight apache&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs apache&#34;&gt;&lt;span class=&#34;hljs-attribute&#34;&gt;from&lt;/span&gt; machine import UART&lt;br&gt;&lt;span class=&#34;hljs-attribute&#34;&gt;uart1&lt;/span&gt; = (&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;,baudrate=&lt;span class=&#34;hljs-number&#34;&gt;9600&lt;/span&gt;,tx=&lt;span class=&#34;hljs-number&#34;&gt;33&lt;/span&gt;,rx=&lt;span class=&#34;hljs-number&#34;&gt;32&lt;/span&gt;)#指定了id&lt;br&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;任何GPIO都可以用于使用GPIO矩阵的硬件UART，除了可以用作rx的仅输入引脚34-39&lt;br&gt;发送与接受的波特率一样&lt;/p&gt;
+&lt;p&gt;一种调试方法：不能使用调试器时，可以利用串口输出进行调试。&lt;/p&gt;
+&lt;h2 id=&#34;ADC&#34;&gt;&lt;a href=&#34;#ADC&#34; class=&#34;headerlink&#34; title=&#34;ADC&#34;&gt;&lt;/a&gt;ADC&lt;/h2&gt;&lt;figure class=&#34;highlight reasonml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs reasonml&#34;&gt;from machine import ADC&lt;br&gt;adc = &lt;span class=&#34;hljs-constructor&#34;&gt;ADC(&lt;span class=&#34;hljs-params&#34;&gt;pin&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;val&lt;/span&gt; = adc.read&lt;span class=&#34;hljs-constructor&#34;&gt;_u16()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;val&lt;/span&gt; = adc.read&lt;span class=&#34;hljs-constructor&#34;&gt;_uv()&lt;/span&gt;# &lt;span class=&#34;hljs-keyword&#34;&gt;to&lt;/span&gt; microvolts&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;ADC2也被wifi使用，所以开启wifi时会发生adc2异常&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;定时器&#34;&gt;&lt;a href=&#34;#定时器&#34; class=&#34;headerlink&#34; title=&#34;定时器&#34;&gt;&lt;/a&gt;定时器&lt;/h2&gt;&lt;p&gt;Timer.init(*,mode&amp;#x3D;Timer.PERIODIC,period&amp;#x3D;-1,callback&amp;#x3D;None)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;mode 可以是ONE_SHOT或PERIODIC（单次或周期计时）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;PWM&#34;&gt;&lt;a href=&#34;#PWM&#34; class=&#34;headerlink&#34; title=&#34;PWM&#34;&gt;&lt;/a&gt;PWM&lt;/h2&gt;</content>
+        <updated>2023-07-06T01:48:40.000Z</updated>
+    </entry>
     <entry>
         <id>http://example.com/2023/07/05/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-05/</id>
         <title>电赛培训-23-07-05</title>
