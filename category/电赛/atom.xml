@@ -3,7 +3,7 @@
     <id>http://example.com</id>
     <title>意大利炮打友军 • Posts by &#34;电赛&#34; category</title>
     <link href="http://example.com" />
-    <updated>2023-07-06T01:48:40.000Z</updated>
+    <updated>2023-07-07T01:34:49.000Z</updated>
     <category term="随笔" />
     <category term="技术" />
     <category term="博客" />
@@ -14,6 +14,43 @@
     <category term="编译" />
     <category term="电赛" />
     <category term="记录" />
+    <entry>
+        <id>http://example.com/2023/07/07/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-07/</id>
+        <title>电赛培训-23-07-07</title>
+        <link rel="alternate" href="http://example.com/2023/07/07/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-07/"/>
+        <content type="html">&lt;h1 id=&#34;串口通信&#34;&gt;&lt;a href=&#34;#串口通信&#34; class=&#34;headerlink&#34; title=&#34;串口通信&#34;&gt;&lt;/a&gt;串口通信&lt;/h1&gt;&lt;h2 id=&#34;串行vs并行&#34;&gt;&lt;a href=&#34;#串行vs并行&#34; class=&#34;headerlink&#34; title=&#34;串行vs并行&#34;&gt;&lt;/a&gt;串行vs并行&lt;/h2&gt;&lt;p&gt;并行优点：快，效率高&lt;br&gt;缺点：需要端口多&lt;br&gt;串行优点：只需要一个端口&lt;br&gt;缺点：慢，效率低，且需要明确数据拍成一串的规则&lt;br&gt;（大端法vs小端法）&lt;/p&gt;
+&lt;h2 id=&#34;通信&#34;&gt;&lt;a href=&#34;#通信&#34; class=&#34;headerlink&#34; title=&#34;通信&#34;&gt;&lt;/a&gt;通信&lt;/h2&gt;&lt;p&gt;串行通信每次只发送一个字节，对于字节内部发送bit的顺序，每个通讯协议都是相同的，但是字节的顺序却不一定相同，这就是大端法和小端法的区别。&lt;/p&gt;
+&lt;h3 id=&#34;I2C通信&#34;&gt;&lt;a href=&#34;#I2C通信&#34; class=&#34;headerlink&#34; title=&#34;I2C通信&#34;&gt;&lt;/a&gt;I2C通信&lt;/h3&gt;&lt;p&gt;一个通信口可以和多个设备进行传输，只需要SDA和SCL两个数据线即可，SDA为数据线，SCL为时钟线，时钟线由主设备控制，主设备为发送方，从设备为接收方，从设备的地址由主设备指定，主设备发送数据时，从设备会返回一个ACK信号，表示接收成功，如果没有返回ACK信号，主设备会认为发送失败，重新发送。&lt;br&gt;但是，I2C驱动能力较弱，需要在数据线加上拉电阻，且所有设备必须有不同地址。&lt;/p&gt;
+&lt;h3 id=&#34;SPI通信&#34;&gt;&lt;a href=&#34;#SPI通信&#34; class=&#34;headerlink&#34; title=&#34;SPI通信&#34;&gt;&lt;/a&gt;SPI通信&lt;/h3&gt;&lt;p&gt;不需要考虑地址为问题，可以一个Master带多个slave。&lt;br&gt;缺点：每多一个从机，就需要有一个IO口作为片选信号，且需要一个时钟信号，所以需要的IO口较多。&lt;/p&gt;
+&lt;h3 id=&#34;UART通信&#34;&gt;&lt;a href=&#34;#UART通信&#34; class=&#34;headerlink&#34; title=&#34;UART通信&#34;&gt;&lt;/a&gt;UART通信&lt;/h3&gt;&lt;p&gt;接线非常简单，且双方对等，谁都可以随时发送信息。&lt;br&gt;缺点：容易接错，且难实现多个设备同时通信。而且功耗较大，所以很多传感器上不配备。&lt;br&gt;波特率：每个位对应时间长度的倒数&lt;br&gt;uart通信有起始位，数据位，校验位，停止位，所以每个字节需要10个bit，所以波特率为115200时，每秒可以传输11520个字节。&lt;/p&gt;
+&lt;h4 id=&#34;电平标准&#34;&gt;&lt;a href=&#34;#电平标准&#34; class=&#34;headerlink&#34; title=&#34;电平标准&#34;&gt;&lt;/a&gt;电平标准&lt;/h4&gt;&lt;p&gt;usb标准：看D+和D-的电平差，差大是1，小是0&lt;br&gt;TTL电平：0v是低电平，5&amp;#x2F;3.3v是高电平&lt;br&gt;RS232电平：-3v&lt;del&gt;-15v是低电平，3v&lt;/del&gt;15v是高电平&lt;/p&gt;
+&lt;h4 id=&#34;Arduino的uart&#34;&gt;&lt;a href=&#34;#Arduino的uart&#34; class=&#34;headerlink&#34; title=&#34;Arduino的uart&#34;&gt;&lt;/a&gt;Arduino的uart&lt;/h4&gt;&lt;p&gt;ttl电平5v&lt;br&gt;1为tx&lt;br&gt;0为rx&lt;br&gt;内部已通过ch340g串口转usb，与usb相连，arduino用uart串口发送信息时，会通过ch340g转换为usb信号，所以可以通过usb接收信息。&lt;br&gt;函数：&lt;/p&gt;
+&lt;figure class=&#34;highlight reasonml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs reasonml&#34;&gt;&lt;span class=&#34;hljs-module-access&#34;&gt;&lt;span class=&#34;hljs-module&#34;&gt;&lt;span class=&#34;hljs-identifier&#34;&gt;Serial&lt;/span&gt;.&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;begin&lt;/span&gt;(baudrate)：设置波特率&lt;br&gt;&lt;span class=&#34;hljs-module-access&#34;&gt;&lt;span class=&#34;hljs-module&#34;&gt;&lt;span class=&#34;hljs-identifier&#34;&gt;Serianl&lt;/span&gt;.&lt;/span&gt;&lt;/span&gt;print(content,选项)：发送信息,可以是数字，字符串，数组，对象，选项可以是DEC，BIN，OCT，HEX，BYTE，WORD，FLOAT，STRING，可以指定发送的进制，或者发送字符串。&lt;br&gt;&lt;span class=&#34;hljs-module-access&#34;&gt;&lt;span class=&#34;hljs-module&#34;&gt;&lt;span class=&#34;hljs-identifier&#34;&gt;Serial&lt;/span&gt;.&lt;/span&gt;&lt;/span&gt;println(content,选项)：发送信息，与print不同的是，会在最后加上换行符。&lt;br&gt;&lt;span class=&#34;hljs-module-access&#34;&gt;&lt;span class=&#34;hljs-module&#34;&gt;&lt;span class=&#34;hljs-identifier&#34;&gt;Serial&lt;/span&gt;.&lt;/span&gt;&lt;/span&gt;available&lt;span class=&#34;hljs-literal&#34;&gt;()&lt;/span&gt;：返回接收缓冲区中的字节数&lt;br&gt;&lt;span class=&#34;hljs-module-access&#34;&gt;&lt;span class=&#34;hljs-module&#34;&gt;&lt;span class=&#34;hljs-identifier&#34;&gt;Serial&lt;/span&gt;.&lt;/span&gt;&lt;/span&gt;read&lt;span class=&#34;hljs-constructor&#34;&gt;Bytes(&lt;span class=&#34;hljs-params&#34;&gt;char&lt;/span&gt;类型数组名，最大读取长度)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-module-access&#34;&gt;&lt;span class=&#34;hljs-module&#34;&gt;&lt;span class=&#34;hljs-identifier&#34;&gt;Serial&lt;/span&gt;.&lt;/span&gt;&lt;/span&gt;write(&lt;span class=&#34;hljs-built_in&#34;&gt;char&lt;/span&gt;类型数组名，写入长度)：总共能发送数据长度个字节。按照数组中每个原始值诸葛发送，可以借助这个功能，对&lt;span class=&#34;hljs-keyword&#34;&gt;struct&lt;/span&gt;结构体中相关数据作为一个整体，将结构体指针强制转型为byte*类型，后面数据长度用sizeof(&lt;span class=&#34;hljs-keyword&#34;&gt;struct&lt;/span&gt;),这样就可以将结构体作为一个整体发送。&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;Arduino的uart工具&#34;&gt;&lt;a href=&#34;#Arduino的uart工具&#34; class=&#34;headerlink&#34; title=&#34;Arduino的uart工具&#34;&gt;&lt;/a&gt;Arduino的uart工具&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;串口绘图仪：可以发送数据时利用数据名：数据的格式，将以时间为横轴，数值为纵轴，根据格式中构成的变量数量，以不同颜色的线段，随时间变化的情况进行绘图。&lt;/li&gt;
+&lt;li&gt;BYSerial&lt;br&gt;串口不能同时被多个程序打开。&lt;h2 id=&#34;网络&#34;&gt;&lt;a href=&#34;#网络&#34; class=&#34;headerlink&#34; title=&#34;网络&#34;&gt;&lt;/a&gt;网络&lt;/h2&gt;基本概念：&lt;/li&gt;
+&lt;li&gt;TCP&amp;#x2F;IP协议：定义了设备如何连接如互联网&lt;/li&gt;
+&lt;li&gt;TCP：信息必须齐全的网络通信的基础&lt;/li&gt;
+&lt;li&gt;UDP：信息可以缺少或者需要广播的网络通信的基础&lt;/li&gt;
+&lt;li&gt;IP：计算机之间用于识别身份的临时位置编号&lt;/li&gt;
+&lt;li&gt;ICMP：网络控制信号协议&lt;/li&gt;
+&lt;li&gt;DHCP：动态分配ip地址协议&lt;/li&gt;
+&lt;li&gt;一个能连接互联网的网课出厂自带的编号。&lt;h3 id=&#34;ipv4&#34;&gt;&lt;a href=&#34;#ipv4&#34; class=&#34;headerlink&#34; title=&#34;ipv4&#34;&gt;&lt;/a&gt;ipv4&lt;/h3&gt;ipv4定义了32位二进制地址&lt;br&gt;同时，ipv4定义了一些只会用于内部网络的地址编号，称为私网ip段，剩下的都是用于全球公网ip。&lt;br&gt;例如&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;10.0.0.0-10.255.255.255&lt;br&gt;172.16.0.0-172.31.255.255&lt;br&gt;192.168.0.0-192.168.255.255&lt;/p&gt;
+&lt;h3 id=&#34;ipv6&#34;&gt;&lt;a href=&#34;#ipv6&#34; class=&#34;headerlink&#34; title=&#34;ipv6&#34;&gt;&lt;/a&gt;ipv6&lt;/h3&gt;&lt;p&gt;ipv6定义了128位二进制地址&lt;/p&gt;
+&lt;h3 id=&#34;子网掩码&#34;&gt;&lt;a href=&#34;#子网掩码&#34; class=&#34;headerlink&#34; title=&#34;子网掩码&#34;&gt;&lt;/a&gt;子网掩码&lt;/h3&gt;&lt;p&gt;子网掩码用于判断ip地址的前几位是网络号，后几位是主机号。&lt;br&gt;32个二进制位表示ip地址截止到哪里，只要相同就认为在同一个子网内，可以直接通信无需交给网关做转发。要求必须1卡头，连续多个1，剩下的是0。255.255.255.0对于这个设备，前面三个点分十进制数相同，那就认为是在同一个网络下，因此会直接连接而不会寻求网关。&lt;/p&gt;
+&lt;h3 id=&#34;tcp协议&#34;&gt;&lt;a href=&#34;#tcp协议&#34; class=&#34;headerlink&#34; title=&#34;tcp协议&#34;&gt;&lt;/a&gt;tcp协议&lt;/h3&gt;&lt;p&gt;传输控制协议，是面向连接的，可靠的，基于字节流的传输层通信协议，一个tcp连接需要有：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在一个网络色悲伤，特定的网络端口如8080（最好大于1023）上开创一个tcp server，这个过程叫做绑定端口，并开始监听端口。&lt;/li&gt;
+&lt;li&gt;得到该网络设备的ip地址，因此需要体现获得server的ipv4地址，以及开启tcp监听端口。&lt;h3 id=&#34;udp协议&#34;&gt;&lt;a href=&#34;#udp协议&#34; class=&#34;headerlink&#34; title=&#34;udp协议&#34;&gt;&lt;/a&gt;udp协议&lt;/h3&gt;无连接的传输协议，成为用户数据报协议&lt;br&gt;udp提供了一个无需链接就能发送封装的ip数据包的方法，建立一套tcp连接需要有：&lt;/li&gt;
+&lt;li&gt;在一个网络设备上，特定的网络端口如8080（最好大于1023）上开创一个udp socket&lt;/li&gt;
+&lt;li&gt;设定好目的地IP地址和端口便可以随心所欲发送数据&lt;/li&gt;
+&lt;li&gt;目的地ip地址对应网络设备B，如果尝试在自己9090端口上开创一个udp socket，且A正好在发送信息，那么此时就能受到A发送的信息。&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <updated>2023-07-07T01:34:49.000Z</updated>
+    </entry>
     <entry>
         <id>http://example.com/2023/07/06/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-06/</id>
         <title>电赛培训-23-07-06</title>
