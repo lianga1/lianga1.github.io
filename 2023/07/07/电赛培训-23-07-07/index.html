@@ -24,7 +24,7 @@
 <meta property="og:description" content="串口通信串行vs并行并行优点：快，效率高缺点：需要端口多串行优点：只需要一个端口缺点：慢，效率低，且需要明确数据拍成一串的规则（大端法vs小端法） 通信串行通信每次只发送一个字节，对于字节内部发送bit的顺序，每个通讯协议都是相同的，但是字节的顺序却不一定相同，这就是大端法和小端法的区别。 I2C通信一个通信口可以和多个设备进行传输，只需要SDA和SCL两个数据线即可，SDA为数据线，SCL为时钟">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-07T01:34:49.000Z">
-<meta property="article:modified_time" content="2023-07-07T03:24:54.248Z">
+<meta property="article:modified_time" content="2023-07-07T05:49:53.337Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -232,7 +232,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.1k 字
+      2.9k 字
     </span>
   
 
@@ -241,7 +241,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18 分钟
+      24 分钟
     </span>
   
 
@@ -302,6 +302,31 @@
 <li>在一个网络设备上，特定的网络端口如8080（最好大于1023）上开创一个udp socket</li>
 <li>设定好目的地IP地址和端口便可以随心所欲发送数据</li>
 <li>目的地ip地址对应网络设备B，如果尝试在自己9090端口上开创一个udp socket，且A正好在发送信息，那么此时就能受到A发送的信息。</li>
+</ol>
+<h2 id="wifi连接"><a href="#wifi连接" class="headerlink" title="wifi连接"></a>wifi连接</h2><h3 id="station终端"><a href="#station终端" class="headerlink" title="station终端"></a>station终端</h3><p>新建station</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">import</span> network<br>wlan - network.WLAN(network.STA.<span class="hljs-keyword">IF</span>)# <span class="hljs-keyword">create</span> station<br>wlan.active(<span class="hljs-keyword">True</span>)<br>wlan.scan() #scan <span class="hljs-keyword">for</span> acess points(AP)<br>wlan.isconnected() #<span class="hljs-keyword">check</span> <span class="hljs-keyword">if</span> the station <span class="hljs-keyword">is</span> connected <span class="hljs-keyword">to</span> an AP<br><br>wlan.<span class="hljs-keyword">connect</span>(<span class="hljs-string">&#x27;ssid&#x27;</span>, <span class="hljs-string">&#x27;key&#x27;</span>) #<span class="hljs-keyword">connect</span> <span class="hljs-keyword">to</span> an AP<br>wlan.config(<span class="hljs-string">&#x27;mac&#x27;</span>) #<span class="hljs-keyword">get</span> the interfac<span class="hljs-string">e&#x27;s MAC address</span><br><span class="hljs-string">wlan.ifconfig() #get the interface&#x27;</span>s IP/netmask/gw/DNS addresses<br></code></pre></td></tr></table></figure>
+<p>新建AP</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">import</span> network<br>ap = network.WLAN(network.AP_IF) # <span class="hljs-keyword">create</span> acess <span class="hljs-type">point</span> interface<br>ap.config(ssid=<span class="hljs-string">&#x27;ESP-AP&#x27;</span>) #<span class="hljs-keyword">set</span> the SSID <span class="hljs-keyword">of</span> the <span class="hljs-keyword">access</span> <span class="hljs-type">point</span><br>ap.config(max_clients=<span class="hljs-number">10</span>) #<span class="hljs-keyword">set</span> how many clients can <span class="hljs-keyword">connect</span> <span class="hljs-keyword">to</span> the <span class="hljs-keyword">access</span> <span class="hljs-type">point</span><br>ap.active(<span class="hljs-keyword">True</span>)<br></code></pre></td></tr></table></figure>
+<p>tcp通讯：</p>
+<ol>
+<li>连接wifi</li>
+<li>获取本地ip</li>
+<li>创建tcp</li>
+<li>绑定本地ip和端口</li>
+<li>设定最大连接数</li>
+<li>配置tcp选项</li>
+<li>用户进入获取用户组</li>
+<li>读取用户信息，</li>
+<li>发送接收到的数据给发送者</li>
+</ol>
+<p>udp通讯：server</p>
+<ol>
+<li>创建socket对象要设置udp模式</li>
+</ol>
+<p>udp通信：client</p>
+<ol>
+<li>判断wifi连接</li>
+<li>发送使用sendto函数</li>
 </ol>
 
             </div>

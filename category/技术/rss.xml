@@ -52,6 +52,31 @@
 &lt;li&gt;设定好目的地IP地址和端口便可以随心所欲发送数据&lt;/li&gt;
 &lt;li&gt;目的地ip地址对应网络设备B，如果尝试在自己9090端口上开创一个udp socket，且A正好在发送信息，那么此时就能受到A发送的信息。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&#34;wifi连接&#34;&gt;&lt;a href=&#34;#wifi连接&#34; class=&#34;headerlink&#34; title=&#34;wifi连接&#34;&gt;&lt;/a&gt;wifi连接&lt;/h2&gt;&lt;h3 id=&#34;station终端&#34;&gt;&lt;a href=&#34;#station终端&#34; class=&#34;headerlink&#34; title=&#34;station终端&#34;&gt;&lt;/a&gt;station终端&lt;/h3&gt;&lt;p&gt;新建station&lt;/p&gt;
+&lt;figure class=&#34;highlight pgsql&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs pgsql&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; network&lt;br&gt;wlan - network.WLAN(network.STA.&lt;span class=&#34;hljs-keyword&#34;&gt;IF&lt;/span&gt;)# &lt;span class=&#34;hljs-keyword&#34;&gt;create&lt;/span&gt; station&lt;br&gt;wlan.active(&lt;span class=&#34;hljs-keyword&#34;&gt;True&lt;/span&gt;)&lt;br&gt;wlan.scan() #scan &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; acess points(AP)&lt;br&gt;wlan.isconnected() #&lt;span class=&#34;hljs-keyword&#34;&gt;check&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; the station &lt;span class=&#34;hljs-keyword&#34;&gt;is&lt;/span&gt; connected &lt;span class=&#34;hljs-keyword&#34;&gt;to&lt;/span&gt; an AP&lt;br&gt;&lt;br&gt;wlan.&lt;span class=&#34;hljs-keyword&#34;&gt;connect&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;ssid&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;key&amp;#x27;&lt;/span&gt;) #&lt;span class=&#34;hljs-keyword&#34;&gt;connect&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;to&lt;/span&gt; an AP&lt;br&gt;wlan.config(&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;mac&amp;#x27;&lt;/span&gt;) #&lt;span class=&#34;hljs-keyword&#34;&gt;get&lt;/span&gt; the interfac&lt;span class=&#34;hljs-string&#34;&gt;e&amp;#x27;s MAC address&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;wlan.ifconfig() #get the interface&amp;#x27;&lt;/span&gt;s IP/netmask/gw/DNS addresses&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;新建AP&lt;/p&gt;
+&lt;figure class=&#34;highlight pgsql&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs pgsql&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; network&lt;br&gt;ap = network.WLAN(network.AP_IF) # &lt;span class=&#34;hljs-keyword&#34;&gt;create&lt;/span&gt; acess &lt;span class=&#34;hljs-type&#34;&gt;point&lt;/span&gt; interface&lt;br&gt;ap.config(ssid=&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;ESP-AP&amp;#x27;&lt;/span&gt;) #&lt;span class=&#34;hljs-keyword&#34;&gt;set&lt;/span&gt; the SSID &lt;span class=&#34;hljs-keyword&#34;&gt;of&lt;/span&gt; the &lt;span class=&#34;hljs-keyword&#34;&gt;access&lt;/span&gt; &lt;span class=&#34;hljs-type&#34;&gt;point&lt;/span&gt;&lt;br&gt;ap.config(max_clients=&lt;span class=&#34;hljs-number&#34;&gt;10&lt;/span&gt;) #&lt;span class=&#34;hljs-keyword&#34;&gt;set&lt;/span&gt; how many clients can &lt;span class=&#34;hljs-keyword&#34;&gt;connect&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;to&lt;/span&gt; the &lt;span class=&#34;hljs-keyword&#34;&gt;access&lt;/span&gt; &lt;span class=&#34;hljs-type&#34;&gt;point&lt;/span&gt;&lt;br&gt;ap.active(&lt;span class=&#34;hljs-keyword&#34;&gt;True&lt;/span&gt;)&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;tcp通讯：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;连接wifi&lt;/li&gt;
+&lt;li&gt;获取本地ip&lt;/li&gt;
+&lt;li&gt;创建tcp&lt;/li&gt;
+&lt;li&gt;绑定本地ip和端口&lt;/li&gt;
+&lt;li&gt;设定最大连接数&lt;/li&gt;
+&lt;li&gt;配置tcp选项&lt;/li&gt;
+&lt;li&gt;用户进入获取用户组&lt;/li&gt;
+&lt;li&gt;读取用户信息，&lt;/li&gt;
+&lt;li&gt;发送接收到的数据给发送者&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;udp通讯：server&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;创建socket对象要设置udp模式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;udp通信：client&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;判断wifi连接&lt;/li&gt;
+&lt;li&gt;发送使用sendto函数&lt;/li&gt;
+&lt;/ol&gt;
  ]]></description>
         </item>
         <item>
