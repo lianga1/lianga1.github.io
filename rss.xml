@@ -5,18 +5,504 @@
         <link>http://example.com</link>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Fri, 07 Jul 2023 09:34:49 +0800</pubDate>
-        <lastBuildDate>Fri, 07 Jul 2023 09:34:49 +0800</lastBuildDate>
+        <pubDate>Wed, 15 Nov 2023 16:09:06 +0800</pubDate>
+        <lastBuildDate>Wed, 15 Nov 2023 16:09:06 +0800</lastBuildDate>
         <category>随笔</category>
         <category>技术</category>
         <category>博客</category>
         <category>markdown</category>
+        <category>python</category>
         <category>月历</category>
+        <category>写作</category>
+        <category>科幻</category>
+        <category>世界观</category>
         <category>WSL</category>
         <category>Linux</category>
         <category>编译</category>
         <category>电赛</category>
         <category>记录</category>
+        <category>周报</category>
+        <category>课题组</category>
+        <category>神经网络</category>
+        <category>pytorch</category>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/11/15/%E8%AF%BE%E9%A2%98%E7%BB%8423-11-15%E5%91%A8%E6%8A%A5/</guid>
+            <title>课题组23-11-15周报</title>
+            <link>http://example.com/2023/11/15/%E8%AF%BE%E9%A2%98%E7%BB%8423-11-15%E5%91%A8%E6%8A%A5/</link>
+            <category>技术</category>
+            <category>周报</category>
+            <category>课题组</category>
+            <category>神经网络</category>
+            <category>pytorch</category>
+            <pubDate>Wed, 15 Nov 2023 16:09:06 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;实验关于fp16参数转换速度的问题&#34;&gt;&lt;a href=&#34;#实验关于fp16参数转换速度的问题&#34; class=&#34;headerlink&#34; title=&#34;实验关于fp16参数转换速度的问题&#34;&gt;&lt;/a&gt;实验关于fp16参数转换速度的问题&lt;/h1&gt;&lt;p&gt;本周进行了一个实验，主要用于观察pytorch中对张量转移的各种方法的性能差异。&lt;/p&gt;
+&lt;h2 id=&#34;实验思路&#34;&gt;&lt;a href=&#34;#实验思路&#34; class=&#34;headerlink&#34; title=&#34;实验思路&#34;&gt;&lt;/a&gt;实验思路&lt;/h2&gt;&lt;h3 id=&#34;几种不同的传输方向&#34;&gt;&lt;a href=&#34;#几种不同的传输方向&#34; class=&#34;headerlink&#34; title=&#34;几种不同的传输方向&#34;&gt;&lt;/a&gt;几种不同的传输方向&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;cpu -&amp;gt; cpu&lt;/li&gt;
+&lt;li&gt;cpu -&amp;gt; gpu&lt;/li&gt;
+&lt;li&gt;gpu -&amp;gt; cpu&lt;/li&gt;
+&lt;li&gt;gpu -&amp;gt; gpu&lt;h3 id=&#34;几种不同的数据&#34;&gt;&lt;a href=&#34;#几种不同的数据&#34; class=&#34;headerlink&#34; title=&#34;几种不同的数据&#34;&gt;&lt;/a&gt;几种不同的数据&lt;/h3&gt;&lt;/li&gt;
+&lt;li&gt;fp32 -&amp;gt; fp32&lt;/li&gt;
+&lt;li&gt;fp32 -&amp;gt; fp16&lt;br&gt;&lt;code&gt;调用half()函数，将fp32数据转换为fp16数据&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;fp16 -&amp;gt; fp16&lt;/li&gt;
+&lt;li&gt;fp16 -&amp;gt; fp32&lt;br&gt;&lt;code&gt;调用float()函数，将fp16数据转换为fp32数据&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;目前第三、四种暂未测试&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;几种不同的传输方式&#34;&gt;&lt;a href=&#34;#几种不同的传输方式&#34; class=&#34;headerlink&#34; title=&#34;几种不同的传输方式&#34;&gt;&lt;/a&gt;几种不同的传输方式&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;copy_()&lt;/li&gt;
+&lt;li&gt;to()&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;实验过程&#34;&gt;&lt;a href=&#34;#实验过程&#34; class=&#34;headerlink&#34; title=&#34;实验过程&#34;&gt;&lt;/a&gt;实验过程&lt;/h2&gt;&lt;p&gt;准备一个目的地矩阵，一个源矩阵组（100个）。分别用随机数初始化。&lt;br&gt;循环100次，每次都遍历整个矩阵组，传输至对应的目的地矩阵。&lt;br&gt;测量总时长，对不同情况进行比较&lt;br&gt;代码模板如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; torch&lt;br&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; time&lt;br&gt;tensor_cpu_1 = torch.rand(&lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;)&lt;br&gt;tensor_gpu_1 = torch.rand(&lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;).cuda()&lt;br&gt;tensor_cpu_2 = torch.rand(&lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;)&lt;br&gt;tensor_gpu_2 = torch.rand(&lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;1000&lt;/span&gt;).cuda()&lt;br&gt;time_sum = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; j &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;100&lt;/span&gt;):&lt;br&gt;    start = time.time()&lt;br&gt;    &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; i &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;100&lt;/span&gt;):&lt;br&gt;        tensor_cpu_1.copy_(tensor_cpu_2[i])&lt;br&gt;    end = time.time()&lt;br&gt;    time_sum += end - start&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&#34;hljs-built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;time for copy from cpu to cpu via _copy():&amp;quot;&lt;/span&gt;, time_sum)&lt;br&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如上代码展示了从cpu到cpu传输fp32的过程。最终展示了传输十万个1000*1000的矩阵所耗费的总时间。&lt;br&gt;经过实验，结果如下表所示：&lt;br&gt;记录数据如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;传输方向&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;传输方式&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;数据类型&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;时间&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;cpu -&amp;gt; cpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;copy_()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp32&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;2.187&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;cpu -&amp;gt; cpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;to()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp32&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.025&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;cpu -&amp;gt; cpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;copy_()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp16&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;5.855&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;cpu -&amp;gt; cpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;to()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp16&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;5.634&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;cpu -&amp;gt; gpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;copy_()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp32&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;9.663&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;cpu -&amp;gt; gpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;to()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp32&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;9.555&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;cpu -&amp;gt; gpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;copy_()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp16&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;9.876&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;cpu -&amp;gt; gpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;to()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp16&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;10.264&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;gpu -&amp;gt; cpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;copy_()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp32&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;8.895&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;gpu -&amp;gt; cpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;to()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp32&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;13.649&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;gpu -&amp;gt; cpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;copy_()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp16&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;10.051&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;gpu -&amp;gt; cpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;to()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp16&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;7.320&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;gpu -&amp;gt; gpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;copy_()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp32&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.605&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;gpu -&amp;gt; gpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;to()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp32&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.029&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;gpu -&amp;gt; gpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;copy_()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp16&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.484&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;gpu -&amp;gt; gpu&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;to()&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;fp32 -&amp;gt; fp16&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.591&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;注意，测试时间可能会有波动，尤其是在时间较短时，考虑到这种传输主要出现在gpu-&amp;gt;gpu中，不是主要考虑内容&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/10/22/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%BA%94%E5%91%A8%E5%AD%A6%E4%B9%A0/</guid>
+            <title>课题组第五周学习</title>
+            <link>http://example.com/2023/10/22/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%BA%94%E5%91%A8%E5%AD%A6%E4%B9%A0/</link>
+            <category>技术</category>
+            <category>周报</category>
+            <category>课题组</category>
+            <category>神经网络</category>
+            <category>pytorch</category>
+            <pubDate>Sun, 22 Oct 2023 23:36:49 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;高效直接访问主机内存的方法&#34;&gt;&lt;a href=&#34;#高效直接访问主机内存的方法&#34; class=&#34;headerlink&#34; title=&#34;高效直接访问主机内存的方法&#34;&gt;&lt;/a&gt;高效直接访问主机内存的方法&lt;/h1&gt;&lt;h2 id=&#34;现有方法存在的问题&#34;&gt;&lt;a href=&#34;#现有方法存在的问题&#34; class=&#34;headerlink&#34; title=&#34;现有方法存在的问题&#34;&gt;&lt;/a&gt;现有方法存在的问题&lt;/h2&gt;&lt;h3 id=&#34;通过加载后执行的方法&#34;&gt;&lt;a href=&#34;#通过加载后执行的方法&#34; class=&#34;headerlink&#34; title=&#34;通过加载后执行的方法&#34;&gt;&lt;/a&gt;通过加载后执行的方法&lt;/h3&gt;&lt;p&gt;面对巨大的模型参数规模，现有GPU的显存难以支撑大模型的训练。因此产生了一种通过加载后执行的方法，即将模型参数存储在主机内存中，每次训练时将参数加载到显存中，训练结束后将参数保存到主机内存中。这种方法的缺点是每次训练都需要将参数加载到显存中，这个过程会消耗大量的时间，例如在v100上，加载时间会是处理时间的4倍以上，导致训练效率低下。有一种异步加载方法，将加载层和训练层分开，训练层在训练时异步加载参数，但是这种方法会导致训练时的显存占用过高，而且层数较多时加载时间过高的劣势逐渐显现，优化并不明显。&lt;/p&gt;
+&lt;h2 id=&#34;本文提出的方法&#34;&gt;&lt;a href=&#34;#本文提出的方法&#34; class=&#34;headerlink&#34; title=&#34;本文提出的方法&#34;&gt;&lt;/a&gt;本文提出的方法&lt;/h2&gt;&lt;h3 id=&#34;直接主机访问&#34;&gt;&lt;a href=&#34;#直接主机访问&#34; class=&#34;headerlink&#34; title=&#34;直接主机访问&#34;&gt;&lt;/a&gt;直接主机访问&lt;/h3&gt;&lt;p&gt;避开加载和训练不同步的问题，直接将cpu内存当作gpu的虚拟内存进行访问，这样避免了加载过程中占用gpu显存过高的问题，但是由于访问和数据流动要经过pcie总线，传输速度较慢。&lt;br&gt;因此，DHA使用了这样一种办法，使得其可以自适应选择访问方式，其可以通过直接主机访问和加载后执行两种方法进行训练，使得加载的时间可以隐藏在训练流的流水线中。&lt;/p&gt;
+&lt;h3 id=&#34;多GPU方法&#34;&gt;&lt;a href=&#34;#多GPU方法&#34; class=&#34;headerlink&#34; title=&#34;多GPU方法&#34;&gt;&lt;/a&gt;多GPU方法&lt;/h3&gt;&lt;p&gt;对于多个GPU，由于GPU间通信效率要高于PCIE通信效率，因此可以将模型拆分成多个部分，分别存储在不同的GPU中，这样每次训练的加载都可以直接从其他GPU中加载，而不需要从主机内存中加载，这样可以减少加载时间。&lt;/p&gt;
+&lt;h3 id=&#34;DeepPlan&#34;&gt;&lt;a href=&#34;#DeepPlan&#34; class=&#34;headerlink&#34; title=&#34;DeepPlan&#34;&gt;&lt;/a&gt;DeepPlan&lt;/h3&gt;&lt;p&gt;本文还提出了一个工具：用来为给定模型自动生成执行计划，过程如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对本地GPU显存和主机内存分析性能&lt;/li&gt;
+&lt;li&gt;通过比较DHA和流水线方法的延迟差异来决定每一层的策略&lt;/li&gt;
+&lt;li&gt;如果有多个GPU，则根据GPU数量平均划分模型&lt;/li&gt;
+&lt;li&gt;协调将直接主机访问的执行和加载后执行的执行进行协调&lt;br&gt;本方案在部署时只需要进行一次执行。&lt;h2 id=&#34;原理分析&#34;&gt;&lt;a href=&#34;#原理分析&#34; class=&#34;headerlink&#34; title=&#34;原理分析&#34;&gt;&lt;/a&gt;原理分析&lt;/h2&gt;对于不同层，加载——执行策略与DHA策略的时间是不同的，&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;层&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;加载——执行策略&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;DHA策略&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;结论&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;卷积层&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;小规模差异不大&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;大规模较慢&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;推荐在较小卷积层使用DHA，同时加载较大卷积层等待直接执行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;全连接层&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;加载快&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;执行慢&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;推荐在全连接层使用加载后执行，因为其需要频繁访问内存&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;嵌入层&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;加载较慢&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;执行较快&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;推荐在嵌入层使用DHA，因为其规模较大，而层中一些参数的访问较少&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;归一化层&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;LayerNorm更好&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;BatchNorm更好&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;需要根据具体情况进行选择&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;产生差异的原因则是不同层对内存访问的需求不同，导致pcie访问次数不同，pcie作为瓶颈，访问次数越多，延迟越大。&lt;/p&gt;
+&lt;h3 id=&#34;并行传输&#34;&gt;&lt;a href=&#34;#并行传输&#34; class=&#34;headerlink&#34; title=&#34;并行传输&#34;&gt;&lt;/a&gt;并行传输&lt;/h3&gt;&lt;p&gt;对于多GPU场景，将模型划分为多个部分后，采用并行传输策略：从内存并行地将模型传输到两个GPU，再从第二个GPU向第一个GPU传输，这样可以减少传输时间。&lt;br&gt;在此基础上，可以将GPU2——GPU1的传输变为流水线传输，这样可以进一步减少传输时间。&lt;br&gt;但是，由于CPU提供的PCIE总线数量限制，多GPU系统，例如8GPU也只能每两个GPU公用一组总线，因此多GPU的总线需要考虑总线拓扑。&lt;/p&gt;
+&lt;h2 id=&#34;DeepPlan实现&#34;&gt;&lt;a href=&#34;#DeepPlan实现&#34; class=&#34;headerlink&#34; title=&#34;DeepPlan实现&#34;&gt;&lt;/a&gt;DeepPlan实现&lt;/h2&gt;&lt;h3 id=&#34;整体实现思路&#34;&gt;&lt;a href=&#34;#整体实现思路&#34; class=&#34;headerlink&#34; title=&#34;整体实现思路&#34;&gt;&lt;/a&gt;整体实现思路&lt;/h3&gt;&lt;p&gt;再进行训练前，deepPlan会根据每一层的性能分析，推理出当前层采用何种方式进行训练（加载——执行orDHA）。遍历完整个网络后，将根据策略直接执行训练。如果在多GPU系统中，DeepPlan还会根据GPU连连接拓扑，将模型划分为多个部分，应用并行传输方案。&lt;/p&gt;
+&lt;h3 id=&#34;单层性能分析&#34;&gt;&lt;a href=&#34;#单层性能分析&#34; class=&#34;headerlink&#34; title=&#34;单层性能分析&#34;&gt;&lt;/a&gt;单层性能分析&lt;/h3&gt;&lt;p&gt;利用单层执行时间的统计数据，或者执行一次单层来得到每一层的性能数据。&lt;/p&gt;
+&lt;h3 id=&#34;层间性能分析&#34;&gt;&lt;a href=&#34;#层间性能分析&#34; class=&#34;headerlink&#34; title=&#34;层间性能分析&#34;&gt;&lt;/a&gt;层间性能分析&lt;/h3&gt;&lt;p&gt;对于每层性能已经得到的情况。检查每一层切换策略到DHA后其获得的性能差异是否比加载后执行的停滞时间更短，如果是的话则切换为DHA。并且通过递归的方式检查每个层之前最多可以使用几个DHA来缩短总加载停滞时间。&lt;/p&gt;
+&lt;h3 id=&#34;模型传输规划&#34;&gt;&lt;a href=&#34;#模型传输规划&#34; class=&#34;headerlink&#34; title=&#34;模型传输规划&#34;&gt;&lt;/a&gt;模型传输规划&lt;/h3&gt;&lt;p&gt;DeepPlan根据GPU拓扑，和PCIE交换机布局，避免并行加载的总线冲突，检查所选GPU是否使用NVLink，如果使用则直接进行并行传输，否则使用流水线传输。同时，根据并行传输带来的性能优化，重新规划每一层使用的策略。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/10/13/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%AD%A6%E4%B9%A0/</guid>
+            <title>课题组第四周学习</title>
+            <link>http://example.com/2023/10/13/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%AD%A6%E4%B9%A0/</link>
+            <category>技术</category>
+            <category>周报</category>
+            <category>课题组</category>
+            <category>神经网络</category>
+            <category>pytorch</category>
+            <pubDate>Fri, 13 Oct 2023 18:23:34 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;ZeRO-Offload方法&#34;&gt;&lt;a href=&#34;#ZeRO-Offload方法&#34; class=&#34;headerlink&#34; title=&#34;ZeRO-Offload方法&#34;&gt;&lt;/a&gt;ZeRO-Offload方法&lt;/h1&gt;&lt;h2 id=&#34;提出背景&#34;&gt;&lt;a href=&#34;#提出背景&#34; class=&#34;headerlink&#34; title=&#34;提出背景&#34;&gt;&lt;/a&gt;提出背景&lt;/h2&gt;&lt;p&gt;对大模型训练来说，GPU显存对参数规模巨大的网络来说是一个瓶颈，然而CPU内存可以做到TB级别，因此可以考虑将一部分参数放在CPU上，而将需要频繁访问的参数放在GPU上，这样可以减少GPU显存的压力，提高训练速度。ZeRO-Offload提出了一种没有数据冗余的优化方法，可以将模型参数分布在CPU和GPU上，而且可以在CPU和GPU之间进行无缝的迁移。&lt;/p&gt;
+&lt;h3 id=&#34;大模型传统方法&#34;&gt;&lt;a href=&#34;#大模型传统方法&#34; class=&#34;headerlink&#34; title=&#34;大模型传统方法&#34;&gt;&lt;/a&gt;大模型传统方法&lt;/h3&gt;&lt;p&gt;针对大模型需要的内存过大的问题，传统分为两种方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模型分割：将模型分割成多个部分，每个部分在GPU上训练，然后将结果传递给下一个部分，&lt;/li&gt;
+&lt;li&gt;流水线并行：将训练过程分为不同层，每个层分给不同的GPU，然后将结果传递给下一个GPU&lt;h2 id=&#34;增益来源&#34;&gt;&lt;a href=&#34;#增益来源&#34; class=&#34;headerlink&#34; title=&#34;增益来源&#34;&gt;&lt;/a&gt;增益来源&lt;/h2&gt;根据计算流程，CPU的计算量相比于GPU的$O(MB)$,只有$O(M)$，其中M是模型大小，B是批次大小。&lt;br&gt;这个过程中，ZeRO-Offload将前向与后向传播分配给了GPU，而标准化计算和权重更新等对模型大小有直接联系的计算则分配给了CPU。&lt;br&gt;在数据吞吐方面，cpu与gpu之间仅存在fp16数据的传输，相比与其他方法（例如L2L）有大幅度减少&lt;br&gt;在并行方面，随着计算节点的增加，CPU的计算资源会随着节点数量增加而增加&lt;br&gt;CPU计算通过提高并行性增加了效率&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;对CPU作为计算瓶颈的解决方法&#34;&gt;&lt;a href=&#34;#对CPU作为计算瓶颈的解决方法&#34; class=&#34;headerlink&#34; title=&#34;对CPU作为计算瓶颈的解决方法&#34;&gt;&lt;/a&gt;对CPU作为计算瓶颈的解决方法&lt;/h3&gt;&lt;h4 id=&#34;对CPU计算的优化&#34;&gt;&lt;a href=&#34;#对CPU计算的优化&#34; class=&#34;headerlink&#34; title=&#34;对CPU计算的优化&#34;&gt;&lt;/a&gt;对CPU计算的优化&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;向量运算SIMD&lt;/li&gt;
+&lt;li&gt;循环展开&lt;/li&gt;
+&lt;li&gt;多核并行&lt;/li&gt;
+&lt;li&gt;减少缓存抖动&lt;h4 id=&#34;延迟参数更新&#34;&gt;&lt;a href=&#34;#延迟参数更新&#34; class=&#34;headerlink&#34; title=&#34;延迟参数更新&#34;&gt;&lt;/a&gt;延迟参数更新&lt;/h4&gt;将参数更新延迟，重叠CPU与GPU计算。也就是说，在某一轮计算之后，此后每次gpu使用的优化器参数都是上一轮计算的结果，而不是这一轮计算的结果。，因此可以让cpu计算时间和gpu计算时间重叠。提高流水线负载率。&lt;h2 id=&#34;优化方法&#34;&gt;&lt;a href=&#34;#优化方法&#34; class=&#34;headerlink&#34; title=&#34;优化方法&#34;&gt;&lt;/a&gt;优化方法&lt;/h2&gt;ZeRO-Offload 同时利用CPU内存计算能力来优化。基于ZeRO优化方法，但是不是像原本多个GPU并行计算，并且通过联系收集器来进行并行。而是把这个通讯过程转化为与CPU的联系，相当于原本多个GPU同时做的工作，让单个GPU进行，每个阶段只进行原先一个GPU进行的工作，同时把其他GPU本应进行的计算状态经由内存进行存储。&lt;h3 id=&#34;ZeRO的工作&#34;&gt;&lt;a href=&#34;#ZeRO的工作&#34; class=&#34;headerlink&#34; title=&#34;ZeRO的工作&#34;&gt;&lt;/a&gt;ZeRO的工作&lt;/h3&gt;ZeRO，在ZeRO-Offload中使用ZeRO-2阶段，这个阶段你主要是分割模型状态和梯度。在ZeRO-2中，每个GPU都存储着所有参数，但是每轮训练只更新其中不包含的部分。&lt;br&gt;这个过程如下：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;每个GPU进行前馈，计算不同批次的损失。&lt;/li&gt;
+&lt;li&gt;每个cpu进行反向传播，并且对每个有梯度的GPU使用减少梯度的算子进行平均。&lt;/li&gt;
+&lt;li&gt;反向传播结束后，GPU使用其对应的梯度平均值对其部分参数和优化器状态进行更新。&lt;/li&gt;
+&lt;li&gt;进行一次全收集，接收其他GPU计算的参数更新。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;ZeRO-Offload的工作&#34;&gt;&lt;a href=&#34;#ZeRO-Offload的工作&#34; class=&#34;headerlink&#34; title=&#34;ZeRO-Offload的工作&#34;&gt;&lt;/a&gt;ZeRO-Offload的工作&lt;/h3&gt;&lt;p&gt;ZeRO-Offload将训练修改为数据流图，主要优势：使得CPU计算量减少了几个数量级。保证CPU与GPU通讯最小化。最大限度节省内存。&lt;/p&gt;
+&lt;h4 id=&#34;计算流图&#34;&gt;&lt;a href=&#34;#计算流图&#34; class=&#34;headerlink&#34; title=&#34;计算流图&#34;&gt;&lt;/a&gt;计算流图&lt;/h4&gt;&lt;p&gt;计算流图是一种图形化的表示，用于表示计算过程中的数据流动。在计算流图中，节点表示计算，边表示数据流动。&lt;br&gt;&lt;img src=&#34;https://raw.githubusercontent.com/lianga1/picGo_test/main/1.jpg&#34; alt=&#34;计算流图&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;减少CPU计算&#34;&gt;&lt;a href=&#34;#减少CPU计算&#34; class=&#34;headerlink&#34; title=&#34;减少CPU计算&#34;&gt;&lt;/a&gt;减少CPU计算&lt;/h4&gt;&lt;p&gt;ZeRO-Offload将前向与后向传播分配给了GPU，而标准化计算和权重更新等对模型大小有直接联系的计算则分配给了CPU。&lt;/p&gt;
+&lt;h4 id=&#34;减少CPU与GPU通讯&#34;&gt;&lt;a href=&#34;#减少CPU与GPU通讯&#34; class=&#34;headerlink&#34; title=&#34;减少CPU与GPU通讯&#34;&gt;&lt;/a&gt;减少CPU与GPU通讯&lt;/h4&gt;&lt;p&gt;创建fp32区：为了避免fp32数据在pcie总线传输，需要将所有fp32数据放在一个设备上进行处理&lt;br&gt;p16分配：将fp16必须放在前馈与反向传播共同节点的位置，因为这两个节点之间的通信是较大的。&lt;br&gt;因此，ZeRO-Offload将fp16分配给GPU，而将fp32分配给CPU。&lt;/p&gt;
+&lt;h4 id=&#34;减少内存&#34;&gt;&lt;a href=&#34;#减少内存&#34; class=&#34;headerlink&#34; title=&#34;减少内存&#34;&gt;&lt;/a&gt;减少内存&lt;/h4&gt;&lt;p&gt;将反向传播后得到的梯度，以及更新梯度所需要的计算和存储空间，写遭到CPU上，可以节省最多的显存使用。&lt;/p&gt;
+&lt;h2 id=&#34;优势&#34;&gt;&lt;a href=&#34;#优势&#34; class=&#34;headerlink&#34; title=&#34;优势&#34;&gt;&lt;/a&gt;优势&lt;/h2&gt;&lt;h3 id=&#34;扩展性强&#34;&gt;&lt;a href=&#34;#扩展性强&#34; class=&#34;headerlink&#34; title=&#34;扩展性强&#34;&gt;&lt;/a&gt;扩展性强&lt;/h3&gt;&lt;p&gt;对于任何模型，其优化算法的优化参数对于ZeRO-Offload来说并不关键，其只是需要把fp32的计算内容单独放在CPU中。&lt;/p&gt;
+&lt;h3 id=&#34;支持并行&#34;&gt;&lt;a href=&#34;#支持并行&#34; class=&#34;headerlink&#34; title=&#34;支持并行&#34;&gt;&lt;/a&gt;支持并行&lt;/h3&gt;&lt;p&gt;对多个GPU而言。ZeRO-Offload基于ZeRO-2，因此可以将分区的参数分配给多个GPU。&lt;/p&gt;
+&lt;h3 id=&#34;模型并行&#34;&gt;&lt;a href=&#34;#模型并行&#34; class=&#34;headerlink&#34; title=&#34;模型并行&#34;&gt;&lt;/a&gt;模型并行&lt;/h3&gt;&lt;p&gt;ZeRO-Offload还可以用模型并行来实现更好的并行性。通过给cpu卸载梯度、优化器状态和优化器计算来和模型并行计算相适应。在这个情况下，首先，借由更难耗尽内存，可以使用更大的批次大小。其次，可以使用更多的GPU来进行模型并行计算。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/09/30/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%B8%80%E5%91%A8%E5%AD%A6%E4%B9%A0/</guid>
+            <title>课题组第一周学习</title>
+            <link>http://example.com/2023/09/30/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%B8%80%E5%91%A8%E5%AD%A6%E4%B9%A0/</link>
+            <category>技术</category>
+            <category>周报</category>
+            <category>课题组</category>
+            <category>神经网络</category>
+            <category>pytorch</category>
+            <pubDate>Sat, 30 Sep 2023 19:51:44 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;理论学习&#34;&gt;&lt;a href=&#34;#理论学习&#34; class=&#34;headerlink&#34; title=&#34;理论学习&#34;&gt;&lt;/a&gt;理论学习&lt;/h1&gt;&lt;h2 id=&#34;反向传播算法&#34;&gt;&lt;a href=&#34;#反向传播算法&#34; class=&#34;headerlink&#34; title=&#34;反向传播算法&#34;&gt;&lt;/a&gt;反向传播算法&lt;/h2&gt;&lt;p&gt;反向传播是一种基于有监督学习，用于根据误差和损失函数调整网络权重的算法。反向传播算法的核心思想是通过链式法则计算损失函数对于每个权重的梯度，然后使用梯度下降法更新权重。&lt;br&gt;过程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先通过正向传播，根据输入数据得到一个网络的激励&lt;/li&gt;
+&lt;li&gt;根据得到的激励与目标值计算损失函数&lt;/li&gt;
+&lt;li&gt;根据损失函数，从输出层开始，依次沿着计算图反向计算每个权重的梯度&lt;/li&gt;
+&lt;li&gt;根据得到的梯度调整权重&lt;br&gt;[1]	 &lt;a href=&#34;https://books.google.com/books/about/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8.html?id=2-PWvQEACAAJ&#34;&gt;深度学习入门: 基于Python的理论与实现[M]. 人民邮电出版社, 2018.(p.121,161)&lt;/a&gt;&lt;h2 id=&#34;前馈&#34;&gt;&lt;a href=&#34;#前馈&#34; class=&#34;headerlink&#34; title=&#34;前馈&#34;&gt;&lt;/a&gt;前馈&lt;/h2&gt;前馈神经网络是一种最简单的神经网络，它的每个神经元都是前一层神经元的输出。前馈神经网络的每个神经元都是前一层神经元的输出，因此它的输出不会反馈到输入层，这种网络结构也被称为前馈神经网络。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;卷积神经网络&#34;&gt;&lt;a href=&#34;#卷积神经网络&#34; class=&#34;headerlink&#34; title=&#34;卷积神经网络&#34;&gt;&lt;/a&gt;卷积神经网络&lt;/h2&gt;&lt;h3 id=&#34;卷积&#34;&gt;&lt;a href=&#34;#卷积&#34; class=&#34;headerlink&#34; title=&#34;卷积&#34;&gt;&lt;/a&gt;卷积&lt;/h3&gt;&lt;p&gt;卷积（convolution）是一种数学运算，主要应用于信号处理中对系统响应的计算。卷积运算可以将某个冲激响应针对任意输入进行计算，得到对应的响应结果。卷积运算的公式如下：&lt;br&gt;$$&lt;br&gt;y(t) &amp;#x3D; \int_{-\infty}^{\infty} x(a)h(t-a)da&lt;br&gt;$$&lt;br&gt;其中，$x(t)$为输入信号，$h(t)$为系统响应，$y(t)$为输出信号。&lt;/p&gt;
+&lt;h3 id=&#34;二维离散卷积&#34;&gt;&lt;a href=&#34;#二维离散卷积&#34; class=&#34;headerlink&#34; title=&#34;二维离散卷积&#34;&gt;&lt;/a&gt;二维离散卷积&lt;/h3&gt;&lt;p&gt;对于图像处理来说，卷积需要用到二维矩阵的滑动窗口来进行卷积运算。二维离散卷积的公式如下：&lt;br&gt;$$&lt;br&gt;y(i,j) &amp;#x3D; \sum_{m&amp;#x3D;-\infty}^{\infty}\sum_{n&amp;#x3D;-\infty}^{\infty}x(m,n)h(i-m,j-n)&lt;br&gt;$$&lt;br&gt;其中，$x(m,n)$为输入图像，$h(i,j)$为卷积核，$y(i,j)$为输出图像。&lt;/p&gt;
+&lt;h3 id=&#34;卷积神经网络-1&#34;&gt;&lt;a href=&#34;#卷积神经网络-1&#34; class=&#34;headerlink&#34; title=&#34;卷积神经网络&#34;&gt;&lt;/a&gt;卷积神经网络&lt;/h3&gt;&lt;p&gt;卷积神经网络（CNN）中，增加了卷积层和池化层。其可以从原本多维度的数据中提取欧氏距离较近的单元之间蕴含的信息。&lt;/p&gt;
+&lt;h4 id=&#34;卷积层&#34;&gt;&lt;a href=&#34;#卷积层&#34; class=&#34;headerlink&#34; title=&#34;卷积层&#34;&gt;&lt;/a&gt;卷积层&lt;/h4&gt;&lt;p&gt;在卷积层中，当输入数据是图像时，卷积层会以三维数据形式接收数据，并以三维数据形式传输到下一层，输入输出数据称为特征图（feature map）。其中，卷积层的输入数据称为输入特征图（input feature map），输出数据称为输出特征图（output feature map）。&lt;/p&gt;
+&lt;h4 id=&#34;CNN的处理流&#34;&gt;&lt;a href=&#34;#CNN的处理流&#34; class=&#34;headerlink&#34; title=&#34;CNN的处理流&#34;&gt;&lt;/a&gt;CNN的处理流&lt;/h4&gt;&lt;p&gt;针对一个图像，有三维的信息（长、宽、通道），同样，对这个图像进行处理的卷积核也是三维的。但是最终卷积得到的输出结果是二维的（每个通道卷积的结果加在一起）。在CNN中，针对多个卷积核，会得到多个二维的输出结果，这些输出结果会被叠加在一起，得到一个三维的输出结果。这个结果传递给下一层。同时，对多个数据，即批处理，卷积层将多个样本汇总成一次处理，传递中综合成四维的数据。&lt;/p&gt;
+&lt;h4 id=&#34;池化层&#34;&gt;&lt;a href=&#34;#池化层&#34; class=&#34;headerlink&#34; title=&#34;池化层&#34;&gt;&lt;/a&gt;池化层&lt;/h4&gt;&lt;p&gt;池化层是一种降低数据大小的方法，它可以减少数据的大小，同时也可以防止过拟合。池化层的处理流程如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;按照设定的步长，从输入数据中提取数据块&lt;/li&gt;
+&lt;li&gt;例如MAX池化，将数据块中的最大值作为输出结果&lt;/li&gt;
+&lt;li&gt;输出结果的规模即随步长变大而缩小&lt;br&gt;同时，池化层输入数据和输出数据的维度相同&lt;h2 id=&#34;循环神经网络&#34;&gt;&lt;a href=&#34;#循环神经网络&#34; class=&#34;headerlink&#34; title=&#34;循环神经网络&#34;&gt;&lt;/a&gt;循环神经网络&lt;/h2&gt;循环神经网络常用于nlp领域。它和前馈神经网络或CNN的主要区别在于循环神经网络（RNN）的隐藏层的输出不仅仅取决于当前的输入，还取决于前一时刻的隐藏层的输出。因此，RNN具有某种程度上的“记忆”能力。&lt;br&gt;另一个显著特征在于它们在每个网络层共享参数，RNN在每一层都共享相同的参数，这使得它们可以处理任意长度的序列。&lt;br&gt;然而，RNN在反向传播的过程中，梯度会随着时间的推移而消失或爆炸，这使得它们很难学习长期依赖关系。&lt;h2 id=&#34;注意力机制&#34;&gt;&lt;a href=&#34;#注意力机制&#34; class=&#34;headerlink&#34; title=&#34;注意力机制&#34;&gt;&lt;/a&gt;注意力机制&lt;/h2&gt;注意力机制可以增强神经网络输入数据中某些部分的权重，同时减弱其他部分的权重。&lt;br&gt;例如对一个翻译句子的网络，普通的逐个词翻译会在每一轮翻译过程中对单词序列依次提高注意力，也就是其注意力矩阵会是一个对角线上权值高的矩阵。但是在注意力机制下，每一轮翻译过程中，网络会根据上一轮的翻译结果，对输入句子中的某些部分进行更多的关注，即其权值的最大值不一定在对角线。从而提高翻译的连贯性。&lt;h2 id=&#34;并行计算&#34;&gt;&lt;a href=&#34;#并行计算&#34; class=&#34;headerlink&#34; title=&#34;并行计算&#34;&gt;&lt;/a&gt;并行计算&lt;/h2&gt;并行计算对计算任务进行拆分，将同时进行的计算任务分配到不同的计算单元上，从而提高计算速度。拆分的方式统称为并行方式，并行计算后的结果重新聚合的方式称为模型更新传递方式。&lt;br&gt;常见的并行方式有：&lt;/li&gt;
+&lt;li&gt;数据并行：把数据集切分放到各个计算节点，并在哥哥节点之间传递模型参数&lt;/li&gt;
+&lt;li&gt;模型并行：把模型切分放到各个计算节点，并在各个节点之间传递数据。一般把单个算子分配在配置相同的几个硬件上进行模型存储和计算。&lt;/li&gt;
+&lt;li&gt;流水线并行：将模型切分成多个阶段，每个阶段在不同的计算节点上进行计算，每个阶段的计算结果传递给下一个阶段。&lt;br&gt;另外，如何更新模型参数也是并行计算的一个重要问题。在硬件组织架构方面，分为参数服务器架构和collective架构。在更新参数方面分为同步和异步更新&lt;a href=&#34;https://zhuanlan.zhihu.com/p/350501860&#34;&gt;参考内容&lt;/a&gt;&lt;h3 id=&#34;allreduce训练&#34;&gt;&lt;a href=&#34;#allreduce训练&#34; class=&#34;headerlink&#34; title=&#34;allreduce训练&#34;&gt;&lt;/a&gt;allreduce训练&lt;/h3&gt;在同步更新参数的训练中，利用AllReduce来整合不同worker的梯度数据。AllReduce有很多种类的实现，主要关注的问题在于不同worker之间传递信息的拓扑结构。例如，对于一个有4个worker的集群，有以下几种拓扑结构：&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ring&lt;/strong&gt;：每个worker只和相邻的worker通信&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mesh&lt;/strong&gt;：每个worker和所有其他worker通信，但是效率比较低。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Master-Worker&lt;/strong&gt;：一个worker作为master，其他worker作为worker，master和每个worker通信，worker之间不通信。&lt;br&gt;举N个worker的ring结构为例，考察这个结构的工作过程：&lt;/li&gt;
+&lt;li&gt;每个worker计算自己的梯度&lt;/li&gt;
+&lt;li&gt;每个worker把数据分成N份&lt;/li&gt;
+&lt;li&gt;第k个worker把其第k份数据发送给第k+1个worker&lt;/li&gt;
+&lt;li&gt;第k个worker把其第k-1份数据和第k-1个worker发送的数据整合，再发给下一个worker&lt;/li&gt;
+&lt;li&gt;循环N次之后，每个worker包含最终整合结果的1份&lt;/li&gt;
+&lt;li&gt;每个worker把自己的数据发送给下一个worker，收到数据后，每个worker的数据都是最终整合结果&lt;br&gt;这个结构的AllReduce的优势在于发送的数据量是固定的，和worker数量无关，避免了网络拥塞。&lt;a href=&#34;https://zhuanlan.zhihu.com/p/100012827&#34;&gt;参考内容&lt;/a&gt;&lt;h1 id=&#34;实践内容&#34;&gt;&lt;a href=&#34;#实践内容&#34; class=&#34;headerlink&#34; title=&#34;实践内容&#34;&gt;&lt;/a&gt;实践内容&lt;/h1&gt;&lt;h2 id=&#34;lenet5&#34;&gt;&lt;a href=&#34;#lenet5&#34; class=&#34;headerlink&#34; title=&#34;lenet5&#34;&gt;&lt;/a&gt;lenet5&lt;/h2&gt;lenet5是进行手写数字识别的CNN，它的结构如下：&lt;br&gt;输入层-&amp;gt;卷积层-&amp;gt;池化层-&amp;gt;卷积层-&amp;gt;池化层-&amp;gt;全连接层-&amp;gt;全连接层-&amp;gt;输出层（高斯连接）&lt;br&gt;与CNN不同的地方在于，LeNet使用sigmoid函数而非reLU函数。&lt;br&gt;lenet5网络的实现代码如下：&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;LeNet&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;nn.Module&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;__init__&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-built_in&#34;&gt;super&lt;/span&gt;(LeNet, self).__init__()&lt;br&gt;        self.conv = nn.Sequential(&lt;br&gt;            nn.Conv2d(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;6&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt;), &lt;span class=&#34;hljs-comment&#34;&gt;# in_channels, out_channels, kernel_size&lt;/span&gt;&lt;br&gt;            nn.Sigmoid(),&lt;br&gt;            nn.MaxPool2d(&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;), &lt;span class=&#34;hljs-comment&#34;&gt;# kernel_size, stride&lt;/span&gt;&lt;br&gt;            nn.Conv2d(&lt;span class=&#34;hljs-number&#34;&gt;6&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;16&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt;),&lt;br&gt;            nn.Sigmoid(),&lt;br&gt;            nn.MaxPool2d(&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;)&lt;br&gt;        )&lt;br&gt;        self.fc = nn.Sequential(&lt;br&gt;            nn.Linear(&lt;span class=&#34;hljs-number&#34;&gt;16&lt;/span&gt;*&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;*&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;120&lt;/span&gt;),&lt;br&gt;            nn.Sigmoid(),&lt;br&gt;            nn.Linear(&lt;span class=&#34;hljs-number&#34;&gt;120&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;84&lt;/span&gt;),&lt;br&gt;            nn.Sigmoid(),&lt;br&gt;            nn.Linear(&lt;span class=&#34;hljs-number&#34;&gt;84&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;10&lt;/span&gt;)&lt;br&gt;        )&lt;br&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;forward&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, img&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        feature = self.conv(img)&lt;br&gt;        output = self.fc(feature.view(img.shape[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;], -&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;))&lt;br&gt;        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; output&lt;br&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+这个网络定义了两个部分，一个是卷积层，一个是全连接层。卷积层的输入是一个1通道的图像，输出是一个6通道的图像，卷积核的大小为5*5。全连接层的输入是16*4*4的数据，输出是10个类别的概率。&lt;h2 id=&#34;resnet&#34;&gt;&lt;a href=&#34;#resnet&#34; class=&#34;headerlink&#34; title=&#34;resnet&#34;&gt;&lt;/a&gt;resnet&lt;/h2&gt;ResNet主要用于解决深度神经网络无法找到更好的解的问题。在深层网络中，梯度消失或爆炸的问题会导致网络无法训练。ResNet通过引入残差块（residual block）来解决这个问题。ResNet将堆叠的几个隐含层作为一个残差块，用残差块拟合的函数从原本的f(x)变为f(x)+x。&lt;br&gt;[4]	&lt;a href=&#34;https://arxiv.org/abs/1512.03385&#34;&gt;HE K, ZHANG X, REN S, et al. Deep residual learning for image recognition[C]. Proceedings of the IEEE conference on computer vision and pattern recognition, 2016:770-778.&lt;/a&gt;&lt;br&gt;通过每个block中残差路径和shortcut路径的设计，可以实现不同的ResNet网络。事实证明，不断增加ResNet的深度，也没有发生解的退化，反而可以提高网络的性能。因此ResNet可以实现如下的网络结构：&lt;br&gt;&lt;img src=&#34;https://raw.githubusercontent.com/lianga1/picGo_test/main/3u8Wwj.png&#34; alt=&#34;resnet&#34;&gt;&lt;h3 id=&#34;实际部署&#34;&gt;&lt;a href=&#34;#实际部署&#34; class=&#34;headerlink&#34; title=&#34;实际部署&#34;&gt;&lt;/a&gt;实际部署&lt;/h3&gt;残差块类定义如下：&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;Bottleneck&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;nn.Module&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;    &lt;span class=&#34;hljs-comment&#34;&gt;# 残差块定义&lt;/span&gt;&lt;br&gt;    extention = &lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;__init__&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, inplanes, planes, stride, downsample=&lt;span class=&#34;hljs-literal&#34;&gt;None&lt;/span&gt;&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-built_in&#34;&gt;super&lt;/span&gt;(Bottleneck, self).__init__()&lt;br&gt;        self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, stride=stride, bias=&lt;span class=&#34;hljs-literal&#34;&gt;False&lt;/span&gt;)&lt;br&gt;        self.bn1 = nn.BatchNorm2d(planes)&lt;br&gt;&lt;br&gt;        self.conv2 = nn.Conv2d(planes, planes, kernel_size=&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;, stride=&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, padding=&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, bias=&lt;span class=&#34;hljs-literal&#34;&gt;False&lt;/span&gt;)&lt;br&gt;        self.bn2 = nn.BatchNorm2d(planes)&lt;br&gt;&lt;br&gt;        self.conv3 = nn.Conv2d(planes, planes * self.extention, kernel_size=&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, stride=&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, bias=&lt;span class=&#34;hljs-literal&#34;&gt;False&lt;/span&gt;)&lt;br&gt;        self.bn3 = nn.BatchNorm2d(planes * self.extention)&lt;br&gt;&lt;br&gt;        self.relu = nn.ReLU(inplace=&lt;span class=&#34;hljs-literal&#34;&gt;True&lt;/span&gt;)&lt;br&gt;&lt;br&gt;        self.downsample = downsample&lt;br&gt;        self.stride = stride&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+ResNet网络定义如下：&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;ResNet50&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;nn.Module&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;__init__&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, block, layers, num_class&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        self.inplane = &lt;span class=&#34;hljs-number&#34;&gt;64&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-built_in&#34;&gt;super&lt;/span&gt;(ResNet50, self).__init__()&lt;br&gt;&lt;br&gt;        self.block = block&lt;br&gt;        self.layers = layers&lt;br&gt;&lt;br&gt;        self.conv1 = nn.Conv2d(&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;, self.inplane, kernel_size=&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;, stride=&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;, padding=&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;, bias=&lt;span class=&#34;hljs-literal&#34;&gt;False&lt;/span&gt;)&lt;br&gt;        self.bn1 = nn.BatchNorm2d(self.inplane)&lt;br&gt;        self.relu = nn.ReLU()&lt;br&gt;        self.maxpool = nn.MaxPool2d(kernel_size=&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;, stride=&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;, padding=&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;)&lt;br&gt;&lt;br&gt;        self.stage1 = self.make_layer(self.block, &lt;span class=&#34;hljs-number&#34;&gt;64&lt;/span&gt;, layers[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;], stride=&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;)&lt;br&gt;        self.stage2 = self.make_layer(self.block, &lt;span class=&#34;hljs-number&#34;&gt;128&lt;/span&gt;, layers[&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;], stride=&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;)&lt;br&gt;        self.stage3 = self.make_layer(self.block, &lt;span class=&#34;hljs-number&#34;&gt;256&lt;/span&gt;, layers[&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;], stride=&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;)&lt;br&gt;        self.stage4 = self.make_layer(self.block, &lt;span class=&#34;hljs-number&#34;&gt;512&lt;/span&gt;, layers[&lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;], stride=&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;)&lt;br&gt;&lt;br&gt;        self.avgpool = nn.AvgPool2d(&lt;span class=&#34;hljs-number&#34;&gt;7&lt;/span&gt;)&lt;br&gt;        self.fc = nn.Linear(&lt;span class=&#34;hljs-number&#34;&gt;512&lt;/span&gt; * block.extention, num_class)&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+在30Epoch后，在测试集的准确度达到了75%。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;BERT&#34;&gt;&lt;a href=&#34;#BERT&#34; class=&#34;headerlink&#34; title=&#34;BERT&#34;&gt;&lt;/a&gt;BERT&lt;/h2&gt;&lt;p&gt;BERT是基于Transformer的预训练模型，主要用于自然语言处理，它能够预测句子中缺失的词语。以及判断两个句子是不是上下句。&lt;br&gt;整个框架由多层transformer的encoder堆叠而成。encoder由注意力层和feed-forward层组成。&lt;br&gt;BERT中，输入由三种不同embedding组成：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;wordpiece embedding：由但词向量组成将单词划分成一组有限公共子词单元。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;position embedaang：将单词的位置信息编码成特征向量。Transformer通过制定规则来构建一个position embedding&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;segment embedding：用于区分两个句子的向量表示。用于区别问答等非对称子句。&lt;/p&gt;
+&lt;h3 id=&#34;网络结构&#34;&gt;&lt;a href=&#34;#网络结构&#34; class=&#34;headerlink&#34; title=&#34;网络结构&#34;&gt;&lt;/a&gt;网络结构&lt;/h3&gt;&lt;p&gt;BERT的主要结构是Transformer，Transformer结构如下图所示：&lt;br&gt;&lt;img src=&#34;https://raw.githubusercontent.com/lianga1/picGo_test/main/20200814234510853.jpg&#34; alt=&#34;transformer&#34;&gt;&lt;br&gt;其中左侧部分即为encoder部分。&lt;br&gt;encoder单元由一个multi-head-Attention + Layer Normalization + feedforword + Layer Normalization 叠加产生。&lt;br&gt;在比较大的BERT模型中，有24层encoder，每层有16个Attention，词向量维度1024。在较小情况下，有12层encoder，每层12个Attention，词向量维度768。&lt;br&gt;任何时候feed-forward大小都是词向量维度的4倍。&lt;/p&gt;
+&lt;h4 id=&#34;Attention-Layer&#34;&gt;&lt;a href=&#34;#Attention-Layer&#34; class=&#34;headerlink&#34; title=&#34;Attention Layer&#34;&gt;&lt;/a&gt;Attention Layer&lt;/h4&gt;&lt;p&gt;这一层的输入是由X &amp;#x3D; (batch_size,max_len_embedding)构成的。&lt;br&gt;单个self-attention 计算过程是输入X分别和三个矩阵Wq,Wk,Wv相乘，得到Q,K,V。然后计算Q和K的点积，再除以$\sqrt{d_k}$，再经过softmax函数，得到attention矩阵。最后将attention矩阵和V相乘即加权求和，得到输出。&lt;br&gt;multi-head-Attention将多个不同的self-attention输出进行拼接，然后再乘以一个矩阵W0，得到最终的输出output_sum &amp;#x3D; (batch_size,max_len,n*w_length)这个结果再经过一个全连接层就是整个multi-head-Attention的输出。&lt;/p&gt;
+&lt;h4 id=&#34;Layer-Normalization&#34;&gt;&lt;a href=&#34;#Layer-Normalization&#34; class=&#34;headerlink&#34; title=&#34;Layer Normalization&#34;&gt;&lt;/a&gt;Layer Normalization&lt;/h4&gt;&lt;p&gt;这个层相当于对每句话的embedding做归一化，所以用LN而非Batch Normalization&lt;/p&gt;
+&lt;h4 id=&#34;BERT每一层的学习&#34;&gt;&lt;a href=&#34;#BERT每一层的学习&#34; class=&#34;headerlink&#34; title=&#34;BERT每一层的学习&#34;&gt;&lt;/a&gt;BERT每一层的学习&lt;/h4&gt;&lt;p&gt;从浅层到深层分别可以学习到surface，短语，语法和语义的信息。&lt;/p&gt;
+&lt;h3 id=&#34;BERT的训练&#34;&gt;&lt;a href=&#34;#BERT的训练&#34; class=&#34;headerlink&#34; title=&#34;BERT的训练&#34;&gt;&lt;/a&gt;BERT的训练&lt;/h3&gt;&lt;p&gt;定义几个层的类如下：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Embedding：输入的embedding层，包括wordpiece embedding，position embedding，segment embedding&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;Embeddings&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;nn.Module&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;__init__&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-built_in&#34;&gt;super&lt;/span&gt;(Embeddings, self).__init__()&lt;br&gt;        self.seg_emb = nn.Embedding(n_segs, d_model)&lt;br&gt;        self.word_emb = nn.Embedding(max_vocab, d_model)&lt;br&gt;        self.pos_emb = nn.Embedding(max_len, d_model)&lt;br&gt;        self.norm = nn.LayerNorm(d_model)&lt;br&gt;        self.dropout = nn.Dropout(p_dropout)&lt;br&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;forward&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, x, seg&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;&amp;#x27;&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        x: [batch, seq_len]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        &amp;#x27;&amp;#x27;&amp;#x27;&lt;/span&gt;&lt;br&gt;        word_enc = self.word_emb(x)&lt;br&gt;&lt;br&gt;        &lt;span class=&#34;hljs-comment&#34;&gt;# positional embedding&lt;/span&gt;&lt;br&gt;        pos = torch.arange(x.shape[&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;], dtype=torch.long, device=device)&lt;br&gt;        pos = pos.unsqueeze(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;).expand_as(x)&lt;br&gt;        pos_enc = self.pos_emb(pos)&lt;br&gt;&lt;br&gt;        seg_enc = self.seg_emb(seg)&lt;br&gt;        x = self.norm(word_enc + pos_enc + seg_enc)&lt;br&gt;        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; self.dropout(x)&lt;br&gt;        &lt;span class=&#34;hljs-comment&#34;&gt;# return: [batch, seq_len, d_model]&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Multi-Head-Attention层&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;45&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;ScaledDotProductAttention&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;nn.Module&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;__init__&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-built_in&#34;&gt;super&lt;/span&gt;(ScaledDotProductAttention, self).__init__()&lt;br&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;forward&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, Q, K, V, attn_mask&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        scores = torch.matmul(Q, K.transpose(-&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, -&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;) / msqrt(d_k))&lt;br&gt;        &lt;span class=&#34;hljs-comment&#34;&gt;# scores: [batch, n_heads, seq_len, seq_len]&lt;/span&gt;&lt;br&gt;        scores.masked_fill_(attn_mask, -&lt;span class=&#34;hljs-number&#34;&gt;1e9&lt;/span&gt;)&lt;br&gt;        attn = nn.Softmax(dim=-&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;)(scores)&lt;br&gt;        &lt;span class=&#34;hljs-comment&#34;&gt;# context: [batch, n_heads, seq_len, d_v]&lt;/span&gt;&lt;br&gt;        context = torch.matmul(attn, V)&lt;br&gt;        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; context&lt;br&gt;&lt;br&gt;&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;MultiHeadAttention&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;nn.Module&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;__init__&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-built_in&#34;&gt;super&lt;/span&gt;(MultiHeadAttention, self).__init__()&lt;br&gt;        self.W_Q = nn.Linear(d_model, d_k * n_heads, bias=&lt;span class=&#34;hljs-literal&#34;&gt;False&lt;/span&gt;)&lt;br&gt;        self.W_K = nn.Linear(d_model, d_k * n_heads, bias=&lt;span class=&#34;hljs-literal&#34;&gt;False&lt;/span&gt;)&lt;br&gt;        self.W_V = nn.Linear(d_model, d_v * n_heads, bias=&lt;span class=&#34;hljs-literal&#34;&gt;False&lt;/span&gt;)&lt;br&gt;        self.fc = nn.Linear(n_heads * d_v, d_model, bias=&lt;span class=&#34;hljs-literal&#34;&gt;False&lt;/span&gt;)&lt;br&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;forward&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, Q, K, V, attn_mask&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;&amp;#x27;&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        Q, K, V: [batch, seq_len, d_model]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        attn_mask: [batch, seq_len, seq_len]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        &amp;#x27;&amp;#x27;&amp;#x27;&lt;/span&gt;&lt;br&gt;        batch = Q.size(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;)&lt;br&gt;        &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;&amp;#x27;&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        split Q, K, V to per head formula: [batch, seq_len, n_heads, d_k]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        Convenient for matrix multiply opearation later&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        q, k, v: [batch, n_heads, seq_len, d_k / d_v]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        &amp;#x27;&amp;#x27;&amp;#x27;&lt;/span&gt;&lt;br&gt;        per_Q = self.W_Q(Q).view(batch, -&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, n_heads, d_k).transpose(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;)&lt;br&gt;        per_K = self.W_K(K).view(batch, -&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, n_heads, d_k).transpose(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;)&lt;br&gt;        per_V = self.W_V(V).view(batch, -&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, n_heads, d_v).transpose(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;)&lt;br&gt;&lt;br&gt;        attn_mask = attn_mask.unsqueeze(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;).repeat(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, n_heads, &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;)&lt;br&gt;        &lt;span class=&#34;hljs-comment&#34;&gt;# context: [batch, n_heads, seq_len, d_v]&lt;/span&gt;&lt;br&gt;        context = ScaledDotProductAttention()(per_Q, per_K, per_V, attn_mask)&lt;br&gt;        context = context.transpose(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;).contiguous().view(&lt;br&gt;            batch, -&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, n_heads * d_v)&lt;br&gt;&lt;br&gt;        &lt;span class=&#34;hljs-comment&#34;&gt;# output: [batch, seq_len, d_model]&lt;/span&gt;&lt;br&gt;        output = self.fc(context)&lt;br&gt;        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; output&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其余层，包括FeedForword层和池化层&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;FeedForwardNetwork&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;nn.Module&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;__init__&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-built_in&#34;&gt;super&lt;/span&gt;(FeedForwardNetwork, self).__init__()&lt;br&gt;        self.fc1 = nn.Linear(d_model, d_ff)&lt;br&gt;        self.fc2 = nn.Linear(d_ff, d_model)&lt;br&gt;        self.dropout = nn.Dropout(p_dropout)&lt;br&gt;        self.gelu = gelu&lt;br&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;forward&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, x&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        x = self.fc1(x)&lt;br&gt;        x = self.dropout(x)&lt;br&gt;        x = self.gelu(x)&lt;br&gt;        x = self.fc2(x)&lt;br&gt;        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; x&lt;br&gt;&lt;br&gt;&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;Pooler&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;nn.Module&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;__init__&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-built_in&#34;&gt;super&lt;/span&gt;(Pooler, self).__init__()&lt;br&gt;        self.fc = nn.Linear(d_model, d_model)&lt;br&gt;        self.tanh = nn.Tanh()&lt;br&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;forward&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, x&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;&amp;#x27;&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        x: [batch, d_model] (first place output)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        &amp;#x27;&amp;#x27;&amp;#x27;&lt;/span&gt;&lt;br&gt;        x = self.fc(x)&lt;br&gt;        x = self.tanh(x)&lt;br&gt;        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; x&lt;br&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Encoder层和组合而成的BERT网络&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;60&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;61&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;62&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;63&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;64&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;65&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;66&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;67&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;68&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;69&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;70&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;EncoderLayer&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;nn.Module&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;__init__&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-built_in&#34;&gt;super&lt;/span&gt;(EncoderLayer, self).__init__()&lt;br&gt;        self.norm1 = nn.LayerNorm(d_model)&lt;br&gt;        self.norm2 = nn.LayerNorm(d_model)&lt;br&gt;&lt;br&gt;        self.enc_attn = MultiHeadAttention()&lt;br&gt;        self.ffn = FeedForwardNetwork()&lt;br&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;forward&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, x, pad_mask&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;&amp;#x27;&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        pre-norm&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        see more detail in https://openreview.net/pdf?id=B1x8anVFPr&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        x: [batch, seq_len, d_model]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;hljs-string&#34;&gt;        &amp;#x27;&amp;#x27;&amp;#x27;&lt;/span&gt;&lt;br&gt;        residual = x&lt;br&gt;        x = self.norm1(x)&lt;br&gt;        x = self.enc_attn(x, x, x, pad_mask) + residual&lt;br&gt;        residual = x&lt;br&gt;        x = self.norm2(x)&lt;br&gt;        x = self.ffn(x)&lt;br&gt;        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; x + residual&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&#34;hljs-class&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;BERT&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;nn.Module&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;__init__&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, n_layers&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-built_in&#34;&gt;super&lt;/span&gt;(BERT, self).__init__()&lt;br&gt;        self.embedding = Embeddings()&lt;br&gt;        self.encoders = nn.ModuleList([&lt;br&gt;            EncoderLayer() &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; _ &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;range&lt;/span&gt;(n_layers)&lt;br&gt;        ])&lt;br&gt;&lt;br&gt;        self.pooler = Pooler()&lt;br&gt;&lt;br&gt;        self.next_cls = nn.Linear(d_model, &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;)&lt;br&gt;        self.gelu = gelu&lt;br&gt;&lt;br&gt;        shared_weight = self.pooler.fc.weight&lt;br&gt;        self.fc = nn.Linear(d_model, d_model)&lt;br&gt;        self.fc.weight = shared_weight&lt;br&gt;&lt;br&gt;        shared_weight = self.embedding.word_emb.weight&lt;br&gt;        self.word_classifier = nn.Linear(d_model, max_vocab, bias=&lt;span class=&#34;hljs-literal&#34;&gt;False&lt;/span&gt;)&lt;br&gt;        self.word_classifier.weight = shared_weight&lt;br&gt;&lt;br&gt;    &lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;forward&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, tokens, segments, masked_pos&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;        output = self.embedding(tokens, segments)&lt;br&gt;        enc_self_pad_mask = get_pad_mask(tokens)&lt;br&gt;        &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; layer &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; self.encoders:&lt;br&gt;            output = layer(output, enc_self_pad_mask)&lt;br&gt;        &lt;span class=&#34;hljs-comment&#34;&gt;# output: [batch, max_len, d_model]&lt;/span&gt;&lt;br&gt;&lt;br&gt;        &lt;span class=&#34;hljs-comment&#34;&gt;# NSP Task&lt;/span&gt;&lt;br&gt;        hidden_pool = self.pooler(output[:, &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;])&lt;br&gt;        logits_cls = self.next_cls(hidden_pool)&lt;br&gt;&lt;br&gt;        &lt;span class=&#34;hljs-comment&#34;&gt;# Masked Language Model Task&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-comment&#34;&gt;# masked_pos: [batch, max_pred] -&amp;gt; [batch, max_pred, d_model]&lt;/span&gt;&lt;br&gt;        masked_pos = masked_pos.unsqueeze(-&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;).expand(-&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, -&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, d_model)&lt;br&gt;&lt;br&gt;        &lt;span class=&#34;hljs-comment&#34;&gt;# h_masked: [batch, max_pred, d_model]&lt;/span&gt;&lt;br&gt;        h_masked = torch.gather(output, dim=&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, index=masked_pos)&lt;br&gt;        h_masked = self.gelu(self.fc(h_masked))&lt;br&gt;        logits_lm = self.word_classifier(h_masked)&lt;br&gt;        &lt;span class=&#34;hljs-comment&#34;&gt;# logits_lm: [batch, max_pred, max_vocab]&lt;/span&gt;&lt;br&gt;        &lt;span class=&#34;hljs-comment&#34;&gt;# logits_cls: [batch, 2]&lt;/span&gt;&lt;br&gt;&lt;br&gt;        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; logits_cls, logits_lm&lt;br&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;batch-size设为6&lt;br&gt;训练300个Epoch&lt;br&gt;训练结果进行预测例句&lt;br&gt;结果如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight routeros&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs routeros&#34;&gt;========================================================&lt;br&gt;Masked data:&lt;br&gt;[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;[CLS]&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;[MASK]&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;[MASK]&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;you&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;too&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;how&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;are&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;you&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;today&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;[SEP]&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;great&amp;#x27;&lt;/span&gt;,&lt;br&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;my&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;baseball&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;team&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;won&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;the&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;competition&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;[SEP]&amp;#x27;&lt;/span&gt;]&lt;br&gt;BERT reconstructed:&lt;br&gt;[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;[CLS]&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;nice&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;meet&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;you&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;too&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;how&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;are&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;you&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;today&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;[SEP]&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;great&amp;#x27;&lt;/span&gt;,&lt;br&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;my&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;baseball&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;team&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;won&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;the&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;competition&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;[SEP]&amp;#x27;&lt;/span&gt;]&lt;br&gt;Original sentence:&lt;br&gt;[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;[CLS]&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;nice&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;meet&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;you&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;too&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;how&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;are&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;you&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;today&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;[SEP]&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;great&amp;#x27;&lt;/span&gt;,&lt;br&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;my&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;baseball&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;team&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;won&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;the&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;competition&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;[SEP]&amp;#x27;&lt;/span&gt;]&lt;br&gt;===============Next Sentence &lt;span class=&#34;hljs-attribute&#34;&gt;Prediction&lt;/span&gt;===============&lt;br&gt;Two sentences are continuous? &lt;span class=&#34;hljs-literal&#34;&gt;True&lt;/span&gt;&lt;br&gt;BERT predict: &lt;span class=&#34;hljs-literal&#34;&gt;True&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/09/24/%E5%85%B3%E4%BA%8Eselenium%E5%8C%85%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E7%9A%84%E9%97%AE%E9%A2%98%E6%8E%92%E9%99%A4/</guid>
+            <title>关于selenium包安装运行的问题排除</title>
+            <link>http://example.com/2023/09/24/%E5%85%B3%E4%BA%8Eselenium%E5%8C%85%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E7%9A%84%E9%97%AE%E9%A2%98%E6%8E%92%E9%99%A4/</link>
+            <category>技术</category>
+            <category>python</category>
+            <pubDate>Sun, 24 Sep 2023 17:03:44 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;selenium-包安装&#34;&gt;&lt;a href=&#34;#selenium-包安装&#34; class=&#34;headerlink&#34; title=&#34;selenium 包安装&#34;&gt;&lt;/a&gt;selenium 包安装&lt;/h1&gt;&lt;p&gt;首先是想要在base环境下安装的，但是因为base环境的内容太多，solve解决依赖问题耗时过长，所以考虑新建环境。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;conda create -n webdriver python=3.7&lt;br&gt;conda activate webdriver&lt;br&gt;conda install selenium&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&#34;出现问题&#34;&gt;&lt;a href=&#34;#出现问题&#34; class=&#34;headerlink&#34; title=&#34;出现问题&#34;&gt;&lt;/a&gt;出现问题&lt;/h1&gt;&lt;p&gt;在按照例程运行代码时，出现了以下问题：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; selenium &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; webdriver&lt;br&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; pandas &lt;span class=&#34;hljs-keyword&#34;&gt;as&lt;/span&gt; pd&lt;br&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; platform&lt;br&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span class=&#34;hljs-keyword&#34;&gt;as&lt;/span&gt; plt&lt;br&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; os&lt;br&gt;chromedriver = os.path.abspath(&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;C:\\Users\\18381\\anaconda3\\Scripts\\chromedriver.exe&amp;#x27;&lt;/span&gt;)&lt;br&gt;os.environ[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;webdriver.chrome.driver&amp;quot;&lt;/span&gt;] = chromedriver&lt;br&gt;driver = webdriver.Chrome()&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;出现了以下错误：&lt;br&gt;Unable to obtain driver using Selenium Manager: C:\Users\18381\anaconda3\envs\webdriver\lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe is missing.&lt;/p&gt;
+&lt;p&gt;因此，查阅github上有关issue，发现是conda打包问题，没有打包这个可执行文件。因此，需要手动下载这个文件，放到对应的目录下。&lt;br&gt;&lt;a href=&#34;https://github.com/SeleniumHQ/selenium/tree/trunk/common/manager&#34;&gt;下载文件&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;其他需要注意的地方&#34;&gt;&lt;a href=&#34;#其他需要注意的地方&#34; class=&#34;headerlink&#34; title=&#34;其他需要注意的地方&#34;&gt;&lt;/a&gt;其他需要注意的地方&lt;/h1&gt;&lt;p&gt;比如求解器，可以使用新的求解器例如&lt;a href=&#34;https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community&#34;&gt;libmamba&lt;/a&gt;&lt;br&gt;虽然我还没完全搞懂这个东西如何使用&lt;/p&gt;
+&lt;p&gt;需要先安装chrome和对应的chromedriver&lt;br&gt;&lt;a href=&#34;https://chromedriver.chromium.org/downloads&#34;&gt;chromedriver&lt;/a&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/08/20/%E4%B8%96%E7%95%8C%E8%A7%82%E5%85%B6%E4%B8%80/</guid>
+            <title>世界观其一</title>
+            <link>http://example.com/2023/08/20/%E4%B8%96%E7%95%8C%E8%A7%82%E5%85%B6%E4%B8%80/</link>
+            <category>写作</category>
+            <category>科幻</category>
+            <category>世界观</category>
+            <pubDate>Sun, 20 Aug 2023 21:15:50 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;写在最前面&#34;&gt;&lt;a href=&#34;#写在最前面&#34; class=&#34;headerlink&#34; title=&#34;写在最前面&#34;&gt;&lt;/a&gt;写在最前面&lt;/h1&gt;&lt;p&gt;这篇文章主要是在闲极无聊学sql时，看到不同版本sql语法不兼容时感到的一种割裂感，进而想到用ai创作一幅表达我心态的画。从这里又跳跃到，如果在未来，ai创作一幅画仅需要一念，那么对生活又是一种什么样颠覆的改变呢。于是乎，在这种想法的引导下决定试着写一写自己心目中近未来世界的一些简单的世界观。&lt;/p&gt;
+&lt;h1 id=&#34;居家生活&#34;&gt;&lt;a href=&#34;#居家生活&#34; class=&#34;headerlink&#34; title=&#34;居家生活&#34;&gt;&lt;/a&gt;居家生活&lt;/h1&gt;&lt;h2 id=&#34;房间的装潢&#34;&gt;&lt;a href=&#34;#房间的装潢&#34; class=&#34;headerlink&#34; title=&#34;房间的装潢&#34;&gt;&lt;/a&gt;房间的装潢&lt;/h2&gt;&lt;p&gt;对于一个生活在不远的未来的人来说，由于世界范围内开源运动与算力共享运动的蓬勃发展，开源软件的交互界面在人工智能辅助设计（AAD）的加持下变得更加易于操作。在房间装潢方面，具有初步功能的脑机接口，可以检测大脑的情绪反应，搭配心理判断系统的语言+画面交互，可以实现对使用者思维中对房间装潢需要的画面进行复现与自动优化，并搭配墙纸（以柔性半主动发光材料制成）进行显示，从而完成房间装潢的快速个性化配置。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/07/27/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-27/</guid>
+            <title>电赛培训-23-07-27</title>
+            <link>http://example.com/2023/07/27/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-27/</link>
+            <pubDate>Thu, 27 Jul 2023 10:04:23 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;赛程&#34;&gt;&lt;a href=&#34;#赛程&#34; class=&#34;headerlink&#34; title=&#34;赛程&#34;&gt;&lt;/a&gt;赛程&lt;/h2&gt;&lt;p&gt;9-11号作品测评&lt;br&gt;2号早晨7点半到413，放题&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/07/19/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-19/</guid>
+            <title>电赛培训-23-07-19</title>
+            <link>http://example.com/2023/07/19/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-19/</link>
+            <pubDate>Wed, 19 Jul 2023 10:19:52 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;pid控制系统&#34;&gt;&lt;a href=&#34;#pid控制系统&#34; class=&#34;headerlink&#34; title=&#34;pid控制系统&#34;&gt;&lt;/a&gt;pid控制系统&lt;/h1&gt;&lt;h2 id=&#34;公式&#34;&gt;&lt;a href=&#34;#公式&#34; class=&#34;headerlink&#34; title=&#34;公式&#34;&gt;&lt;/a&gt;公式&lt;/h2&gt;&lt;p&gt;$$ u(t)&amp;#x3D;K_p e(t)+K_i \int_0^t e(\tau) d\tau + K_d \frac{de(t)}{dt} $$&lt;/p&gt;
+&lt;h2 id=&#34;作用&#34;&gt;&lt;a href=&#34;#作用&#34; class=&#34;headerlink&#34; title=&#34;作用&#34;&gt;&lt;/a&gt;作用&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;比例项：减小误差&lt;/li&gt;
+&lt;li&gt;积分项：消除稳态误差&lt;/li&gt;
+&lt;li&gt;微分项：减小超调量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;超调量&#34;&gt;&lt;a href=&#34;#超调量&#34; class=&#34;headerlink&#34; title=&#34;超调量&#34;&gt;&lt;/a&gt;超调量&lt;/h3&gt;&lt;p&gt;$$ \xi &amp;#x3D; \frac{e^{-\frac{\pi \zeta}{\sqrt{1-\zeta^2}}}}{\sqrt{1-\zeta^2}} $$&lt;br&gt;超调量的意义在于：在没有积分项的情况下，超调量越大，系统的响应越快，但是超调量越大，系统的稳定性越差&lt;br&gt;其中 $\zeta$ 是阻尼系数，$\zeta$ 越大，超调量越小，系统越稳定&lt;/p&gt;
+&lt;h2 id=&#34;误差&#34;&gt;&lt;a href=&#34;#误差&#34; class=&#34;headerlink&#34; title=&#34;误差&#34;&gt;&lt;/a&gt;误差&lt;/h2&gt;&lt;p&gt;低频抖动：积分项过大&lt;br&gt;高频抖动：微分项过大&lt;/p&gt;
+&lt;h2 id=&#34;例子&#34;&gt;&lt;a href=&#34;#例子&#34; class=&#34;headerlink&#34; title=&#34;例子&#34;&gt;&lt;/a&gt;例子&lt;/h2&gt;&lt;p&gt;状态量：超声波，速度，MPU6050姿态，&lt;/p&gt;
+&lt;h1 id=&#34;卡尔曼滤波&#34;&gt;&lt;a href=&#34;#卡尔曼滤波&#34; class=&#34;headerlink&#34; title=&#34;卡尔曼滤波&#34;&gt;&lt;/a&gt;卡尔曼滤波&lt;/h1&gt;&lt;h2 id=&#34;作用-1&#34;&gt;&lt;a href=&#34;#作用-1&#34; class=&#34;headerlink&#34; title=&#34;作用&#34;&gt;&lt;/a&gt;作用&lt;/h2&gt;&lt;p&gt;利用间接测量值，计算最优估算，组合各种可能受到噪音影响的数据源。&lt;/p&gt;
+&lt;h2 id=&#34;原理&#34;&gt;&lt;a href=&#34;#原理&#34; class=&#34;headerlink&#34; title=&#34;原理&#34;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;h3 id=&#34;状态观察&#34;&gt;&lt;a href=&#34;#状态观察&#34; class=&#34;headerlink&#34; title=&#34;状态观察&#34;&gt;&lt;/a&gt;状态观察&lt;/h3&gt;&lt;p&gt;状态观察是指，通过测量值，计算出状态量的过程，&lt;br&gt;状态观测器得到的估计状态表示为$ \hat{x}  $&lt;/p&gt;
+&lt;h3 id=&#34;状态预测&#34;&gt;&lt;a href=&#34;#状态预测&#34; class=&#34;headerlink&#34; title=&#34;状态预测&#34;&gt;&lt;/a&gt;状态预测&lt;/h3&gt;&lt;p&gt;根据数学模型，从已有的状态量，通过计算得到了一个估计量$ \hat{x} $&lt;br&gt;然而，数学模型的预测有其局限性，初值条件不同所以不能得到相同的结果。&lt;br&gt;所以需要状态估算器&lt;/p&gt;
+&lt;h3 id=&#34;状态估算&#34;&gt;&lt;a href=&#34;#状态估算&#34; class=&#34;headerlink&#34; title=&#34;状态估算&#34;&gt;&lt;/a&gt;状态估算&lt;/h3&gt;&lt;p&gt;需要估算值收敛到实际值，所以需要反馈，反馈误差为e&lt;br&gt;$$ e &amp;#x3D; x - \hat{x} $$假设一个微分方程：&lt;br&gt;$$ \dot{x} &amp;#x3D; Ax + Bu $$$$ y &amp;#x3D; Cx $$以上是一个真实系统&lt;br&gt;$$ \dot{\hat{x}} &amp;#x3D; A\hat{x} + Bu + Ke$$$$ \hat{y} &amp;#x3D; C\hat{x} $$这是系统估算模型&lt;/p&gt;
+&lt;p&gt;两方程分别相减得到：&lt;br&gt;$$ \dot{e} &amp;#x3D;(A- KC)·e$$$$ y-\hat{y} &amp;#x3D; C·e$$&lt;br&gt;解得:&lt;br&gt;$$e(t) &amp;#x3D; e^{A-KC} ·e(0)$$&lt;br&gt;若A-KC的值小于0，那么e(t)会收敛到0，即估算值收敛到实际值，实际上，k可以加速收敛过程。&lt;/p&gt;
+&lt;h3 id=&#34;例子-1&#34;&gt;&lt;a href=&#34;#例子-1&#34; class=&#34;headerlink&#34; title=&#34;例子&#34;&gt;&lt;/a&gt;例子&lt;/h3&gt;&lt;p&gt;$$ \dot{x} &amp;#x3D; Ax + Bu + w$$$$ y &amp;#x3D; Cx + v$$&lt;br&gt;w是过程噪声，v是测量噪声，他们都服从高斯分布，且互相独立。&lt;br&gt;在初始条件下，状态估算器估计了$\hat{x}$，真实值在这个中心的正态分布周围&lt;br&gt;在多轮预测后，估计值的分布会比初始条件下的估计分布更大，同时，还有一个测量方程得到的均值与方差都不同的分布，这两个分布的相乘就得到优化估计。&lt;br&gt;事实上，卡尔曼滤波器方程是一个随机系统的状态观测器&lt;br&gt;公式如下：&lt;br&gt;$$ \hat{x}&lt;em&gt;k&amp;#x3D;A·\hat{x}&lt;/em&gt;{k-1} +B·u_k +K_k(y_k - C(A·\hat{x}+B·u_k)) $$&lt;br&gt;其中$\hat{x_k^-}$是前项估测，代表前两项的和，所以公式写为：&lt;br&gt;$$ \hat{x}_k^ &amp;#x3D; A·\hat{x_k^-} ++K_k(y_k - C\hat{x_k^-}) $$&lt;/p&gt;
+&lt;p&gt;所以结果成为后验估值。&lt;/p&gt;
+&lt;p&gt;误差协方差矩阵P&lt;br&gt;$$ P_k^- &amp;#x3D; AP_{k-1}A^T +Q$$&lt;br&gt;这个就是对矩阵P的估值&lt;/p&gt;
+&lt;p&gt;第二步，更新状态&lt;br&gt;$$ K_k &amp;#x3D; \frac{P_k^-C^T}{(CP_k^-C^T+R)} $$&lt;br&gt;这个是卡尔曼增益，使得更新K后误差协方差最小&lt;br&gt;$$ P_k &amp;#x3D; (I-K_kC)P_k^- $$&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/07/18/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-18/</guid>
+            <title>电赛培训-23-07-18</title>
+            <link>http://example.com/2023/07/18/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-18/</link>
+            <pubDate>Tue, 18 Jul 2023 10:44:15 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;arduino小车测速&#34;&gt;&lt;a href=&#34;#arduino小车测速&#34; class=&#34;headerlink&#34; title=&#34;arduino小车测速&#34;&gt;&lt;/a&gt;arduino小车测速&lt;/h1&gt;&lt;h2 id=&#34;霍尔编码器&#34;&gt;&lt;a href=&#34;#霍尔编码器&#34; class=&#34;headerlink&#34; title=&#34;霍尔编码器&#34;&gt;&lt;/a&gt;霍尔编码器&lt;/h2&gt;&lt;h2 id=&#34;外部中断&#34;&gt;&lt;a href=&#34;#外部中断&#34; class=&#34;headerlink&#34; title=&#34;外部中断&#34;&gt;&lt;/a&gt;外部中断&lt;/h2&gt;&lt;p&gt;一个霍尔编码器如果有两个传感器传出两路信号，就能根据相位差同时测量速度和方向&lt;br&gt;但是arduino只有两个硬件中断管脚，同时还要使能计时器中断，所以需要一个外部中断库&lt;br&gt;PinChangeInterrupt库&lt;/p&gt;
+&lt;h2 id=&#34;定时中断&#34;&gt;&lt;a href=&#34;#定时中断&#34; class=&#34;headerlink&#34; title=&#34;定时中断&#34;&gt;&lt;/a&gt;定时中断&lt;/h2&gt;&lt;p&gt;atmel内部有三个定时器&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Timer0是delay用的&lt;/li&gt;
+&lt;li&gt;Timer1是pwm用的&lt;/li&gt;
+&lt;li&gt;只有Timer2可以使用来进行定时中断&lt;br&gt;因此，需要使用MsTimer2库来实现定时中断&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/07/14/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-14/</guid>
+            <title>电赛培训-23-07-14</title>
+            <link>http://example.com/2023/07/14/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-14/</link>
+            <pubDate>Fri, 14 Jul 2023 09:30:14 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;PWM&#34;&gt;&lt;a href=&#34;#PWM&#34; class=&#34;headerlink&#34; title=&#34;PWM&#34;&gt;&lt;/a&gt;PWM&lt;/h1&gt;&lt;h2 id=&#34;通用定时器&#34;&gt;&lt;a href=&#34;#通用定时器&#34; class=&#34;headerlink&#34; title=&#34;通用定时器&#34;&gt;&lt;/a&gt;通用定时器&lt;/h2&gt;&lt;h3 id=&#34;预分频&#34;&gt;&lt;a href=&#34;#预分频&#34; class=&#34;headerlink&#34; title=&#34;预分频&#34;&gt;&lt;/a&gt;预分频&lt;/h3&gt;&lt;p&gt;通过对时钟频率进行分频，实现了让计数器可以计数更长的时间。&lt;/p&gt;
+&lt;h2 id=&#34;占空比&#34;&gt;&lt;a href=&#34;#占空比&#34; class=&#34;headerlink&#34; title=&#34;占空比&#34;&gt;&lt;/a&gt;占空比&lt;/h2&gt;&lt;p&gt;占空比的实现是通过调节计数器到达翻转电平的值的大小来实现的。&lt;br&gt;利用的是计数器的比较功能&lt;br&gt;通过调节一个计数器不同的值，可以同时实现多个pwm的多个占空比的调节。但是他们的频率是相同的，若想要不同频率需要使用不同的计时器。&lt;br&gt;TIM3&amp;#x2F;4通道数较多&lt;/p&gt;
+&lt;h2 id=&#34;捕获模式&#34;&gt;&lt;a href=&#34;#捕获模式&#34; class=&#34;headerlink&#34; title=&#34;捕获模式&#34;&gt;&lt;/a&gt;捕获模式&lt;/h2&gt;&lt;p&gt;捕获模式可以用来测量信号的频率，占空比等。&lt;/p&gt;
+&lt;h2 id=&#34;设置&#34;&gt;&lt;a href=&#34;#设置&#34; class=&#34;headerlink&#34; title=&#34;设置&#34;&gt;&lt;/a&gt;设置&lt;/h2&gt;&lt;p&gt;打开对应channel的pwm生成，设定预分频和counter值（推荐一个方便运算占空比的值）&lt;/p&gt;
+&lt;h2 id=&#34;作业&#34;&gt;&lt;a href=&#34;#作业&#34; class=&#34;headerlink&#34; title=&#34;作业&#34;&gt;&lt;/a&gt;作业&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;需要实现通过按键增加占空比&lt;/li&gt;
+&lt;li&gt;用捕获模式测量发生的PWM波频率和占空比&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/07/13/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-13/</guid>
+            <title>电赛培训-23-07-13</title>
+            <link>http://example.com/2023/07/13/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-13/</link>
+            <pubDate>Thu, 13 Jul 2023 09:57:16 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;stm32串口通信&#34;&gt;&lt;a href=&#34;#stm32串口通信&#34; class=&#34;headerlink&#34; title=&#34;stm32串口通信&#34;&gt;&lt;/a&gt;stm32串口通信&lt;/h1&gt;&lt;h1 id=&#34;定时器&#34;&gt;&lt;a href=&#34;#定时器&#34; class=&#34;headerlink&#34; title=&#34;定时器&#34;&gt;&lt;/a&gt;定时器&lt;/h1&gt;&lt;h2 id=&#34;通用定时器&#34;&gt;&lt;a href=&#34;#通用定时器&#34; class=&#34;headerlink&#34; title=&#34;通用定时器&#34;&gt;&lt;/a&gt;通用定时器&lt;/h2&gt;&lt;p&gt;采用apb1&amp;#x2F;apb2总线&lt;/p&gt;
+&lt;h3 id=&#34;预分频&#34;&gt;&lt;a href=&#34;#预分频&#34; class=&#34;headerlink&#34; title=&#34;预分频&#34;&gt;&lt;/a&gt;预分频&lt;/h3&gt;&lt;p&gt;计时时长&amp;#x3D; (预分频+1) * (计数器值+1) &amp;#x2F; 时钟频率&lt;/p&gt;
+&lt;h3 id=&#34;中断回调&#34;&gt;&lt;a href=&#34;#中断回调&#34; class=&#34;headerlink&#34; title=&#34;中断回调&#34;&gt;&lt;/a&gt;中断回调&lt;/h3&gt;&lt;p&gt;HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)&lt;br&gt;这个函数可以复制到it文件中，定义这个函数即可在中断中调用这个函数。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/07/12/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-12/</guid>
+            <title>电赛培训-23-07-12</title>
+            <link>http://example.com/2023/07/12/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-12/</link>
+            <pubDate>Wed, 12 Jul 2023 09:51:29 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;stm32定时器&#34;&gt;&lt;a href=&#34;#stm32定时器&#34; class=&#34;headerlink&#34; title=&#34;stm32定时器&#34;&gt;&lt;/a&gt;stm32定时器&lt;/h1&gt;&lt;p&gt;SysTick控制寄存器：&lt;br&gt;在SysTick_Config函数中，需要传进一个参数，代表着多少个tick触发一次中断。这个参数是一个32位的寄存器，但是只有24位有效，因此最大值是2^24-1，也就是16777215，也就是16Mhz的时钟下，最大延时是1s。如果需要更长的延时，需要自己写一个计数器，然后在中断中进行判断。&lt;br&gt;有一个变量是SystemCoreClock，代表当前时钟速度。把这个变量除以多少，就是把一秒分成多少份来计时。&lt;br&gt;在SysTick_Handler这个函数中，每次计时器触发中断都会调用这个函数，可以设置一个静态变量来进行计数，例如每1ms触发中断，就让这个函数每500次进入中断才执行某个行为，就能实现每500ms执行一次某个行为。&lt;/p&gt;
+&lt;h1 id=&#34;按键中断&#34;&gt;&lt;a href=&#34;#按键中断&#34; class=&#34;headerlink&#34; title=&#34;按键中断&#34;&gt;&lt;/a&gt;按键中断&lt;/h1&gt; ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/07/11/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-11/</guid>
+            <title>电赛培训-23-07-11</title>
+            <link>http://example.com/2023/07/11/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-11/</link>
+            <pubDate>Tue, 11 Jul 2023 09:49:47 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;stm32-开发&#34;&gt;&lt;a href=&#34;#stm32-开发&#34; class=&#34;headerlink&#34; title=&#34;stm32 开发&#34;&gt;&lt;/a&gt;stm32 开发&lt;/h1&gt;&lt;h2 id=&#34;配置内容&#34;&gt;&lt;a href=&#34;#配置内容&#34; class=&#34;headerlink&#34; title=&#34;配置内容&#34;&gt;&lt;/a&gt;配置内容&lt;/h2&gt;&lt;p&gt;main.c中的user code 注释中间是不会被cube重新生成的&lt;/p&gt;
+&lt;h2 id=&#34;时钟树&#34;&gt;&lt;a href=&#34;#时钟树&#34; class=&#34;headerlink&#34; title=&#34;时钟树&#34;&gt;&lt;/a&gt;时钟树&lt;/h2&gt;&lt;h2 id=&#34;第一个hal函数&#34;&gt;&lt;a href=&#34;#第一个hal函数&#34; class=&#34;headerlink&#34; title=&#34;第一个hal函数&#34;&gt;&lt;/a&gt;第一个hal函数&lt;/h2&gt;&lt;p&gt;HAL_GPIO_WritePin(GPIOF,LED0_PIN|LED1_PIN, GPIO_PIN_SET);&lt;br&gt;HAL_Delay(ms);&lt;/p&gt;
+&lt;h2 id=&#34;板载按钮&#34;&gt;&lt;a href=&#34;#板载按钮&#34; class=&#34;headerlink&#34; title=&#34;板载按钮&#34;&gt;&lt;/a&gt;板载按钮&lt;/h2&gt;&lt;p&gt;PE4作为ButtonPin，使能需要一个上拉电阻&lt;/p&gt;
+&lt;h2 id=&#34;中断&#34;&gt;&lt;a href=&#34;#中断&#34; class=&#34;headerlink&#34; title=&#34;中断&#34;&gt;&lt;/a&gt;中断&lt;/h2&gt;&lt;p&gt;可以在cube中更改引脚为外部中断，可以调节中断触发模式&lt;/p&gt;
+&lt;h1 id=&#34;stm32用于clion的诸多问题&#34;&gt;&lt;a href=&#34;#stm32用于clion的诸多问题&#34; class=&#34;headerlink&#34; title=&#34;stm32用于clion的诸多问题&#34;&gt;&lt;/a&gt;stm32用于clion的诸多问题&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;Error: libusb_open() failed with LIBUSB_ERROR_NOT_SUPPORTED&lt;br&gt;初步估计是usb驱动问题，因此计划使用zadig重装驱动，libusb&lt;/li&gt;
+&lt;li&gt;Error:Error: timed out while waiting for target halted&lt;br&gt;似乎是在等待重启的过程中超时，难道是没有设置重启？&lt;br&gt;&lt;strong&gt;解决了，忘了换配置文件了，老配置文件没问题&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;问题又来了，Initfailed，连接不到target，先用的玄学方法：按住rst按键，再烧录，就用这种笨方法至少可以烧录了&lt;br&gt;作为重置方法，接下来有一个比较好的解决方案，就是再cubemx中，pinout设置栏，再systemcore的sys部分里，有一个debug模式选择，之前一直是disable，所以拒绝再外部烧写，现在改成serial wire，就可以了。&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2023/07/10/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-10/</guid>
+            <title>电赛培训-23-07-10</title>
+            <link>http://example.com/2023/07/10/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-10/</link>
+            <pubDate>Mon, 10 Jul 2023 09:40:59 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;spi与i2c&#34;&gt;&lt;a href=&#34;#spi与i2c&#34; class=&#34;headerlink&#34; title=&#34;spi与i2c&#34;&gt;&lt;/a&gt;spi与i2c&lt;/h1&gt;&lt;h2 id=&#34;iic通信&#34;&gt;&lt;a href=&#34;#iic通信&#34; class=&#34;headerlink&#34; title=&#34;iic通信&#34;&gt;&lt;/a&gt;iic通信&lt;/h2&gt;&lt;p&gt;i2c是一种用于设备间通讯的两线协议&lt;br&gt;硬件和软件实现都通过machine.I2C和machine.SoftI2C来实现。&lt;br&gt;硬件I2c优势在于速度快，但是对使用的引脚有限制。&lt;br&gt;软件I2C优势在于兼容性强，但是速度慢&lt;br&gt;函数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;硬件I2C：使用以下参数来构造I2C对象&lt;ul&gt;
+&lt;li&gt;id表示特定的外设，取决于特定板子&lt;/li&gt;
+&lt;li&gt;scl：时钟线引脚，Pin&lt;/li&gt;
+&lt;li&gt;sda：数据线引脚，Pin&lt;/li&gt;
+&lt;li&gt;freq：时钟频率，整数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;注意接线先关注缺少的端口例如I2C或uart，之后再关注gpio&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;软件I2C：使用以下参数来构造I2C对象&lt;ul&gt;
+&lt;li&gt;scl：时钟线引脚，Pin&lt;/li&gt;
+&lt;li&gt;sda：数据线引脚，Pin&lt;/li&gt;
+&lt;li&gt;freq：时钟频率，整数&lt;/li&gt;
+&lt;li&gt;timeout：超时时间，整数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;init函数可以重新定义&lt;/li&gt;
+&lt;li&gt;I2C.start()：开始通信&lt;/li&gt;
+&lt;li&gt;I2C.stop()：结束通信&lt;/li&gt;
+&lt;li&gt;I2C.readint(buf,nack&amp;#x3D;True):读取字节存储到buf中，字节长度是buf长度，收到出最后一个字节以外所有子接后，将发送ack，如果设置nack则发送nack，ack代表着以后还会传输，nack代表着这是最后一个字节&lt;/li&gt;
+&lt;li&gt;I2C.write(buf)：将buf中的字节写入到总线上，检查每个字节是否收到ack&lt;/li&gt;
+&lt;li&gt;I2C.readfrom(addr,nbytes,stop&amp;#x3D;True):从addr地址读取nbytes个字节，如果stop为True则在输入结束时发送stop信号。&lt;/li&gt;
+&lt;li&gt;I2c.readfrom_into(adr,)&lt;/li&gt;
+&lt;li&gt;I2c.writeto(addr,buf,stop&amp;#x3D;True)&lt;/li&gt;
+&lt;li&gt;I2c.writevto(addr,vector,stop&amp;#x3D;True)将vector中包含的字节写入addr指定的从站，vector应该具有缓冲协议的元组或对象列表&lt;/li&gt;
+&lt;li&gt;I2c.readfrom_mem(addr,memaddr,nbytes,addrsize&amp;#x3D;8)从memaddr指定的内存地址开始，从addr指定的从站读出nbytes。参数addrsize以位为单位指定地址大小，返回读取数据bytes对象。&lt;/li&gt;
+&lt;li&gt;&lt;h3 id=&#34;硬件I3c外设&#34;&gt;&lt;a href=&#34;#硬件I3c外设&#34; class=&#34;headerlink&#34; title=&#34;硬件I3c外设&#34;&gt;&lt;/a&gt;硬件I3c外设&lt;/h3&gt;任何可用的输出引脚都可以用于scl和sda，默认情况下，I2C对象使用id 0，scl引脚为22，sda引脚为21，时钟频率为400kHz。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;spi通信&#34;&gt;&lt;a href=&#34;#spi通信&#34; class=&#34;headerlink&#34; title=&#34;spi通信&#34;&gt;&lt;/a&gt;spi通信&lt;/h2&gt;&lt;p&gt;spi是一种由主机驱动的同步串行协议。在物理层概念，一条总线有三条线路组成：SCK，MOSI、MISO，多个设备可以共享一条总线。每个设备有一个单独的第四个信号SS（从设备选择），来选择总线上的特定设备并与之通信。&lt;/p&gt;
+&lt;figure class=&#34;highlight gml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs gml&#34;&gt;machine.SPI(&lt;span class=&#34;hljs-symbol&#34;&gt;id&lt;/span&gt;)# 在给定的总线&lt;span class=&#34;hljs-symbol&#34;&gt;id&lt;/span&gt;上构造一个SPI对象。&lt;span class=&#34;hljs-symbol&#34;&gt;id&lt;/span&gt;的值取决于特定端口以及硬件&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&#34;stm32&#34;&gt;&lt;a href=&#34;#stm32&#34; class=&#34;headerlink&#34; title=&#34;stm32&#34;&gt;&lt;/a&gt;stm32&lt;/h1&gt;&lt;h2 id=&#34;引脚&#34;&gt;&lt;a href=&#34;#引脚&#34; class=&#34;headerlink&#34; title=&#34;引脚&#34;&gt;&lt;/a&gt;引脚&lt;/h2&gt;&lt;p&gt;在cubemx中，浅黄色是不能修改定义的，深黄色也是默认的。&lt;/p&gt;
+&lt;h2 id=&#34;配置&#34;&gt;&lt;a href=&#34;#配置&#34; class=&#34;headerlink&#34; title=&#34;配置&#34;&gt;&lt;/a&gt;配置&lt;/h2&gt;&lt;p&gt;引脚配置，在pinout_configuration中，如下图所示：&lt;br&gt;&lt;img src=&#34;/2023/07/10/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-10/GPIO_conf.png&#34; alt=&#34;引脚配置&#34;&gt;&lt;br&gt;可以配置其中每个引脚的功能，例如GPIO、SPI、I2C等等。&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://example.com/2023/07/07/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-07/</guid>
             <title>电赛培训-23-07-07</title>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://example.com</id>
+    <title>意大利炮打友军 • Posts by &#34;写作&#34; tag</title>
+    <link href="http://example.com" />
+    <updated>2023-08-20T13:15:50.000Z</updated>
+    <category term="随笔" />
+    <category term="技术" />
+    <category term="博客" />
+    <category term="markdown" />
+    <category term="python" />
+    <category term="月历" />
+    <category term="写作" />
+    <category term="科幻" />
+    <category term="世界观" />
+    <category term="WSL" />
+    <category term="Linux" />
+    <category term="编译" />
+    <category term="电赛" />
+    <category term="记录" />
+    <category term="周报" />
+    <category term="课题组" />
+    <category term="神经网络" />
+    <category term="pytorch" />
+    <entry>
+        <id>http://example.com/2023/08/20/%E4%B8%96%E7%95%8C%E8%A7%82%E5%85%B6%E4%B8%80/</id>
+        <title>世界观其一</title>
+        <link rel="alternate" href="http://example.com/2023/08/20/%E4%B8%96%E7%95%8C%E8%A7%82%E5%85%B6%E4%B8%80/"/>
+        <content type="html">&lt;h1 id=&#34;写在最前面&#34;&gt;&lt;a href=&#34;#写在最前面&#34; class=&#34;headerlink&#34; title=&#34;写在最前面&#34;&gt;&lt;/a&gt;写在最前面&lt;/h1&gt;&lt;p&gt;这篇文章主要是在闲极无聊学sql时，看到不同版本sql语法不兼容时感到的一种割裂感，进而想到用ai创作一幅表达我心态的画。从这里又跳跃到，如果在未来，ai创作一幅画仅需要一念，那么对生活又是一种什么样颠覆的改变呢。于是乎，在这种想法的引导下决定试着写一写自己心目中近未来世界的一些简单的世界观。&lt;/p&gt;
+&lt;h1 id=&#34;居家生活&#34;&gt;&lt;a href=&#34;#居家生活&#34; class=&#34;headerlink&#34; title=&#34;居家生活&#34;&gt;&lt;/a&gt;居家生活&lt;/h1&gt;&lt;h2 id=&#34;房间的装潢&#34;&gt;&lt;a href=&#34;#房间的装潢&#34; class=&#34;headerlink&#34; title=&#34;房间的装潢&#34;&gt;&lt;/a&gt;房间的装潢&lt;/h2&gt;&lt;p&gt;对于一个生活在不远的未来的人来说，由于世界范围内开源运动与算力共享运动的蓬勃发展，开源软件的交互界面在人工智能辅助设计（AAD）的加持下变得更加易于操作。在房间装潢方面，具有初步功能的脑机接口，可以检测大脑的情绪反应，搭配心理判断系统的语言+画面交互，可以实现对使用者思维中对房间装潢需要的画面进行复现与自动优化，并搭配墙纸（以柔性半主动发光材料制成）进行显示，从而完成房间装潢的快速个性化配置。&lt;/p&gt;
+</content>
+        <category term="写作" />
+        <category term="科幻" />
+        <category term="世界观" />
+        <updated>2023-08-20T13:15:50.000Z</updated>
+    </entry>
+</feed>

@@ -3,17 +3,163 @@
     <id>http://example.com</id>
     <title>意大利炮打友军 • Posts by &#34;电赛&#34; category</title>
     <link href="http://example.com" />
-    <updated>2023-07-07T01:34:49.000Z</updated>
+    <updated>2023-07-27T02:04:23.000Z</updated>
     <category term="随笔" />
     <category term="技术" />
     <category term="博客" />
     <category term="markdown" />
+    <category term="python" />
     <category term="月历" />
+    <category term="写作" />
+    <category term="科幻" />
+    <category term="世界观" />
     <category term="WSL" />
     <category term="Linux" />
     <category term="编译" />
     <category term="电赛" />
     <category term="记录" />
+    <category term="周报" />
+    <category term="课题组" />
+    <category term="神经网络" />
+    <category term="pytorch" />
+    <entry>
+        <id>http://example.com/2023/07/27/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-27/</id>
+        <title>电赛培训-23-07-27</title>
+        <link rel="alternate" href="http://example.com/2023/07/27/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-27/"/>
+        <content type="html">&lt;h2 id=&#34;赛程&#34;&gt;&lt;a href=&#34;#赛程&#34; class=&#34;headerlink&#34; title=&#34;赛程&#34;&gt;&lt;/a&gt;赛程&lt;/h2&gt;&lt;p&gt;9-11号作品测评&lt;br&gt;2号早晨7点半到413，放题&lt;/p&gt;
+</content>
+        <updated>2023-07-27T02:04:23.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2023/07/19/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-19/</id>
+        <title>电赛培训-23-07-19</title>
+        <link rel="alternate" href="http://example.com/2023/07/19/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-19/"/>
+        <content type="html">&lt;h1 id=&#34;pid控制系统&#34;&gt;&lt;a href=&#34;#pid控制系统&#34; class=&#34;headerlink&#34; title=&#34;pid控制系统&#34;&gt;&lt;/a&gt;pid控制系统&lt;/h1&gt;&lt;h2 id=&#34;公式&#34;&gt;&lt;a href=&#34;#公式&#34; class=&#34;headerlink&#34; title=&#34;公式&#34;&gt;&lt;/a&gt;公式&lt;/h2&gt;&lt;p&gt;$$ u(t)&amp;#x3D;K_p e(t)+K_i \int_0^t e(\tau) d\tau + K_d \frac{de(t)}{dt} $$&lt;/p&gt;
+&lt;h2 id=&#34;作用&#34;&gt;&lt;a href=&#34;#作用&#34; class=&#34;headerlink&#34; title=&#34;作用&#34;&gt;&lt;/a&gt;作用&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;比例项：减小误差&lt;/li&gt;
+&lt;li&gt;积分项：消除稳态误差&lt;/li&gt;
+&lt;li&gt;微分项：减小超调量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;超调量&#34;&gt;&lt;a href=&#34;#超调量&#34; class=&#34;headerlink&#34; title=&#34;超调量&#34;&gt;&lt;/a&gt;超调量&lt;/h3&gt;&lt;p&gt;$$ \xi &amp;#x3D; \frac{e^{-\frac{\pi \zeta}{\sqrt{1-\zeta^2}}}}{\sqrt{1-\zeta^2}} $$&lt;br&gt;超调量的意义在于：在没有积分项的情况下，超调量越大，系统的响应越快，但是超调量越大，系统的稳定性越差&lt;br&gt;其中 $\zeta$ 是阻尼系数，$\zeta$ 越大，超调量越小，系统越稳定&lt;/p&gt;
+&lt;h2 id=&#34;误差&#34;&gt;&lt;a href=&#34;#误差&#34; class=&#34;headerlink&#34; title=&#34;误差&#34;&gt;&lt;/a&gt;误差&lt;/h2&gt;&lt;p&gt;低频抖动：积分项过大&lt;br&gt;高频抖动：微分项过大&lt;/p&gt;
+&lt;h2 id=&#34;例子&#34;&gt;&lt;a href=&#34;#例子&#34; class=&#34;headerlink&#34; title=&#34;例子&#34;&gt;&lt;/a&gt;例子&lt;/h2&gt;&lt;p&gt;状态量：超声波，速度，MPU6050姿态，&lt;/p&gt;
+&lt;h1 id=&#34;卡尔曼滤波&#34;&gt;&lt;a href=&#34;#卡尔曼滤波&#34; class=&#34;headerlink&#34; title=&#34;卡尔曼滤波&#34;&gt;&lt;/a&gt;卡尔曼滤波&lt;/h1&gt;&lt;h2 id=&#34;作用-1&#34;&gt;&lt;a href=&#34;#作用-1&#34; class=&#34;headerlink&#34; title=&#34;作用&#34;&gt;&lt;/a&gt;作用&lt;/h2&gt;&lt;p&gt;利用间接测量值，计算最优估算，组合各种可能受到噪音影响的数据源。&lt;/p&gt;
+&lt;h2 id=&#34;原理&#34;&gt;&lt;a href=&#34;#原理&#34; class=&#34;headerlink&#34; title=&#34;原理&#34;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;h3 id=&#34;状态观察&#34;&gt;&lt;a href=&#34;#状态观察&#34; class=&#34;headerlink&#34; title=&#34;状态观察&#34;&gt;&lt;/a&gt;状态观察&lt;/h3&gt;&lt;p&gt;状态观察是指，通过测量值，计算出状态量的过程，&lt;br&gt;状态观测器得到的估计状态表示为$ \hat{x}  $&lt;/p&gt;
+&lt;h3 id=&#34;状态预测&#34;&gt;&lt;a href=&#34;#状态预测&#34; class=&#34;headerlink&#34; title=&#34;状态预测&#34;&gt;&lt;/a&gt;状态预测&lt;/h3&gt;&lt;p&gt;根据数学模型，从已有的状态量，通过计算得到了一个估计量$ \hat{x} $&lt;br&gt;然而，数学模型的预测有其局限性，初值条件不同所以不能得到相同的结果。&lt;br&gt;所以需要状态估算器&lt;/p&gt;
+&lt;h3 id=&#34;状态估算&#34;&gt;&lt;a href=&#34;#状态估算&#34; class=&#34;headerlink&#34; title=&#34;状态估算&#34;&gt;&lt;/a&gt;状态估算&lt;/h3&gt;&lt;p&gt;需要估算值收敛到实际值，所以需要反馈，反馈误差为e&lt;br&gt;$$ e &amp;#x3D; x - \hat{x} $$假设一个微分方程：&lt;br&gt;$$ \dot{x} &amp;#x3D; Ax + Bu $$$$ y &amp;#x3D; Cx $$以上是一个真实系统&lt;br&gt;$$ \dot{\hat{x}} &amp;#x3D; A\hat{x} + Bu + Ke$$$$ \hat{y} &amp;#x3D; C\hat{x} $$这是系统估算模型&lt;/p&gt;
+&lt;p&gt;两方程分别相减得到：&lt;br&gt;$$ \dot{e} &amp;#x3D;(A- KC)·e$$$$ y-\hat{y} &amp;#x3D; C·e$$&lt;br&gt;解得:&lt;br&gt;$$e(t) &amp;#x3D; e^{A-KC} ·e(0)$$&lt;br&gt;若A-KC的值小于0，那么e(t)会收敛到0，即估算值收敛到实际值，实际上，k可以加速收敛过程。&lt;/p&gt;
+&lt;h3 id=&#34;例子-1&#34;&gt;&lt;a href=&#34;#例子-1&#34; class=&#34;headerlink&#34; title=&#34;例子&#34;&gt;&lt;/a&gt;例子&lt;/h3&gt;&lt;p&gt;$$ \dot{x} &amp;#x3D; Ax + Bu + w$$$$ y &amp;#x3D; Cx + v$$&lt;br&gt;w是过程噪声，v是测量噪声，他们都服从高斯分布，且互相独立。&lt;br&gt;在初始条件下，状态估算器估计了$\hat{x}$，真实值在这个中心的正态分布周围&lt;br&gt;在多轮预测后，估计值的分布会比初始条件下的估计分布更大，同时，还有一个测量方程得到的均值与方差都不同的分布，这两个分布的相乘就得到优化估计。&lt;br&gt;事实上，卡尔曼滤波器方程是一个随机系统的状态观测器&lt;br&gt;公式如下：&lt;br&gt;$$ \hat{x}&lt;em&gt;k&amp;#x3D;A·\hat{x}&lt;/em&gt;{k-1} +B·u_k +K_k(y_k - C(A·\hat{x}+B·u_k)) $$&lt;br&gt;其中$\hat{x_k^-}$是前项估测，代表前两项的和，所以公式写为：&lt;br&gt;$$ \hat{x}_k^ &amp;#x3D; A·\hat{x_k^-} ++K_k(y_k - C\hat{x_k^-}) $$&lt;/p&gt;
+&lt;p&gt;所以结果成为后验估值。&lt;/p&gt;
+&lt;p&gt;误差协方差矩阵P&lt;br&gt;$$ P_k^- &amp;#x3D; AP_{k-1}A^T +Q$$&lt;br&gt;这个就是对矩阵P的估值&lt;/p&gt;
+&lt;p&gt;第二步，更新状态&lt;br&gt;$$ K_k &amp;#x3D; \frac{P_k^-C^T}{(CP_k^-C^T+R)} $$&lt;br&gt;这个是卡尔曼增益，使得更新K后误差协方差最小&lt;br&gt;$$ P_k &amp;#x3D; (I-K_kC)P_k^- $$&lt;/p&gt;
+</content>
+        <updated>2023-07-19T02:19:52.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2023/07/18/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-18/</id>
+        <title>电赛培训-23-07-18</title>
+        <link rel="alternate" href="http://example.com/2023/07/18/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-18/"/>
+        <content type="html">&lt;h1 id=&#34;arduino小车测速&#34;&gt;&lt;a href=&#34;#arduino小车测速&#34; class=&#34;headerlink&#34; title=&#34;arduino小车测速&#34;&gt;&lt;/a&gt;arduino小车测速&lt;/h1&gt;&lt;h2 id=&#34;霍尔编码器&#34;&gt;&lt;a href=&#34;#霍尔编码器&#34; class=&#34;headerlink&#34; title=&#34;霍尔编码器&#34;&gt;&lt;/a&gt;霍尔编码器&lt;/h2&gt;&lt;h2 id=&#34;外部中断&#34;&gt;&lt;a href=&#34;#外部中断&#34; class=&#34;headerlink&#34; title=&#34;外部中断&#34;&gt;&lt;/a&gt;外部中断&lt;/h2&gt;&lt;p&gt;一个霍尔编码器如果有两个传感器传出两路信号，就能根据相位差同时测量速度和方向&lt;br&gt;但是arduino只有两个硬件中断管脚，同时还要使能计时器中断，所以需要一个外部中断库&lt;br&gt;PinChangeInterrupt库&lt;/p&gt;
+&lt;h2 id=&#34;定时中断&#34;&gt;&lt;a href=&#34;#定时中断&#34; class=&#34;headerlink&#34; title=&#34;定时中断&#34;&gt;&lt;/a&gt;定时中断&lt;/h2&gt;&lt;p&gt;atmel内部有三个定时器&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Timer0是delay用的&lt;/li&gt;
+&lt;li&gt;Timer1是pwm用的&lt;/li&gt;
+&lt;li&gt;只有Timer2可以使用来进行定时中断&lt;br&gt;因此，需要使用MsTimer2库来实现定时中断&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <updated>2023-07-18T02:44:15.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2023/07/14/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-14/</id>
+        <title>电赛培训-23-07-14</title>
+        <link rel="alternate" href="http://example.com/2023/07/14/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-14/"/>
+        <content type="html">&lt;h1 id=&#34;PWM&#34;&gt;&lt;a href=&#34;#PWM&#34; class=&#34;headerlink&#34; title=&#34;PWM&#34;&gt;&lt;/a&gt;PWM&lt;/h1&gt;&lt;h2 id=&#34;通用定时器&#34;&gt;&lt;a href=&#34;#通用定时器&#34; class=&#34;headerlink&#34; title=&#34;通用定时器&#34;&gt;&lt;/a&gt;通用定时器&lt;/h2&gt;&lt;h3 id=&#34;预分频&#34;&gt;&lt;a href=&#34;#预分频&#34; class=&#34;headerlink&#34; title=&#34;预分频&#34;&gt;&lt;/a&gt;预分频&lt;/h3&gt;&lt;p&gt;通过对时钟频率进行分频，实现了让计数器可以计数更长的时间。&lt;/p&gt;
+&lt;h2 id=&#34;占空比&#34;&gt;&lt;a href=&#34;#占空比&#34; class=&#34;headerlink&#34; title=&#34;占空比&#34;&gt;&lt;/a&gt;占空比&lt;/h2&gt;&lt;p&gt;占空比的实现是通过调节计数器到达翻转电平的值的大小来实现的。&lt;br&gt;利用的是计数器的比较功能&lt;br&gt;通过调节一个计数器不同的值，可以同时实现多个pwm的多个占空比的调节。但是他们的频率是相同的，若想要不同频率需要使用不同的计时器。&lt;br&gt;TIM3&amp;#x2F;4通道数较多&lt;/p&gt;
+&lt;h2 id=&#34;捕获模式&#34;&gt;&lt;a href=&#34;#捕获模式&#34; class=&#34;headerlink&#34; title=&#34;捕获模式&#34;&gt;&lt;/a&gt;捕获模式&lt;/h2&gt;&lt;p&gt;捕获模式可以用来测量信号的频率，占空比等。&lt;/p&gt;
+&lt;h2 id=&#34;设置&#34;&gt;&lt;a href=&#34;#设置&#34; class=&#34;headerlink&#34; title=&#34;设置&#34;&gt;&lt;/a&gt;设置&lt;/h2&gt;&lt;p&gt;打开对应channel的pwm生成，设定预分频和counter值（推荐一个方便运算占空比的值）&lt;/p&gt;
+&lt;h2 id=&#34;作业&#34;&gt;&lt;a href=&#34;#作业&#34; class=&#34;headerlink&#34; title=&#34;作业&#34;&gt;&lt;/a&gt;作业&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;需要实现通过按键增加占空比&lt;/li&gt;
+&lt;li&gt;用捕获模式测量发生的PWM波频率和占空比&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <updated>2023-07-14T01:30:14.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2023/07/13/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-13/</id>
+        <title>电赛培训-23-07-13</title>
+        <link rel="alternate" href="http://example.com/2023/07/13/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-13/"/>
+        <content type="html">&lt;h1 id=&#34;stm32串口通信&#34;&gt;&lt;a href=&#34;#stm32串口通信&#34; class=&#34;headerlink&#34; title=&#34;stm32串口通信&#34;&gt;&lt;/a&gt;stm32串口通信&lt;/h1&gt;&lt;h1 id=&#34;定时器&#34;&gt;&lt;a href=&#34;#定时器&#34; class=&#34;headerlink&#34; title=&#34;定时器&#34;&gt;&lt;/a&gt;定时器&lt;/h1&gt;&lt;h2 id=&#34;通用定时器&#34;&gt;&lt;a href=&#34;#通用定时器&#34; class=&#34;headerlink&#34; title=&#34;通用定时器&#34;&gt;&lt;/a&gt;通用定时器&lt;/h2&gt;&lt;p&gt;采用apb1&amp;#x2F;apb2总线&lt;/p&gt;
+&lt;h3 id=&#34;预分频&#34;&gt;&lt;a href=&#34;#预分频&#34; class=&#34;headerlink&#34; title=&#34;预分频&#34;&gt;&lt;/a&gt;预分频&lt;/h3&gt;&lt;p&gt;计时时长&amp;#x3D; (预分频+1) * (计数器值+1) &amp;#x2F; 时钟频率&lt;/p&gt;
+&lt;h3 id=&#34;中断回调&#34;&gt;&lt;a href=&#34;#中断回调&#34; class=&#34;headerlink&#34; title=&#34;中断回调&#34;&gt;&lt;/a&gt;中断回调&lt;/h3&gt;&lt;p&gt;HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)&lt;br&gt;这个函数可以复制到it文件中，定义这个函数即可在中断中调用这个函数。&lt;/p&gt;
+</content>
+        <updated>2023-07-13T01:57:16.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2023/07/12/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-12/</id>
+        <title>电赛培训-23-07-12</title>
+        <link rel="alternate" href="http://example.com/2023/07/12/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-12/"/>
+        <content type="html">&lt;h1 id=&#34;stm32定时器&#34;&gt;&lt;a href=&#34;#stm32定时器&#34; class=&#34;headerlink&#34; title=&#34;stm32定时器&#34;&gt;&lt;/a&gt;stm32定时器&lt;/h1&gt;&lt;p&gt;SysTick控制寄存器：&lt;br&gt;在SysTick_Config函数中，需要传进一个参数，代表着多少个tick触发一次中断。这个参数是一个32位的寄存器，但是只有24位有效，因此最大值是2^24-1，也就是16777215，也就是16Mhz的时钟下，最大延时是1s。如果需要更长的延时，需要自己写一个计数器，然后在中断中进行判断。&lt;br&gt;有一个变量是SystemCoreClock，代表当前时钟速度。把这个变量除以多少，就是把一秒分成多少份来计时。&lt;br&gt;在SysTick_Handler这个函数中，每次计时器触发中断都会调用这个函数，可以设置一个静态变量来进行计数，例如每1ms触发中断，就让这个函数每500次进入中断才执行某个行为，就能实现每500ms执行一次某个行为。&lt;/p&gt;
+&lt;h1 id=&#34;按键中断&#34;&gt;&lt;a href=&#34;#按键中断&#34; class=&#34;headerlink&#34; title=&#34;按键中断&#34;&gt;&lt;/a&gt;按键中断&lt;/h1&gt;</content>
+        <updated>2023-07-12T01:51:29.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2023/07/11/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-11/</id>
+        <title>电赛培训-23-07-11</title>
+        <link rel="alternate" href="http://example.com/2023/07/11/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-11/"/>
+        <content type="html">&lt;h1 id=&#34;stm32-开发&#34;&gt;&lt;a href=&#34;#stm32-开发&#34; class=&#34;headerlink&#34; title=&#34;stm32 开发&#34;&gt;&lt;/a&gt;stm32 开发&lt;/h1&gt;&lt;h2 id=&#34;配置内容&#34;&gt;&lt;a href=&#34;#配置内容&#34; class=&#34;headerlink&#34; title=&#34;配置内容&#34;&gt;&lt;/a&gt;配置内容&lt;/h2&gt;&lt;p&gt;main.c中的user code 注释中间是不会被cube重新生成的&lt;/p&gt;
+&lt;h2 id=&#34;时钟树&#34;&gt;&lt;a href=&#34;#时钟树&#34; class=&#34;headerlink&#34; title=&#34;时钟树&#34;&gt;&lt;/a&gt;时钟树&lt;/h2&gt;&lt;h2 id=&#34;第一个hal函数&#34;&gt;&lt;a href=&#34;#第一个hal函数&#34; class=&#34;headerlink&#34; title=&#34;第一个hal函数&#34;&gt;&lt;/a&gt;第一个hal函数&lt;/h2&gt;&lt;p&gt;HAL_GPIO_WritePin(GPIOF,LED0_PIN|LED1_PIN, GPIO_PIN_SET);&lt;br&gt;HAL_Delay(ms);&lt;/p&gt;
+&lt;h2 id=&#34;板载按钮&#34;&gt;&lt;a href=&#34;#板载按钮&#34; class=&#34;headerlink&#34; title=&#34;板载按钮&#34;&gt;&lt;/a&gt;板载按钮&lt;/h2&gt;&lt;p&gt;PE4作为ButtonPin，使能需要一个上拉电阻&lt;/p&gt;
+&lt;h2 id=&#34;中断&#34;&gt;&lt;a href=&#34;#中断&#34; class=&#34;headerlink&#34; title=&#34;中断&#34;&gt;&lt;/a&gt;中断&lt;/h2&gt;&lt;p&gt;可以在cube中更改引脚为外部中断，可以调节中断触发模式&lt;/p&gt;
+&lt;h1 id=&#34;stm32用于clion的诸多问题&#34;&gt;&lt;a href=&#34;#stm32用于clion的诸多问题&#34; class=&#34;headerlink&#34; title=&#34;stm32用于clion的诸多问题&#34;&gt;&lt;/a&gt;stm32用于clion的诸多问题&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;Error: libusb_open() failed with LIBUSB_ERROR_NOT_SUPPORTED&lt;br&gt;初步估计是usb驱动问题，因此计划使用zadig重装驱动，libusb&lt;/li&gt;
+&lt;li&gt;Error:Error: timed out while waiting for target halted&lt;br&gt;似乎是在等待重启的过程中超时，难道是没有设置重启？&lt;br&gt;&lt;strong&gt;解决了，忘了换配置文件了，老配置文件没问题&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;问题又来了，Initfailed，连接不到target，先用的玄学方法：按住rst按键，再烧录，就用这种笨方法至少可以烧录了&lt;br&gt;作为重置方法，接下来有一个比较好的解决方案，就是再cubemx中，pinout设置栏，再systemcore的sys部分里，有一个debug模式选择，之前一直是disable，所以拒绝再外部烧写，现在改成serial wire，就可以了。&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <updated>2023-07-11T01:49:47.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2023/07/10/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-10/</id>
+        <title>电赛培训-23-07-10</title>
+        <link rel="alternate" href="http://example.com/2023/07/10/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-10/"/>
+        <content type="html">&lt;h1 id=&#34;spi与i2c&#34;&gt;&lt;a href=&#34;#spi与i2c&#34; class=&#34;headerlink&#34; title=&#34;spi与i2c&#34;&gt;&lt;/a&gt;spi与i2c&lt;/h1&gt;&lt;h2 id=&#34;iic通信&#34;&gt;&lt;a href=&#34;#iic通信&#34; class=&#34;headerlink&#34; title=&#34;iic通信&#34;&gt;&lt;/a&gt;iic通信&lt;/h2&gt;&lt;p&gt;i2c是一种用于设备间通讯的两线协议&lt;br&gt;硬件和软件实现都通过machine.I2C和machine.SoftI2C来实现。&lt;br&gt;硬件I2c优势在于速度快，但是对使用的引脚有限制。&lt;br&gt;软件I2C优势在于兼容性强，但是速度慢&lt;br&gt;函数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;硬件I2C：使用以下参数来构造I2C对象&lt;ul&gt;
+&lt;li&gt;id表示特定的外设，取决于特定板子&lt;/li&gt;
+&lt;li&gt;scl：时钟线引脚，Pin&lt;/li&gt;
+&lt;li&gt;sda：数据线引脚，Pin&lt;/li&gt;
+&lt;li&gt;freq：时钟频率，整数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;注意接线先关注缺少的端口例如I2C或uart，之后再关注gpio&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;软件I2C：使用以下参数来构造I2C对象&lt;ul&gt;
+&lt;li&gt;scl：时钟线引脚，Pin&lt;/li&gt;
+&lt;li&gt;sda：数据线引脚，Pin&lt;/li&gt;
+&lt;li&gt;freq：时钟频率，整数&lt;/li&gt;
+&lt;li&gt;timeout：超时时间，整数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;init函数可以重新定义&lt;/li&gt;
+&lt;li&gt;I2C.start()：开始通信&lt;/li&gt;
+&lt;li&gt;I2C.stop()：结束通信&lt;/li&gt;
+&lt;li&gt;I2C.readint(buf,nack&amp;#x3D;True):读取字节存储到buf中，字节长度是buf长度，收到出最后一个字节以外所有子接后，将发送ack，如果设置nack则发送nack，ack代表着以后还会传输，nack代表着这是最后一个字节&lt;/li&gt;
+&lt;li&gt;I2C.write(buf)：将buf中的字节写入到总线上，检查每个字节是否收到ack&lt;/li&gt;
+&lt;li&gt;I2C.readfrom(addr,nbytes,stop&amp;#x3D;True):从addr地址读取nbytes个字节，如果stop为True则在输入结束时发送stop信号。&lt;/li&gt;
+&lt;li&gt;I2c.readfrom_into(adr,)&lt;/li&gt;
+&lt;li&gt;I2c.writeto(addr,buf,stop&amp;#x3D;True)&lt;/li&gt;
+&lt;li&gt;I2c.writevto(addr,vector,stop&amp;#x3D;True)将vector中包含的字节写入addr指定的从站，vector应该具有缓冲协议的元组或对象列表&lt;/li&gt;
+&lt;li&gt;I2c.readfrom_mem(addr,memaddr,nbytes,addrsize&amp;#x3D;8)从memaddr指定的内存地址开始，从addr指定的从站读出nbytes。参数addrsize以位为单位指定地址大小，返回读取数据bytes对象。&lt;/li&gt;
+&lt;li&gt;&lt;h3 id=&#34;硬件I3c外设&#34;&gt;&lt;a href=&#34;#硬件I3c外设&#34; class=&#34;headerlink&#34; title=&#34;硬件I3c外设&#34;&gt;&lt;/a&gt;硬件I3c外设&lt;/h3&gt;任何可用的输出引脚都可以用于scl和sda，默认情况下，I2C对象使用id 0，scl引脚为22，sda引脚为21，时钟频率为400kHz。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;spi通信&#34;&gt;&lt;a href=&#34;#spi通信&#34; class=&#34;headerlink&#34; title=&#34;spi通信&#34;&gt;&lt;/a&gt;spi通信&lt;/h2&gt;&lt;p&gt;spi是一种由主机驱动的同步串行协议。在物理层概念，一条总线有三条线路组成：SCK，MOSI、MISO，多个设备可以共享一条总线。每个设备有一个单独的第四个信号SS（从设备选择），来选择总线上的特定设备并与之通信。&lt;/p&gt;
+&lt;figure class=&#34;highlight gml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs gml&#34;&gt;machine.SPI(&lt;span class=&#34;hljs-symbol&#34;&gt;id&lt;/span&gt;)# 在给定的总线&lt;span class=&#34;hljs-symbol&#34;&gt;id&lt;/span&gt;上构造一个SPI对象。&lt;span class=&#34;hljs-symbol&#34;&gt;id&lt;/span&gt;的值取决于特定端口以及硬件&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&#34;stm32&#34;&gt;&lt;a href=&#34;#stm32&#34; class=&#34;headerlink&#34; title=&#34;stm32&#34;&gt;&lt;/a&gt;stm32&lt;/h1&gt;&lt;h2 id=&#34;引脚&#34;&gt;&lt;a href=&#34;#引脚&#34; class=&#34;headerlink&#34; title=&#34;引脚&#34;&gt;&lt;/a&gt;引脚&lt;/h2&gt;&lt;p&gt;在cubemx中，浅黄色是不能修改定义的，深黄色也是默认的。&lt;/p&gt;
+&lt;h2 id=&#34;配置&#34;&gt;&lt;a href=&#34;#配置&#34; class=&#34;headerlink&#34; title=&#34;配置&#34;&gt;&lt;/a&gt;配置&lt;/h2&gt;&lt;p&gt;引脚配置，在pinout_configuration中，如下图所示：&lt;br&gt;&lt;img src=&#34;/2023/07/10/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-10/GPIO_conf.png&#34; alt=&#34;引脚配置&#34;&gt;&lt;br&gt;可以配置其中每个引脚的功能，例如GPIO、SPI、I2C等等。&lt;/p&gt;
+</content>
+        <updated>2023-07-10T01:40:59.000Z</updated>
+    </entry>
     <entry>
         <id>http://example.com/2023/07/07/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-07/</id>
         <title>电赛培训-23-07-07</title>

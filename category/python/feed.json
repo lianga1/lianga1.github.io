@@ -1,0 +1,19 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "意大利炮打友军 • All posts by \"python\" category",
+    "description": "",
+    "home_page_url": "http://example.com",
+    "items": [
+        {
+            "id": "http://example.com/2023/09/24/%E5%85%B3%E4%BA%8Eselenium%E5%8C%85%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E7%9A%84%E9%97%AE%E9%A2%98%E6%8E%92%E9%99%A4/",
+            "url": "http://example.com/2023/09/24/%E5%85%B3%E4%BA%8Eselenium%E5%8C%85%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E7%9A%84%E9%97%AE%E9%A2%98%E6%8E%92%E9%99%A4/",
+            "title": "关于selenium包安装运行的问题排除",
+            "date_published": "2023-09-24T09:03:44.000Z",
+            "content_html": "<h1 id=\"selenium-包安装\"><a href=\"#selenium-包安装\" class=\"headerlink\" title=\"selenium 包安装\"></a>selenium 包安装</h1><p>首先是想要在base环境下安装的，但是因为base环境的内容太多，solve解决依赖问题耗时过长，所以考虑新建环境。</p>\n<figure class=\"highlight bash\"><table><tr><td class=\"gutter\"><div class=\"code-wrapper\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br><span class=\"line\">3</span><br></pre></div></td><td class=\"code\"><pre><code class=\"hljs bash\">conda create -n webdriver python=3.7<br>conda activate webdriver<br>conda install selenium<br></code></pre></td></tr></table></figure>\n<h1 id=\"出现问题\"><a href=\"#出现问题\" class=\"headerlink\" title=\"出现问题\"></a>出现问题</h1><p>在按照例程运行代码时，出现了以下问题：</p>\n<figure class=\"highlight python\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br><span class=\"line\">3</span><br><span class=\"line\">4</span><br><span class=\"line\">5</span><br><span class=\"line\">6</span><br><span class=\"line\">7</span><br><span class=\"line\">8</span><br></pre></td><td class=\"code\"><pre><code class=\"hljs python\"><span class=\"hljs-keyword\">from</span> selenium <span class=\"hljs-keyword\">import</span> webdriver<br><span class=\"hljs-keyword\">import</span> pandas <span class=\"hljs-keyword\">as</span> pd<br><span class=\"hljs-keyword\">import</span> platform<br><span class=\"hljs-keyword\">import</span> matplotlib.pyplot <span class=\"hljs-keyword\">as</span> plt<br><span class=\"hljs-keyword\">import</span> os<br>chromedriver = os.path.abspath(<span class=\"hljs-string\">&#x27;C:\\\\Users\\\\18381\\\\anaconda3\\\\Scripts\\\\chromedriver.exe&#x27;</span>)<br>os.environ[<span class=\"hljs-string\">&quot;webdriver.chrome.driver&quot;</span>] = chromedriver<br>driver = webdriver.Chrome()<br></code></pre></td></tr></table></figure>\n\n<p>出现了以下错误：<br>Unable to obtain driver using Selenium Manager: C:\\Users\\18381\\anaconda3\\envs\\webdriver\\lib\\site-packages\\selenium\\webdriver\\common\\windows\\selenium-manager.exe is missing.</p>\n<p>因此，查阅github上有关issue，发现是conda打包问题，没有打包这个可执行文件。因此，需要手动下载这个文件，放到对应的目录下。<br><a href=\"https://github.com/SeleniumHQ/selenium/tree/trunk/common/manager\">下载文件</a></p>\n<h1 id=\"其他需要注意的地方\"><a href=\"#其他需要注意的地方\" class=\"headerlink\" title=\"其他需要注意的地方\"></a>其他需要注意的地方</h1><p>比如求解器，可以使用新的求解器例如<a href=\"https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community\">libmamba</a><br>虽然我还没完全搞懂这个东西如何使用</p>\n<p>需要先安装chrome和对应的chromedriver<br><a href=\"https://chromedriver.chromium.org/downloads\">chromedriver</a></p>\n",
+            "tags": [
+                "技术",
+                "python"
+            ]
+        }
+    ]
+}

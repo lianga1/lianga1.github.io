@@ -1,0 +1,578 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/tag.jpg">
+  <link rel="icon" href="/img/tag.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="梁祖宁">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="高效直接访问主机内存的方法现有方法存在的问题通过加载后执行的方法面对巨大的模型参数规模，现有GPU的显存难以支撑大模型的训练。因此产生了一种通过加载后执行的方法，即将模型参数存储在主机内存中，每次训练时将参数加载到显存中，训练结束后将参数保存到主机内存中。这种方法的缺点是每次训练都需要将参数加载到显存中，这个过程会消耗大量的时间，例如在v100上，加载时间会是处理时间的4倍以上，导致训练效率低下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="课题组第五周学习">
+<meta property="og:url" content="http://example.com/2023/10/22/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%BA%94%E5%91%A8%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="意大利炮打友军">
+<meta property="og:description" content="高效直接访问主机内存的方法现有方法存在的问题通过加载后执行的方法面对巨大的模型参数规模，现有GPU的显存难以支撑大模型的训练。因此产生了一种通过加载后执行的方法，即将模型参数存储在主机内存中，每次训练时将参数加载到显存中，训练结束后将参数保存到主机内存中。这种方法的缺点是每次训练都需要将参数加载到显存中，这个过程会消耗大量的时间，例如在v100上，加载时间会是处理时间的4倍以上，导致训练效率低下。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-22T15:36:49.000Z">
+<meta property="article:modified_time" content="2023-10-24T05:09:17.136Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="周报">
+<meta property="article:tag" content="课题组">
+<meta property="article:tag" content="神经网络">
+<meta property="article:tag" content="pytorch">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>课题组第五周学习 ❤ 意大利炮打友军</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/mario.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Rittmeister的小站</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://www.tapechat.net/uu/1D8OAP/TTXZBMBA">
+                <i class="iconfont icon-mail"></i>
+                tape
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/html/another.html">
+                <i class="iconfont icon-comment"></i>
+                炒饭
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/book.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="课题组第五周学习">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-10-22 23:36" pubdate>
+        2023年10月22日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.6k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">课题组第五周学习</h1>
+            
+            <div class="markdown-body">
+              <h1 id="高效直接访问主机内存的方法"><a href="#高效直接访问主机内存的方法" class="headerlink" title="高效直接访问主机内存的方法"></a>高效直接访问主机内存的方法</h1><h2 id="现有方法存在的问题"><a href="#现有方法存在的问题" class="headerlink" title="现有方法存在的问题"></a>现有方法存在的问题</h2><h3 id="通过加载后执行的方法"><a href="#通过加载后执行的方法" class="headerlink" title="通过加载后执行的方法"></a>通过加载后执行的方法</h3><p>面对巨大的模型参数规模，现有GPU的显存难以支撑大模型的训练。因此产生了一种通过加载后执行的方法，即将模型参数存储在主机内存中，每次训练时将参数加载到显存中，训练结束后将参数保存到主机内存中。这种方法的缺点是每次训练都需要将参数加载到显存中，这个过程会消耗大量的时间，例如在v100上，加载时间会是处理时间的4倍以上，导致训练效率低下。有一种异步加载方法，将加载层和训练层分开，训练层在训练时异步加载参数，但是这种方法会导致训练时的显存占用过高，而且层数较多时加载时间过高的劣势逐渐显现，优化并不明显。</p>
+<h2 id="本文提出的方法"><a href="#本文提出的方法" class="headerlink" title="本文提出的方法"></a>本文提出的方法</h2><h3 id="直接主机访问"><a href="#直接主机访问" class="headerlink" title="直接主机访问"></a>直接主机访问</h3><p>避开加载和训练不同步的问题，直接将cpu内存当作gpu的虚拟内存进行访问，这样避免了加载过程中占用gpu显存过高的问题，但是由于访问和数据流动要经过pcie总线，传输速度较慢。<br>因此，DHA使用了这样一种办法，使得其可以自适应选择访问方式，其可以通过直接主机访问和加载后执行两种方法进行训练，使得加载的时间可以隐藏在训练流的流水线中。</p>
+<h3 id="多GPU方法"><a href="#多GPU方法" class="headerlink" title="多GPU方法"></a>多GPU方法</h3><p>对于多个GPU，由于GPU间通信效率要高于PCIE通信效率，因此可以将模型拆分成多个部分，分别存储在不同的GPU中，这样每次训练的加载都可以直接从其他GPU中加载，而不需要从主机内存中加载，这样可以减少加载时间。</p>
+<h3 id="DeepPlan"><a href="#DeepPlan" class="headerlink" title="DeepPlan"></a>DeepPlan</h3><p>本文还提出了一个工具：用来为给定模型自动生成执行计划，过程如下：</p>
+<ul>
+<li>对本地GPU显存和主机内存分析性能</li>
+<li>通过比较DHA和流水线方法的延迟差异来决定每一层的策略</li>
+<li>如果有多个GPU，则根据GPU数量平均划分模型</li>
+<li>协调将直接主机访问的执行和加载后执行的执行进行协调<br>本方案在部署时只需要进行一次执行。<h2 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h2>对于不同层，加载——执行策略与DHA策略的时间是不同的，<table>
+<thead>
+<tr>
+<th align="center">层</th>
+<th align="center">加载——执行策略</th>
+<th align="center">DHA策略</th>
+<th align="center">结论</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">卷积层</td>
+<td align="center">小规模差异不大</td>
+<td align="center">大规模较慢</td>
+<td align="center">推荐在较小卷积层使用DHA，同时加载较大卷积层等待直接执行</td>
+</tr>
+<tr>
+<td align="center">全连接层</td>
+<td align="center">加载快</td>
+<td align="center">执行慢</td>
+<td align="center">推荐在全连接层使用加载后执行，因为其需要频繁访问内存</td>
+</tr>
+<tr>
+<td align="center">嵌入层</td>
+<td align="center">加载较慢</td>
+<td align="center">执行较快</td>
+<td align="center">推荐在嵌入层使用DHA，因为其规模较大，而层中一些参数的访问较少</td>
+</tr>
+<tr>
+<td align="center">归一化层</td>
+<td align="center">LayerNorm更好</td>
+<td align="center">BatchNorm更好</td>
+<td align="center">需要根据具体情况进行选择</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>产生差异的原因则是不同层对内存访问的需求不同，导致pcie访问次数不同，pcie作为瓶颈，访问次数越多，延迟越大。</p>
+<h3 id="并行传输"><a href="#并行传输" class="headerlink" title="并行传输"></a>并行传输</h3><p>对于多GPU场景，将模型划分为多个部分后，采用并行传输策略：从内存并行地将模型传输到两个GPU，再从第二个GPU向第一个GPU传输，这样可以减少传输时间。<br>在此基础上，可以将GPU2——GPU1的传输变为流水线传输，这样可以进一步减少传输时间。<br>但是，由于CPU提供的PCIE总线数量限制，多GPU系统，例如8GPU也只能每两个GPU公用一组总线，因此多GPU的总线需要考虑总线拓扑。</p>
+<h2 id="DeepPlan实现"><a href="#DeepPlan实现" class="headerlink" title="DeepPlan实现"></a>DeepPlan实现</h2><h3 id="整体实现思路"><a href="#整体实现思路" class="headerlink" title="整体实现思路"></a>整体实现思路</h3><p>再进行训练前，deepPlan会根据每一层的性能分析，推理出当前层采用何种方式进行训练（加载——执行orDHA）。遍历完整个网络后，将根据策略直接执行训练。如果在多GPU系统中，DeepPlan还会根据GPU连连接拓扑，将模型划分为多个部分，应用并行传输方案。</p>
+<h3 id="单层性能分析"><a href="#单层性能分析" class="headerlink" title="单层性能分析"></a>单层性能分析</h3><p>利用单层执行时间的统计数据，或者执行一次单层来得到每一层的性能数据。</p>
+<h3 id="层间性能分析"><a href="#层间性能分析" class="headerlink" title="层间性能分析"></a>层间性能分析</h3><p>对于每层性能已经得到的情况。检查每一层切换策略到DHA后其获得的性能差异是否比加载后执行的停滞时间更短，如果是的话则切换为DHA。并且通过递归的方式检查每个层之前最多可以使用几个DHA来缩短总加载停滞时间。</p>
+<h3 id="模型传输规划"><a href="#模型传输规划" class="headerlink" title="模型传输规划"></a>模型传输规划</h3><p>DeepPlan根据GPU拓扑，和PCIE交换机布局，避免并行加载的总线冲突，检查所选GPU是否使用NVLink，如果使用则直接进行并行传输，否则使用流水线传输。同时，根据并行传输带来的性能优化，重新规划每一层使用的策略。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/%E7%A7%91%E7%A0%94/">科研</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%91%A8%E6%8A%A5/">周报</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AF%BE%E9%A2%98%E7%BB%84/">课题组</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+                    
+                      <a class="hover-with-bg" href="/tags/pytorch/">pytorch</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/15/%E8%AF%BE%E9%A2%98%E7%BB%8423-11-15%E5%91%A8%E6%8A%A5/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">课题组23-11-15周报</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/13/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="hidden-mobile">课题组第四周学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Vs5iKqPEt5ktLHrlHWz4Pcip-gzGzoHsz","appKey":"u81TAgtldWRwNYK2ythRtc01","path":"window.location.pathname","placeholder":"畅所欲言","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":"ture","serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+
+  <div class="music-player">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

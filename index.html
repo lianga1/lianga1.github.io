@@ -227,15 +227,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/07/07/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-07/" target="_self">
-          电赛培训-23-07-07
+        <a href="/2023/11/15/%E8%AF%BE%E9%A2%98%E7%BB%8423-11-15%E5%91%A8%E6%8A%A5/" target="_self">
+          课题组23-11-15周报
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2023/07/07/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-07/" target="_self">
+        <a href="/2023/11/15/%E8%AF%BE%E9%A2%98%E7%BB%8423-11-15%E5%91%A8%E6%8A%A5/" target="_self">
           
-          串口通信串行vs并行并行优点：快，效率高缺点：需要端口多串行优点：只需要一个端口缺点：慢，效率低，且需要明确数据拍成一串的规则（大端法vs小端法） 通信串行通信每次只发送一个字节，对于字节内部发送bit的顺序，每个通讯协议都是相同的，但是字节的顺序却不一定相同，这就是大端法和小端法的区别。 I2C通信一个通信口可以和多个设备进行传输，只需要SDA和SCL两个数据线即可，SDA为数据线，SCL为时钟
+          实验关于fp16参数转换速度的问题本周进行了一个实验，主要用于观察pytorch中对张量转移的各种方法的性能差异。 实验思路几种不同的传输方向 cpu -&gt; cpu cpu -&gt; gpu gpu -&gt; cpu gpu -&gt; gpu几种不同的数据 fp32 -&gt; fp32 fp32 -&gt; fp16调用half()函数，将fp32数据转换为fp16数据 fp16 -
         </a>
       </p>
 
@@ -243,8 +243,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-07-07 09:34" pubdate>
-              2023-07-07
+            <time datetime="2023-11-15 16:09" pubdate>
+              2023-11-15
             </time>
           </div>
         
@@ -254,91 +254,7 @@
             
               <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
             
-              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%94%B5%E8%B5%9B/">电赛</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/07/06/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-06/" target="_self">
-          电赛培训-23-07-06
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2023/07/06/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-06/" target="_self">
-          
-          ESP32中断中断处理程序不要运行时间过长，不要分配内存 紧急异常缓冲区如果ISR中发生错误，MicroPython无法生成错误报告除非创建特殊缓冲区 12import micropythonmicropython.alloc_emergency_exception_buf(100) UARTesp32有三个硬件UART，分别是UART0，UART1，UART2各自分配了默认GPIOTX：当前设备
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-07-06 09:48" pubdate>
-              2023-07-06
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-            
-              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%94%B5%E8%B5%9B/">电赛</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/07/05/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-05/" target="_self">
-          电赛培训-23-07-05
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2023/07/05/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-05/" target="_self">
-          
-          Arduino软件：使用Arduino IDE，以C++风格语言编写相关库。利用IDE编译固件下载到Arduino的前提条件是有bootloader程序。所以从程序到固件的关键在于bootloader，其他单片机也可以装载bootloader固件，然后使用arduino库。 硬件 uno板工作电压5v,可以typeB，DC5.5，或者跳线接入共有14个数字输入输出（6个PWM口），6个模拟输入输出
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-07-05 09:46" pubdate>
-              2023-07-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-            
-              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%94%B5%E8%B5%9B/">电赛</a>
+              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%A7%91%E7%A0%94/">科研</a>
             
           </div>
         
@@ -348,66 +264,13 @@
             
               <a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
             
-              <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+              <a href="/tags/%E5%91%A8%E6%8A%A5/">周报</a>
             
-              <a href="/tags/%E7%94%B5%E8%B5%9B/">电赛</a>
+              <a href="/tags/%E8%AF%BE%E9%A2%98%E7%BB%84/">课题组</a>
             
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/05/29/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3WSL-Ubuntu%E6%89%BE%E4%B8%8D%E5%88%B0sys-time-h%E7%9A%84%E9%97%AE%E9%A2%98/" target="_self">
-          关于解决WSL_Ubuntu找不到sys/time.h的问题
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2023/05/29/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3WSL-Ubuntu%E6%89%BE%E4%B8%8D%E5%88%B0sys-time-h%E7%9A%84%E9%97%AE%E9%A2%98/" target="_self">
-          
-          问题描述在使用WSL_Ubuntu的时候，编译C代码时，出现了找不到sys&#x2F;time.h的问题 解决方法第一次失败网上的一个直接解决方案是安装libc6-dev-amd64但是问题又一次出现，当输入指令sudo apt-get install libc6-dev-amd64发生报错 unable to locate package 第二次失败于是转而解决无法定位包的问题，根据查找发现需要
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-29 15:24" pubdate>
-              2023-05-29
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
+              <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
             
-              <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-            
-              <a href="/categories/%E6%8A%80%E6%9C%AF/%E5%8D%9A%E5%AE%A2/">博客</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
-            
-              <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
-            
-              <a href="/tags/WSL/">WSL</a>
-            
-              <a href="/tags/Linux/">Linux</a>
-            
-              <a href="/tags/%E7%BC%96%E8%AF%91/">编译</a>
+              <a href="/tags/pytorch/">pytorch</a>
             
           </div>
         
@@ -421,15 +284,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/05/14/%E7%94%B5%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" target="_self">
-          电赛学习笔记-机器视觉
+        <a href="/2023/10/22/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%BA%94%E5%91%A8%E5%AD%A6%E4%B9%A0/" target="_self">
+          课题组第五周学习
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2023/05/14/%E7%94%B5%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" target="_self">
+        <a href="/2023/10/22/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%BA%94%E5%91%A8%E5%AD%A6%E4%B9%A0/" target="_self">
           
-          开发环境安装opencv开发板：STM32F407IDE：STM32CubeIDE配置过程配置工程ioc文件，配置好基础外设后，再packs中安装X-CUBE-AI组件包，在软件包外设中添加模型文件，设置压缩倍数，导入测试集验证准确率 模型yolo利用mobilenet yolo50k模型可以导入到单片机中，只需要较少内存即可实现实时运行，实现人脸识别的功能 openmv硬件正点原子ov7725摄
+          高效直接访问主机内存的方法现有方法存在的问题通过加载后执行的方法面对巨大的模型参数规模，现有GPU的显存难以支撑大模型的训练。因此产生了一种通过加载后执行的方法，即将模型参数存储在主机内存中，每次训练时将参数加载到显存中，训练结束后将参数保存到主机内存中。这种方法的缺点是每次训练都需要将参数加载到显存中，这个过程会消耗大量的时间，例如在v100上，加载时间会是处理时间的4倍以上，导致训练效率低下。
         </a>
       </p>
 
@@ -437,8 +300,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-14 17:04" pubdate>
-              2023-05-14
+            <time datetime="2023-10-22 23:36" pubdate>
+              2023-10-22
             </time>
           </div>
         
@@ -448,7 +311,7 @@
             
               <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
             
-              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%94%B5%E8%B5%9B/">电赛</a>
+              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%A7%91%E7%A0%94/">科研</a>
             
           </div>
         
@@ -458,9 +321,13 @@
             
               <a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
             
-              <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+              <a href="/tags/%E5%91%A8%E6%8A%A5/">周报</a>
             
-              <a href="/tags/%E7%94%B5%E8%B5%9B/">电赛</a>
+              <a href="/tags/%E8%AF%BE%E9%A2%98%E7%BB%84/">课题组</a>
+            
+              <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+            
+              <a href="/tags/pytorch/">pytorch</a>
             
           </div>
         
@@ -474,15 +341,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/05/14/%E7%94%B5%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-micropython/" target="_self">
-          电赛学习笔记-micropython
+        <a href="/2023/10/13/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%AD%A6%E4%B9%A0/" target="_self">
+          课题组第四周学习
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2023/05/14/%E7%94%B5%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-micropython/" target="_self">
+        <a href="/2023/10/13/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%AD%A6%E4%B9%A0/" target="_self">
           
-          micropython简介micropython是一个能够利用python进行单片机开发的固件，目前主要是在esp32平台上进行的开发 micropython安装 在micropython官网找到对应的单片机的型号的固件文件（.bin），下载到对应位置 pip install esptool 连接esp32单片机，查看端口号 根据micropython官网的指示，利用esptool.py文件，清除
+          ZeRO-Offload方法提出背景对大模型训练来说，GPU显存对参数规模巨大的网络来说是一个瓶颈，然而CPU内存可以做到TB级别，因此可以考虑将一部分参数放在CPU上，而将需要频繁访问的参数放在GPU上，这样可以减少GPU显存的压力，提高训练速度。ZeRO-Offload提出了一种没有数据冗余的优化方法，可以将模型参数分布在CPU和GPU上，而且可以在CPU和GPU之间进行无缝的迁移。 大模型传
         </a>
       </p>
 
@@ -490,8 +357,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-14 16:47" pubdate>
-              2023-05-14
+            <time datetime="2023-10-13 18:23" pubdate>
+              2023-10-13
             </time>
           </div>
         
@@ -501,7 +368,7 @@
             
               <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
             
-              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%94%B5%E8%B5%9B/">电赛</a>
+              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%A7%91%E7%A0%94/">科研</a>
             
           </div>
         
@@ -511,9 +378,13 @@
             
               <a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
             
-              <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+              <a href="/tags/%E5%91%A8%E6%8A%A5/">周报</a>
             
-              <a href="/tags/%E7%94%B5%E8%B5%9B/">电赛</a>
+              <a href="/tags/%E8%AF%BE%E9%A2%98%E7%BB%84/">课题组</a>
+            
+              <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+            
+              <a href="/tags/pytorch/">pytorch</a>
             
           </div>
         
@@ -527,15 +398,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/05/11/%E7%94%B5%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" target="_self">
-          电赛学习笔记（1）——stm32学习笔记
+        <a href="/2023/09/30/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%B8%80%E5%91%A8%E5%AD%A6%E4%B9%A0/" target="_self">
+          课题组第一周学习
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2023/05/11/%E7%94%B5%E8%B5%9B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" target="_self">
+        <a href="/2023/09/30/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%B8%80%E5%91%A8%E5%AD%A6%E4%B9%A0/" target="_self">
           
-          stm32基础关于stm32产品线stm32f1系列 cortex-m3stm32f4系列 cortex-m4 内置了rgb lcd驱动 加入了DSP与FPU模块stm32f7系列 cortex-m7 高速内存得到应用 寄存器编程  关键字volatile需要在声明寄存器变量的时候添加，因为要防止编译器自行优化。 HAL库硬件抽象层，可以将不同产品线的芯片的寄存器操作抽象为函数，方便移植本笔记使用
+          理论学习反向传播算法反向传播是一种基于有监督学习，用于根据误差和损失函数调整网络权重的算法。反向传播算法的核心思想是通过链式法则计算损失函数对于每个权重的梯度，然后使用梯度下降法更新权重。过程：  首先通过正向传播，根据输入数据得到一个网络的激励 根据得到的激励与目标值计算损失函数 根据损失函数，从输出层开始，依次沿着计算图反向计算每个权重的梯度 根据得到的梯度调整权重[1]	 深度学习入门: 基
         </a>
       </p>
 
@@ -543,8 +414,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-11 16:19" pubdate>
-              2023-05-11
+            <time datetime="2023-09-30 19:51" pubdate>
+              2023-09-30
             </time>
           </div>
         
@@ -554,7 +425,7 @@
             
               <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
             
-              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%94%B5%E8%B5%9B/">电赛</a>
+              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%A7%91%E7%A0%94/">科研</a>
             
           </div>
         
@@ -564,9 +435,66 @@
             
               <a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
             
-              <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+              <a href="/tags/%E5%91%A8%E6%8A%A5/">周报</a>
             
-              <a href="/tags/%E7%94%B5%E8%B5%9B/">电赛</a>
+              <a href="/tags/%E8%AF%BE%E9%A2%98%E7%BB%84/">课题组</a>
+            
+              <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+            
+              <a href="/tags/pytorch/">pytorch</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/09/24/%E5%85%B3%E4%BA%8Eselenium%E5%8C%85%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E7%9A%84%E9%97%AE%E9%A2%98%E6%8E%92%E9%99%A4/" target="_self">
+          关于selenium包安装运行的问题排除
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/09/24/%E5%85%B3%E4%BA%8Eselenium%E5%8C%85%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E7%9A%84%E9%97%AE%E9%A2%98%E6%8E%92%E9%99%A4/" target="_self">
+          
+          selenium 包安装首先是想要在base环境下安装的，但是因为base环境的内容太多，solve解决依赖问题耗时过长，所以考虑新建环境。 123conda create -n webdriver python&#x3D;3.7conda activate webdriverconda install selenium 出现问题在按照例程运行代码时，出现了以下问题： 12345678from seleni
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-24 17:03" pubdate>
+              2023-09-24
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/python/">python</a>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/python/web/">web</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
+            
+              <a href="/tags/python/">python</a>
             
           </div>
         
@@ -578,23 +506,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2023/02/11/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%89%80%E4%BB%A3%E8%A1%A8%E7%9A%84%E7%90%86%E6%80%A7%E4%B8%96%E7%95%8C%E7%9A%84%E7%9C%9F%E5%AE%9E%E6%80%A7%E8%AE%A8%E8%AE%BA/" target="_self">
-          <img src="/img/23-2-11/index.jpeg" srcset="/img/mario.gif" lazyload alt="关于计算机所代表的理性世界的真实性讨论">
+        <a href="/2023/08/20/%E4%B8%96%E7%95%8C%E8%A7%82%E5%85%B6%E4%B8%80/" target="_self">
+          <img src="/img/23-8-20/index.jpg" srcset="/img/mario.gif" lazyload alt="世界观其一">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/02/11/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%89%80%E4%BB%A3%E8%A1%A8%E7%9A%84%E7%90%86%E6%80%A7%E4%B8%96%E7%95%8C%E7%9A%84%E7%9C%9F%E5%AE%9E%E6%80%A7%E8%AE%A8%E8%AE%BA/" target="_self">
-          关于计算机所代表的理性世界的真实性讨论
+        <a href="/2023/08/20/%E4%B8%96%E7%95%8C%E8%A7%82%E5%85%B6%E4%B8%80/" target="_self">
+          世界观其一
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2023/02/11/%E5%85%B3%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%89%80%E4%BB%A3%E8%A1%A8%E7%9A%84%E7%90%86%E6%80%A7%E4%B8%96%E7%95%8C%E7%9A%84%E7%9C%9F%E5%AE%9E%E6%80%A7%E8%AE%A8%E8%AE%BA/" target="_self">
+        <a href="/2023/08/20/%E4%B8%96%E7%95%8C%E8%A7%82%E5%85%B6%E4%B8%80/" target="_self">
           
-          写在这里的原因我刚刚在看关于量子计算机的推送时。因为那个推送里说到，数字计算机需要大量参数参与运算的一个漫长的过程，能够被一个模拟计算机（甚至例如两球相撞）在一瞬间解决出来，并且能够以高得多的精度呈现。因此不考虑量子计算的真实内容（是根据量子定律的量子比特和量子纠缠进行计算，而不是依靠量子的物理性质进行模拟过程），我在想的是，我最近如此沉迷于计算机的世界，这个虚拟的世界真的能给我提供等同于现实生活
+          写在最前面这篇文章主要是在闲极无聊学sql时，看到不同版本sql语法不兼容时感到的一种割裂感，进而想到用ai创作一幅表达我心态的画。从这里又跳跃到，如果在未来，ai创作一幅画仅需要一念，那么对生活又是一种什么样颠覆的改变呢。于是乎，在这种想法的引导下决定试着写一写自己心目中近未来世界的一些简单的世界观。 居家生活房间的装潢对于一个生活在不远的未来的人来说，由于世界范围内开源运动与算力共享运动的蓬勃
         </a>
       </p>
 
@@ -602,8 +530,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-02-11 22:30" pubdate>
-              2023-02-11
+            <time datetime="2023-08-20 21:15" pubdate>
+              2023-08-20
             </time>
           </div>
         
@@ -611,7 +539,13 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+              <a href="/categories/%E5%86%99%E4%BD%9C/">写作</a>
+            
+              <a href="/categories/%E5%86%99%E4%BD%9C/%E7%A7%91%E5%B9%BB%E5%B0%8F%E8%AF%B4/">科幻小说</a>
+            
+              <a href="/categories/%E5%86%99%E4%BD%9C/%E7%A7%91%E5%B9%BB%E5%B0%8F%E8%AF%B4/%E8%BF%91%E6%9C%AA%E6%9D%A5%E4%B8%BB%E9%A2%98/">近未来主题</a>
+            
+              <a href="/categories/%E5%86%99%E4%BD%9C/%E7%A7%91%E5%B9%BB%E5%B0%8F%E8%AF%B4/%E8%BF%91%E6%9C%AA%E6%9D%A5%E4%B8%BB%E9%A2%98/%E4%B8%96%E7%95%8C%E8%A7%82/">世界观</a>
             
           </div>
         
@@ -619,7 +553,11 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+              <a href="/tags/%E5%86%99%E4%BD%9C/">写作</a>
+            
+              <a href="/tags/%E7%A7%91%E5%B9%BB/">科幻</a>
+            
+              <a href="/tags/%E4%B8%96%E7%95%8C%E8%A7%82/">世界观</a>
             
           </div>
         
@@ -633,15 +571,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/02/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_self">
-          正则表达式
+        <a href="/2023/07/27/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-27/" target="_self">
+          电赛培训-23-07-27
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2023/02/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_self">
+        <a href="/2023/07/27/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-27/" target="_self">
           
-          ABOUT REGEXBASIC GRAMMAR A simple example ^[0-9]+abc$    这个是如下意义：(1) ^is the start of the original string.(2) [0-9]+ can match multiple numbers, if without +, it will match only ONE number(3) abc$ mat
+          赛程9-11号作品测评2号早晨7点半到413，放题
         </a>
       </p>
 
@@ -649,11 +587,20 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-02-05 00:02" pubdate>
-              2023-02-05
+            <time datetime="2023-07-27 10:04" pubdate>
+              2023-07-27
             </time>
           </div>
         
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%94%B5%E8%B5%9B/">电赛</a>
+            
+          </div>
         
         
       </div>
@@ -663,24 +610,18 @@
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/10/27/2022-10-27%E9%9A%8F%E7%AC%94/" target="_self">
-          <img src="/img/10-27/index.jpg" srcset="/img/mario.gif" lazyload alt="2022.10.27随笔">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
+    <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/10/27/2022-10-27%E9%9A%8F%E7%AC%94/" target="_self">
-          2022.10.27随笔
+        <a href="/2023/07/19/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-19/" target="_self">
+          电赛培训-23-07-19
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/10/27/2022-10-27%E9%9A%8F%E7%AC%94/" target="_self">
+        <a href="/2023/07/19/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-19/" target="_self">
           
-          如今我踽踽独行，但我并不担忧，倘若我能留下一丝痕迹，我便永远不会孤独希望你我可以一同在林中漫步 好久不见我回来了，但是我又怎能说我离开了呢。五个月，是2022被荒废的证据呢，还是让我飞翔的证据呢无论如何，我热爱劳动了
+          pid控制系统公式$$ u(t)&#x3D;K_p e(t)+K_i \int_0^t e(\tau) d\tau + K_d \frac{de(t)}{dt} $$ 作用 比例项：减小误差 积分项：消除稳态误差 微分项：减小超调量  超调量$$ \xi &#x3D; \frac{e^{-\frac{\pi \zeta}{\sqrt{1-\zeta^2}}}}{\sqrt{1-\zeta^2}}
         </a>
       </p>
 
@@ -688,8 +629,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-10-27 01:27" pubdate>
-              2022-10-27
+            <time datetime="2023-07-19 10:19" pubdate>
+              2023-07-19
             </time>
           </div>
         
@@ -697,17 +638,96 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+              <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%94%B5%E8%B5%9B/">电赛</a>
             
           </div>
         
         
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/07/18/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-18/" target="_self">
+          电赛培训-23-07-18
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/07/18/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-18/" target="_self">
+          
+          arduino小车测速霍尔编码器外部中断一个霍尔编码器如果有两个传感器传出两路信号，就能根据相位差同时测量速度和方向但是arduino只有两个硬件中断管脚，同时还要使能计时器中断，所以需要一个外部中断库PinChangeInterrupt库 定时中断atmel内部有三个定时器  Timer0是delay用的 Timer1是pwm用的 只有Timer2可以使用来进行定时中断因此，需要使用MsTime
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-07-18 10:44" pubdate>
+              2023-07-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
             
-              <a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+              <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%94%B5%E8%B5%9B/">电赛</a>
             
           </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/07/14/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-14/" target="_self">
+          电赛培训-23-07-14
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/07/14/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-14/" target="_self">
+          
+          PWM通用定时器预分频通过对时钟频率进行分频，实现了让计数器可以计数更长的时间。 占空比占空比的实现是通过调节计数器到达翻转电平的值的大小来实现的。利用的是计数器的比较功能通过调节一个计数器不同的值，可以同时实现多个pwm的多个占空比的调节。但是他们的频率是相同的，若想要不同频率需要使用不同的计时器。TIM3&#x2F;4通道数较多 捕获模式捕获模式可以用来测量信号的频率，占空比等。 设置打开对应
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-07-14 09:30" pubdate>
+              2023-07-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%94%B5%E8%B5%9B/">电赛</a>
+            
+          </div>
+        
         
       </div>
     </article>
@@ -717,7 +737,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#board">5</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

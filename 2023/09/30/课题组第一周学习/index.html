@@ -1,0 +1,589 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/tag.jpg">
+  <link rel="icon" href="/img/tag.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="梁祖宁">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="理论学习反向传播算法反向传播是一种基于有监督学习，用于根据误差和损失函数调整网络权重的算法。反向传播算法的核心思想是通过链式法则计算损失函数对于每个权重的梯度，然后使用梯度下降法更新权重。过程：  首先通过正向传播，根据输入数据得到一个网络的激励 根据得到的激励与目标值计算损失函数 根据损失函数，从输出层开始，依次沿着计算图反向计算每个权重的梯度 根据得到的梯度调整权重[1]	 深度学习入门: 基">
+<meta property="og:type" content="article">
+<meta property="og:title" content="课题组第一周学习">
+<meta property="og:url" content="http://example.com/2023/09/30/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%B8%80%E5%91%A8%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="意大利炮打友军">
+<meta property="og:description" content="理论学习反向传播算法反向传播是一种基于有监督学习，用于根据误差和损失函数调整网络权重的算法。反向传播算法的核心思想是通过链式法则计算损失函数对于每个权重的梯度，然后使用梯度下降法更新权重。过程：  首先通过正向传播，根据输入数据得到一个网络的激励 根据得到的激励与目标值计算损失函数 根据损失函数，从输出层开始，依次沿着计算图反向计算每个权重的梯度 根据得到的梯度调整权重[1]	 深度学习入门: 基">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/lianga1/picGo_test/main/3u8Wwj.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lianga1/picGo_test/main/20200814234510853.jpg">
+<meta property="article:published_time" content="2023-09-30T11:51:44.000Z">
+<meta property="article:modified_time" content="2023-10-02T14:05:03.320Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="周报">
+<meta property="article:tag" content="课题组">
+<meta property="article:tag" content="神经网络">
+<meta property="article:tag" content="pytorch">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lianga1/picGo_test/main/3u8Wwj.png">
+  
+  
+  <title>课题组第一周学习 ❤ 意大利炮打友军</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/mario.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Rittmeister的小站</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://www.tapechat.net/uu/1D8OAP/TTXZBMBA">
+                <i class="iconfont icon-mail"></i>
+                tape
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/html/another.html">
+                <i class="iconfont icon-comment"></i>
+                炒饭
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/book.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="课题组第一周学习">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-09-30 19:51" pubdate>
+        2023年9月30日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      12k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      100 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">课题组第一周学习</h1>
+            
+            <div class="markdown-body">
+              <h1 id="理论学习"><a href="#理论学习" class="headerlink" title="理论学习"></a>理论学习</h1><h2 id="反向传播算法"><a href="#反向传播算法" class="headerlink" title="反向传播算法"></a>反向传播算法</h2><p>反向传播是一种基于有监督学习，用于根据误差和损失函数调整网络权重的算法。反向传播算法的核心思想是通过链式法则计算损失函数对于每个权重的梯度，然后使用梯度下降法更新权重。<br>过程：</p>
+<ul>
+<li>首先通过正向传播，根据输入数据得到一个网络的激励</li>
+<li>根据得到的激励与目标值计算损失函数</li>
+<li>根据损失函数，从输出层开始，依次沿着计算图反向计算每个权重的梯度</li>
+<li>根据得到的梯度调整权重<br>[1]	 <a target="_blank" rel="noopener" href="https://books.google.com/books/about/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8.html?id=2-PWvQEACAAJ">深度学习入门: 基于Python的理论与实现[M]. 人民邮电出版社, 2018.(p.121,161)</a><h2 id="前馈"><a href="#前馈" class="headerlink" title="前馈"></a>前馈</h2>前馈神经网络是一种最简单的神经网络，它的每个神经元都是前一层神经元的输出。前馈神经网络的每个神经元都是前一层神经元的输出，因此它的输出不会反馈到输入层，这种网络结构也被称为前馈神经网络。</li>
+</ul>
+<h2 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h2><h3 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h3><p>卷积（convolution）是一种数学运算，主要应用于信号处理中对系统响应的计算。卷积运算可以将某个冲激响应针对任意输入进行计算，得到对应的响应结果。卷积运算的公式如下：<br>$$<br>y(t) &#x3D; \int_{-\infty}^{\infty} x(a)h(t-a)da<br>$$<br>其中，$x(t)$为输入信号，$h(t)$为系统响应，$y(t)$为输出信号。</p>
+<h3 id="二维离散卷积"><a href="#二维离散卷积" class="headerlink" title="二维离散卷积"></a>二维离散卷积</h3><p>对于图像处理来说，卷积需要用到二维矩阵的滑动窗口来进行卷积运算。二维离散卷积的公式如下：<br>$$<br>y(i,j) &#x3D; \sum_{m&#x3D;-\infty}^{\infty}\sum_{n&#x3D;-\infty}^{\infty}x(m,n)h(i-m,j-n)<br>$$<br>其中，$x(m,n)$为输入图像，$h(i,j)$为卷积核，$y(i,j)$为输出图像。</p>
+<h3 id="卷积神经网络-1"><a href="#卷积神经网络-1" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><p>卷积神经网络（CNN）中，增加了卷积层和池化层。其可以从原本多维度的数据中提取欧氏距离较近的单元之间蕴含的信息。</p>
+<h4 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h4><p>在卷积层中，当输入数据是图像时，卷积层会以三维数据形式接收数据，并以三维数据形式传输到下一层，输入输出数据称为特征图（feature map）。其中，卷积层的输入数据称为输入特征图（input feature map），输出数据称为输出特征图（output feature map）。</p>
+<h4 id="CNN的处理流"><a href="#CNN的处理流" class="headerlink" title="CNN的处理流"></a>CNN的处理流</h4><p>针对一个图像，有三维的信息（长、宽、通道），同样，对这个图像进行处理的卷积核也是三维的。但是最终卷积得到的输出结果是二维的（每个通道卷积的结果加在一起）。在CNN中，针对多个卷积核，会得到多个二维的输出结果，这些输出结果会被叠加在一起，得到一个三维的输出结果。这个结果传递给下一层。同时，对多个数据，即批处理，卷积层将多个样本汇总成一次处理，传递中综合成四维的数据。</p>
+<h4 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h4><p>池化层是一种降低数据大小的方法，它可以减少数据的大小，同时也可以防止过拟合。池化层的处理流程如下：</p>
+<ul>
+<li>按照设定的步长，从输入数据中提取数据块</li>
+<li>例如MAX池化，将数据块中的最大值作为输出结果</li>
+<li>输出结果的规模即随步长变大而缩小<br>同时，池化层输入数据和输出数据的维度相同<h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2>循环神经网络常用于nlp领域。它和前馈神经网络或CNN的主要区别在于循环神经网络（RNN）的隐藏层的输出不仅仅取决于当前的输入，还取决于前一时刻的隐藏层的输出。因此，RNN具有某种程度上的“记忆”能力。<br>另一个显著特征在于它们在每个网络层共享参数，RNN在每一层都共享相同的参数，这使得它们可以处理任意长度的序列。<br>然而，RNN在反向传播的过程中，梯度会随着时间的推移而消失或爆炸，这使得它们很难学习长期依赖关系。<h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2>注意力机制可以增强神经网络输入数据中某些部分的权重，同时减弱其他部分的权重。<br>例如对一个翻译句子的网络，普通的逐个词翻译会在每一轮翻译过程中对单词序列依次提高注意力，也就是其注意力矩阵会是一个对角线上权值高的矩阵。但是在注意力机制下，每一轮翻译过程中，网络会根据上一轮的翻译结果，对输入句子中的某些部分进行更多的关注，即其权值的最大值不一定在对角线。从而提高翻译的连贯性。<h2 id="并行计算"><a href="#并行计算" class="headerlink" title="并行计算"></a>并行计算</h2>并行计算对计算任务进行拆分，将同时进行的计算任务分配到不同的计算单元上，从而提高计算速度。拆分的方式统称为并行方式，并行计算后的结果重新聚合的方式称为模型更新传递方式。<br>常见的并行方式有：</li>
+<li>数据并行：把数据集切分放到各个计算节点，并在哥哥节点之间传递模型参数</li>
+<li>模型并行：把模型切分放到各个计算节点，并在各个节点之间传递数据。一般把单个算子分配在配置相同的几个硬件上进行模型存储和计算。</li>
+<li>流水线并行：将模型切分成多个阶段，每个阶段在不同的计算节点上进行计算，每个阶段的计算结果传递给下一个阶段。<br>另外，如何更新模型参数也是并行计算的一个重要问题。在硬件组织架构方面，分为参数服务器架构和collective架构。在更新参数方面分为同步和异步更新<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/350501860">参考内容</a><h3 id="allreduce训练"><a href="#allreduce训练" class="headerlink" title="allreduce训练"></a>allreduce训练</h3>在同步更新参数的训练中，利用AllReduce来整合不同worker的梯度数据。AllReduce有很多种类的实现，主要关注的问题在于不同worker之间传递信息的拓扑结构。例如，对于一个有4个worker的集群，有以下几种拓扑结构：</li>
+<li><strong>ring</strong>：每个worker只和相邻的worker通信</li>
+<li><strong>mesh</strong>：每个worker和所有其他worker通信，但是效率比较低。</li>
+<li><strong>Master-Worker</strong>：一个worker作为master，其他worker作为worker，master和每个worker通信，worker之间不通信。<br>举N个worker的ring结构为例，考察这个结构的工作过程：</li>
+<li>每个worker计算自己的梯度</li>
+<li>每个worker把数据分成N份</li>
+<li>第k个worker把其第k份数据发送给第k+1个worker</li>
+<li>第k个worker把其第k-1份数据和第k-1个worker发送的数据整合，再发给下一个worker</li>
+<li>循环N次之后，每个worker包含最终整合结果的1份</li>
+<li>每个worker把自己的数据发送给下一个worker，收到数据后，每个worker的数据都是最终整合结果<br>这个结构的AllReduce的优势在于发送的数据量是固定的，和worker数量无关，避免了网络拥塞。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/100012827">参考内容</a><h1 id="实践内容"><a href="#实践内容" class="headerlink" title="实践内容"></a>实践内容</h1><h2 id="lenet5"><a href="#lenet5" class="headerlink" title="lenet5"></a>lenet5</h2>lenet5是进行手写数字识别的CNN，它的结构如下：<br>输入层-&gt;卷积层-&gt;池化层-&gt;卷积层-&gt;池化层-&gt;全连接层-&gt;全连接层-&gt;输出层（高斯连接）<br>与CNN不同的地方在于，LeNet使用sigmoid函数而非reLU函数。<br>lenet5网络的实现代码如下：<figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LeNet</span>(<span class="hljs-params">nn.Module</span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-built_in">super</span>(LeNet, self).__init__()<br>        self.conv = nn.Sequential(<br>            nn.Conv2d(<span class="hljs-number">1</span>, <span class="hljs-number">6</span>, <span class="hljs-number">5</span>), <span class="hljs-comment"># in_channels, out_channels, kernel_size</span><br>            nn.Sigmoid(),<br>            nn.MaxPool2d(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>), <span class="hljs-comment"># kernel_size, stride</span><br>            nn.Conv2d(<span class="hljs-number">6</span>, <span class="hljs-number">16</span>, <span class="hljs-number">5</span>),<br>            nn.Sigmoid(),<br>            nn.MaxPool2d(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)<br>        )<br>        self.fc = nn.Sequential(<br>            nn.Linear(<span class="hljs-number">16</span>*<span class="hljs-number">4</span>*<span class="hljs-number">4</span>, <span class="hljs-number">120</span>),<br>            nn.Sigmoid(),<br>            nn.Linear(<span class="hljs-number">120</span>, <span class="hljs-number">84</span>),<br>            nn.Sigmoid(),<br>            nn.Linear(<span class="hljs-number">84</span>, <span class="hljs-number">10</span>)<br>        )<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span>(<span class="hljs-params">self, img</span>):</span><br>        feature = self.conv(img)<br>        output = self.fc(feature.view(img.shape[<span class="hljs-number">0</span>], -<span class="hljs-number">1</span>))<br>        <span class="hljs-keyword">return</span> output<br><br></code></pre></td></tr></table></figure>
+这个网络定义了两个部分，一个是卷积层，一个是全连接层。卷积层的输入是一个1通道的图像，输出是一个6通道的图像，卷积核的大小为5*5。全连接层的输入是16*4*4的数据，输出是10个类别的概率。<h2 id="resnet"><a href="#resnet" class="headerlink" title="resnet"></a>resnet</h2>ResNet主要用于解决深度神经网络无法找到更好的解的问题。在深层网络中，梯度消失或爆炸的问题会导致网络无法训练。ResNet通过引入残差块（residual block）来解决这个问题。ResNet将堆叠的几个隐含层作为一个残差块，用残差块拟合的函数从原本的f(x)变为f(x)+x。<br>[4]	<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1512.03385">HE K, ZHANG X, REN S, et al. Deep residual learning for image recognition[C]. Proceedings of the IEEE conference on computer vision and pattern recognition, 2016:770-778.</a><br>通过每个block中残差路径和shortcut路径的设计，可以实现不同的ResNet网络。事实证明，不断增加ResNet的深度，也没有发生解的退化，反而可以提高网络的性能。因此ResNet可以实现如下的网络结构：<br><img src="https://raw.githubusercontent.com/lianga1/picGo_test/main/3u8Wwj.png" srcset="/img/mario.gif" lazyload alt="resnet"><h3 id="实际部署"><a href="#实际部署" class="headerlink" title="实际部署"></a>实际部署</h3>残差块类定义如下：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bottleneck</span>(<span class="hljs-params">nn.Module</span>):</span><br>    <span class="hljs-comment"># 残差块定义</span><br>    extention = <span class="hljs-number">4</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, inplanes, planes, stride, downsample=<span class="hljs-literal">None</span></span>):</span><br>        <span class="hljs-built_in">super</span>(Bottleneck, self).__init__()<br>        self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=<span class="hljs-number">1</span>, stride=stride, bias=<span class="hljs-literal">False</span>)<br>        self.bn1 = nn.BatchNorm2d(planes)<br><br>        self.conv2 = nn.Conv2d(planes, planes, kernel_size=<span class="hljs-number">3</span>, stride=<span class="hljs-number">1</span>, padding=<span class="hljs-number">1</span>, bias=<span class="hljs-literal">False</span>)<br>        self.bn2 = nn.BatchNorm2d(planes)<br><br>        self.conv3 = nn.Conv2d(planes, planes * self.extention, kernel_size=<span class="hljs-number">1</span>, stride=<span class="hljs-number">1</span>, bias=<span class="hljs-literal">False</span>)<br>        self.bn3 = nn.BatchNorm2d(planes * self.extention)<br><br>        self.relu = nn.ReLU(inplace=<span class="hljs-literal">True</span>)<br><br>        self.downsample = downsample<br>        self.stride = stride<br></code></pre></td></tr></table></figure>
+ResNet网络定义如下：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ResNet50</span>(<span class="hljs-params">nn.Module</span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, block, layers, num_class</span>):</span><br>        self.inplane = <span class="hljs-number">64</span><br>        <span class="hljs-built_in">super</span>(ResNet50, self).__init__()<br><br>        self.block = block<br>        self.layers = layers<br><br>        self.conv1 = nn.Conv2d(<span class="hljs-number">3</span>, self.inplane, kernel_size=<span class="hljs-number">7</span>, stride=<span class="hljs-number">2</span>, padding=<span class="hljs-number">3</span>, bias=<span class="hljs-literal">False</span>)<br>        self.bn1 = nn.BatchNorm2d(self.inplane)<br>        self.relu = nn.ReLU()<br>        self.maxpool = nn.MaxPool2d(kernel_size=<span class="hljs-number">3</span>, stride=<span class="hljs-number">2</span>, padding=<span class="hljs-number">1</span>)<br><br>        self.stage1 = self.make_layer(self.block, <span class="hljs-number">64</span>, layers[<span class="hljs-number">0</span>], stride=<span class="hljs-number">1</span>)<br>        self.stage2 = self.make_layer(self.block, <span class="hljs-number">128</span>, layers[<span class="hljs-number">1</span>], stride=<span class="hljs-number">2</span>)<br>        self.stage3 = self.make_layer(self.block, <span class="hljs-number">256</span>, layers[<span class="hljs-number">2</span>], stride=<span class="hljs-number">2</span>)<br>        self.stage4 = self.make_layer(self.block, <span class="hljs-number">512</span>, layers[<span class="hljs-number">3</span>], stride=<span class="hljs-number">2</span>)<br><br>        self.avgpool = nn.AvgPool2d(<span class="hljs-number">7</span>)<br>        self.fc = nn.Linear(<span class="hljs-number">512</span> * block.extention, num_class)<br><br><br></code></pre></td></tr></table></figure>
+在30Epoch后，在测试集的准确度达到了75%。</li>
+</ul>
+<h2 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h2><p>BERT是基于Transformer的预训练模型，主要用于自然语言处理，它能够预测句子中缺失的词语。以及判断两个句子是不是上下句。<br>整个框架由多层transformer的encoder堆叠而成。encoder由注意力层和feed-forward层组成。<br>BERT中，输入由三种不同embedding组成：</p>
+<ul>
+<li><p>wordpiece embedding：由但词向量组成将单词划分成一组有限公共子词单元。</p>
+</li>
+<li><p>position embedaang：将单词的位置信息编码成特征向量。Transformer通过制定规则来构建一个position embedding</p>
+</li>
+<li><p>segment embedding：用于区分两个句子的向量表示。用于区别问答等非对称子句。</p>
+<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>BERT的主要结构是Transformer，Transformer结构如下图所示：<br><img src="https://raw.githubusercontent.com/lianga1/picGo_test/main/20200814234510853.jpg" srcset="/img/mario.gif" lazyload alt="transformer"><br>其中左侧部分即为encoder部分。<br>encoder单元由一个multi-head-Attention + Layer Normalization + feedforword + Layer Normalization 叠加产生。<br>在比较大的BERT模型中，有24层encoder，每层有16个Attention，词向量维度1024。在较小情况下，有12层encoder，每层12个Attention，词向量维度768。<br>任何时候feed-forward大小都是词向量维度的4倍。</p>
+<h4 id="Attention-Layer"><a href="#Attention-Layer" class="headerlink" title="Attention Layer"></a>Attention Layer</h4><p>这一层的输入是由X &#x3D; (batch_size,max_len_embedding)构成的。<br>单个self-attention 计算过程是输入X分别和三个矩阵Wq,Wk,Wv相乘，得到Q,K,V。然后计算Q和K的点积，再除以$\sqrt{d_k}$，再经过softmax函数，得到attention矩阵。最后将attention矩阵和V相乘即加权求和，得到输出。<br>multi-head-Attention将多个不同的self-attention输出进行拼接，然后再乘以一个矩阵W0，得到最终的输出output_sum &#x3D; (batch_size,max_len,n*w_length)这个结果再经过一个全连接层就是整个multi-head-Attention的输出。</p>
+<h4 id="Layer-Normalization"><a href="#Layer-Normalization" class="headerlink" title="Layer Normalization"></a>Layer Normalization</h4><p>这个层相当于对每句话的embedding做归一化，所以用LN而非Batch Normalization</p>
+<h4 id="BERT每一层的学习"><a href="#BERT每一层的学习" class="headerlink" title="BERT每一层的学习"></a>BERT每一层的学习</h4><p>从浅层到深层分别可以学习到surface，短语，语法和语义的信息。</p>
+<h3 id="BERT的训练"><a href="#BERT的训练" class="headerlink" title="BERT的训练"></a>BERT的训练</h3><p>定义几个层的类如下：</p>
+</li>
+<li><p>Embedding：输入的embedding层，包括wordpiece embedding，position embedding，segment embedding</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Embeddings</span>(<span class="hljs-params">nn.Module</span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-built_in">super</span>(Embeddings, self).__init__()<br>        self.seg_emb = nn.Embedding(n_segs, d_model)<br>        self.word_emb = nn.Embedding(max_vocab, d_model)<br>        self.pos_emb = nn.Embedding(max_len, d_model)<br>        self.norm = nn.LayerNorm(d_model)<br>        self.dropout = nn.Dropout(p_dropout)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span>(<span class="hljs-params">self, x, seg</span>):</span><br>        <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">        x: [batch, seq_len]</span><br><span class="hljs-string">        &#x27;&#x27;&#x27;</span><br>        word_enc = self.word_emb(x)<br><br>        <span class="hljs-comment"># positional embedding</span><br>        pos = torch.arange(x.shape[<span class="hljs-number">1</span>], dtype=torch.long, device=device)<br>        pos = pos.unsqueeze(<span class="hljs-number">0</span>).expand_as(x)<br>        pos_enc = self.pos_emb(pos)<br><br>        seg_enc = self.seg_emb(seg)<br>        x = self.norm(word_enc + pos_enc + seg_enc)<br>        <span class="hljs-keyword">return</span> self.dropout(x)<br>        <span class="hljs-comment"># return: [batch, seq_len, d_model]</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>Multi-Head-Attention层</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ScaledDotProductAttention</span>(<span class="hljs-params">nn.Module</span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-built_in">super</span>(ScaledDotProductAttention, self).__init__()<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span>(<span class="hljs-params">self, Q, K, V, attn_mask</span>):</span><br>        scores = torch.matmul(Q, K.transpose(-<span class="hljs-number">1</span>, -<span class="hljs-number">2</span>) / msqrt(d_k))<br>        <span class="hljs-comment"># scores: [batch, n_heads, seq_len, seq_len]</span><br>        scores.masked_fill_(attn_mask, -<span class="hljs-number">1e9</span>)<br>        attn = nn.Softmax(dim=-<span class="hljs-number">1</span>)(scores)<br>        <span class="hljs-comment"># context: [batch, n_heads, seq_len, d_v]</span><br>        context = torch.matmul(attn, V)<br>        <span class="hljs-keyword">return</span> context<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MultiHeadAttention</span>(<span class="hljs-params">nn.Module</span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-built_in">super</span>(MultiHeadAttention, self).__init__()<br>        self.W_Q = nn.Linear(d_model, d_k * n_heads, bias=<span class="hljs-literal">False</span>)<br>        self.W_K = nn.Linear(d_model, d_k * n_heads, bias=<span class="hljs-literal">False</span>)<br>        self.W_V = nn.Linear(d_model, d_v * n_heads, bias=<span class="hljs-literal">False</span>)<br>        self.fc = nn.Linear(n_heads * d_v, d_model, bias=<span class="hljs-literal">False</span>)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span>(<span class="hljs-params">self, Q, K, V, attn_mask</span>):</span><br>        <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">        Q, K, V: [batch, seq_len, d_model]</span><br><span class="hljs-string">        attn_mask: [batch, seq_len, seq_len]</span><br><span class="hljs-string">        &#x27;&#x27;&#x27;</span><br>        batch = Q.size(<span class="hljs-number">0</span>)<br>        <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">        split Q, K, V to per head formula: [batch, seq_len, n_heads, d_k]</span><br><span class="hljs-string">        Convenient for matrix multiply opearation later</span><br><span class="hljs-string">        q, k, v: [batch, n_heads, seq_len, d_k / d_v]</span><br><span class="hljs-string">        &#x27;&#x27;&#x27;</span><br>        per_Q = self.W_Q(Q).view(batch, -<span class="hljs-number">1</span>, n_heads, d_k).transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)<br>        per_K = self.W_K(K).view(batch, -<span class="hljs-number">1</span>, n_heads, d_k).transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)<br>        per_V = self.W_V(V).view(batch, -<span class="hljs-number">1</span>, n_heads, d_v).transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)<br><br>        attn_mask = attn_mask.unsqueeze(<span class="hljs-number">1</span>).repeat(<span class="hljs-number">1</span>, n_heads, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)<br>        <span class="hljs-comment"># context: [batch, n_heads, seq_len, d_v]</span><br>        context = ScaledDotProductAttention()(per_Q, per_K, per_V, attn_mask)<br>        context = context.transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>).contiguous().view(<br>            batch, -<span class="hljs-number">1</span>, n_heads * d_v)<br><br>        <span class="hljs-comment"># output: [batch, seq_len, d_model]</span><br>        output = self.fc(context)<br>        <span class="hljs-keyword">return</span> output<br></code></pre></td></tr></table></figure></li>
+<li><p>其余层，包括FeedForword层和池化层</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FeedForwardNetwork</span>(<span class="hljs-params">nn.Module</span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-built_in">super</span>(FeedForwardNetwork, self).__init__()<br>        self.fc1 = nn.Linear(d_model, d_ff)<br>        self.fc2 = nn.Linear(d_ff, d_model)<br>        self.dropout = nn.Dropout(p_dropout)<br>        self.gelu = gelu<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span>(<span class="hljs-params">self, x</span>):</span><br>        x = self.fc1(x)<br>        x = self.dropout(x)<br>        x = self.gelu(x)<br>        x = self.fc2(x)<br>        <span class="hljs-keyword">return</span> x<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Pooler</span>(<span class="hljs-params">nn.Module</span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-built_in">super</span>(Pooler, self).__init__()<br>        self.fc = nn.Linear(d_model, d_model)<br>        self.tanh = nn.Tanh()<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span>(<span class="hljs-params">self, x</span>):</span><br>        <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">        x: [batch, d_model] (first place output)</span><br><span class="hljs-string">        &#x27;&#x27;&#x27;</span><br>        x = self.fc(x)<br>        x = self.tanh(x)<br>        <span class="hljs-keyword">return</span> x<br><br></code></pre></td></tr></table></figure></li>
+<li><p>Encoder层和组合而成的BERT网络</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EncoderLayer</span>(<span class="hljs-params">nn.Module</span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-built_in">super</span>(EncoderLayer, self).__init__()<br>        self.norm1 = nn.LayerNorm(d_model)<br>        self.norm2 = nn.LayerNorm(d_model)<br><br>        self.enc_attn = MultiHeadAttention()<br>        self.ffn = FeedForwardNetwork()<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span>(<span class="hljs-params">self, x, pad_mask</span>):</span><br>        <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">        pre-norm</span><br><span class="hljs-string">        see more detail in https://openreview.net/pdf?id=B1x8anVFPr</span><br><span class="hljs-string"></span><br><span class="hljs-string">        x: [batch, seq_len, d_model]</span><br><span class="hljs-string">        &#x27;&#x27;&#x27;</span><br>        residual = x<br>        x = self.norm1(x)<br>        x = self.enc_attn(x, x, x, pad_mask) + residual<br>        residual = x<br>        x = self.norm2(x)<br>        x = self.ffn(x)<br>        <span class="hljs-keyword">return</span> x + residual<br><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BERT</span>(<span class="hljs-params">nn.Module</span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, n_layers</span>):</span><br>        <span class="hljs-built_in">super</span>(BERT, self).__init__()<br>        self.embedding = Embeddings()<br>        self.encoders = nn.ModuleList([<br>            EncoderLayer() <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n_layers)<br>        ])<br><br>        self.pooler = Pooler()<br><br>        self.next_cls = nn.Linear(d_model, <span class="hljs-number">2</span>)<br>        self.gelu = gelu<br><br>        shared_weight = self.pooler.fc.weight<br>        self.fc = nn.Linear(d_model, d_model)<br>        self.fc.weight = shared_weight<br><br>        shared_weight = self.embedding.word_emb.weight<br>        self.word_classifier = nn.Linear(d_model, max_vocab, bias=<span class="hljs-literal">False</span>)<br>        self.word_classifier.weight = shared_weight<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span>(<span class="hljs-params">self, tokens, segments, masked_pos</span>):</span><br>        output = self.embedding(tokens, segments)<br>        enc_self_pad_mask = get_pad_mask(tokens)<br>        <span class="hljs-keyword">for</span> layer <span class="hljs-keyword">in</span> self.encoders:<br>            output = layer(output, enc_self_pad_mask)<br>        <span class="hljs-comment"># output: [batch, max_len, d_model]</span><br><br>        <span class="hljs-comment"># NSP Task</span><br>        hidden_pool = self.pooler(output[:, <span class="hljs-number">0</span>])<br>        logits_cls = self.next_cls(hidden_pool)<br><br>        <span class="hljs-comment"># Masked Language Model Task</span><br>        <span class="hljs-comment"># masked_pos: [batch, max_pred] -&gt; [batch, max_pred, d_model]</span><br>        masked_pos = masked_pos.unsqueeze(-<span class="hljs-number">1</span>).expand(-<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, d_model)<br><br>        <span class="hljs-comment"># h_masked: [batch, max_pred, d_model]</span><br>        h_masked = torch.gather(output, dim=<span class="hljs-number">1</span>, index=masked_pos)<br>        h_masked = self.gelu(self.fc(h_masked))<br>        logits_lm = self.word_classifier(h_masked)<br>        <span class="hljs-comment"># logits_lm: [batch, max_pred, max_vocab]</span><br>        <span class="hljs-comment"># logits_cls: [batch, 2]</span><br><br>        <span class="hljs-keyword">return</span> logits_cls, logits_lm<br><br></code></pre></td></tr></table></figure>
+<p>batch-size设为6<br>训练300个Epoch<br>训练结果进行预测例句<br>结果如下：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs routeros">========================================================<br>Masked data:<br>[<span class="hljs-string">&#x27;[CLS]&#x27;</span>, <span class="hljs-string">&#x27;[MASK]&#x27;</span>, <span class="hljs-string">&#x27;[MASK]&#x27;</span>, <span class="hljs-string">&#x27;you&#x27;</span>, <span class="hljs-string">&#x27;too&#x27;</span>, <span class="hljs-string">&#x27;how&#x27;</span>, <span class="hljs-string">&#x27;are&#x27;</span>, <span class="hljs-string">&#x27;you&#x27;</span>, <span class="hljs-string">&#x27;today&#x27;</span>, <span class="hljs-string">&#x27;[SEP]&#x27;</span>, <span class="hljs-string">&#x27;great&#x27;</span>,<br> <span class="hljs-string">&#x27;my&#x27;</span>, <span class="hljs-string">&#x27;baseball&#x27;</span>, <span class="hljs-string">&#x27;team&#x27;</span>, <span class="hljs-string">&#x27;won&#x27;</span>, <span class="hljs-string">&#x27;the&#x27;</span>, <span class="hljs-string">&#x27;competition&#x27;</span>, <span class="hljs-string">&#x27;[SEP]&#x27;</span>]<br>BERT reconstructed:<br>[<span class="hljs-string">&#x27;[CLS]&#x27;</span>, <span class="hljs-string">&#x27;nice&#x27;</span>, <span class="hljs-string">&#x27;meet&#x27;</span>, <span class="hljs-string">&#x27;you&#x27;</span>, <span class="hljs-string">&#x27;too&#x27;</span>, <span class="hljs-string">&#x27;how&#x27;</span>, <span class="hljs-string">&#x27;are&#x27;</span>, <span class="hljs-string">&#x27;you&#x27;</span>, <span class="hljs-string">&#x27;today&#x27;</span>, <span class="hljs-string">&#x27;[SEP]&#x27;</span>, <span class="hljs-string">&#x27;great&#x27;</span>,<br> <span class="hljs-string">&#x27;my&#x27;</span>, <span class="hljs-string">&#x27;baseball&#x27;</span>, <span class="hljs-string">&#x27;team&#x27;</span>, <span class="hljs-string">&#x27;won&#x27;</span>, <span class="hljs-string">&#x27;the&#x27;</span>, <span class="hljs-string">&#x27;competition&#x27;</span>, <span class="hljs-string">&#x27;[SEP]&#x27;</span>]<br>Original sentence:<br>[<span class="hljs-string">&#x27;[CLS]&#x27;</span>, <span class="hljs-string">&#x27;nice&#x27;</span>, <span class="hljs-string">&#x27;meet&#x27;</span>, <span class="hljs-string">&#x27;you&#x27;</span>, <span class="hljs-string">&#x27;too&#x27;</span>, <span class="hljs-string">&#x27;how&#x27;</span>, <span class="hljs-string">&#x27;are&#x27;</span>, <span class="hljs-string">&#x27;you&#x27;</span>, <span class="hljs-string">&#x27;today&#x27;</span>, <span class="hljs-string">&#x27;[SEP]&#x27;</span>, <span class="hljs-string">&#x27;great&#x27;</span>,<br> <span class="hljs-string">&#x27;my&#x27;</span>, <span class="hljs-string">&#x27;baseball&#x27;</span>, <span class="hljs-string">&#x27;team&#x27;</span>, <span class="hljs-string">&#x27;won&#x27;</span>, <span class="hljs-string">&#x27;the&#x27;</span>, <span class="hljs-string">&#x27;competition&#x27;</span>, <span class="hljs-string">&#x27;[SEP]&#x27;</span>]<br>===============Next Sentence <span class="hljs-attribute">Prediction</span>===============<br>Two sentences are continuous? <span class="hljs-literal">True</span><br>BERT predict: <span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/%E7%A7%91%E7%A0%94/">科研</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%91%A8%E6%8A%A5/">周报</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AF%BE%E9%A2%98%E7%BB%84/">课题组</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+                    
+                      <a class="hover-with-bg" href="/tags/pytorch/">pytorch</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/10/13/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%AD%A6%E4%B9%A0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">课题组第四周学习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/09/24/%E5%85%B3%E4%BA%8Eselenium%E5%8C%85%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E7%9A%84%E9%97%AE%E9%A2%98%E6%8E%92%E9%99%A4/">
+                        <span class="hidden-mobile">关于selenium包安装运行的问题排除</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Vs5iKqPEt5ktLHrlHWz4Pcip-gzGzoHsz","appKey":"u81TAgtldWRwNYK2ythRtc01","path":"window.location.pathname","placeholder":"畅所欲言","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":"ture","serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+
+  <div class="music-player">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

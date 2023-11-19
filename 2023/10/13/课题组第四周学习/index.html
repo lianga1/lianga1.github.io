@@ -1,0 +1,556 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/tag.jpg">
+  <link rel="icon" href="/img/tag.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="梁祖宁">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="ZeRO-Offload方法提出背景对大模型训练来说，GPU显存对参数规模巨大的网络来说是一个瓶颈，然而CPU内存可以做到TB级别，因此可以考虑将一部分参数放在CPU上，而将需要频繁访问的参数放在GPU上，这样可以减少GPU显存的压力，提高训练速度。ZeRO-Offload提出了一种没有数据冗余的优化方法，可以将模型参数分布在CPU和GPU上，而且可以在CPU和GPU之间进行无缝的迁移。 大模型传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="课题组第四周学习">
+<meta property="og:url" content="http://example.com/2023/10/13/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="意大利炮打友军">
+<meta property="og:description" content="ZeRO-Offload方法提出背景对大模型训练来说，GPU显存对参数规模巨大的网络来说是一个瓶颈，然而CPU内存可以做到TB级别，因此可以考虑将一部分参数放在CPU上，而将需要频繁访问的参数放在GPU上，这样可以减少GPU显存的压力，提高训练速度。ZeRO-Offload提出了一种没有数据冗余的优化方法，可以将模型参数分布在CPU和GPU上，而且可以在CPU和GPU之间进行无缝的迁移。 大模型传">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/lianga1/picGo_test/main/1.jpg">
+<meta property="article:published_time" content="2023-10-13T10:23:34.000Z">
+<meta property="article:modified_time" content="2023-10-14T18:39:00.427Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="周报">
+<meta property="article:tag" content="课题组">
+<meta property="article:tag" content="神经网络">
+<meta property="article:tag" content="pytorch">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lianga1/picGo_test/main/1.jpg">
+  
+  
+  <title>课题组第四周学习 ❤ 意大利炮打友军</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/mario.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Rittmeister的小站</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://www.tapechat.net/uu/1D8OAP/TTXZBMBA">
+                <i class="iconfont icon-mail"></i>
+                tape
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/html/another.html">
+                <i class="iconfont icon-comment"></i>
+                炒饭
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/book.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="课题组第四周学习">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-10-13 18:23" pubdate>
+        2023年10月13日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">课题组第四周学习</h1>
+            
+            <div class="markdown-body">
+              <h1 id="ZeRO-Offload方法"><a href="#ZeRO-Offload方法" class="headerlink" title="ZeRO-Offload方法"></a>ZeRO-Offload方法</h1><h2 id="提出背景"><a href="#提出背景" class="headerlink" title="提出背景"></a>提出背景</h2><p>对大模型训练来说，GPU显存对参数规模巨大的网络来说是一个瓶颈，然而CPU内存可以做到TB级别，因此可以考虑将一部分参数放在CPU上，而将需要频繁访问的参数放在GPU上，这样可以减少GPU显存的压力，提高训练速度。ZeRO-Offload提出了一种没有数据冗余的优化方法，可以将模型参数分布在CPU和GPU上，而且可以在CPU和GPU之间进行无缝的迁移。</p>
+<h3 id="大模型传统方法"><a href="#大模型传统方法" class="headerlink" title="大模型传统方法"></a>大模型传统方法</h3><p>针对大模型需要的内存过大的问题，传统分为两种方法：</p>
+<ul>
+<li>模型分割：将模型分割成多个部分，每个部分在GPU上训练，然后将结果传递给下一个部分，</li>
+<li>流水线并行：将训练过程分为不同层，每个层分给不同的GPU，然后将结果传递给下一个GPU<h2 id="增益来源"><a href="#增益来源" class="headerlink" title="增益来源"></a>增益来源</h2>根据计算流程，CPU的计算量相比于GPU的$O(MB)$,只有$O(M)$，其中M是模型大小，B是批次大小。<br>这个过程中，ZeRO-Offload将前向与后向传播分配给了GPU，而标准化计算和权重更新等对模型大小有直接联系的计算则分配给了CPU。<br>在数据吞吐方面，cpu与gpu之间仅存在fp16数据的传输，相比与其他方法（例如L2L）有大幅度减少<br>在并行方面，随着计算节点的增加，CPU的计算资源会随着节点数量增加而增加<br>CPU计算通过提高并行性增加了效率</li>
+</ul>
+<h3 id="对CPU作为计算瓶颈的解决方法"><a href="#对CPU作为计算瓶颈的解决方法" class="headerlink" title="对CPU作为计算瓶颈的解决方法"></a>对CPU作为计算瓶颈的解决方法</h3><h4 id="对CPU计算的优化"><a href="#对CPU计算的优化" class="headerlink" title="对CPU计算的优化"></a>对CPU计算的优化</h4><ul>
+<li>向量运算SIMD</li>
+<li>循环展开</li>
+<li>多核并行</li>
+<li>减少缓存抖动<h4 id="延迟参数更新"><a href="#延迟参数更新" class="headerlink" title="延迟参数更新"></a>延迟参数更新</h4>将参数更新延迟，重叠CPU与GPU计算。也就是说，在某一轮计算之后，此后每次gpu使用的优化器参数都是上一轮计算的结果，而不是这一轮计算的结果。，因此可以让cpu计算时间和gpu计算时间重叠。提高流水线负载率。<h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2>ZeRO-Offload 同时利用CPU内存计算能力来优化。基于ZeRO优化方法，但是不是像原本多个GPU并行计算，并且通过联系收集器来进行并行。而是把这个通讯过程转化为与CPU的联系，相当于原本多个GPU同时做的工作，让单个GPU进行，每个阶段只进行原先一个GPU进行的工作，同时把其他GPU本应进行的计算状态经由内存进行存储。<h3 id="ZeRO的工作"><a href="#ZeRO的工作" class="headerlink" title="ZeRO的工作"></a>ZeRO的工作</h3>ZeRO，在ZeRO-Offload中使用ZeRO-2阶段，这个阶段你主要是分割模型状态和梯度。在ZeRO-2中，每个GPU都存储着所有参数，但是每轮训练只更新其中不包含的部分。<br>这个过程如下：</li>
+</ul>
+<ol>
+<li>每个GPU进行前馈，计算不同批次的损失。</li>
+<li>每个cpu进行反向传播，并且对每个有梯度的GPU使用减少梯度的算子进行平均。</li>
+<li>反向传播结束后，GPU使用其对应的梯度平均值对其部分参数和优化器状态进行更新。</li>
+<li>进行一次全收集，接收其他GPU计算的参数更新。</li>
+</ol>
+<h3 id="ZeRO-Offload的工作"><a href="#ZeRO-Offload的工作" class="headerlink" title="ZeRO-Offload的工作"></a>ZeRO-Offload的工作</h3><p>ZeRO-Offload将训练修改为数据流图，主要优势：使得CPU计算量减少了几个数量级。保证CPU与GPU通讯最小化。最大限度节省内存。</p>
+<h4 id="计算流图"><a href="#计算流图" class="headerlink" title="计算流图"></a>计算流图</h4><p>计算流图是一种图形化的表示，用于表示计算过程中的数据流动。在计算流图中，节点表示计算，边表示数据流动。<br><img src="https://raw.githubusercontent.com/lianga1/picGo_test/main/1.jpg" srcset="/img/mario.gif" lazyload alt="计算流图"></p>
+<h4 id="减少CPU计算"><a href="#减少CPU计算" class="headerlink" title="减少CPU计算"></a>减少CPU计算</h4><p>ZeRO-Offload将前向与后向传播分配给了GPU，而标准化计算和权重更新等对模型大小有直接联系的计算则分配给了CPU。</p>
+<h4 id="减少CPU与GPU通讯"><a href="#减少CPU与GPU通讯" class="headerlink" title="减少CPU与GPU通讯"></a>减少CPU与GPU通讯</h4><p>创建fp32区：为了避免fp32数据在pcie总线传输，需要将所有fp32数据放在一个设备上进行处理<br>p16分配：将fp16必须放在前馈与反向传播共同节点的位置，因为这两个节点之间的通信是较大的。<br>因此，ZeRO-Offload将fp16分配给GPU，而将fp32分配给CPU。</p>
+<h4 id="减少内存"><a href="#减少内存" class="headerlink" title="减少内存"></a>减少内存</h4><p>将反向传播后得到的梯度，以及更新梯度所需要的计算和存储空间，写遭到CPU上，可以节省最多的显存使用。</p>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="扩展性强"><a href="#扩展性强" class="headerlink" title="扩展性强"></a>扩展性强</h3><p>对于任何模型，其优化算法的优化参数对于ZeRO-Offload来说并不关键，其只是需要把fp32的计算内容单独放在CPU中。</p>
+<h3 id="支持并行"><a href="#支持并行" class="headerlink" title="支持并行"></a>支持并行</h3><p>对多个GPU而言。ZeRO-Offload基于ZeRO-2，因此可以将分区的参数分配给多个GPU。</p>
+<h3 id="模型并行"><a href="#模型并行" class="headerlink" title="模型并行"></a>模型并行</h3><p>ZeRO-Offload还可以用模型并行来实现更好的并行性。通过给cpu卸载梯度、优化器状态和优化器计算来和模型并行计算相适应。在这个情况下，首先，借由更难耗尽内存，可以使用更大的批次大小。其次，可以使用更多的GPU来进行模型并行计算。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/%E7%A7%91%E7%A0%94/">科研</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%91%A8%E6%8A%A5/">周报</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AF%BE%E9%A2%98%E7%BB%84/">课题组</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+                    
+                      <a class="hover-with-bg" href="/tags/pytorch/">pytorch</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/10/22/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%BA%94%E5%91%A8%E5%AD%A6%E4%B9%A0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">课题组第五周学习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/09/30/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%B8%80%E5%91%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="hidden-mobile">课题组第一周学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Vs5iKqPEt5ktLHrlHWz4Pcip-gzGzoHsz","appKey":"u81TAgtldWRwNYK2ythRtc01","path":"window.location.pathname","placeholder":"畅所欲言","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":"ture","serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+
+  <div class="music-player">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

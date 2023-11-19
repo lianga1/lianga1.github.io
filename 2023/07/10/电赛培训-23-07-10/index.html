@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/tag.jpg">
+  <link rel="icon" href="/img/tag.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="spi与i2ciic通信i2c是一种用于设备间通讯的两线协议硬件和软件实现都通过machine.I2C和machine.SoftI2C来实现。硬件I2c优势在于速度快，但是对使用的引脚有限制。软件I2C优势在于兼容性强，但是速度慢函数：  硬件I2C：使用以下参数来构造I2C对象 id表示特定的外设，取决于特定板子 scl：时钟线引脚，Pin sda：数据线引脚，Pin freq：时钟频率，整数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电赛培训-23-07-10">
+<meta property="og:url" content="http://example.com/2023/07/10/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-10/index.html">
+<meta property="og:site_name" content="意大利炮打友军">
+<meta property="og:description" content="spi与i2ciic通信i2c是一种用于设备间通讯的两线协议硬件和软件实现都通过machine.I2C和machine.SoftI2C来实现。硬件I2c优势在于速度快，但是对使用的引脚有限制。软件I2C优势在于兼容性强，但是速度慢函数：  硬件I2C：使用以下参数来构造I2C对象 id表示特定的外设，取决于特定板子 scl：时钟线引脚，Pin sda：数据线引脚，Pin freq：时钟频率，整数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/07/10/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-10/GPIO_conf.png">
+<meta property="article:published_time" content="2023-07-10T01:40:59.000Z">
+<meta property="article:modified_time" content="2023-07-10T03:44:23.866Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2023/07/10/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-10/GPIO_conf.png">
+  
+  
+  <title>电赛培训-23-07-10 ❤ 意大利炮打友军</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/mario.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Rittmeister的小站</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://www.tapechat.net/uu/1D8OAP/TTXZBMBA">
+                <i class="iconfont icon-mail"></i>
+                tape
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/html/another.html">
+                <i class="iconfont icon-comment"></i>
+                炒饭
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/book.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="电赛培训-23-07-10">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-07-10 09:40" pubdate>
+        2023年7月10日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      11 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">电赛培训-23-07-10</h1>
+            
+            <div class="markdown-body">
+              <h1 id="spi与i2c"><a href="#spi与i2c" class="headerlink" title="spi与i2c"></a>spi与i2c</h1><h2 id="iic通信"><a href="#iic通信" class="headerlink" title="iic通信"></a>iic通信</h2><p>i2c是一种用于设备间通讯的两线协议<br>硬件和软件实现都通过machine.I2C和machine.SoftI2C来实现。<br>硬件I2c优势在于速度快，但是对使用的引脚有限制。<br>软件I2C优势在于兼容性强，但是速度慢<br>函数：</p>
+<ul>
+<li>硬件I2C：使用以下参数来构造I2C对象<ul>
+<li>id表示特定的外设，取决于特定板子</li>
+<li>scl：时钟线引脚，Pin</li>
+<li>sda：数据线引脚，Pin</li>
+<li>freq：时钟频率，整数</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意接线先关注缺少的端口例如I2C或uart，之后再关注gpio</strong></p>
+<ul>
+<li>软件I2C：使用以下参数来构造I2C对象<ul>
+<li>scl：时钟线引脚，Pin</li>
+<li>sda：数据线引脚，Pin</li>
+<li>freq：时钟频率，整数</li>
+<li>timeout：超时时间，整数</li>
+</ul>
+</li>
+<li>init函数可以重新定义</li>
+<li>I2C.start()：开始通信</li>
+<li>I2C.stop()：结束通信</li>
+<li>I2C.readint(buf,nack&#x3D;True):读取字节存储到buf中，字节长度是buf长度，收到出最后一个字节以外所有子接后，将发送ack，如果设置nack则发送nack，ack代表着以后还会传输，nack代表着这是最后一个字节</li>
+<li>I2C.write(buf)：将buf中的字节写入到总线上，检查每个字节是否收到ack</li>
+<li>I2C.readfrom(addr,nbytes,stop&#x3D;True):从addr地址读取nbytes个字节，如果stop为True则在输入结束时发送stop信号。</li>
+<li>I2c.readfrom_into(adr,)</li>
+<li>I2c.writeto(addr,buf,stop&#x3D;True)</li>
+<li>I2c.writevto(addr,vector,stop&#x3D;True)将vector中包含的字节写入addr指定的从站，vector应该具有缓冲协议的元组或对象列表</li>
+<li>I2c.readfrom_mem(addr,memaddr,nbytes,addrsize&#x3D;8)从memaddr指定的内存地址开始，从addr指定的从站读出nbytes。参数addrsize以位为单位指定地址大小，返回读取数据bytes对象。</li>
+<li><h3 id="硬件I3c外设"><a href="#硬件I3c外设" class="headerlink" title="硬件I3c外设"></a>硬件I3c外设</h3>任何可用的输出引脚都可以用于scl和sda，默认情况下，I2C对象使用id 0，scl引脚为22，sda引脚为21，时钟频率为400kHz。</li>
+</ul>
+<h2 id="spi通信"><a href="#spi通信" class="headerlink" title="spi通信"></a>spi通信</h2><p>spi是一种由主机驱动的同步串行协议。在物理层概念，一条总线有三条线路组成：SCK，MOSI、MISO，多个设备可以共享一条总线。每个设备有一个单独的第四个信号SS（从设备选择），来选择总线上的特定设备并与之通信。</p>
+<figure class="highlight gml"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs gml">machine.SPI(<span class="hljs-symbol">id</span>)# 在给定的总线<span class="hljs-symbol">id</span>上构造一个SPI对象。<span class="hljs-symbol">id</span>的值取决于特定端口以及硬件<br></code></pre></td></tr></table></figure>
+<h1 id="stm32"><a href="#stm32" class="headerlink" title="stm32"></a>stm32</h1><h2 id="引脚"><a href="#引脚" class="headerlink" title="引脚"></a>引脚</h2><p>在cubemx中，浅黄色是不能修改定义的，深黄色也是默认的。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>引脚配置，在pinout_configuration中，如下图所示：<br><img src="/2023/07/10/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-10/GPIO_conf.png" srcset="/img/mario.gif" lazyload alt="引脚配置"><br>可以配置其中每个引脚的功能，例如GPIO、SPI、I2C等等。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/%E7%94%B5%E8%B5%9B/">电赛</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/07/11/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-11/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">电赛培训-23-07-11</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/07/07/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-07/">
+                        <span class="hidden-mobile">电赛培训-23-07-07</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Vs5iKqPEt5ktLHrlHWz4Pcip-gzGzoHsz","appKey":"u81TAgtldWRwNYK2ythRtc01","path":"window.location.pathname","placeholder":"畅所欲言","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":"ture","serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+
+  <div class="music-player">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

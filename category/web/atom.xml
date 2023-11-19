@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://example.com</id>
+    <title>意大利炮打友军 • Posts by &#34;web&#34; category</title>
+    <link href="http://example.com" />
+    <updated>2023-09-24T09:03:44.000Z</updated>
+    <category term="随笔" />
+    <category term="技术" />
+    <category term="博客" />
+    <category term="markdown" />
+    <category term="python" />
+    <category term="月历" />
+    <category term="写作" />
+    <category term="科幻" />
+    <category term="世界观" />
+    <category term="WSL" />
+    <category term="Linux" />
+    <category term="编译" />
+    <category term="电赛" />
+    <category term="记录" />
+    <category term="周报" />
+    <category term="课题组" />
+    <category term="神经网络" />
+    <category term="pytorch" />
+    <entry>
+        <id>http://example.com/2023/09/24/%E5%85%B3%E4%BA%8Eselenium%E5%8C%85%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E7%9A%84%E9%97%AE%E9%A2%98%E6%8E%92%E9%99%A4/</id>
+        <title>关于selenium包安装运行的问题排除</title>
+        <link rel="alternate" href="http://example.com/2023/09/24/%E5%85%B3%E4%BA%8Eselenium%E5%8C%85%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E7%9A%84%E9%97%AE%E9%A2%98%E6%8E%92%E9%99%A4/"/>
+        <content type="html">&lt;h1 id=&#34;selenium-包安装&#34;&gt;&lt;a href=&#34;#selenium-包安装&#34; class=&#34;headerlink&#34; title=&#34;selenium 包安装&#34;&gt;&lt;/a&gt;selenium 包安装&lt;/h1&gt;&lt;p&gt;首先是想要在base环境下安装的，但是因为base环境的内容太多，solve解决依赖问题耗时过长，所以考虑新建环境。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;conda create -n webdriver python=3.7&lt;br&gt;conda activate webdriver&lt;br&gt;conda install selenium&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&#34;出现问题&#34;&gt;&lt;a href=&#34;#出现问题&#34; class=&#34;headerlink&#34; title=&#34;出现问题&#34;&gt;&lt;/a&gt;出现问题&lt;/h1&gt;&lt;p&gt;在按照例程运行代码时，出现了以下问题：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;from&lt;/span&gt; selenium &lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; webdriver&lt;br&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; pandas &lt;span class=&#34;hljs-keyword&#34;&gt;as&lt;/span&gt; pd&lt;br&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; platform&lt;br&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span class=&#34;hljs-keyword&#34;&gt;as&lt;/span&gt; plt&lt;br&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;import&lt;/span&gt; os&lt;br&gt;chromedriver = os.path.abspath(&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;C:\\Users\\18381\\anaconda3\\Scripts\\chromedriver.exe&amp;#x27;&lt;/span&gt;)&lt;br&gt;os.environ[&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;webdriver.chrome.driver&amp;quot;&lt;/span&gt;] = chromedriver&lt;br&gt;driver = webdriver.Chrome()&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;出现了以下错误：&lt;br&gt;Unable to obtain driver using Selenium Manager: C:\Users\18381\anaconda3\envs\webdriver\lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe is missing.&lt;/p&gt;
+&lt;p&gt;因此，查阅github上有关issue，发现是conda打包问题，没有打包这个可执行文件。因此，需要手动下载这个文件，放到对应的目录下。&lt;br&gt;&lt;a href=&#34;https://github.com/SeleniumHQ/selenium/tree/trunk/common/manager&#34;&gt;下载文件&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;其他需要注意的地方&#34;&gt;&lt;a href=&#34;#其他需要注意的地方&#34; class=&#34;headerlink&#34; title=&#34;其他需要注意的地方&#34;&gt;&lt;/a&gt;其他需要注意的地方&lt;/h1&gt;&lt;p&gt;比如求解器，可以使用新的求解器例如&lt;a href=&#34;https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community&#34;&gt;libmamba&lt;/a&gt;&lt;br&gt;虽然我还没完全搞懂这个东西如何使用&lt;/p&gt;
+&lt;p&gt;需要先安装chrome和对应的chromedriver&lt;br&gt;&lt;a href=&#34;https://chromedriver.chromium.org/downloads&#34;&gt;chromedriver&lt;/a&gt;&lt;/p&gt;
+</content>
+        <category term="技术" />
+        <category term="python" />
+        <updated>2023-09-24T09:03:44.000Z</updated>
+    </entry>
+</feed>

@@ -5,6 +5,70 @@
     "home_page_url": "http://example.com",
     "items": [
         {
+            "id": "http://example.com/2023/07/27/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-27/",
+            "url": "http://example.com/2023/07/27/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-27/",
+            "title": "电赛培训-23-07-27",
+            "date_published": "2023-07-27T02:04:23.000Z",
+            "content_html": "<h2 id=\"赛程\"><a href=\"#赛程\" class=\"headerlink\" title=\"赛程\"></a>赛程</h2><p>9-11号作品测评<br>2号早晨7点半到413，放题</p>\n",
+            "tags": []
+        },
+        {
+            "id": "http://example.com/2023/07/19/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-19/",
+            "url": "http://example.com/2023/07/19/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-19/",
+            "title": "电赛培训-23-07-19",
+            "date_published": "2023-07-19T02:19:52.000Z",
+            "content_html": "<h1 id=\"pid控制系统\"><a href=\"#pid控制系统\" class=\"headerlink\" title=\"pid控制系统\"></a>pid控制系统</h1><h2 id=\"公式\"><a href=\"#公式\" class=\"headerlink\" title=\"公式\"></a>公式</h2><p>$$ u(t)&#x3D;K_p e(t)+K_i \\int_0^t e(\\tau) d\\tau + K_d \\frac{de(t)}{dt} $$</p>\n<h2 id=\"作用\"><a href=\"#作用\" class=\"headerlink\" title=\"作用\"></a>作用</h2><ul>\n<li>比例项：减小误差</li>\n<li>积分项：消除稳态误差</li>\n<li>微分项：减小超调量</li>\n</ul>\n<h3 id=\"超调量\"><a href=\"#超调量\" class=\"headerlink\" title=\"超调量\"></a>超调量</h3><p>$$ \\xi &#x3D; \\frac{e^{-\\frac{\\pi \\zeta}{\\sqrt{1-\\zeta^2}}}}{\\sqrt{1-\\zeta^2}} $$<br>超调量的意义在于：在没有积分项的情况下，超调量越大，系统的响应越快，但是超调量越大，系统的稳定性越差<br>其中 $\\zeta$ 是阻尼系数，$\\zeta$ 越大，超调量越小，系统越稳定</p>\n<h2 id=\"误差\"><a href=\"#误差\" class=\"headerlink\" title=\"误差\"></a>误差</h2><p>低频抖动：积分项过大<br>高频抖动：微分项过大</p>\n<h2 id=\"例子\"><a href=\"#例子\" class=\"headerlink\" title=\"例子\"></a>例子</h2><p>状态量：超声波，速度，MPU6050姿态，</p>\n<h1 id=\"卡尔曼滤波\"><a href=\"#卡尔曼滤波\" class=\"headerlink\" title=\"卡尔曼滤波\"></a>卡尔曼滤波</h1><h2 id=\"作用-1\"><a href=\"#作用-1\" class=\"headerlink\" title=\"作用\"></a>作用</h2><p>利用间接测量值，计算最优估算，组合各种可能受到噪音影响的数据源。</p>\n<h2 id=\"原理\"><a href=\"#原理\" class=\"headerlink\" title=\"原理\"></a>原理</h2><h3 id=\"状态观察\"><a href=\"#状态观察\" class=\"headerlink\" title=\"状态观察\"></a>状态观察</h3><p>状态观察是指，通过测量值，计算出状态量的过程，<br>状态观测器得到的估计状态表示为$ \\hat{x}  $</p>\n<h3 id=\"状态预测\"><a href=\"#状态预测\" class=\"headerlink\" title=\"状态预测\"></a>状态预测</h3><p>根据数学模型，从已有的状态量，通过计算得到了一个估计量$ \\hat{x} $<br>然而，数学模型的预测有其局限性，初值条件不同所以不能得到相同的结果。<br>所以需要状态估算器</p>\n<h3 id=\"状态估算\"><a href=\"#状态估算\" class=\"headerlink\" title=\"状态估算\"></a>状态估算</h3><p>需要估算值收敛到实际值，所以需要反馈，反馈误差为e<br>$$ e &#x3D; x - \\hat{x} $$假设一个微分方程：<br>$$ \\dot{x} &#x3D; Ax + Bu $$$$ y &#x3D; Cx $$以上是一个真实系统<br>$$ \\dot{\\hat{x}} &#x3D; A\\hat{x} + Bu + Ke$$$$ \\hat{y} &#x3D; C\\hat{x} $$这是系统估算模型</p>\n<p>两方程分别相减得到：<br>$$ \\dot{e} &#x3D;(A- KC)·e$$$$ y-\\hat{y} &#x3D; C·e$$<br>解得:<br>$$e(t) &#x3D; e^{A-KC} ·e(0)$$<br>若A-KC的值小于0，那么e(t)会收敛到0，即估算值收敛到实际值，实际上，k可以加速收敛过程。</p>\n<h3 id=\"例子-1\"><a href=\"#例子-1\" class=\"headerlink\" title=\"例子\"></a>例子</h3><p>$$ \\dot{x} &#x3D; Ax + Bu + w$$$$ y &#x3D; Cx + v$$<br>w是过程噪声，v是测量噪声，他们都服从高斯分布，且互相独立。<br>在初始条件下，状态估算器估计了$\\hat{x}$，真实值在这个中心的正态分布周围<br>在多轮预测后，估计值的分布会比初始条件下的估计分布更大，同时，还有一个测量方程得到的均值与方差都不同的分布，这两个分布的相乘就得到优化估计。<br>事实上，卡尔曼滤波器方程是一个随机系统的状态观测器<br>公式如下：<br>$$ \\hat{x}<em>k&#x3D;A·\\hat{x}</em>{k-1} +B·u_k +K_k(y_k - C(A·\\hat{x}+B·u_k)) $$<br>其中$\\hat{x_k^-}$是前项估测，代表前两项的和，所以公式写为：<br>$$ \\hat{x}_k^ &#x3D; A·\\hat{x_k^-} ++K_k(y_k - C\\hat{x_k^-}) $$</p>\n<p>所以结果成为后验估值。</p>\n<p>误差协方差矩阵P<br>$$ P_k^- &#x3D; AP_{k-1}A^T +Q$$<br>这个就是对矩阵P的估值</p>\n<p>第二步，更新状态<br>$$ K_k &#x3D; \\frac{P_k^-C^T}{(CP_k^-C^T+R)} $$<br>这个是卡尔曼增益，使得更新K后误差协方差最小<br>$$ P_k &#x3D; (I-K_kC)P_k^- $$</p>\n",
+            "tags": []
+        },
+        {
+            "id": "http://example.com/2023/07/18/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-18/",
+            "url": "http://example.com/2023/07/18/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-18/",
+            "title": "电赛培训-23-07-18",
+            "date_published": "2023-07-18T02:44:15.000Z",
+            "content_html": "<h1 id=\"arduino小车测速\"><a href=\"#arduino小车测速\" class=\"headerlink\" title=\"arduino小车测速\"></a>arduino小车测速</h1><h2 id=\"霍尔编码器\"><a href=\"#霍尔编码器\" class=\"headerlink\" title=\"霍尔编码器\"></a>霍尔编码器</h2><h2 id=\"外部中断\"><a href=\"#外部中断\" class=\"headerlink\" title=\"外部中断\"></a>外部中断</h2><p>一个霍尔编码器如果有两个传感器传出两路信号，就能根据相位差同时测量速度和方向<br>但是arduino只有两个硬件中断管脚，同时还要使能计时器中断，所以需要一个外部中断库<br>PinChangeInterrupt库</p>\n<h2 id=\"定时中断\"><a href=\"#定时中断\" class=\"headerlink\" title=\"定时中断\"></a>定时中断</h2><p>atmel内部有三个定时器</p>\n<ul>\n<li>Timer0是delay用的</li>\n<li>Timer1是pwm用的</li>\n<li>只有Timer2可以使用来进行定时中断<br>因此，需要使用MsTimer2库来实现定时中断</li>\n</ul>\n",
+            "tags": []
+        },
+        {
+            "id": "http://example.com/2023/07/14/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-14/",
+            "url": "http://example.com/2023/07/14/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-14/",
+            "title": "电赛培训-23-07-14",
+            "date_published": "2023-07-14T01:30:14.000Z",
+            "content_html": "<h1 id=\"PWM\"><a href=\"#PWM\" class=\"headerlink\" title=\"PWM\"></a>PWM</h1><h2 id=\"通用定时器\"><a href=\"#通用定时器\" class=\"headerlink\" title=\"通用定时器\"></a>通用定时器</h2><h3 id=\"预分频\"><a href=\"#预分频\" class=\"headerlink\" title=\"预分频\"></a>预分频</h3><p>通过对时钟频率进行分频，实现了让计数器可以计数更长的时间。</p>\n<h2 id=\"占空比\"><a href=\"#占空比\" class=\"headerlink\" title=\"占空比\"></a>占空比</h2><p>占空比的实现是通过调节计数器到达翻转电平的值的大小来实现的。<br>利用的是计数器的比较功能<br>通过调节一个计数器不同的值，可以同时实现多个pwm的多个占空比的调节。但是他们的频率是相同的，若想要不同频率需要使用不同的计时器。<br>TIM3&#x2F;4通道数较多</p>\n<h2 id=\"捕获模式\"><a href=\"#捕获模式\" class=\"headerlink\" title=\"捕获模式\"></a>捕获模式</h2><p>捕获模式可以用来测量信号的频率，占空比等。</p>\n<h2 id=\"设置\"><a href=\"#设置\" class=\"headerlink\" title=\"设置\"></a>设置</h2><p>打开对应channel的pwm生成，设定预分频和counter值（推荐一个方便运算占空比的值）</p>\n<h2 id=\"作业\"><a href=\"#作业\" class=\"headerlink\" title=\"作业\"></a>作业</h2><ul>\n<li>需要实现通过按键增加占空比</li>\n<li>用捕获模式测量发生的PWM波频率和占空比</li>\n</ul>\n",
+            "tags": []
+        },
+        {
+            "id": "http://example.com/2023/07/13/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-13/",
+            "url": "http://example.com/2023/07/13/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-13/",
+            "title": "电赛培训-23-07-13",
+            "date_published": "2023-07-13T01:57:16.000Z",
+            "content_html": "<h1 id=\"stm32串口通信\"><a href=\"#stm32串口通信\" class=\"headerlink\" title=\"stm32串口通信\"></a>stm32串口通信</h1><h1 id=\"定时器\"><a href=\"#定时器\" class=\"headerlink\" title=\"定时器\"></a>定时器</h1><h2 id=\"通用定时器\"><a href=\"#通用定时器\" class=\"headerlink\" title=\"通用定时器\"></a>通用定时器</h2><p>采用apb1&#x2F;apb2总线</p>\n<h3 id=\"预分频\"><a href=\"#预分频\" class=\"headerlink\" title=\"预分频\"></a>预分频</h3><p>计时时长&#x3D; (预分频+1) * (计数器值+1) &#x2F; 时钟频率</p>\n<h3 id=\"中断回调\"><a href=\"#中断回调\" class=\"headerlink\" title=\"中断回调\"></a>中断回调</h3><p>HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)<br>这个函数可以复制到it文件中，定义这个函数即可在中断中调用这个函数。</p>\n",
+            "tags": []
+        },
+        {
+            "id": "http://example.com/2023/07/12/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-12/",
+            "url": "http://example.com/2023/07/12/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-12/",
+            "title": "电赛培训-23-07-12",
+            "date_published": "2023-07-12T01:51:29.000Z",
+            "content_html": "<h1 id=\"stm32定时器\"><a href=\"#stm32定时器\" class=\"headerlink\" title=\"stm32定时器\"></a>stm32定时器</h1><p>SysTick控制寄存器：<br>在SysTick_Config函数中，需要传进一个参数，代表着多少个tick触发一次中断。这个参数是一个32位的寄存器，但是只有24位有效，因此最大值是2^24-1，也就是16777215，也就是16Mhz的时钟下，最大延时是1s。如果需要更长的延时，需要自己写一个计数器，然后在中断中进行判断。<br>有一个变量是SystemCoreClock，代表当前时钟速度。把这个变量除以多少，就是把一秒分成多少份来计时。<br>在SysTick_Handler这个函数中，每次计时器触发中断都会调用这个函数，可以设置一个静态变量来进行计数，例如每1ms触发中断，就让这个函数每500次进入中断才执行某个行为，就能实现每500ms执行一次某个行为。</p>\n<h1 id=\"按键中断\"><a href=\"#按键中断\" class=\"headerlink\" title=\"按键中断\"></a>按键中断</h1>",
+            "tags": []
+        },
+        {
+            "id": "http://example.com/2023/07/11/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-11/",
+            "url": "http://example.com/2023/07/11/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-11/",
+            "title": "电赛培训-23-07-11",
+            "date_published": "2023-07-11T01:49:47.000Z",
+            "content_html": "<h1 id=\"stm32-开发\"><a href=\"#stm32-开发\" class=\"headerlink\" title=\"stm32 开发\"></a>stm32 开发</h1><h2 id=\"配置内容\"><a href=\"#配置内容\" class=\"headerlink\" title=\"配置内容\"></a>配置内容</h2><p>main.c中的user code 注释中间是不会被cube重新生成的</p>\n<h2 id=\"时钟树\"><a href=\"#时钟树\" class=\"headerlink\" title=\"时钟树\"></a>时钟树</h2><h2 id=\"第一个hal函数\"><a href=\"#第一个hal函数\" class=\"headerlink\" title=\"第一个hal函数\"></a>第一个hal函数</h2><p>HAL_GPIO_WritePin(GPIOF,LED0_PIN|LED1_PIN, GPIO_PIN_SET);<br>HAL_Delay(ms);</p>\n<h2 id=\"板载按钮\"><a href=\"#板载按钮\" class=\"headerlink\" title=\"板载按钮\"></a>板载按钮</h2><p>PE4作为ButtonPin，使能需要一个上拉电阻</p>\n<h2 id=\"中断\"><a href=\"#中断\" class=\"headerlink\" title=\"中断\"></a>中断</h2><p>可以在cube中更改引脚为外部中断，可以调节中断触发模式</p>\n<h1 id=\"stm32用于clion的诸多问题\"><a href=\"#stm32用于clion的诸多问题\" class=\"headerlink\" title=\"stm32用于clion的诸多问题\"></a>stm32用于clion的诸多问题</h1><ol>\n<li>Error: libusb_open() failed with LIBUSB_ERROR_NOT_SUPPORTED<br>初步估计是usb驱动问题，因此计划使用zadig重装驱动，libusb</li>\n<li>Error:Error: timed out while waiting for target halted<br>似乎是在等待重启的过程中超时，难道是没有设置重启？<br><strong>解决了，忘了换配置文件了，老配置文件没问题</strong></li>\n<li>问题又来了，Initfailed，连接不到target，先用的玄学方法：按住rst按键，再烧录，就用这种笨方法至少可以烧录了<br>作为重置方法，接下来有一个比较好的解决方案，就是再cubemx中，pinout设置栏，再systemcore的sys部分里，有一个debug模式选择，之前一直是disable，所以拒绝再外部烧写，现在改成serial wire，就可以了。</li>\n</ol>\n",
+            "tags": []
+        },
+        {
+            "id": "http://example.com/2023/07/10/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-10/",
+            "url": "http://example.com/2023/07/10/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-10/",
+            "title": "电赛培训-23-07-10",
+            "date_published": "2023-07-10T01:40:59.000Z",
+            "content_html": "<h1 id=\"spi与i2c\"><a href=\"#spi与i2c\" class=\"headerlink\" title=\"spi与i2c\"></a>spi与i2c</h1><h2 id=\"iic通信\"><a href=\"#iic通信\" class=\"headerlink\" title=\"iic通信\"></a>iic通信</h2><p>i2c是一种用于设备间通讯的两线协议<br>硬件和软件实现都通过machine.I2C和machine.SoftI2C来实现。<br>硬件I2c优势在于速度快，但是对使用的引脚有限制。<br>软件I2C优势在于兼容性强，但是速度慢<br>函数：</p>\n<ul>\n<li>硬件I2C：使用以下参数来构造I2C对象<ul>\n<li>id表示特定的外设，取决于特定板子</li>\n<li>scl：时钟线引脚，Pin</li>\n<li>sda：数据线引脚，Pin</li>\n<li>freq：时钟频率，整数</li>\n</ul>\n</li>\n</ul>\n<p><strong>注意接线先关注缺少的端口例如I2C或uart，之后再关注gpio</strong></p>\n<ul>\n<li>软件I2C：使用以下参数来构造I2C对象<ul>\n<li>scl：时钟线引脚，Pin</li>\n<li>sda：数据线引脚，Pin</li>\n<li>freq：时钟频率，整数</li>\n<li>timeout：超时时间，整数</li>\n</ul>\n</li>\n<li>init函数可以重新定义</li>\n<li>I2C.start()：开始通信</li>\n<li>I2C.stop()：结束通信</li>\n<li>I2C.readint(buf,nack&#x3D;True):读取字节存储到buf中，字节长度是buf长度，收到出最后一个字节以外所有子接后，将发送ack，如果设置nack则发送nack，ack代表着以后还会传输，nack代表着这是最后一个字节</li>\n<li>I2C.write(buf)：将buf中的字节写入到总线上，检查每个字节是否收到ack</li>\n<li>I2C.readfrom(addr,nbytes,stop&#x3D;True):从addr地址读取nbytes个字节，如果stop为True则在输入结束时发送stop信号。</li>\n<li>I2c.readfrom_into(adr,)</li>\n<li>I2c.writeto(addr,buf,stop&#x3D;True)</li>\n<li>I2c.writevto(addr,vector,stop&#x3D;True)将vector中包含的字节写入addr指定的从站，vector应该具有缓冲协议的元组或对象列表</li>\n<li>I2c.readfrom_mem(addr,memaddr,nbytes,addrsize&#x3D;8)从memaddr指定的内存地址开始，从addr指定的从站读出nbytes。参数addrsize以位为单位指定地址大小，返回读取数据bytes对象。</li>\n<li><h3 id=\"硬件I3c外设\"><a href=\"#硬件I3c外设\" class=\"headerlink\" title=\"硬件I3c外设\"></a>硬件I3c外设</h3>任何可用的输出引脚都可以用于scl和sda，默认情况下，I2C对象使用id 0，scl引脚为22，sda引脚为21，时钟频率为400kHz。</li>\n</ul>\n<h2 id=\"spi通信\"><a href=\"#spi通信\" class=\"headerlink\" title=\"spi通信\"></a>spi通信</h2><p>spi是一种由主机驱动的同步串行协议。在物理层概念，一条总线有三条线路组成：SCK，MOSI、MISO，多个设备可以共享一条总线。每个设备有一个单独的第四个信号SS（从设备选择），来选择总线上的特定设备并与之通信。</p>\n<figure class=\"highlight gml\"><table><tr><td class=\"gutter\"><div class=\"code-wrapper\"><pre><span class=\"line\">1</span><br></pre></div></td><td class=\"code\"><pre><code class=\"hljs gml\">machine.SPI(<span class=\"hljs-symbol\">id</span>)# 在给定的总线<span class=\"hljs-symbol\">id</span>上构造一个SPI对象。<span class=\"hljs-symbol\">id</span>的值取决于特定端口以及硬件<br></code></pre></td></tr></table></figure>\n<h1 id=\"stm32\"><a href=\"#stm32\" class=\"headerlink\" title=\"stm32\"></a>stm32</h1><h2 id=\"引脚\"><a href=\"#引脚\" class=\"headerlink\" title=\"引脚\"></a>引脚</h2><p>在cubemx中，浅黄色是不能修改定义的，深黄色也是默认的。</p>\n<h2 id=\"配置\"><a href=\"#配置\" class=\"headerlink\" title=\"配置\"></a>配置</h2><p>引脚配置，在pinout_configuration中，如下图所示：<br><img src=\"/2023/07/10/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-10/GPIO_conf.png\" alt=\"引脚配置\"><br>可以配置其中每个引脚的功能，例如GPIO、SPI、I2C等等。</p>\n",
+            "tags": []
+        },
+        {
             "id": "http://example.com/2023/07/07/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-07/",
             "url": "http://example.com/2023/07/07/%E7%94%B5%E8%B5%9B%E5%9F%B9%E8%AE%AD-23-07-07/",
             "title": "电赛培训-23-07-07",
