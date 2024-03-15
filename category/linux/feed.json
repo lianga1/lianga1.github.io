@@ -1,0 +1,32 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "意大利炮打友军 • All posts by \"linux\" category",
+    "description": "",
+    "home_page_url": "http://example.com",
+    "items": [
+        {
+            "id": "http://example.com/2024/03/15/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/",
+            "url": "http://example.com/2024/03/15/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/",
+            "title": "Linux学习笔记2",
+            "date_published": "2024-03-15T02:05:10.000Z",
+            "content_html": "<h2 id=\"账号文件\"><a href=\"#账号文件\" class=\"headerlink\" title=\"账号文件\"></a>账号文件</h2><h3 id=\"x2F-etc-x2F-passwd\"><a href=\"#x2F-etc-x2F-passwd\" class=\"headerlink\" title=\"&#x2F;etc&#x2F;passwd\"></a>&#x2F;etc&#x2F;passwd</h3><p>存储了</p>\n<ul>\n<li>账号信息</li>\n<li>x（密码）</li>\n<li>UID</li>\n<li>GID</li>\n<li>用户信息栏</li>\n<li>家目录</li>\n<li>shell</li>\n</ul>\n<h3 id=\"x2F-etc-x2F-shadow\"><a href=\"#x2F-etc-x2F-shadow\" class=\"headerlink\" title=\"&#x2F;etc&#x2F;shadow\"></a>&#x2F;etc&#x2F;shadow</h3><ul>\n<li>账号名</li>\n<li>密码</li>\n<li>最近修改</li>\n<li>不可修改天数</li>\n<li>建议修改天数</li>\n<li>警告天数</li>\n<li>过期密码宽限</li>\n<li>失效日期</li>\n</ul>\n<h2 id=\"忘记密码\"><a href=\"#忘记密码\" class=\"headerlink\" title=\"忘记密码\"></a>忘记密码</h2><p>普通用户：passwd<br>root：单人启动模式</p>\n<h2 id=\"用户组\"><a href=\"#用户组\" class=\"headerlink\" title=\"用户组\"></a>用户组</h2><p>&#x2F;etc&#x2F;group</p>\n<ul>\n<li>组名</li>\n<li>用户组密码</li>\n<li>GID</li>\n<li>支持的账号名称 逗号分开</li>\n</ul>\n<p>group：查看用户所属的组，第一个是有效用户组，即为创建文件时代表的组<br>newgrp：切换有效用户组，以另外一个单独的shell生效。</p>\n<p>加入用户组：root用usermod，组管理员用gpasswd</p>\n<h2 id=\"账号管理\"><a href=\"#账号管理\" class=\"headerlink\" title=\"账号管理\"></a>账号管理</h2><p>useradd：新建账户</p>\n<ul>\n<li>-g初始用户组</li>\n<li>-G次要用户组</li>\n<li>-e失效日期</li>\n<li>-f密码失效</li>\n<li>-s默认shell</li>\n</ul>\n<p>userdel：删除账户<br>usermod：修改存在的账户</p>\n<p>id：查询用户信息<br>finger：查询用户动态<br>chfn：改变自身动态</p>\n<h2 id=\"用户组管理\"><a href=\"#用户组管理\" class=\"headerlink\" title=\"用户组管理\"></a>用户组管理</h2><p>groupadd：新增组<br>groupmod：修改组<br>groupdel：删除组</p>\n<h2 id=\"ACL\"><a href=\"#ACL\" class=\"headerlink\" title=\"ACL\"></a>ACL</h2><p>ACL为访问控制列表，针对单一用户、单一目录来进行rwx的权限设置。</p>\n<p>setfacl：设置ACL参数</p>\n<ul>\n<li>-m为设置参数</li>\n<li>-x为删除参数</li>\n<li>-R递归设置</li>\n</ul>\n<p>使用方式：</p>\n<ul>\n<li>针对特定使用者：setfacl -m u:账号列表：rwx</li>\n<li>针对特定组：setfacl -m g:用户组列表：rwx</li>\n<li>针对有效权限：setfacl -m m:[rwx]<br>getfacl：查询文件权限<br>getfacl filename</li>\n</ul>\n<h2 id=\"用户身份切换\"><a href=\"#用户身份切换\" class=\"headerlink\" title=\"用户身份切换\"></a>用户身份切换</h2><p>su：切换shell执行不同身份</p>\n<ul>\n<li>-：直接变为root，作为login_shell</li>\n<li>-l：指定账号</li>\n<li>如无-，则表示用非login shell登录</li>\n</ul>\n<p>区别在于：非login shell时，你的环境变量还是使用的原来的用户，而loginshell会使用root的名称。</p>\n<p>sudo：以root权限来执行命令</p>\n<ul>\n<li>-b：后台执行</li>\n<li>-u：指定希望切换的使用者</li>\n</ul>\n<p>能否执行取决于是否在&#x2F;etc&#x2F;sudoers文件，可用visudo修改。<br>visudo可以通过添加用户，添加用户组，限制命令执行，别名等方式来简化流程。</p>\n<h2 id=\"特殊shell：-x2F-sbin-x2F-nologin\"><a href=\"#特殊shell：-x2F-sbin-x2F-nologin\" class=\"headerlink\" title=\"特殊shell：&#x2F;sbin&#x2F;nologin\"></a>特殊shell：&#x2F;sbin&#x2F;nologin</h2><p>系统账号可以登录，但是不能用shell访问系统资源</p>\n",
+            "tags": [
+                "技术",
+                "博客",
+                "Linux"
+            ]
+        },
+        {
+            "id": "http://example.com/2024/03/03/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/",
+            "url": "http://example.com/2024/03/03/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/",
+            "title": "Linux学习笔记1",
+            "date_published": "2024-03-03T08:29:11.000Z",
+            "content_html": "<h1 id=\"Linux学习笔记1\"><a href=\"#Linux学习笔记1\" class=\"headerlink\" title=\"Linux学习笔记1\"></a>Linux学习笔记1</h1><h2 id=\"启动运行级\"><a href=\"#启动运行级\" class=\"headerlink\" title=\"启动运行级\"></a>启动运行级</h2><p>Linux的&#x2F;etc&#x2F;rcX.d目录下存储着各个启动级的运行程序<br>运行级<strong>1</strong>时进入单用户模式，仅仅进行文件系统维护。标准运行级为<strong>3</strong>。运行级为<strong>5</strong>时会启动X Window服务。切换启动级别可以使用runlevel命令来设置</p>\n<h2 id=\"内核模块\"><a href=\"#内核模块\" class=\"headerlink\" title=\"内核模块\"></a>内核模块</h2><p>Linux内有两种方法插入设备驱动：</p>\n<ul>\n<li>编译进内核</li>\n<li>可插入的设备驱动</li>\n</ul>\n<p>linux内部有三种设备文件：</p>\n<ul>\n<li>字符设备文件：包括终端等</li>\n<li>块设备文件：包括硬盘</li>\n<li>网络设备文件：包括网卡和回环设备<br>每个设备都有一个节点文件，用于唯一标识设备（主设备号，次设备号）</li>\n</ul>\n<h2 id=\"设置终端\"><a href=\"#设置终端\" class=\"headerlink\" title=\"设置终端\"></a>设置终端</h2><p>可以使用setterm命令执行诸如：</p>\n<ul>\n<li>settterm -inversescreen on</li>\n<li>setterm -background white</li>\n<li>setterm -foreground black</li>\n</ul>\n<h2 id=\"GNU-nm\"><a href=\"#GNU-nm\" class=\"headerlink\" title=\"GNU nm\"></a>GNU nm</h2><p>这个命令可以分析obj文件并输出符号列表</p>\n<h2 id=\"man\"><a href=\"#man\" class=\"headerlink\" title=\"man\"></a>man</h2><p>man可以指定手册的部分，分为1-9内容</p>\n<ul>\n<li>1：命令名</li>\n<li>2：系统调用</li>\n<li>3：库调用</li>\n<li>4：特殊文件</li>\n<li>5：文件格式与约定</li>\n<li>6：游戏</li>\n<li>7：概览，约定</li>\n<li>8：root命令</li>\n<li>9：内核例程</li>\n</ul>\n<h2 id=\"ls\"><a href=\"#ls\" class=\"headerlink\" title=\"ls\"></a>ls</h2><p>如下参数：</p>\n<ul>\n<li>-F：标注文件类型</li>\n<li>-R：递归寻找</li>\n<li>加入字符串：模糊匹配</li>\n<li>–time&#x3D;atime：显示访问时间</li>\n<li>-d：不递归显示</li>\n</ul>\n<h2 id=\"copy\"><a href=\"#copy\" class=\"headerlink\" title=\"copy\"></a>copy</h2><p>cp source dest<br>如下参数：</p>\n<ul>\n<li>-i：询问是否覆盖</li>\n<li>-R：复制目录</li>\n</ul>\n<h2 id=\"链接\"><a href=\"#链接\" class=\"headerlink\" title=\"链接\"></a>链接</h2><p>ln srcfile linkfile</p>\n<p>参数；</p>\n<ul>\n<li>-s：符号链接</li>\n<li>无参数：硬链接</li>\n</ul>\n<h2 id=\"mv\"><a href=\"#mv\" class=\"headerlink\" title=\"mv\"></a>mv</h2><p>mv src dest</p>\n<p>移动文件是不会改变inode的。</p>\n<h2 id=\"目录操作\"><a href=\"#目录操作\" class=\"headerlink\" title=\"目录操作\"></a>目录操作</h2><p>mkdir ：-p可以创建缺失父目录</p>\n",
+            "tags": [
+                "技术",
+                "博客",
+                "Linux"
+            ]
+        }
+    ]
+}

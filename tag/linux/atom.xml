@@ -3,7 +3,7 @@
     <id>http://example.com</id>
     <title>意大利炮打友军 • Posts by &#34;linux&#34; tag</title>
     <link href="http://example.com" />
-    <updated>2023-05-29T07:24:24.000Z</updated>
+    <updated>2024-03-15T02:05:10.000Z</updated>
     <category term="随笔" />
     <category term="技术" />
     <category term="博客" />
@@ -22,6 +22,147 @@
     <category term="课题组" />
     <category term="神经网络" />
     <category term="pytorch" />
+    <entry>
+        <id>http://example.com/2024/03/15/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</id>
+        <title>Linux学习笔记2</title>
+        <link rel="alternate" href="http://example.com/2024/03/15/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+        <content type="html">&lt;h2 id=&#34;账号文件&#34;&gt;&lt;a href=&#34;#账号文件&#34; class=&#34;headerlink&#34; title=&#34;账号文件&#34;&gt;&lt;/a&gt;账号文件&lt;/h2&gt;&lt;h3 id=&#34;x2F-etc-x2F-passwd&#34;&gt;&lt;a href=&#34;#x2F-etc-x2F-passwd&#34; class=&#34;headerlink&#34; title=&#34;&amp;#x2F;etc&amp;#x2F;passwd&#34;&gt;&lt;/a&gt;&amp;#x2F;etc&amp;#x2F;passwd&lt;/h3&gt;&lt;p&gt;存储了&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;账号信息&lt;/li&gt;
+&lt;li&gt;x（密码）&lt;/li&gt;
+&lt;li&gt;UID&lt;/li&gt;
+&lt;li&gt;GID&lt;/li&gt;
+&lt;li&gt;用户信息栏&lt;/li&gt;
+&lt;li&gt;家目录&lt;/li&gt;
+&lt;li&gt;shell&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;x2F-etc-x2F-shadow&#34;&gt;&lt;a href=&#34;#x2F-etc-x2F-shadow&#34; class=&#34;headerlink&#34; title=&#34;&amp;#x2F;etc&amp;#x2F;shadow&#34;&gt;&lt;/a&gt;&amp;#x2F;etc&amp;#x2F;shadow&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;账号名&lt;/li&gt;
+&lt;li&gt;密码&lt;/li&gt;
+&lt;li&gt;最近修改&lt;/li&gt;
+&lt;li&gt;不可修改天数&lt;/li&gt;
+&lt;li&gt;建议修改天数&lt;/li&gt;
+&lt;li&gt;警告天数&lt;/li&gt;
+&lt;li&gt;过期密码宽限&lt;/li&gt;
+&lt;li&gt;失效日期&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;忘记密码&#34;&gt;&lt;a href=&#34;#忘记密码&#34; class=&#34;headerlink&#34; title=&#34;忘记密码&#34;&gt;&lt;/a&gt;忘记密码&lt;/h2&gt;&lt;p&gt;普通用户：passwd&lt;br&gt;root：单人启动模式&lt;/p&gt;
+&lt;h2 id=&#34;用户组&#34;&gt;&lt;a href=&#34;#用户组&#34; class=&#34;headerlink&#34; title=&#34;用户组&#34;&gt;&lt;/a&gt;用户组&lt;/h2&gt;&lt;p&gt;&amp;#x2F;etc&amp;#x2F;group&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;组名&lt;/li&gt;
+&lt;li&gt;用户组密码&lt;/li&gt;
+&lt;li&gt;GID&lt;/li&gt;
+&lt;li&gt;支持的账号名称 逗号分开&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;group：查看用户所属的组，第一个是有效用户组，即为创建文件时代表的组&lt;br&gt;newgrp：切换有效用户组，以另外一个单独的shell生效。&lt;/p&gt;
+&lt;p&gt;加入用户组：root用usermod，组管理员用gpasswd&lt;/p&gt;
+&lt;h2 id=&#34;账号管理&#34;&gt;&lt;a href=&#34;#账号管理&#34; class=&#34;headerlink&#34; title=&#34;账号管理&#34;&gt;&lt;/a&gt;账号管理&lt;/h2&gt;&lt;p&gt;useradd：新建账户&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-g初始用户组&lt;/li&gt;
+&lt;li&gt;-G次要用户组&lt;/li&gt;
+&lt;li&gt;-e失效日期&lt;/li&gt;
+&lt;li&gt;-f密码失效&lt;/li&gt;
+&lt;li&gt;-s默认shell&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;userdel：删除账户&lt;br&gt;usermod：修改存在的账户&lt;/p&gt;
+&lt;p&gt;id：查询用户信息&lt;br&gt;finger：查询用户动态&lt;br&gt;chfn：改变自身动态&lt;/p&gt;
+&lt;h2 id=&#34;用户组管理&#34;&gt;&lt;a href=&#34;#用户组管理&#34; class=&#34;headerlink&#34; title=&#34;用户组管理&#34;&gt;&lt;/a&gt;用户组管理&lt;/h2&gt;&lt;p&gt;groupadd：新增组&lt;br&gt;groupmod：修改组&lt;br&gt;groupdel：删除组&lt;/p&gt;
+&lt;h2 id=&#34;ACL&#34;&gt;&lt;a href=&#34;#ACL&#34; class=&#34;headerlink&#34; title=&#34;ACL&#34;&gt;&lt;/a&gt;ACL&lt;/h2&gt;&lt;p&gt;ACL为访问控制列表，针对单一用户、单一目录来进行rwx的权限设置。&lt;/p&gt;
+&lt;p&gt;setfacl：设置ACL参数&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-m为设置参数&lt;/li&gt;
+&lt;li&gt;-x为删除参数&lt;/li&gt;
+&lt;li&gt;-R递归设置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;针对特定使用者：setfacl -m u:账号列表：rwx&lt;/li&gt;
+&lt;li&gt;针对特定组：setfacl -m g:用户组列表：rwx&lt;/li&gt;
+&lt;li&gt;针对有效权限：setfacl -m m:[rwx]&lt;br&gt;getfacl：查询文件权限&lt;br&gt;getfacl filename&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;用户身份切换&#34;&gt;&lt;a href=&#34;#用户身份切换&#34; class=&#34;headerlink&#34; title=&#34;用户身份切换&#34;&gt;&lt;/a&gt;用户身份切换&lt;/h2&gt;&lt;p&gt;su：切换shell执行不同身份&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-：直接变为root，作为login_shell&lt;/li&gt;
+&lt;li&gt;-l：指定账号&lt;/li&gt;
+&lt;li&gt;如无-，则表示用非login shell登录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;区别在于：非login shell时，你的环境变量还是使用的原来的用户，而loginshell会使用root的名称。&lt;/p&gt;
+&lt;p&gt;sudo：以root权限来执行命令&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-b：后台执行&lt;/li&gt;
+&lt;li&gt;-u：指定希望切换的使用者&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;能否执行取决于是否在&amp;#x2F;etc&amp;#x2F;sudoers文件，可用visudo修改。&lt;br&gt;visudo可以通过添加用户，添加用户组，限制命令执行，别名等方式来简化流程。&lt;/p&gt;
+&lt;h2 id=&#34;特殊shell：-x2F-sbin-x2F-nologin&#34;&gt;&lt;a href=&#34;#特殊shell：-x2F-sbin-x2F-nologin&#34; class=&#34;headerlink&#34; title=&#34;特殊shell：&amp;#x2F;sbin&amp;#x2F;nologin&#34;&gt;&lt;/a&gt;特殊shell：&amp;#x2F;sbin&amp;#x2F;nologin&lt;/h2&gt;&lt;p&gt;系统账号可以登录，但是不能用shell访问系统资源&lt;/p&gt;
+</content>
+        <category term="技术" />
+        <category term="博客" />
+        <category term="Linux" />
+        <updated>2024-03-15T02:05:10.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2024/03/03/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
+        <title>Linux学习笔记1</title>
+        <link rel="alternate" href="http://example.com/2024/03/03/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+        <content type="html">&lt;h1 id=&#34;Linux学习笔记1&#34;&gt;&lt;a href=&#34;#Linux学习笔记1&#34; class=&#34;headerlink&#34; title=&#34;Linux学习笔记1&#34;&gt;&lt;/a&gt;Linux学习笔记1&lt;/h1&gt;&lt;h2 id=&#34;启动运行级&#34;&gt;&lt;a href=&#34;#启动运行级&#34; class=&#34;headerlink&#34; title=&#34;启动运行级&#34;&gt;&lt;/a&gt;启动运行级&lt;/h2&gt;&lt;p&gt;Linux的&amp;#x2F;etc&amp;#x2F;rcX.d目录下存储着各个启动级的运行程序&lt;br&gt;运行级&lt;strong&gt;1&lt;/strong&gt;时进入单用户模式，仅仅进行文件系统维护。标准运行级为&lt;strong&gt;3&lt;/strong&gt;。运行级为&lt;strong&gt;5&lt;/strong&gt;时会启动X Window服务。切换启动级别可以使用runlevel命令来设置&lt;/p&gt;
+&lt;h2 id=&#34;内核模块&#34;&gt;&lt;a href=&#34;#内核模块&#34; class=&#34;headerlink&#34; title=&#34;内核模块&#34;&gt;&lt;/a&gt;内核模块&lt;/h2&gt;&lt;p&gt;Linux内有两种方法插入设备驱动：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;编译进内核&lt;/li&gt;
+&lt;li&gt;可插入的设备驱动&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;linux内部有三种设备文件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;字符设备文件：包括终端等&lt;/li&gt;
+&lt;li&gt;块设备文件：包括硬盘&lt;/li&gt;
+&lt;li&gt;网络设备文件：包括网卡和回环设备&lt;br&gt;每个设备都有一个节点文件，用于唯一标识设备（主设备号，次设备号）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;设置终端&#34;&gt;&lt;a href=&#34;#设置终端&#34; class=&#34;headerlink&#34; title=&#34;设置终端&#34;&gt;&lt;/a&gt;设置终端&lt;/h2&gt;&lt;p&gt;可以使用setterm命令执行诸如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;settterm -inversescreen on&lt;/li&gt;
+&lt;li&gt;setterm -background white&lt;/li&gt;
+&lt;li&gt;setterm -foreground black&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;GNU-nm&#34;&gt;&lt;a href=&#34;#GNU-nm&#34; class=&#34;headerlink&#34; title=&#34;GNU nm&#34;&gt;&lt;/a&gt;GNU nm&lt;/h2&gt;&lt;p&gt;这个命令可以分析obj文件并输出符号列表&lt;/p&gt;
+&lt;h2 id=&#34;man&#34;&gt;&lt;a href=&#34;#man&#34; class=&#34;headerlink&#34; title=&#34;man&#34;&gt;&lt;/a&gt;man&lt;/h2&gt;&lt;p&gt;man可以指定手册的部分，分为1-9内容&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1：命令名&lt;/li&gt;
+&lt;li&gt;2：系统调用&lt;/li&gt;
+&lt;li&gt;3：库调用&lt;/li&gt;
+&lt;li&gt;4：特殊文件&lt;/li&gt;
+&lt;li&gt;5：文件格式与约定&lt;/li&gt;
+&lt;li&gt;6：游戏&lt;/li&gt;
+&lt;li&gt;7：概览，约定&lt;/li&gt;
+&lt;li&gt;8：root命令&lt;/li&gt;
+&lt;li&gt;9：内核例程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ls&#34;&gt;&lt;a href=&#34;#ls&#34; class=&#34;headerlink&#34; title=&#34;ls&#34;&gt;&lt;/a&gt;ls&lt;/h2&gt;&lt;p&gt;如下参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-F：标注文件类型&lt;/li&gt;
+&lt;li&gt;-R：递归寻找&lt;/li&gt;
+&lt;li&gt;加入字符串：模糊匹配&lt;/li&gt;
+&lt;li&gt;–time&amp;#x3D;atime：显示访问时间&lt;/li&gt;
+&lt;li&gt;-d：不递归显示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;copy&#34;&gt;&lt;a href=&#34;#copy&#34; class=&#34;headerlink&#34; title=&#34;copy&#34;&gt;&lt;/a&gt;copy&lt;/h2&gt;&lt;p&gt;cp source dest&lt;br&gt;如下参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-i：询问是否覆盖&lt;/li&gt;
+&lt;li&gt;-R：复制目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;链接&#34;&gt;&lt;a href=&#34;#链接&#34; class=&#34;headerlink&#34; title=&#34;链接&#34;&gt;&lt;/a&gt;链接&lt;/h2&gt;&lt;p&gt;ln srcfile linkfile&lt;/p&gt;
+&lt;p&gt;参数；&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-s：符号链接&lt;/li&gt;
+&lt;li&gt;无参数：硬链接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;mv&#34;&gt;&lt;a href=&#34;#mv&#34; class=&#34;headerlink&#34; title=&#34;mv&#34;&gt;&lt;/a&gt;mv&lt;/h2&gt;&lt;p&gt;mv src dest&lt;/p&gt;
+&lt;p&gt;移动文件是不会改变inode的。&lt;/p&gt;
+&lt;h2 id=&#34;目录操作&#34;&gt;&lt;a href=&#34;#目录操作&#34; class=&#34;headerlink&#34; title=&#34;目录操作&#34;&gt;&lt;/a&gt;目录操作&lt;/h2&gt;&lt;p&gt;mkdir ：-p可以创建缺失父目录&lt;/p&gt;
+</content>
+        <category term="技术" />
+        <category term="博客" />
+        <category term="Linux" />
+        <updated>2024-03-03T08:29:11.000Z</updated>
+    </entry>
     <entry>
         <id>http://example.com/2023/05/29/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3WSL-Ubuntu%E6%89%BE%E4%B8%8D%E5%88%B0sys-time-h%E7%9A%84%E9%97%AE%E9%A2%98/</id>
         <title>关于解决WSL_Ubuntu找不到sys/time.h的问题</title>

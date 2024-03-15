@@ -4,6 +4,68 @@
   
   
   <entry>
+    <title>Linux学习笔记2</title>
+    <link href="/2024/03/15/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+    <url>/2024/03/15/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</url>
+    
+    <content type="html"><![CDATA[<h2 id="账号文件"><a href="#账号文件" class="headerlink" title="账号文件"></a>账号文件</h2><h3 id="x2F-etc-x2F-passwd"><a href="#x2F-etc-x2F-passwd" class="headerlink" title="&#x2F;etc&#x2F;passwd"></a>&#x2F;etc&#x2F;passwd</h3><p>存储了</p><ul><li>账号信息</li><li>x（密码）</li><li>UID</li><li>GID</li><li>用户信息栏</li><li>家目录</li><li>shell</li></ul><h3 id="x2F-etc-x2F-shadow"><a href="#x2F-etc-x2F-shadow" class="headerlink" title="&#x2F;etc&#x2F;shadow"></a>&#x2F;etc&#x2F;shadow</h3><ul><li>账号名</li><li>密码</li><li>最近修改</li><li>不可修改天数</li><li>建议修改天数</li><li>警告天数</li><li>过期密码宽限</li><li>失效日期</li></ul><h2 id="忘记密码"><a href="#忘记密码" class="headerlink" title="忘记密码"></a>忘记密码</h2><p>普通用户：passwd<br>root：单人启动模式</p><h2 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a>用户组</h2><p>&#x2F;etc&#x2F;group</p><ul><li>组名</li><li>用户组密码</li><li>GID</li><li>支持的账号名称 逗号分开</li></ul><p>group：查看用户所属的组，第一个是有效用户组，即为创建文件时代表的组<br>newgrp：切换有效用户组，以另外一个单独的shell生效。</p><p>加入用户组：root用usermod，组管理员用gpasswd</p><h2 id="账号管理"><a href="#账号管理" class="headerlink" title="账号管理"></a>账号管理</h2><p>useradd：新建账户</p><ul><li>-g初始用户组</li><li>-G次要用户组</li><li>-e失效日期</li><li>-f密码失效</li><li>-s默认shell</li></ul><p>userdel：删除账户<br>usermod：修改存在的账户</p><p>id：查询用户信息<br>finger：查询用户动态<br>chfn：改变自身动态</p><h2 id="用户组管理"><a href="#用户组管理" class="headerlink" title="用户组管理"></a>用户组管理</h2><p>groupadd：新增组<br>groupmod：修改组<br>groupdel：删除组</p><h2 id="ACL"><a href="#ACL" class="headerlink" title="ACL"></a>ACL</h2><p>ACL为访问控制列表，针对单一用户、单一目录来进行rwx的权限设置。</p><p>setfacl：设置ACL参数</p><ul><li>-m为设置参数</li><li>-x为删除参数</li><li>-R递归设置</li></ul><p>使用方式：</p><ul><li>针对特定使用者：setfacl -m u:账号列表：rwx</li><li>针对特定组：setfacl -m g:用户组列表：rwx</li><li>针对有效权限：setfacl -m m:[rwx]<br>getfacl：查询文件权限<br>getfacl filename</li></ul><h2 id="用户身份切换"><a href="#用户身份切换" class="headerlink" title="用户身份切换"></a>用户身份切换</h2><p>su：切换shell执行不同身份</p><ul><li>-：直接变为root，作为login_shell</li><li>-l：指定账号</li><li>如无-，则表示用非login shell登录</li></ul><p>区别在于：非login shell时，你的环境变量还是使用的原来的用户，而loginshell会使用root的名称。</p><p>sudo：以root权限来执行命令</p><ul><li>-b：后台执行</li><li>-u：指定希望切换的使用者</li></ul><p>能否执行取决于是否在&#x2F;etc&#x2F;sudoers文件，可用visudo修改。<br>visudo可以通过添加用户，添加用户组，限制命令执行，别名等方式来简化流程。</p><h2 id="特殊shell：-x2F-sbin-x2F-nologin"><a href="#特殊shell：-x2F-sbin-x2F-nologin" class="headerlink" title="特殊shell：&#x2F;sbin&#x2F;nologin"></a>特殊shell：&#x2F;sbin&#x2F;nologin</h2><p>系统账号可以登录，但是不能用shell访问系统资源</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>技术</tag>
+      
+      <tag>博客</tag>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux学习笔记1</title>
+    <link href="/2024/03/03/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+    <url>/2024/03/03/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Linux学习笔记1"><a href="#Linux学习笔记1" class="headerlink" title="Linux学习笔记1"></a>Linux学习笔记1</h1><h2 id="启动运行级"><a href="#启动运行级" class="headerlink" title="启动运行级"></a>启动运行级</h2><p>Linux的&#x2F;etc&#x2F;rcX.d目录下存储着各个启动级的运行程序<br>运行级<strong>1</strong>时进入单用户模式，仅仅进行文件系统维护。标准运行级为<strong>3</strong>。运行级为<strong>5</strong>时会启动X Window服务。切换启动级别可以使用runlevel命令来设置</p><h2 id="内核模块"><a href="#内核模块" class="headerlink" title="内核模块"></a>内核模块</h2><p>Linux内有两种方法插入设备驱动：</p><ul><li>编译进内核</li><li>可插入的设备驱动</li></ul><p>linux内部有三种设备文件：</p><ul><li>字符设备文件：包括终端等</li><li>块设备文件：包括硬盘</li><li>网络设备文件：包括网卡和回环设备<br>每个设备都有一个节点文件，用于唯一标识设备（主设备号，次设备号）</li></ul><h2 id="设置终端"><a href="#设置终端" class="headerlink" title="设置终端"></a>设置终端</h2><p>可以使用setterm命令执行诸如：</p><ul><li>settterm -inversescreen on</li><li>setterm -background white</li><li>setterm -foreground black</li></ul><h2 id="GNU-nm"><a href="#GNU-nm" class="headerlink" title="GNU nm"></a>GNU nm</h2><p>这个命令可以分析obj文件并输出符号列表</p><h2 id="man"><a href="#man" class="headerlink" title="man"></a>man</h2><p>man可以指定手册的部分，分为1-9内容</p><ul><li>1：命令名</li><li>2：系统调用</li><li>3：库调用</li><li>4：特殊文件</li><li>5：文件格式与约定</li><li>6：游戏</li><li>7：概览，约定</li><li>8：root命令</li><li>9：内核例程</li></ul><h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><p>如下参数：</p><ul><li>-F：标注文件类型</li><li>-R：递归寻找</li><li>加入字符串：模糊匹配</li><li>–time&#x3D;atime：显示访问时间</li><li>-d：不递归显示</li></ul><h2 id="copy"><a href="#copy" class="headerlink" title="copy"></a>copy</h2><p>cp source dest<br>如下参数：</p><ul><li>-i：询问是否覆盖</li><li>-R：复制目录</li></ul><h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>ln srcfile linkfile</p><p>参数；</p><ul><li>-s：符号链接</li><li>无参数：硬链接</li></ul><h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><p>mv src dest</p><p>移动文件是不会改变inode的。</p><h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><p>mkdir ：-p可以创建缺失父目录</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>技术</tag>
+      
+      <tag>博客</tag>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>课题组23-11-15周报</title>
     <link href="/2023/11/15/%E8%AF%BE%E9%A2%98%E7%BB%8423-11-15%E5%91%A8%E6%8A%A5/"/>
     <url>/2023/11/15/%E8%AF%BE%E9%A2%98%E7%BB%8423-11-15%E5%91%A8%E6%8A%A5/</url>
