@@ -6,22 +6,26 @@
     <updated>2023-11-15T08:09:06.000Z</updated>
     <category term="随笔" />
     <category term="技术" />
+    <category term="大模型训练" />
+    <category term="课题组" />
+    <category term="笔记" />
     <category term="博客" />
     <category term="markdown" />
-    <category term="python" />
+    <category term="Linux" />
     <category term="月历" />
     <category term="写作" />
     <category term="科幻" />
     <category term="世界观" />
+    <category term="python" />
     <category term="WSL" />
-    <category term="Linux" />
     <category term="编译" />
+    <category term="通信" />
+    <category term="操作系统" />
     <category term="电赛" />
-    <category term="记录" />
     <category term="周报" />
-    <category term="课题组" />
     <category term="神经网络" />
     <category term="pytorch" />
+    <category term="记录" />
     <entry>
         <id>http://example.com/2023/11/15/%E8%AF%BE%E9%A2%98%E7%BB%8423-11-15%E5%91%A8%E6%8A%A5/</id>
         <title>课题组23-11-15周报</title>
@@ -156,8 +160,8 @@
 &lt;/ul&gt;
 </content>
         <category term="技术" />
-        <category term="周报" />
         <category term="课题组" />
+        <category term="周报" />
         <category term="神经网络" />
         <category term="pytorch" />
         <updated>2023-11-15T08:09:06.000Z</updated>
@@ -218,8 +222,8 @@
 &lt;h3 id=&#34;模型传输规划&#34;&gt;&lt;a href=&#34;#模型传输规划&#34; class=&#34;headerlink&#34; title=&#34;模型传输规划&#34;&gt;&lt;/a&gt;模型传输规划&lt;/h3&gt;&lt;p&gt;DeepPlan根据GPU拓扑，和PCIE交换机布局，避免并行加载的总线冲突，检查所选GPU是否使用NVLink，如果使用则直接进行并行传输，否则使用流水线传输。同时，根据并行传输带来的性能优化，重新规划每一层使用的策略。&lt;/p&gt;
 </content>
         <category term="技术" />
-        <category term="周报" />
         <category term="课题组" />
+        <category term="周报" />
         <category term="神经网络" />
         <category term="pytorch" />
         <updated>2023-10-22T15:36:49.000Z</updated>
@@ -256,8 +260,8 @@
 &lt;h3 id=&#34;模型并行&#34;&gt;&lt;a href=&#34;#模型并行&#34; class=&#34;headerlink&#34; title=&#34;模型并行&#34;&gt;&lt;/a&gt;模型并行&lt;/h3&gt;&lt;p&gt;ZeRO-Offload还可以用模型并行来实现更好的并行性。通过给cpu卸载梯度、优化器状态和优化器计算来和模型并行计算相适应。在这个情况下，首先，借由更难耗尽内存，可以使用更大的批次大小。其次，可以使用更多的GPU来进行模型并行计算。&lt;/p&gt;
 </content>
         <category term="技术" />
-        <category term="周报" />
         <category term="课题组" />
+        <category term="周报" />
         <category term="神经网络" />
         <category term="pytorch" />
         <updated>2023-10-13T10:23:34.000Z</updated>
@@ -326,8 +330,8 @@ ResNet网络定义如下：&lt;figure class=&#34;highlight python&#34;&gt;&lt;ta
 &lt;/ul&gt;
 </content>
         <category term="技术" />
-        <category term="周报" />
         <category term="课题组" />
+        <category term="周报" />
         <category term="神经网络" />
         <category term="pytorch" />
         <updated>2023-09-30T11:51:44.000Z</updated>

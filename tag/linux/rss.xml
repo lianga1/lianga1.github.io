@@ -5,26 +5,40 @@
         <link>http://example.com</link>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Fri, 15 Mar 2024 10:05:10 +0800</pubDate>
-        <lastBuildDate>Fri, 15 Mar 2024 10:05:10 +0800</lastBuildDate>
+        <pubDate>Tue, 26 Mar 2024 19:14:15 +0800</pubDate>
+        <lastBuildDate>Tue, 26 Mar 2024 19:14:15 +0800</lastBuildDate>
         <category>随笔</category>
         <category>技术</category>
+        <category>大模型训练</category>
+        <category>课题组</category>
+        <category>笔记</category>
         <category>博客</category>
         <category>markdown</category>
-        <category>python</category>
+        <category>Linux</category>
         <category>月历</category>
         <category>写作</category>
         <category>科幻</category>
         <category>世界观</category>
+        <category>python</category>
         <category>WSL</category>
-        <category>Linux</category>
         <category>编译</category>
+        <category>通信</category>
+        <category>操作系统</category>
         <category>电赛</category>
-        <category>记录</category>
         <category>周报</category>
-        <category>课题组</category>
         <category>神经网络</category>
         <category>pytorch</category>
+        <category>记录</category>
+        <item>
+            <guid isPermalink="true">http://example.com/2024/03/26/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</guid>
+            <title>linux学习笔记3</title>
+            <link>http://example.com/2024/03/26/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</link>
+            <category>技术</category>
+            <category>博客</category>
+            <category>Linux</category>
+            <pubDate>Tue, 26 Mar 2024 19:14:15 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://example.com/2024/03/15/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</guid>
             <title>Linux学习笔记2</title>
@@ -172,8 +186,8 @@
             <link>http://example.com/2023/05/29/%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3WSL-Ubuntu%E6%89%BE%E4%B8%8D%E5%88%B0sys-time-h%E7%9A%84%E9%97%AE%E9%A2%98/</link>
             <category>技术</category>
             <category>博客</category>
-            <category>WSL</category>
             <category>Linux</category>
+            <category>WSL</category>
             <category>编译</category>
             <pubDate>Mon, 29 May 2023 15:24:24 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;问题描述&#34;&gt;&lt;a href=&#34;#问题描述&#34; class=&#34;headerlink&#34; title=&#34;问题描述&#34;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;在使用WSL_Ubuntu的时候，编译C代码时，出现了找不到sys&amp;#x2F;time.h的问题&lt;/p&gt;

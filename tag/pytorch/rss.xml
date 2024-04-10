@@ -9,29 +9,33 @@
         <lastBuildDate>Wed, 15 Nov 2023 16:09:06 +0800</lastBuildDate>
         <category>随笔</category>
         <category>技术</category>
+        <category>大模型训练</category>
+        <category>课题组</category>
+        <category>笔记</category>
         <category>博客</category>
         <category>markdown</category>
-        <category>python</category>
+        <category>Linux</category>
         <category>月历</category>
         <category>写作</category>
         <category>科幻</category>
         <category>世界观</category>
+        <category>python</category>
         <category>WSL</category>
-        <category>Linux</category>
         <category>编译</category>
+        <category>通信</category>
+        <category>操作系统</category>
         <category>电赛</category>
-        <category>记录</category>
         <category>周报</category>
-        <category>课题组</category>
         <category>神经网络</category>
         <category>pytorch</category>
+        <category>记录</category>
         <item>
             <guid isPermalink="true">http://example.com/2023/11/15/%E8%AF%BE%E9%A2%98%E7%BB%8423-11-15%E5%91%A8%E6%8A%A5/</guid>
             <title>课题组23-11-15周报</title>
             <link>http://example.com/2023/11/15/%E8%AF%BE%E9%A2%98%E7%BB%8423-11-15%E5%91%A8%E6%8A%A5/</link>
             <category>技术</category>
-            <category>周报</category>
             <category>课题组</category>
+            <category>周报</category>
             <category>神经网络</category>
             <category>pytorch</category>
             <pubDate>Wed, 15 Nov 2023 16:09:06 +0800</pubDate>
@@ -170,8 +174,8 @@
             <title>课题组第五周学习</title>
             <link>http://example.com/2023/10/22/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%BA%94%E5%91%A8%E5%AD%A6%E4%B9%A0/</link>
             <category>技术</category>
-            <category>周报</category>
             <category>课题组</category>
+            <category>周报</category>
             <category>神经网络</category>
             <category>pytorch</category>
             <pubDate>Sun, 22 Oct 2023 23:36:49 +0800</pubDate>
@@ -232,8 +236,8 @@
             <title>课题组第四周学习</title>
             <link>http://example.com/2023/10/13/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%AD%A6%E4%B9%A0/</link>
             <category>技术</category>
-            <category>周报</category>
             <category>课题组</category>
+            <category>周报</category>
             <category>神经网络</category>
             <category>pytorch</category>
             <pubDate>Fri, 13 Oct 2023 18:23:34 +0800</pubDate>
@@ -270,8 +274,8 @@
             <title>课题组第一周学习</title>
             <link>http://example.com/2023/09/30/%E8%AF%BE%E9%A2%98%E7%BB%84%E7%AC%AC%E4%B8%80%E5%91%A8%E5%AD%A6%E4%B9%A0/</link>
             <category>技术</category>
-            <category>周报</category>
             <category>课题组</category>
+            <category>周报</category>
             <category>神经网络</category>
             <category>pytorch</category>
             <pubDate>Sat, 30 Sep 2023 19:51:44 +0800</pubDate>

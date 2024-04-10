@@ -1,0 +1,34 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "意大利炮打友军 • All posts by \"通信\" category",
+    "description": "",
+    "home_page_url": "http://example.com",
+    "items": [
+        {
+            "id": "http://example.com/2024/03/26/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%80%9A%E4%BF%A1%E7%AC%94%E8%AE%B02/",
+            "url": "http://example.com/2024/03/26/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%80%9A%E4%BF%A1%E7%AC%94%E8%AE%B02/",
+            "title": "大模型通信笔记2",
+            "date_published": "2024-03-26T11:54:58.000Z",
+            "content_html": "<h2 id=\"数据并行\"><a href=\"#数据并行\" class=\"headerlink\" title=\"数据并行\"></a>数据并行</h2><p>传统的数据并行是让每个GPU分别进行FWD和BWD，然后把梯度进行聚合操作，然后再下发给每个GPU，称为All Reduce。</p>\n<h3 id=\"缺点\"><a href=\"#缺点\" class=\"headerlink\" title=\"缺点\"></a>缺点</h3><ul>\n<li>存储开销大。每块GPU上都存了一份完整的模型，造成冗余</li>\n<li>通讯开销大。Server需要和每一个Worker进行梯度传输。当Server和Worker不在一台机器上时，Server的带宽将会成为整个系统的计算效率瓶颈。</li>\n</ul>\n<h3 id=\"异步梯度更新\"><a href=\"#异步梯度更新\" class=\"headerlink\" title=\"异步梯度更新\"></a>异步梯度更新</h3><ul>\n<li>Worker不等待梯度更新，用旧的参数进行下一轮训练，可能会延迟一步更新梯度，整体收敛速度变慢，但是提升通讯计算比。</li>\n<li>延迟步数会指定</li>\n</ul>\n<h3 id=\"分布式数据并行\"><a href=\"#分布式数据并行\" class=\"headerlink\" title=\"分布式数据并行\"></a>分布式数据并行</h3><p>核心目标是降低通信压力，因此要将Server的通信压力转到Worker上，最简单的就是Ring-AllReduce。</p>\n<h4 id=\"Ring-Allreduce\"><a href=\"#Ring-Allreduce\" class=\"headerlink\" title=\"Ring Allreduce\"></a>Ring Allreduce</h4><p>核心思路是实现Reduce Scatter和All-Gather。GPU每次之和前后两个GPU通信，1卡给2卡发a号数据，2给3发b号，以此类推。三次更新后每张卡都有1个号的完整的数据。</p>\n<p>之后在进行All-Gather，依旧环形通信，把每个部分全聚合的都发给下一个，然后依此类推，3轮通信就可以覆盖所有。</p>\n<h2 id=\"显存开销\"><a href=\"#显存开销\" class=\"headerlink\" title=\"显存开销\"></a>显存开销</h2><p>数据并行中，每个卡都存储了所有参数，怎么办？</p>\n<p>在实际存储中，分为两部分存储：</p>\n<ul>\n<li>模型状态：包括参数，优化器，梯度等</li>\n<li>驻留数据：包括activation，碎片内存和缓冲区等。</li>\n</ul>\n<h2 id=\"优化措施\"><a href=\"#优化措施\" class=\"headerlink\" title=\"优化措施\"></a>优化措施</h2><h3 id=\"混合精度训练\"><a href=\"#混合精度训练\" class=\"headerlink\" title=\"混合精度训练\"></a>混合精度训练</h3><p>对于参数，activation，梯度，都使用fp16，对于参数（多存一份）和优化器使用fp32。<br>模型必存数据为$K\\phi$,那么最终总存储数据为$K\\phi + 4\\phi$<br>实际上，activation大小和batch有关，而且是可以抛弃的。</p>\n<h3 id=\"ZeRO-DP\"><a href=\"#ZeRO-DP\" class=\"headerlink\" title=\"ZeRO-DP\"></a>ZeRO-DP</h3><h4 id=\"第一步：优化器分割\"><a href=\"#第一步：优化器分割\" class=\"headerlink\" title=\"第一步：优化器分割\"></a>第一步：优化器分割</h4><p>每张卡只存储一部分优化器参数，在数据并行中，先通过AllReduce得到完整梯度，每个卡都更新自己的一部分梯度和参数，然后再AllGather。产生单卡通讯量$\\phi$。</p>\n<h4 id=\"第二步：梯度分割\"><a href=\"#第二步：梯度分割\" class=\"headerlink\" title=\"第二步：梯度分割\"></a>第二步：梯度分割</h4><p>经过FWD和BWD后，对梯度进行Reduce-Scatter，保证每张卡都有自己一份聚合梯度，用分割的优化器和梯度进行更新相应的W，然后再AllGather参数进行更新</p>\n<h4 id=\"第三步：参数分割\"><a href=\"#第三步：参数分割\" class=\"headerlink\" title=\"第三步：参数分割\"></a>第三步：参数分割</h4><p>FWD时，先All Gather一次参数，用完即弃。<br>BWD时，再All Gather一次参数，用完即弃<br>用自己的梯度进行一次All Gather得到完整梯度<br>更新参数，无需通信。</p>\n<h3 id=\"ZeRO-R\"><a href=\"#ZeRO-R\" class=\"headerlink\" title=\"ZeRO-R\"></a>ZeRO-R</h3><p>通过对驻留数据进行优化来实现显存使用减少和通信负载降低。</p>\n<h4 id=\"activation\"><a href=\"#activation\" class=\"headerlink\" title=\"activation\"></a>activation</h4><p>每块GPU上只维护部分的activation，需要时再聚合。或者重新计算。</p>\n<h4 id=\"Buffer\"><a href=\"#Buffer\" class=\"headerlink\" title=\"Buffer\"></a>Buffer</h4><p>通过使用固定大小的Buffer，降低通信次数，减少碎片信息发送，提高带宽利用率</p>\n<h4 id=\"碎片内存整合\"><a href=\"#碎片内存整合\" class=\"headerlink\" title=\"碎片内存整合\"></a>碎片内存整合</h4><h3 id=\"ZeRO-Offload\"><a href=\"#ZeRO-Offload\" class=\"headerlink\" title=\"ZeRO-Offload\"></a>ZeRO-Offload</h3><p>见论文，主要是把显存的优化器参数卸载到CPU内存。</p>\n",
+            "tags": [
+                "技术",
+                "大模型训练",
+                "博客",
+                "通信"
+            ]
+        },
+        {
+            "id": "http://example.com/2024/03/26/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%80%9A%E4%BF%A1%E7%AC%94%E8%AE%B01/",
+            "url": "http://example.com/2024/03/26/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%80%9A%E4%BF%A1%E7%AC%94%E8%AE%B01/",
+            "title": "大模型通信笔记1",
+            "date_published": "2024-03-26T09:38:32.000Z",
+            "content_html": "<h2 id=\"流水线并行\"><a href=\"#流水线并行\" class=\"headerlink\" title=\"流水线并行\"></a>流水线并行</h2><h3 id=\"朴素层并行\"><a href=\"#朴素层并行\" class=\"headerlink\" title=\"朴素层并行\"></a>朴素层并行</h3><p>朴素层并行，将模型拆分为多个层，放在不同的GPU上执行<br>但是问题很明显：</p>\n<ul>\n<li>GPU利用率低：任意时刻只有一个GPU在工作，其他GPU都在等待结果</li>\n<li>计算和通信没有重叠</li>\n<li>显存占用高，GPU1需要保存所有激活。等待参数更新完成</li>\n</ul>\n<h3 id=\"GPipe\"><a href=\"#GPipe\" class=\"headerlink\" title=\"GPipe\"></a>GPipe</h3><p>Gpipe将整个<strong>minibatch分为4个microbatch</strong>，然后由GPU0进行计算，之后每个microbatch计算完直接传递给GPU1，以此类推，进行整个前向、反向传播。<br>假设pipeline深度n，microbatch数量m，那么浪费的时间占比为：<br>$$<br>1-\\frac{m}{m+n-1}<br>$$<br>所以需要增加microbatch数量m<br>Gpipe在计算过程中，把中间激活用完即弃，因此节省了显存，但是增加了计算代价。</p>\n<h3 id=\"PipeDream\"><a href=\"#PipeDream\" class=\"headerlink\" title=\"PipeDream\"></a>PipeDream</h3><p>PipeDream在GPipe的基础上，在每个microbatch前向结束后就开始反向传播，节省了一些显存，bubble和Gpipe是一样的</p>\n<h3 id=\"数据并行可以和流水线并行同时进行\"><a href=\"#数据并行可以和流水线并行同时进行\" class=\"headerlink\" title=\"数据并行可以和流水线并行同时进行\"></a>数据并行可以和流水线并行同时进行</h3><p>对任意给定GPU，有两个通信部份，一部分包含所有相同层GPU进行All_Reduce(数据并行)。另一部分和上下层进行通信（流水线）。</p>\n<h2 id=\"张量并行\"><a href=\"#张量并行\" class=\"headerlink\" title=\"张量并行\"></a>张量并行</h2><p>张量并行分为两种情况：<strong>列划分</strong>和<strong>行划分</strong><br>列划分：<br>$$<br>XA &#x3D; X[A_1,A_2···A_n]&#x3D;[XA_1,XA_2,···,XA_n]<br>$$</p>\n<p>行划分：</p>\n<p>$$<br>\\mathbf{x}*A &#x3D; \\begin{bmatrix} x_1 &amp; x_2 &amp; \\cdots &amp; x_n \\end{bmatrix} * \\begin{bmatrix}A_1\\A_2\\A_3\\··· \\A_n\\end{bmatrix}&#x3D;X_1A_1+X_2A_2+X_3A_3···<br>$$</p>\n<p>对列并行来说，由于GeLU函数并不是线性的，因此需要在输出前进行一次通信来合并。</p>\n<h3 id=\"2D并行\"><a href=\"#2D并行\" class=\"headerlink\" title=\"2D并行\"></a>2D并行</h3><p>具体来说，两个矩阵的结果仍然需要串行的计算。但是，单个矩阵中的4个子矩阵可以使用2*2的处理器来并行计算。</p>\n<h3 id=\"2-5D并行\"><a href=\"#2-5D并行\" class=\"headerlink\" title=\"2.5D并行\"></a>2.5D并行</h3><p>这个就是在2D并行的基础上，左矩阵为两个2*2矩阵垂直拼接，那么这两个矩阵是可以分开计算的，所以可以8处理器并行计算。</p>\n<h2 id=\"3D并行\"><a href=\"#3D并行\" class=\"headerlink\" title=\"3D并行\"></a>3D并行</h2><p>流水线+数据+张量并行</p>\n<p>首先，每个节点8个GPU，共两个节点</p>\n<p>8个GPU，分为两组，每组负责一个Layer，一共四个组进行流水线并行。<br>每个组内，用两张卡进行张量并行，一个组分为两个张量小组。一个张量小组负责一个具体的张量运算。<br>对于两个张量小组之间，分享同一个batch不同的数据，在计算结束后两个小组之间要进行all reduce通信。</p>\n",
+            "tags": [
+                "技术",
+                "大模型训练",
+                "博客",
+                "通信"
+            ]
+        }
+    ]
+}

@@ -5,26 +5,40 @@
         <link>http://example.com</link>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Fri, 15 Mar 2024 10:05:10 +0800</pubDate>
-        <lastBuildDate>Fri, 15 Mar 2024 10:05:10 +0800</lastBuildDate>
+        <pubDate>Tue, 26 Mar 2024 19:14:15 +0800</pubDate>
+        <lastBuildDate>Tue, 26 Mar 2024 19:14:15 +0800</lastBuildDate>
         <category>随笔</category>
         <category>技术</category>
+        <category>大模型训练</category>
+        <category>课题组</category>
+        <category>笔记</category>
         <category>博客</category>
         <category>markdown</category>
-        <category>python</category>
+        <category>Linux</category>
         <category>月历</category>
         <category>写作</category>
         <category>科幻</category>
         <category>世界观</category>
+        <category>python</category>
         <category>WSL</category>
-        <category>Linux</category>
         <category>编译</category>
+        <category>通信</category>
+        <category>操作系统</category>
         <category>电赛</category>
-        <category>记录</category>
         <category>周报</category>
-        <category>课题组</category>
         <category>神经网络</category>
         <category>pytorch</category>
+        <category>记录</category>
+        <item>
+            <guid isPermalink="true">http://example.com/2024/03/26/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</guid>
+            <title>linux学习笔记3</title>
+            <link>http://example.com/2024/03/26/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</link>
+            <category>技术</category>
+            <category>博客</category>
+            <category>Linux</category>
+            <pubDate>Tue, 26 Mar 2024 19:14:15 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://example.com/2024/03/15/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</guid>
             <title>Linux学习笔记2</title>

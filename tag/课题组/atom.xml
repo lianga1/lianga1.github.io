@@ -3,25 +3,76 @@
     <id>http://example.com</id>
     <title>意大利炮打友军 • Posts by &#34;课题组&#34; tag</title>
     <link href="http://example.com" />
-    <updated>2023-11-15T08:09:06.000Z</updated>
+    <updated>2024-03-30T12:54:57.000Z</updated>
     <category term="随笔" />
     <category term="技术" />
+    <category term="大模型训练" />
+    <category term="课题组" />
+    <category term="笔记" />
     <category term="博客" />
     <category term="markdown" />
-    <category term="python" />
+    <category term="Linux" />
     <category term="月历" />
     <category term="写作" />
     <category term="科幻" />
     <category term="世界观" />
+    <category term="python" />
     <category term="WSL" />
-    <category term="Linux" />
     <category term="编译" />
+    <category term="通信" />
+    <category term="操作系统" />
     <category term="电赛" />
-    <category term="记录" />
     <category term="周报" />
-    <category term="课题组" />
     <category term="神经网络" />
     <category term="pytorch" />
+    <category term="记录" />
+    <entry>
+        <id>http://example.com/2024/03/30/DeepSpeed%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E4%B9%8B%EF%BC%9Aelasticity/</id>
+        <title>DeepSpeed代码阅读笔记之：elasticity</title>
+        <link rel="alternate" href="http://example.com/2024/03/30/DeepSpeed%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E4%B9%8B%EF%BC%9Aelasticity/"/>
+        <content type="html">&lt;p&gt;本笔记是DeepSpeed代码阅读的第一篇笔记，本周的主要任务是阅读DeepSpeed python代码中的&lt;/p&gt;
+&lt;h2 id=&#34;DeepSpeed-部署&#34;&gt;&lt;a href=&#34;#DeepSpeed-部署&#34; class=&#34;headerlink&#34; title=&#34;DeepSpeed 部署&#34;&gt;&lt;/a&gt;DeepSpeed 部署&lt;/h2&gt;&lt;p&gt;DeepSpeed 部署的过程如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装cuda与pytorch&lt;/li&gt;
+&lt;li&gt;按照requirements文件夹安装依赖：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs bash&#34;&gt;pip install -r requirements/requirements-dev.txt &lt;br&gt;pip install -r requirements/requirements.txt&lt;br&gt;pip install -r requirements/requirements-sparse_attn.txt &lt;br&gt;pip install mpi4py&lt;br&gt;pip install --ignore-installed PyYAML&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;注意：attn文件里的triton 可能没有1.0版本&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;mpi4py可能需要通过conda安装&lt;/strong&gt;&lt;br&gt;3. 安装DeepSpeed:运行install.sh&lt;br&gt;&lt;strong&gt;注意：deepspeed需要全目录有rw权限&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;至此，安装已完成，可以使用DeepSpeedExample目录下的例程来测试。&lt;/p&gt;
+&lt;h2 id=&#34;elasticity目录代码&#34;&gt;&lt;a href=&#34;#elasticity目录代码&#34; class=&#34;headerlink&#34; title=&#34;elasticity目录代码&#34;&gt;&lt;/a&gt;elasticity目录代码&lt;/h2&gt;&lt;p&gt;init中说明了本目录下有如下几个文件：&lt;/p&gt;
+&lt;figure class=&#34;highlight ada&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs ada&#34;&gt;&lt;span class=&#34;hljs-comment&#34;&gt;--elasticity&lt;/span&gt;&lt;br&gt;    |&lt;span class=&#34;hljs-comment&#34;&gt;-- __init__.py&lt;/span&gt;&lt;br&gt;    |&lt;span class=&#34;hljs-comment&#34;&gt;-- elasticity.py&lt;/span&gt;&lt;br&gt;    |&lt;span class=&#34;hljs-comment&#34;&gt;-- utils.py&lt;/span&gt;&lt;br&gt;    |&lt;span class=&#34;hljs-comment&#34;&gt;-- contants.py&lt;/span&gt;&lt;br&gt;    |&lt;span class=&#34;hljs-comment&#34;&gt;-- elastic_agent.py&lt;/span&gt;&lt;br&gt;    |&lt;span class=&#34;hljs-comment&#34;&gt;-- config.py&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;init-py&#34;&gt;&lt;a href=&#34;#init-py&#34; class=&#34;headerlink&#34; title=&#34;_init_.py&#34;&gt;&lt;/a&gt;_&lt;em&gt;init_&lt;/em&gt;.py&lt;/h2&gt;&lt;p&gt;这个代码主要是把目录下的文件中包含外部接口的文件进行引用，需要判断pytorch版本是否大于1.11，只有高于此版本才能使用DSElasticAgent类&lt;/p&gt;
+&lt;h2 id=&#34;elasticity&#34;&gt;&lt;a href=&#34;#elasticity&#34; class=&#34;headerlink&#34; title=&#34;elasticity&#34;&gt;&lt;/a&gt;elasticity&lt;/h2&gt;&lt;p&gt;elasticity.py中给出了几个接口函数用来供外部调用&lt;/p&gt;
+&lt;h3 id=&#34;compute-elastic-config&#34;&gt;&lt;a href=&#34;#compute-elastic-config&#34; class=&#34;headerlink&#34; title=&#34;compute_elastic_config&#34;&gt;&lt;/a&gt;compute_elastic_config&lt;/h3&gt;&lt;p&gt;调用弹性计算的核心代码，在DeepSpeedConfig类中会检查config是否有配置弹性计算，如果有会调用这个函数最终得到总batch——size和根据当前可用GPU数量得到的micro_batch(用于数据并行)（可选）&lt;/p&gt;
+&lt;p&gt;elasticity 0.1版本和0.2版本分别调用不同的函数来得到final_batch_size。&lt;/p&gt;
+&lt;p&gt;最后，通过检查micro_batch_size能否在数据并行中和batch_size 匹配(batch_size分在每个GPU上的大小能为micro_batch_size整倍)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;感觉这部分代码的去耦合做的很不好&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;elasticity-enabled&#34;&gt;&lt;a href=&#34;#elasticity-enabled&#34; class=&#34;headerlink&#34; title=&#34;elasticity_enabled&#34;&gt;&lt;/a&gt;elasticity_enabled&lt;/h3&gt;&lt;p&gt;检查ds_config的ELSASTICITY是否启用&lt;/p&gt;
+&lt;h3 id=&#34;ensure-immutable-elastic-config&#34;&gt;&lt;a href=&#34;#ensure-immutable-elastic-config&#34; class=&#34;headerlink&#34; title=&#34;ensure_immutable_elastic_config&#34;&gt;&lt;/a&gt;ensure_immutable_elastic_config&lt;/h3&gt;&lt;p&gt;确保在资源管理器启用的情况下，根据环境变量中给Deepspeed的弹性配置和deepspeed自身的配置来检查是否匹配。&lt;/p&gt;
+&lt;p&gt;除此之外，elasticity中内部还有关于micro_batch_size和total_batch_size计算实现的代码&lt;/p&gt;
+&lt;h3 id=&#34;get-compatible-gpus-v01&#34;&gt;&lt;a href=&#34;#get-compatible-gpus-v01&#34; class=&#34;headerlink&#34; title=&#34;_get_compatible_gpus_v01&#34;&gt;&lt;/a&gt;_get_compatible_gpus_v01&lt;/h3&gt;&lt;p&gt;这个函数主要是得到batch_size和可用gpu数量。首先按照指定的micro_batches得到候选的batch_size。这个过程是给定的mrbs来找出最大合适的batch_size，存储在列表里。&lt;br&gt;在此之后，通过batch_sized候选列表中，按照偏好（大or小batch）得到最好的合适的（满足GPU数量和偏好）的batch_size。&lt;/p&gt;
+&lt;figure class=&#34;highlight stata&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs stata&#34;&gt;注意：这里满足GPU数量是指mrbs可以被&lt;span class=&#34;hljs-keyword&#34;&gt;bs&lt;/span&gt;整除，同时在给定最大or最小GPU数量中。&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;get-compatible-gpus-v02&#34;&gt;&lt;a href=&#34;#get-compatible-gpus-v02&#34; class=&#34;headerlink&#34; title=&#34;_get_compatible_gpus_v02&#34;&gt;&lt;/a&gt;_get_compatible_gpus_v02&lt;/h3&gt;&lt;p&gt;在v01函数的基础上，这个函数根据bs的大小和GPU，根据节点的GPU数量来调整mrbs数量。以及根据数据并行dpsz来得到bs&amp;#x3D;bs*dpsz。&lt;/p&gt;
+&lt;h2 id=&#34;utils&#34;&gt;&lt;a href=&#34;#utils&#34; class=&#34;headerlink&#34; title=&#34;utils&#34;&gt;&lt;/a&gt;utils&lt;/h2&gt;&lt;p&gt;仅负责检查torch版本是否匹配&lt;/p&gt;
+&lt;h2 id=&#34;constant&#34;&gt;&lt;a href=&#34;#constant&#34; class=&#34;headerlink&#34; title=&#34;constant&#34;&gt;&lt;/a&gt;constant&lt;/h2&gt;&lt;p&gt;存储了必需的常数，类似ENABLE，DS最低版本，环境变量名。默认bs等。&lt;/p&gt;
+&lt;h2 id=&#34;elastic-agent&#34;&gt;&lt;a href=&#34;#elastic-agent&#34; class=&#34;headerlink&#34; title=&#34;elastic_agent&#34;&gt;&lt;/a&gt;elastic_agent&lt;/h2&gt;&lt;p&gt;实现了pytorch LocalElasticAgent的子类。&lt;/p&gt;
+&lt;h3 id=&#34;set-master-addr-port&#34;&gt;&lt;a href=&#34;#set-master-addr-port&#34; class=&#34;headerlink&#34; title=&#34;_set_master_addr_port&#34;&gt;&lt;/a&gt;_set_master_addr_port&lt;/h3&gt;&lt;p&gt;这个方法检查主节点的地址（端口），如果没有会自动生成&lt;/p&gt;
+&lt;h3 id=&#34;start-workers&#34;&gt;&lt;a href=&#34;#start-workers&#34; class=&#34;headerlink&#34; title=&#34;_start_workers&#34;&gt;&lt;/a&gt;_start_workers&lt;/h3&gt;&lt;p&gt;这个方法使用torch distributed的WorkerGroup类作为参数，给每个worker设定必要的环境变量后，给关于本地worker数量的环境变量进行更新。同时指定必要的参数后，启动workers的进程。&lt;/p&gt;
+&lt;h3 id=&#34;invoke-run&#34;&gt;&lt;a href=&#34;#invoke-run&#34; class=&#34;headerlink&#34; title=&#34;_invoke_run&#34;&gt;&lt;/a&gt;_invoke_run&lt;/h3&gt;&lt;p&gt;这个方法在worker启动后，每隔一段时间监控当前workerGroup的状态。&lt;br&gt;可能会遇到节点工作失败的状况，则会选择进行重启worker或者在全部失效时进行报错推出&lt;br&gt;在遇到节点加入或退出时，会进行记录并重启workers。&lt;/p&gt;
+&lt;h2 id=&#34;config-py&#34;&gt;&lt;a href=&#34;#config-py&#34; class=&#34;headerlink&#34; title=&#34;config.py&#34;&gt;&lt;/a&gt;config.py&lt;/h2&gt;&lt;p&gt;这个文件主要定义了和elasticity相关的错误抛出，以及对config从ds_config到elasticity_config参数的变换和类型检测。&lt;/p&gt;
+&lt;h2 id=&#34;问题&#34;&gt;&lt;a href=&#34;#问题&#34; class=&#34;headerlink&#34; title=&#34;问题&#34;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;为什么在elasticity文件中有预定义的HCN_LIST&lt;/li&gt;
+&lt;li&gt;DS相比pytorch的Elasticity多了什么功能？&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <category term="技术" />
+        <category term="大模型训练" />
+        <category term="课题组" />
+        <category term="笔记" />
+        <updated>2024-03-30T12:54:57.000Z</updated>
+    </entry>
     <entry>
         <id>http://example.com/2023/11/15/%E8%AF%BE%E9%A2%98%E7%BB%8423-11-15%E5%91%A8%E6%8A%A5/</id>
         <title>课题组23-11-15周报</title>
@@ -156,8 +207,8 @@
 &lt;/ul&gt;
 </content>
         <category term="技术" />
-        <category term="周报" />
         <category term="课题组" />
+        <category term="周报" />
         <category term="神经网络" />
         <category term="pytorch" />
         <updated>2023-11-15T08:09:06.000Z</updated>
@@ -218,8 +269,8 @@
 &lt;h3 id=&#34;模型传输规划&#34;&gt;&lt;a href=&#34;#模型传输规划&#34; class=&#34;headerlink&#34; title=&#34;模型传输规划&#34;&gt;&lt;/a&gt;模型传输规划&lt;/h3&gt;&lt;p&gt;DeepPlan根据GPU拓扑，和PCIE交换机布局，避免并行加载的总线冲突，检查所选GPU是否使用NVLink，如果使用则直接进行并行传输，否则使用流水线传输。同时，根据并行传输带来的性能优化，重新规划每一层使用的策略。&lt;/p&gt;
 </content>
         <category term="技术" />
-        <category term="周报" />
         <category term="课题组" />
+        <category term="周报" />
         <category term="神经网络" />
         <category term="pytorch" />
         <updated>2023-10-22T15:36:49.000Z</updated>
@@ -256,8 +307,8 @@
 &lt;h3 id=&#34;模型并行&#34;&gt;&lt;a href=&#34;#模型并行&#34; class=&#34;headerlink&#34; title=&#34;模型并行&#34;&gt;&lt;/a&gt;模型并行&lt;/h3&gt;&lt;p&gt;ZeRO-Offload还可以用模型并行来实现更好的并行性。通过给cpu卸载梯度、优化器状态和优化器计算来和模型并行计算相适应。在这个情况下，首先，借由更难耗尽内存，可以使用更大的批次大小。其次，可以使用更多的GPU来进行模型并行计算。&lt;/p&gt;
 </content>
         <category term="技术" />
-        <category term="周报" />
         <category term="课题组" />
+        <category term="周报" />
         <category term="神经网络" />
         <category term="pytorch" />
         <updated>2023-10-13T10:23:34.000Z</updated>
@@ -326,8 +377,8 @@ ResNet网络定义如下：&lt;figure class=&#34;highlight python&#34;&gt;&lt;ta
 &lt;/ul&gt;
 </content>
         <category term="技术" />
-        <category term="周报" />
         <category term="课题组" />
+        <category term="周报" />
         <category term="神经网络" />
         <category term="pytorch" />
         <updated>2023-09-30T11:51:44.000Z</updated>
