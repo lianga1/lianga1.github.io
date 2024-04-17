@@ -175,7 +175,52 @@
 &lt;li&gt;数据依赖，避免同步性受损&lt;/li&gt;
 &lt;li&gt;调试程序&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;并行类型&#34;&gt;&lt;a href=&#34;#并行类型&#34; class=&#34;headerlink&#34; title=&#34;并行类型&#34;&gt;&lt;/a&gt;并行类型&lt;/h3&gt; ]]></description>
+&lt;h3 id=&#34;并行类型&#34;&gt;&lt;a href=&#34;#并行类型&#34; class=&#34;headerlink&#34; title=&#34;并行类型&#34;&gt;&lt;/a&gt;并行类型&lt;/h3&gt;&lt;p&gt;分为数据并行（把一个任务的不同部分数据分配到不同核心）&lt;br&gt;和任务并行（把多个任务分配到不同核心）&lt;/p&gt;
+&lt;h2 id=&#34;多线程模型&#34;&gt;&lt;a href=&#34;#多线程模型&#34; class=&#34;headerlink&#34; title=&#34;多线程模型&#34;&gt;&lt;/a&gt;多线程模型&lt;/h2&gt;&lt;p&gt;线程支持有两种方案：&lt;strong&gt;用户线程&lt;/strong&gt;和&lt;strong&gt;内核线程&lt;/strong&gt;。用户和内核线程有多重关系模型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;多对一模型&lt;ul&gt;
+&lt;li&gt;一个内核对应多个用户线程&lt;/li&gt;
+&lt;li&gt;线程被用户空间库管理&lt;/li&gt;
+&lt;li&gt;效率高&lt;/li&gt;
+&lt;li&gt;一个线程阻塞整个进程都会阻塞&lt;/li&gt;
+&lt;li&gt;同时只有一个线程访问内核，不支持并行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;一对一模型&lt;ul&gt;
+&lt;li&gt;相比于多对一，一对一对并行的支持更好&lt;/li&gt;
+&lt;li&gt;但是系统内核线程会影响性能&lt;/li&gt;
+&lt;li&gt;Linux Windows都实现了这个模型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;多对多模型  &lt;ul&gt;
+&lt;li&gt;对这个模型而言，创建多个用户线程同时保持高性能并发是可能的&lt;/li&gt;
+&lt;li&gt;一个变体是允许多对多模型和一对一模型同时存在&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;线程库&#34;&gt;&lt;a href=&#34;#线程库&#34; class=&#34;headerlink&#34; title=&#34;线程库&#34;&gt;&lt;/a&gt;线程库&lt;/h2&gt;&lt;p&gt;  线程库的实现，有&lt;strong&gt;纯用户空间&lt;/strong&gt;实现：即所有数据都位于用户空间，调用库函数不涉及系统调用。也有&lt;strong&gt;内核实现&lt;/strong&gt;：库的代码和数据结构位于内核空间。POSIX线程库是在内核和用户空间都能实现的库，Windows则是只能在内核实现。JVM取决于宿主系统的库。&lt;br&gt;   POSIX和Windows的库中可以声明全局变量，供所有线程访问。本地数据存放在堆栈，每个线程有自己的堆栈&lt;br&gt;   线程分为同步和异步执行，同步执行的父线程需要等待子线程结束才能执行。&lt;br&gt;   对于Pthread函数，pthread_t tid，pthread_attr_t 是参数类型，pthread_attr_init是初始化函数，pthread_create(&amp;amp;tid,&amp;amp;attr,&amp;amp;func,int)创建线程，使用pthread_join()等待tid的线程结束，pthread_exit()用于退出进程&lt;/p&gt;
+&lt;p&gt;   windows api使用windows.h库&lt;br&gt;   Java多线程使用Runnable接口的run方法实现。类需要实现Runnable接口的方法。&lt;br&gt;     在Java中，把一个有Runnable接口的类通过Thread类进行实现，调用thrd的start方法即可自动启动子线程。&lt;/p&gt;
+&lt;h2 id=&#34;隐式多线程&#34;&gt;&lt;a href=&#34;#隐式多线程&#34; class=&#34;headerlink&#34; title=&#34;隐式多线程&#34;&gt;&lt;/a&gt;隐式多线程&lt;/h2&gt;&lt;p&gt;这是把创建线程交给编译器和runtime进行&lt;/p&gt;
+&lt;h3 id=&#34;线程池&#34;&gt;&lt;a href=&#34;#线程池&#34; class=&#34;headerlink&#34; title=&#34;线程池&#34;&gt;&lt;/a&gt;线程池&lt;/h3&gt;&lt;p&gt;这个机制允许提前创建出来等待工作，如果池中没有可用线程，进程将会等待。&lt;br&gt;调用的方法类似QueueUserWorkItem（Function，Param，Flags）&lt;/p&gt;
+&lt;h3 id=&#34;OpenMP&#34;&gt;&lt;a href=&#34;#OpenMP&#34; class=&#34;headerlink&#34; title=&#34;OpenMP&#34;&gt;&lt;/a&gt;OpenMP&lt;/h3&gt;&lt;p&gt;openmp使用#pragma 的宏命令来只是openmp识别并行区域来执行代码。&lt;br&gt;例如 &lt;/p&gt;
+&lt;figure class=&#34;highlight inform7&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;div class=&#34;code-wrapper&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;code class=&#34;hljs inform7&#34;&gt;#pragma omp parallel for&lt;br&gt;for (i=0;i&amp;lt;N;i++)&lt;br&gt;&amp;#123;&lt;br&gt;  c&lt;span class=&#34;hljs-comment&#34;&gt;[i]&lt;/span&gt;=a&lt;span class=&#34;hljs-comment&#34;&gt;[i]&lt;/span&gt;+b&lt;span class=&#34;hljs-comment&#34;&gt;[i]&lt;/span&gt;&lt;br&gt;&amp;#125;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;大中央调度&#34;&gt;&lt;a href=&#34;#大中央调度&#34; class=&#34;headerlink&#34; title=&#34;大中央调度&#34;&gt;&lt;/a&gt;大中央调度&lt;/h3&gt;&lt;p&gt;GCD，是MacOSX的一种技术，可以使用&lt;br&gt;^{}标记一个块，放置在调度队列（优先队列）来执行，分配给线程池的一个线程。&lt;/p&gt;
+&lt;h2 id=&#34;多线程问题&#34;&gt;&lt;a href=&#34;#多线程问题&#34; class=&#34;headerlink&#34; title=&#34;多线程问题&#34;&gt;&lt;/a&gt;多线程问题&lt;/h2&gt;&lt;h3 id=&#34;关于fork和exec&#34;&gt;&lt;a href=&#34;#关于fork和exec&#34; class=&#34;headerlink&#34; title=&#34;关于fork和exec&#34;&gt;&lt;/a&gt;关于fork和exec&lt;/h3&gt;&lt;p&gt;系统调用中，fork有两种形式：fork可以让新进程&lt;strong&gt;复制所有进程&lt;/strong&gt;，或者只&lt;strong&gt;复制调用的进程&lt;/strong&gt;&lt;br&gt;exec会取代所有线程&lt;br&gt;所以如果fork完立刻调用exec，就只复制一个线程就行。 &lt;/p&gt;
+&lt;h3 id=&#34;信号处理&#34;&gt;&lt;a href=&#34;#信号处理&#34; class=&#34;headerlink&#34; title=&#34;信号处理&#34;&gt;&lt;/a&gt;信号处理&lt;/h3&gt;&lt;p&gt;信号是一种UNIX用于通知进程的机制，分为&lt;strong&gt;同步信号&lt;/strong&gt;和&lt;strong&gt;异步信号&lt;/strong&gt;，同步信号发送到产生事件的同一进程，异步信号发送到其他进程。&lt;br&gt;信号处理程序分为&lt;strong&gt;缺省信号处理&lt;/strong&gt;和&lt;strong&gt;用户定义处理程序&lt;/strong&gt;。传递信号的函数为kill(pid,signal)。这规定了将信号传递到进程pid，事实上，信号传递到多线程中会有如下可能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;传递到信号适用的thread&lt;/li&gt;
+&lt;li&gt;传递到每个thread&lt;/li&gt;
+&lt;li&gt;传递到某些thread&lt;/li&gt;
+&lt;li&gt;传递到一个指定接受所有信号的thread&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于一个异步信号，因为信号只能处理一次，所以传递到第一个不拒绝的线程。&lt;br&gt;pthreads有一个函数：pthread_kill(pthread_t tid, int signal)&lt;/p&gt;
+&lt;p&gt;Windows支持异步过程调用来模拟信号机制&lt;/p&gt;
+&lt;h3 id=&#34;线程撤销&#34;&gt;&lt;a href=&#34;#线程撤销&#34; class=&#34;headerlink&#34; title=&#34;线程撤销&#34;&gt;&lt;/a&gt;线程撤销&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;目标线程&lt;/strong&gt;是被撤销的线程。撤销线程分为&lt;strong&gt;异步撤销&lt;/strong&gt;（立即撤销）和&lt;strong&gt;延迟撤销&lt;/strong&gt;（一个线程检查目标线程何时适合撤销）使用pthread_cancel来撤销。&lt;br&gt;默认pthread是延迟撤销的，创建线程也可以指定是否可以立刻撤销，如果不可以的话，pthread_testcancel()函数可以指定当前可以撤销。&lt;/p&gt;
+&lt;h3 id=&#34;TLS&#34;&gt;&lt;a href=&#34;#TLS&#34; class=&#34;headerlink&#34; title=&#34;TLS&#34;&gt;&lt;/a&gt;TLS&lt;/h3&gt;&lt;p&gt;线程本地存储，可以让一个变量作为线程的全局变量，但是其他线程无法访问&lt;/p&gt;
+&lt;h3 id=&#34;调度程序&#34;&gt;&lt;a href=&#34;#调度程序&#34; class=&#34;headerlink&#34; title=&#34;调度程序&#34;&gt;&lt;/a&gt;调度程序&lt;/h3&gt;&lt;p&gt;为了保证内核线程的动态调整，系统实现了一个名为轻量级进程LWP的数据结构，对用户线程，其体现为&lt;strong&gt;虚拟处理器&lt;/strong&gt;，每个LWP与一个内核线程相连（真正调用物理处理器）。一个进程的LWP数量有限。&lt;/p&gt;
+&lt;p&gt;用户线程和内核的通信是通过调度器激活的机制进行的。&lt;br&gt;内核分配一组LWP给应用程序。应用程序将线程分配给LWP。&lt;br&gt;当有事件发生时，例如阻塞，内核出发回调给应用程序，应用程序中的线程库出发回调处理程序来保存阻塞进程的内容，然后分配一个新的线程给原本阻塞线程所在的LWP。阻塞结束后，也是通过回调程序来恢复运行。&lt;/p&gt;
+&lt;h2 id=&#34;实例&#34;&gt;&lt;a href=&#34;#实例&#34; class=&#34;headerlink&#34; title=&#34;实例&#34;&gt;&lt;/a&gt;实例&lt;/h2&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">http://example.com/2024/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</guid>
